@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impact – Pure Norway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,900;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:     #00B4C8;
+    --teal-dim: rgba(0,180,200,.1);
+    --navy:     #0D1B2A;
+    --off-white:#F4F8FA;
+    --white:    #FFFFFF;
+    --text:     #182530;
+    --muted:    #6B8090;
+    --border:   #DDE8EE;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); }
+
+  .section { padding: 80px 56px; background: var(--white); border-top: 1px solid var(--border); }
+  .card {
+    max-width: 1160px; margin: 0 auto;
+    background: var(--off-white); border: 1px solid var(--border); border-radius: 24px;
+    padding: 56px 48px 40px;
+  }
+
+  /* header */
+  .header { text-align: center; margin-bottom: 44px; }
+  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+  .header h2 {
+    font-family: 'Fraunces', serif; font-size: clamp(26px, 3vw, 40px);
+    font-weight: 900; color: var(--navy); letter-spacing: -.8px; margin-bottom: 14px;
+  }
+  .header p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 520px; margin: 0 auto; }
+
+  /* stats grid */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+  .stat {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 24px;
+    display: flex; flex-direction: column; align-items: center;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .stat:hover { border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,.06); }
+  .stat-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--teal-dim); border: 1px solid rgba(0,180,200,.2);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+  }
+  .stat-icon svg { width: 18px; height: 18px; fill: var(--teal); }
+  .stat-val {
+    font-family: 'Fraunces', serif; font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-lbl { font-size: 12px; font-weight: 600; color: var(--muted); text-align: center; }
+
+  /* footnote */
+  .footnote { text-align: center; font-size: 12px; color: var(--muted); font-style: italic; }
+
+  @media (max-width: 700px) {
+    .section { padding: 20px; }
+    .card { padding: 40px 24px 32px; }
+    .stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<section class="section">
+  <div class="card">
+
+    <div class="header">
+      <div class="eyebrow">PURENorway Foundation</div>
+      <h2>Our Growing Impact</h2>
+      <p>By donating 1% of our turnover, PURENorway Foundation channels funds directly to projects and organizations that share our mission of protecting the planet.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-12 2 0 0-4 0-4 4 0 3 2.5 4.5 2.5 4.5C4.5 15 4 16 4 16c0-3 2-5 2-5 4-2 11-4 11-3z"/></svg>
+        </div>
+        <!-- data-target = final number, data-suffix = unit label -->
+        <div class="stat-val" data-target="2467" data-suffix=" kr">0 kr</div>
+        <div class="stat-lbl">Donated to Environmental Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        <div class="stat-val" data-target="29" data-suffix=" kg">0 kg</div>
+        <div class="stat-lbl">Ocean Plastic Removed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 14.93V17a1 1 0 0 1-2 0v-.07A8.001 8.001 0 0 1 4 9h.09A1 1 0 0 1 5 7.93V8a1 1 0 0 1 2 0v.07A6.002 6.002 0 0 0 11 14v-2a1 1 0 0 1 2 0v2a6.002 6.002 0 0 0 4-5.93V8a1 1 0 0 1 2 0v-.07A1 1 0 0 1 19.91 9H20a8.001 8.001 0 0 1-7 7.93z"/></svg>
+        </div>
+        <div class="stat-val" data-target="1488" data-suffix=" kg">0 kg</div>
+        <div class="stat-lbl">CO₂ Emissions Prevented</div>
+      </div>
+    </div>
+
+    <p class="footnote">*We're just getting started. Impact grows with every can sold. Join us in making a difference.</p>
+
+  </div>
+</section>
+
+<script>
+  // ── Counter animation ──
+  // To feed real numbers: update data-target on each .stat-val element,
+  // then call runCounters() again, or set the value directly via JS:
+  //   document.querySelectorAll('.stat-val')[0].dataset.target = "3100";
+  //   runCounters();
+
+  function formatNum(n) {
+    return n.toLocaleString('no-NO'); // Norwegian locale: 1 234 format
+  }
+
+  function runCounters() {
+    const els = document.querySelectorAll('.stat-val[data-target]');
+    els.forEach(el => {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(eased * target);
+        el.textContent = formatNum(current) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  // Trigger when section enters viewport
+  const section = document.querySelector('.card');
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      runCounters();
+      observer.disconnect();
+    }
+  }, { threshold: 0.3 });
+  observer.observe(section);
+</script>
+
+</body>
+</html>

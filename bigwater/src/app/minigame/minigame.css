@@ -1,0 +1,65 @@
+.minigame-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.minigame-hero {
+  width: 100%;
+  padding: 100px 20px 80px;
+  background: linear-gradient(135deg, #0d1925 0%, #1a2f3f 100%);
+  text-align: center;
+}
+
+.minigame-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.minigame-hero-kicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #01bacc;
+  text-transform: uppercase;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  margin: 0 0 20px;
+}
+
+.minigame-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.minigame-hero-highlight {
+  color: #01bacc;
+  font-style: italic;
+}
+
+.minigame-hero p {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 750px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .minigame-hero {
+    padding: 76px 20px 62px;
+  }
+
+  .minigame-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .minigame-hero p {
+    font-size: 1.05rem;
+  }
+}

@@ -1,0 +1,1487 @@
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* Hero Top Section */
+.about-hero-top {
+  width: 100%;
+  padding: 100px 20px 80px;
+  background: linear-gradient(135deg, #0d1925 0%, #1a2f3f 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-hero-kicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #01bacc;
+  text-transform: uppercase;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  margin: 0 0 20px;
+}
+
+.about-hero-top h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.about-hero-highlight {
+  color: #01bacc;
+  font-style: italic;
+}
+
+.about-hero-tagline {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 auto;
+  max-width: 760px;
+  font-weight: 300;
+  line-height: 1.5;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+/* Hero Section */
+.about-hero {
+  width: 100%;
+  padding: 80px 40px;
+  background: #ffffff;
+}
+
+.about-hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: stretch;
+}
+
+/* IMAGE SIDE */
+.about-hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-hero-img {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.about-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-hero-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 27, 42, 0.55) 0%, transparent 50%);
+  border-radius: 20px;
+}
+
+/* stat card sitting over image bottom */
+.stat-card {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 100%);
+  backdrop-filter: blur(22px) saturate(135%);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  z-index: 1;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 13px;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.04));
+  pointer-events: none;
+}
+
+.stat-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-item .val {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #f7fcff;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.stat-item .lbl {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.stat-divider {
+  width: 1.5px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+/* TEXT SIDE */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #01bacc;
+  margin-bottom: 16px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.about-hero-text h1 {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: clamp(30px, 3.8vw, 50px);
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  line-height: 1.02;
+  color: #0d1b2a;
+  margin-bottom: 24px;
+}
+
+.about-hero-text h1 em {
+  color: #01bacc;
+  font-style: italic;
+}
+
+.about-hero-text p {
+  font-size: 15px;
+  color: #6b8090;
+  line-height: 1.85;
+  margin-bottom: 18px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+/* I CARE highlight */
+.icare-block {
+  margin: 28px 0;
+  padding: 20px 22px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(13, 25, 37, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icare-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  background: #01bacc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  border: 2px solid #01bacc;
+}
+
+.icare-badge svg {
+  width: 24px;
+  height: 24px;
+}
+
+.icare-text .label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6b8090;
+  margin-bottom: 3px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.icare-text .slogan {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #0d1b2a;
+  font-style: italic;
+}
+
+.icare-text .slogan em {
+  color: #01bacc;
+  font-style: normal;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .about-hero-visual {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero {
+    padding: 64px 20px;
+  }
+  .stat-card {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+/* About Section One */
+.about-section-one {
+  padding: 80px 0;
+}
+
+.about-section-one h2 {
+  font-size: 2.25rem;
+  color: #01bacc;
+  margin: 0 0 24px 0;
+  font-weight: 700;
+}
+
+.about-section-one p {
+  font-size: 1.1rem;
+  color: rgba(13, 25, 37, 0.8);
+  line-height: 1.8;
+  margin: 0 0 16px 0;
+}
+
+/* Philosophy Section */
+.about-section-philosophy {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, rgba(13, 25, 37, 0.04) 0%, rgba(71, 115, 158, 0.04) 100%);
+  border-top: 1px solid rgba(13, 25, 37, 0.08);
+  border-bottom: 1px solid rgba(13, 25, 37, 0.08);
+  margin: 80px 0;
+}
+
+.philosophy-quote {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #0d1925;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
+  font-weight: 500;
+}
+
+.philosophy-quote p {
+  margin: 0 0 12px 0;
+}
+
+.philosophy-quote p:last-child {
+  margin-bottom: 0;
+}
+
+.philosophy-quote .follow-track {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #477392;
+}
+
+.about-section-one p:last-child {
+  margin-bottom: 0;
+}
+
+/* About Content Wrapper */
+.about-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
+/* Bottles Section */
+.about-section-bottles {
+  background: #0d1925;
+  border-radius: 16px;
+  padding: 60px 20px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section-bottles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(71, 115, 158, 0.18) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.about-section-bottles .about-content {
+  position: relative;
+  z-index: 1;
+}
+
+.about-section-bottles h2 {
+  font-size: 2.25rem;
+  color: #01bacc;
+  margin: 0 0 40px 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Sustainability Section */
+.about-sustainability-section {
+  padding: 80px 40px 78px;
+  background: #ffffff;
+}
+
+.sustainability-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sustainability-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 44px;
+  gap: 40px;
+}
+
+.sustainability-header-text {
+  flex: 1;
+  max-width: 650px;
+}
+
+.sustainability-kicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #01bacc;
+  margin: 0 0 14px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.sustainability-header h2 {
+  margin: 0;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  color: #0d1925;
+  font-size: 3.8rem;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.sustainability-header h2 em {
+  color: #01bacc;
+  font-style: italic;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.sustainability-header p {
+  font-size: 1.05rem;
+  color: rgba(13, 25, 37, 0.65);
+  line-height: 1.5;
+  margin: 0;
+  text-align: right;
+  max-width: 300px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.sustainability-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.sustainability-card {
+  background: #eaf0f4;
+  border: 1px solid rgba(13, 25, 37, 0.12);
+  border-radius: 16px;
+  padding: 26px 22px 24px;
+  transition: all 0.3s ease;
+}
+
+.sustainability-card:hover {
+  border-color: rgba(1, 186, 204, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.sustainability-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(1, 186, 204, 0.15);
+  border: 1px solid rgba(1, 186, 204, 0.28);
+  color: #01bacc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.sustainability-card-icon svg {
+  width: 20px;
+  height: 20px;
+  color: #01bacc;
+}
+
+.sustainability-card-title {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #0d1925;
+  margin-bottom: 10px;
+  line-height: 1.2;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.sustainability-card-text {
+  font-size: 0.95rem;
+  color: rgba(13, 25, 37, 0.74);
+  line-height: 1.5;
+  margin: 0;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+@media (max-width: 1100px) {
+  .sustainability-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .sustainability-header p {
+    text-align: left;
+    max-width: 640px;
+  }
+
+  .sustainability-cards {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .sustainability-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .about-sustainability-section {
+    padding: 64px 20px;
+  }
+  .sustainability-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Our Water Our Cans Section */
+.our-cans-section {
+  padding: 80px 40px 78px;
+  background: #ffffff;
+}
+
+.our-cans-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.our-cans-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #01bacc;
+  margin-bottom: 14px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.our-cans-title {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: clamp(28px, 3.8vw, 50px);
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  line-height: 1.02;
+  color: #0d1b2a;
+  margin-bottom: 14px;
+}
+
+.our-cans-title em {
+  color: #01bacc;
+  font-style: italic;
+}
+
+.our-cans-intro {
+  max-width: 860px;
+  margin: 0 0 44px;
+  font-size: 1rem;
+  color: rgba(13, 25, 37, 0.75);
+  line-height: 1.7;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.our-cans-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.our-cans-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  margin-left: -80px;
+}
+
+.our-cans-image {
+  height: clamp(240px, 24vw, 360px);
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: none;
+}
+
+.our-cans-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 640px;
+}
+
+.our-cans-perk {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px 20px;
+  background: #eaf0f4;
+  border: 1px solid rgba(13, 25, 37, 0.12);
+  border-radius: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.our-cans-perk:hover {
+  border-color: rgba(1, 186, 204, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.our-cans-perk-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  background: rgba(1, 186, 204, 0.1);
+  border: 1px solid rgba(1, 186, 204, 0.2);
+  color: #01bacc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.our-cans-perk-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.our-cans-perk-body h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #182530;
+  margin-bottom: 5px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.our-cans-perk-body p {
+  font-size: 13.5px;
+  color: #6b8090;
+  line-height: 1.65;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+@media (max-width: 1200px) {
+  .our-cans-content {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+  }
+
+  .our-cans-image-wrap {
+    margin-left: 0;
+    justify-content: flex-end;
+  }
+
+  .our-cans-image {
+    height: clamp(220px, 26vw, 320px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .our-cans-content {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 16px;
+  }
+
+  .our-cans-image-wrap {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .our-cans-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .our-cans-image-wrap {
+    max-width: 380px;
+    margin: 0 auto;
+    height: auto;
+    justify-content: center;
+  }
+
+  .our-cans-image {
+    height: 260px;
+  }
+
+  .our-cans-perks {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .our-cans-section {
+    padding: 64px 20px;
+  }
+
+  .our-cans-title {
+    margin-bottom: 40px;
+  }
+
+  .our-cans-intro {
+    margin-bottom: 28px;
+  }
+}
+
+/* Aluminum Section */
+.about-section-aluminum {
+  padding: 80px 40px 78px;
+  background: #ffffff;
+}
+
+.about-content-aluminum {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-section-aluminum h2 {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: clamp(26px, 3.5vw, 46px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: #0d1b2a;
+  margin: 0 0 16px;
+}
+
+.about-section-aluminum h2 em {
+  color: #01bacc;
+  font-style: italic;
+}
+
+.about-section-aluminum p {
+  font-size: 15px;
+  color: #6b8090;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.bold-line {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #182530;
+  margin: 28px 0 18px;
+}
+
+.sig {
+  display: inline-block;
+  margin-top: 28px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0d1b2a;
+}
+
+.sig em {
+  color: #01bacc;
+  font-style: normal;
+}
+
+/* Foundation Section */
+.about-section-foundation {
+  padding: 80px 40px 78px;
+  background: #ffffff;
+}
+
+.about-section-foundation .about-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+.foundation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.foundation-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #6b8090;
+  margin: 0 0 32px 0;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.foundation-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.foundation-images img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(13, 25, 37, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.foundation-images img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(13, 25, 37, 0.15);
+}
+
+/* SDG Section */
+.about-section-sdg {
+  padding: 80px 0;
+  border-top: 2px solid rgba(13, 25, 37, 0.1);
+}
+
+.about-section-sdg h2 {
+  font-size: 2.25rem;
+  color: #01bacc;
+  margin: 0 0 24px 0;
+  font-weight: 700;
+}
+
+.about-section-sdg > .about-content > p {
+  font-size: 1.1rem;
+  color: rgba(13, 25, 37, 0.8);
+  line-height: 1.8;
+  margin: 0 0 16px 0;
+}
+
+.about-section-sdg > .about-content > p:last-of-type {
+  margin-bottom: 40px;
+}
+
+/* SDG Goals Grid */
+.sdg-goals-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.sdg-card {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 24px;
+  align-items: start;
+  background: #eaf0f4;
+  border: 1px solid rgba(13, 25, 37, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  padding: 20px;
+}
+
+.sdg-card:hover {
+  border-color: #01bacc;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+.sdg-image {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: rgba(13, 25, 37, 0.05);
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin: -20px 0 -20px -20px;
+  height: calc(100% + 40px);
+}
+
+.sdg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sdg-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sdg-card h3 {
+  font-size: 1.1rem;
+  color: #0d1b2a;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  line-height: 1.4;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.sdg-card p {
+  font-size: 0.9rem;
+  color: #6b8090;
+  line-height: 1.75;
+  margin: 0 0 12px 0;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.sdg-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Care Section */
+.about-section-care {
+  padding: 80px 0;
+  border-top: none;
+  background: transparent;
+}
+
+.about-section-care .about-content {
+  border-top: 2px solid rgba(13, 25, 37, 0.1);
+}
+
+.about-section-care h2 {
+  font-size: 2.25rem;
+  color: #01bacc;
+  margin: 0 0 24px 0;
+  font-weight: 700;
+}
+
+.about-section-care p {
+  font-size: 1.1rem;
+  color: rgba(13, 25, 37, 0.8);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Sustainability Goals Section */
+.about-section-sustainability-goals {
+  padding: 80px 40px 78px;
+  background: #ffffff;
+}
+
+.contribution-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+.contribution-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #01bacc;
+  margin-bottom: 16px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.contribution-heading {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: clamp(26px, 3.5vw, 46px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: #0d1b2a;
+  margin: 0 0 16px;
+}
+
+.contribution-intro {
+  font-size: 15px;
+  color: #6b8090;
+  line-height: 1.8;
+  margin-bottom: 56px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.contribution-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contribution-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  border: 1px solid #dde8ee;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  align-items: stretch;
+}
+
+.contribution-item:hover {
+  border-color: #01bacc;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+.contribution-image {
+  width: 180px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+.contribution-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contribution-item-content {
+  padding: 24px 28px;
+}
+
+.contribution-item-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #182530;
+  margin-bottom: 10px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.contribution-item-content p {
+  font-size: 14px;
+  color: #6b8090;
+  line-height: 1.75;
+  margin-bottom: 10px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.contribution-item-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .about-section-sustainability-goals {
+    padding: 64px 20px;
+  }
+
+  .contribution-item {
+    grid-template-columns: 120px 1fr;
+  }
+
+  .contribution-image {
+    width: 120px;
+  }
+
+  .contribution-intro {
+    margin-bottom: 36px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 80px 20px 60px;
+  }
+
+  .about-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .about-tagline {
+    font-size: 1.15rem;
+  }
+
+  .about-hero-kicker {
+    font-size: 0.75rem;
+  }
+
+  .about-section-philosophy {
+    padding: 60px 20px;
+    margin: 40px 0;
+  }
+
+  .philosophy-quote {
+    font-size: 1.2rem;
+  }
+
+  .about-section-one h2,
+  .about-section-about-us h2,
+  .about-section-bottles h2,
+  .about-section-cans h2,
+    .about-sustainability-section h2,
+    .our-cans-section h2,
+    .about-section-aluminum h2,
+  .about-section-foundation h2,
+  .about-section-sdg h2,
+  .about-section-sustainability-goals h2,
+  .about-section-care h2 {
+    font-size: 1.75rem;
+  }
+
+  .about-section-one p,
+  .about-section-bottles p,
+.about-section-cans p,
+  .about-section-foundation p,
+  .about-section-sdg p,
+.about-section-sustainability-goals p,
+  .about-section-care p {
+    font-size: 1rem;
+  }
+
+  .bottles-features {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bottles-image img {
+    max-width: 300px;
+  }
+
+  .about-section-bottles,
+  .about-section-cans {
+    margin: 40px 0;
+    padding: 40px 20px;
+  }
+
+  .about-section-one,
+  .about-section-about-us,
+    .about-sustainability-section,
+    .our-cans-section,
+    .about-section-aluminum,
+  .about-section-foundation,
+  .about-section-sdg,
+  .about-section-sustainability-goals,
+  .about-section-care {
+    padding: 64px 20px;
+  }
+
+  .foundation-content {
+    gap: 24px;
+  }
+
+  .foundation-images {
+    grid-template-columns: 1fr;
+  }
+
+  .foundation-images img {
+    height: 240px;
+  }
+
+  .sdg-goals-grid {
+    gap: 20px;
+  }
+
+  .sdg-card {
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .sdg-image {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .sustainability-container {
+    padding: 50px 40px;
+  }
+
+  .sustainability-heading {
+    font-size: 2.5rem;
+  }
+
+  .sustainability-description {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .sustainability-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .sustainability-card {
+    padding: 30px 24px;
+  }
+
+  .sustainability-card-title {
+    font-size: 1.15rem;
+  }
+
+  .sustainability-card-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 60px 20px 40px;
+  }
+
+  .about-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-tagline {
+    font-size: 1.05rem;
+  }
+
+  .about-hero-kicker {
+    font-size: 0.72rem;
+  }
+
+  .about-section-one h2,
+  .about-section-about-us h2,
+  .about-section-bottles h2,
+  .about-section-cans h2,
+    .about-sustainability-section h2,
+    .our-cans-section h2,
+    .about-section-aluminum h2,
+  .about-section-foundation h2,
+  .about-section-sdg h2,
+  .about-section-sustainability-goals h2,
+  .about-section-care h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-section-one,
+.about-section-bottles,
+.about-section-cans,
+    .about-sustainability-section,
+    .our-cans-section,
+  .about-section-aluminum,
+  .about-section-foundation,
+  .about-section-sdg,
+.about-section-sustainability-goals,
+  .about-section-care {
+    padding: 64px 20px;
+  }
+
+  .feature-card {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .feature-icon svg {
+    font-size: 1.5rem;
+  }
+
+  .feature-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .feature-content p {
+    font-size: 0.9rem;
+  }
+
+  .bottles-features {
+    gap: 20px;
+  }
+
+  .bottles-cards {
+    gap: 16px;
+  }
+
+  .foundation-content {
+    gap: 16px;
+  }
+
+  .foundation-images {
+    grid-template-columns: 1fr;
+  }
+
+  .foundation-images img {
+    height: 200px;
+  }
+
+  .foundation-text p {
+    font-size: 0.95rem;
+  }
+
+  .sdg-goals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sdg-card {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .sdg-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .sdg-image {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .sustainability-container {
+    padding: 40px 24px;
+  }
+
+  .sustainability-heading {
+    font-size: 2rem;
+  }
+
+  .sustainability-description {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  .sustainability-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sustainability-card {
+    padding: 28px 20px;
+  }
+
+  .sustainability-card-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .sustainability-card-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .sustainability-card-title {
+    font-size: 1.1rem;
+  }
+
+  .sustainability-card-text {
+    font-size: 0.88rem;
+  }
+}
+
+/* Image Modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal-content img {
+  max-width: 95%;
+  max-height: 85.5vh;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.modal-close {
+  background: #0d1925;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-weight: 300;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  order: 4;
+}
+
+.modal-close:hover {
+  background: #1a2f3f;
+  transform: scale(1.1);
+}
+
+.modal-nav {
+  background: #0d1925;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+  padding-bottom: 3px;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.modal-nav:hover {
+  background: #1a2f3f;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.modal-prev {
+  order: 1;
+}
+
+.modal-next {
+  order: 3;
+}
+
+.modal-counter {
+  order: 2;
+  color: white;
+  font-size: 16px;
+  background: #0d1925;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.modal-controls {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .modal-controls {
+    bottom: -60px;
+    gap: 15px;
+  }
+
+  .modal-nav,
+  .modal-close {
+    width: 45px;
+    height: 45px;
+    font-size: 36px;
+  }
+
+  .modal-counter {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* Newsletter Section on About Page */
+.about-page .home2-section-newsletter {
+  padding: 20px;
+}

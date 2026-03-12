@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote – Pure Norway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,900;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:#00B4C8; --navy:#0D1B2A;
+    --off-white:#F4F8FA; --white:#FFFFFF;
+    --muted:#6B8090; --border:#DDE8EE;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:var(--white)}
+
+  .section{padding:88px 56px;background:var(--white);border-top:1px solid var(--border);}
+  .inner{max-width:760px;margin:0 auto;text-align:center;}
+
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+  h2{font-family:'Fraunces',serif;font-size:clamp(26px,3vw,40px);font-weight:900;color:var(--navy);letter-spacing:-1px;margin-bottom:12px;}
+  h2 em{color:var(--teal);font-style:italic;}
+  .subtitle{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:48px;}
+
+  .quote-wrap{position:relative;padding:0 40px;}
+
+  .quote-mark-open {
+    font-family:'Fraunces',serif;
+    font-size:140px; font-weight:900; line-height:.8;
+    color:var(--teal); display:block;
+    opacity:.25; text-align:left; margin-bottom:-20px;
+  }
+
+  blockquote {
+    font-family:'Fraunces',serif;
+    font-size:clamp(20px,2.5vw,30px); font-weight:700; font-style:italic;
+    color:var(--navy); line-height:1.5; letter-spacing:-.4px;
+    margin-bottom:-10px; position:relative; z-index:1;
+  }
+  blockquote em { color:var(--teal); }
+
+  .quote-mark-close {
+    font-family:'Fraunces',serif;
+    font-size:140px; font-weight:900; line-height:.8;
+    color:var(--teal); display:block;
+    opacity:.25; text-align:right;
+  }
+
+  .divider{width:40px;height:2px;background:var(--border);margin:32px auto 20px;border-radius:2px;}
+
+  cite{
+    display:block;font-size:11px;font-weight:700;
+    letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--teal);font-style:normal;margin-bottom:18px;
+  }
+
+  .link{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:13px;font-weight:700;color:var(--muted);
+    text-decoration:none;transition:color .2s;
+  }
+  .link:hover{color:var(--teal);}
+
+  @media(max-width:600px){.section{padding:64px 20px}}
+</style>
+</head>
+<body>
+<section class="section">
+  <div class="inner">
+
+    <div class="quote-wrap">
+      <span class="quote-mark-open">&ldquo;</span>
+      <blockquote>We care about nature and we care about people. Because of this, we have defined criteria that are <em>important to us.</em></blockquote>
+      <span class="quote-mark-close">&rdquo;</span>
+    </div>
+
+    <div class="divider"></div>
+    <cite>PURENorway — I CARE</cite>
+    <a href="#" class="link">Read more →</a>
+
+  </div>
+</section>
+</body>
+</html>

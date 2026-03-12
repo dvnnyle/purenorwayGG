@@ -1,0 +1,142 @@
+.page {
+  --background: #f4f8fa;
+  --foreground: #ffffff;
+
+  --text-primary: #0d1b2a;
+  --text-secondary: #5f7485;
+
+  --button-primary-hover: #008b9b;
+  --button-secondary-hover: #e9f0f4;
+  --button-secondary-border: #d5e2ea;
+
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-geist-sans);
+  background-color: var(--background);
+}
+
+.main {
+  display: flex;
+  min-height: 80vh;
+  width: 100%;
+  max-width: 900px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  background-color: var(--foreground);
+  border: 1px solid #dbe7ee;
+  border-radius: 18px;
+  padding: 56px 44px;
+}
+
+.kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #00b4c8;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 24px;
+}
+
+.intro h1 {
+  max-width: 560px;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 50px;
+  letter-spacing: -1.8px;
+  text-wrap: balance;
+  color: var(--text-primary);
+}
+
+.intro p {
+  max-width: 620px;
+  font-size: 17px;
+  line-height: 30px;
+  text-wrap: balance;
+  color: var(--text-secondary);
+}
+
+.intro p strong {
+  color: var(--text-primary);
+}
+
+.intro a {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.ctas {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 560px;
+  gap: 16px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.ctas span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 128px;
+  border: 1px solid transparent;
+  transition: 0.2s;
+  width: fit-content;
+  font-weight: 500;
+}
+
+.primary {
+  background: var(--text-primary);
+  color: #ffffff;
+  gap: 8px;
+}
+
+.secondary {
+  border-color: var(--button-secondary-border);
+  color: var(--text-primary);
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  .secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    min-height: auto;
+    margin: 20px;
+    padding: 36px 22px;
+    border-radius: 14px;
+  }
+
+  .intro {
+    gap: 16px;
+  }
+
+  .intro h1 {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -1.2px;
+  }
+}

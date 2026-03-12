@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slogan Strip Options – Pure Norway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,900;1,700&family=DM+Sans:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --teal:#00B4C8; --navy:#0D1B2A; --border:#DDE8EE; --off:#F4F8FA;
+    --no-red:#EF3340; --no-blue:#002868; --no-white:#f0f0f0; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:#eef2f5;padding:40px}
+
+  .label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#8a9aaa;margin:32px 0 10px;padding:0 4px}
+  .label:first-child{margin-top:0}
+
+  .slogan{font-family:'Fraunces',serif;font-size:clamp(15px,1.6vw,20px);font-weight:700;font-style:italic;color:var(--navy);letter-spacing:-.2px;white-space:nowrap}
+  .slogan em{color:var(--teal)}
+
+  /* ── A: flag bars either side (current) ── */
+  .opt-a{background:#fff;border:1px solid var(--border);padding:28px 56px;display:flex;align-items:center;justify-content:center;gap:20px;border-radius:10px}
+  .flag-bar{display:flex;align-items:center}
+  .seg{height:4px;border-radius:1px}
+  .r{background:var(--no-red)}
+  .w{background:#ddd}
+  .b{background:var(--no-blue)}
+
+  /* ── B: three dot flag colours ── */
+  .opt-b{background:#fff;border:1px solid var(--border);padding:28px 56px;display:flex;align-items:center;justify-content:center;gap:16px;border-radius:10px}
+  .dot-trio{display:flex;align-items:center;gap:8px}
+  .dot{width:10px;height:10px;border-radius:50%}
+
+  /* ── C: mini flag icon either side ── */
+  .opt-c{background:#fff;border:1px solid var(--border);padding:28px 56px;display:flex;align-items:center;justify-content:center;gap:18px;border-radius:10px}
+  .mini-flag{width:32px;height:22px;border-radius:3px;overflow:hidden;flex-shrink:0;position:relative;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+  .mf-red{width:100%;height:100%;background:var(--no-red);position:absolute;inset:0}
+  .mf-cross-h{position:absolute;top:50%;left:0;right:0;height:5px;background:#fff;transform:translateY(-50%)}
+  .mf-cross-v{position:absolute;left:35%;top:0;bottom:0;width:5px;background:#fff}
+  .mf-cross-h2{position:absolute;top:50%;left:0;right:0;height:3px;background:var(--no-blue);transform:translateY(-50%)}
+  .mf-cross-v2{position:absolute;left:calc(35% + 1px);top:0;bottom:0;width:3px;background:var(--no-blue)}
+
+  /* ── D: full flag-coloured background strip ── */
+  .opt-d{display:flex;height:56px;border-radius:10px;overflow:hidden;align-items:center;justify-content:center;position:relative;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+  .opt-d .bg-red{position:absolute;inset:0;background:var(--no-red)}
+  .opt-d .bg-cross-h{position:absolute;top:50%;left:0;right:0;height:14px;background:#fff;transform:translateY(-50%);z-index:1}
+  .opt-d .bg-cross-v{position:absolute;left:calc(30% - 7px);top:0;bottom:0;width:14px;background:#fff;z-index:1}
+  .opt-d .bg-cross-h2{position:absolute;top:50%;left:0;right:0;height:8px;background:var(--no-blue);transform:translateY(-50%);z-index:2}
+  .opt-d .bg-cross-v2{position:absolute;left:calc(30% - 4px);top:0;bottom:0;width:8px;background:var(--no-blue);z-index:2}
+  .opt-d .slogan-d{font-family:'Fraunces',serif;font-size:clamp(15px,1.6vw,20px);font-weight:700;font-style:italic;color:#fff;position:relative;z-index:3;text-shadow:0 1px 8px rgba(0,0,60,.4);white-space:nowrap}
+  .opt-d .slogan-d em{color:#ffe0a0;font-style:italic}
+
+  /* ── E: stacked coloured lines top and bottom ── */
+  .opt-e{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+  .flag-stripe-top,.flag-stripe-bot{display:flex;height:5px}
+  .fs-r{background:var(--no-red);flex:3}
+  .fs-w{background:#fff;flex:.7;border-left:1px solid #eee;border-right:1px solid #eee}
+  .fs-b{background:var(--no-blue);flex:1}
+  .opt-e-inner{padding:24px 56px;display:flex;align-items:center;justify-content:center;gap:20px}
+  .thin-line{flex:1;max-width:100px;height:1px;background:var(--border)}
+
+  /* ── F: coloured underline on slogan text ── */
+  .opt-f{background:#fff;border:1px solid var(--border);padding:32px 56px;display:flex;align-items:center;justify-content:center;border-radius:10px}
+  .slogan-underline{font-family:'Fraunces',serif;font-size:clamp(16px,1.8vw,22px);font-weight:700;font-style:italic;color:var(--navy);letter-spacing:-.2px;white-space:nowrap;position:relative;display:inline-block}
+  .slogan-underline em{color:var(--teal)}
+  .underline-flag{display:flex;height:4px;margin-top:8px;border-radius:2px;overflow:hidden;width:100%}
+  .uf-r{background:var(--no-red);flex:3}
+  .uf-w{background:#ccc;flex:.5}
+  .uf-b{background:var(--no-blue);flex:1}
+  .uf-w2{background:#ccc;flex:.5}
+  .uf-r2{background:var(--no-red);flex:3}
+</style>
+</head>
+<body>
+
+<div class="label">A — Flag bars either side</div>
+<div class="opt-a">
+  <div class="flag-bar">
+    <div class="seg r" style="width:60px"></div><div class="seg w" style="width:6px"></div>
+    <div class="seg b" style="width:20px"></div><div class="seg w" style="width:6px"></div>
+    <div class="seg r" style="width:60px"></div>
+  </div>
+  <div class="slogan">Experience the flavour, <em>taste the adventure.</em></div>
+  <div class="flag-bar">
+    <div class="seg r" style="width:60px"></div><div class="seg w" style="width:6px"></div>
+    <div class="seg b" style="width:20px"></div><div class="seg w" style="width:6px"></div>
+    <div class="seg r" style="width:60px"></div>
+  </div>
+</div>
+
+<div class="label">B — Three flag-coloured dots</div>
+<div class="opt-b">
+  <div class="dot-trio">
+    <div class="dot" style="background:var(--no-red)"></div>
+    <div class="dot" style="background:#bbb"></div>
+    <div class="dot" style="background:var(--no-blue)"></div>
+  </div>
+  <div class="slogan">Experience the flavour, <em>taste the adventure.</em></div>
+  <div class="dot-trio">
+    <div class="dot" style="background:var(--no-blue)"></div>
+    <div class="dot" style="background:#bbb"></div>
+    <div class="dot" style="background:var(--no-red)"></div>
+  </div>
+</div>
+
+<div class="label">C — Mini flag icons either side</div>
+<div class="opt-c">
+  <div class="mini-flag">
+    <div class="mf-red"></div>
+    <div class="mf-cross-h"></div><div class="mf-cross-v"></div>
+    <div class="mf-cross-h2"></div><div class="mf-cross-v2"></div>
+  </div>
+  <div class="slogan">Experience the flavour, <em>taste the adventure.</em></div>
+  <div class="mini-flag">
+    <div class="mf-red"></div>
+    <div class="mf-cross-h"></div><div class="mf-cross-v"></div>
+    <div class="mf-cross-h2"></div><div class="mf-cross-v2"></div>
+  </div>
+</div>
+
+<div class="label">D — Full Norwegian flag background</div>
+<div class="opt-d">
+  <div class="bg-red"></div>
+  <div class="bg-cross-h"></div><div class="bg-cross-v"></div>
+  <div class="bg-cross-h2"></div><div class="bg-cross-v2"></div>
+  <div class="slogan-d">Experience the flavour, <em>taste the adventure.</em></div>
+</div>
+
+<div class="label">E — Flag stripes top and bottom</div>
+<div class="opt-e">
+  <div class="flag-stripe-top">
+    <div class="fs-r"></div><div class="fs-w"></div><div class="fs-b"></div><div class="fs-w"></div><div class="fs-r"></div>
+  </div>
+  <div class="opt-e-inner">
+    <div class="thin-line"></div>
+    <div class="slogan">Experience the flavour, <em>taste the adventure.</em></div>
+    <div class="thin-line"></div>
+  </div>
+  <div class="flag-stripe-bot">
+    <div class="fs-r"></div><div class="fs-w"></div><div class="fs-b"></div><div class="fs-w"></div><div class="fs-r"></div>
+  </div>
+</div>
+
+<div class="label">F — Flag-coloured underline on text</div>
+<div class="opt-f">
+  <div class="slogan-underline">
+    Experience the flavour, <em>taste the adventure.</em>
+    <div class="underline-flag">
+      <div class="uf-r"></div><div class="uf-w"></div><div class="uf-b"></div><div class="uf-w2"></div><div class="uf-r2"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

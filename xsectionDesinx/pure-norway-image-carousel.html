@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Carousel – Pure Norway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,900;1,700&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:#00B4C8; --navy:#0D1B2A; --white:#FFFFFF;
+    --muted:#6B8090; --border:#DDE8EE; --off:#F4F8FA;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:#eef2f5}
+
+  /* ── WRAPPER ── */
+  .gallery {
+    display:grid;
+    grid-template-columns: 1fr 280px;
+    height: 480px;
+    overflow: hidden;
+  }
+
+  /* ── LEFT: CAROUSEL ── */
+  .carousel { position:relative; overflow:hidden; }
+
+  .slide {
+    position:absolute; inset:0;
+    opacity:0; transition:opacity 1.2s ease;
+    pointer-events:none;
+  }
+  .slide.active { opacity:1; pointer-events:all; }
+  .slide img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    transform:scale(1.05);
+    transition:transform 6s ease;
+  }
+  .slide.active img { transform:scale(1); }
+  .slide::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(13,27,42,.65) 0%, rgba(13,27,42,.05) 50%, transparent 100%);
+  }
+
+  /* caption */
+  .slide-caption {
+    position:absolute; bottom:36px; left:36px; right:36px; z-index:2;
+    display:flex; align-items:flex-end; justify-content:space-between;
+  }
+  .caption-eyebrow {
+    font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+    color:var(--teal); margin-bottom:7px; display:block;
+    opacity:0; transform:translateY(8px);
+    transition:opacity .6s .3s, transform .6s .3s;
+  }
+  .caption-title {
+    font-family:'Fraunces',serif; font-size:clamp(20px,2.4vw,32px);
+    font-weight:900; font-style:italic; color:#fff;
+    letter-spacing:-.4px; line-height:1.1;
+    opacity:0; transform:translateY(12px);
+    transition:opacity .6s .5s, transform .6s .5s;
+  }
+  .slide.active .caption-eyebrow,
+  .slide.active .caption-title { opacity:1; transform:translateY(0); }
+  .slide-counter { font-size:12px; font-weight:700; color:rgba(255,255,255,.45); letter-spacing:1px; z-index:2; }
+  .slide-counter span { color:#fff; }
+
+  /* arrows */
+  .arrow {
+    position:absolute; top:50%; transform:translateY(-50%);
+    z-index:3; width:38px; height:38px; border-radius:50%;
+    background:rgba(255,255,255,.1); backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.15);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:background .2s;
+  }
+  .arrow:hover { background:rgba(0,180,200,.3); border-color:rgba(0,180,200,.4); }
+  .arrow svg { width:15px; height:15px; fill:#fff; }
+  .arrow.prev { left:16px; }
+  .arrow.next { right:16px; }
+
+  /* progress bar */
+  .progress { position:absolute; bottom:0; left:0; height:3px; background:var(--teal); z-index:3; width:0%; }
+
+  /* ── RIGHT: THUMBNAILS ── */
+  .thumbs {
+    display:grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 3px;
+    background: #000;
+  }
+
+  .thumb {
+    position:relative; overflow:hidden; cursor:pointer;
+  }
+  .thumb img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .4s ease, filter .3s;
+    filter:brightness(.55);
+  }
+  .thumb:hover img { filter:brightness(.8); transform:scale(1.06); }
+  .thumb.active img { filter:brightness(1); }
+  .thumb.active::after {
+    content:''; position:absolute; left:0; top:0; bottom:0;
+    width:3px; background:var(--teal);
+  }
+  .thumb-label {
+    position:absolute; bottom:10px; left:12px; right:12px;
+    font-size:10px; font-weight:700; letter-spacing:1.5px;
+    text-transform:uppercase; color:rgba(255,255,255,.7);
+  }
+  .thumb.active .thumb-label { color:#fff; }
+
+  /* dots */
+  .dots {
+    position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+    display:flex; gap:7px; z-index:3;
+  }
+  .dot {
+    width:5px; height:5px; border-radius:50%;
+    background:rgba(255,255,255,.3); cursor:pointer;
+    transition:background .3s, transform .3s;
+  }
+  .dot.active { background:var(--teal); transform:scale(1.4); }
+</style>
+</head>
+<body>
+
+<div class="gallery">
+
+  <!-- LEFT CAROUSEL -->
+  <div class="carousel">
+
+    <div class="slide active">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&h=600&fit=crop" alt="">
+      <div class="slide-caption">
+        <div>
+          <span class="caption-eyebrow">Ancient Norwegian Source</span>
+          <div class="caption-title">Where nature does<br>the filtering.</div>
+        </div>
+        <div class="slide-counter"><span>01</span> / 04</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop" alt="">
+      <div class="slide-caption">
+        <div>
+          <span class="caption-eyebrow">The Fjords of Norway</span>
+          <div class="caption-title">Carved by glaciers,<br>preserved for you.</div>
+        </div>
+        <div class="slide-counter"><span>02</span> / 04</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&h=600&fit=crop" alt="">
+      <div class="slide-caption">
+        <div>
+          <span class="caption-eyebrow">Ocean Cleanup Mission</span>
+          <div class="caption-title">1% of turnover to<br>protect our oceans.</div>
+        </div>
+        <div class="slide-counter"><span>03</span> / 04</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200&h=600&fit=crop" alt="">
+      <div class="slide-caption">
+        <div>
+          <span class="caption-eyebrow">I CARE</span>
+          <div class="caption-title">Pure Norwegian.<br>Pure You.</div>
+        </div>
+        <div class="slide-counter"><span>04</span> / 04</div>
+      </div>
+    </div>
+
+    <div class="dots">
+      <div class="dot active" onclick="goTo(0)"></div>
+      <div class="dot" onclick="goTo(1)"></div>
+      <div class="dot" onclick="goTo(2)"></div>
+      <div class="dot" onclick="goTo(3)"></div>
+    </div>
+
+    <div class="arrow prev" onclick="prev()">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </div>
+    <div class="arrow next" onclick="next()">
+      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </div>
+
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <!-- RIGHT THUMBNAILS -->
+  <div class="thumbs">
+    <div class="thumb active" onclick="goTo(0)">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=200&fit=crop" alt="">
+      <div class="thumb-label">The Source</div>
+    </div>
+    <div class="thumb" onclick="goTo(1)">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="">
+      <div class="thumb-label">Fjords</div>
+    </div>
+    <div class="thumb" onclick="goTo(2)">
+      <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=200&fit=crop" alt="">
+      <div class="thumb-label">Ocean</div>
+    </div>
+    <div class="thumb" onclick="goTo(3)">
+      <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=400&h=200&fit=crop" alt="">
+      <div class="thumb-label">Mountains</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.dot');
+  const thumbs = document.querySelectorAll('.thumb');
+  const bar    = document.getElementById('progress');
+  const total  = slides.length;
+  const delay  = 5000;
+  let timer;
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    thumbs[current].classList.remove('active');
+    current = (n + total) % total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    thumbs[current].classList.add('active');
+    resetProgress();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function resetProgress() {
+    clearTimeout(timer);
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    requestAnimationFrame(() => {
+      bar.style.transition = `width ${delay}ms linear`;
+      bar.style.width = '100%';
+    });
+    timer = setTimeout(next, delay);
+  }
+
+  resetProgress();
+</script>
+
+</body>
+</html>

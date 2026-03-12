@@ -1,0 +1,105 @@
+/* Slogan Divider with Norwegian Flag Underline */
+.slogan-divider-section {
+  width: 100%;
+  padding: 0 40px;
+  background: #ffffff;
+}
+
+.slogan-divider-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slogan-underline {
+  font-family: var(--font-poppins);
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 700;
+  font-style: italic;
+  color: #002868;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.slogan-underline em {
+  color: #002868;
+  font-style: italic;
+}
+
+.underline-flag {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 3px;
+  margin: 10px auto 0;
+  width: 100%;
+}
+
+.underline-flag > * {
+  height: 3px;
+  border-radius: 2px;
+  display: block;
+}
+
+.uf-r {
+  background: #ef3340;
+  flex: 3;
+}
+
+.uf-w {
+  background: #fff;
+  width: 4px;
+  flex: none;
+}
+
+.uf-b {
+  background: #002868;
+  flex: 1;
+}
+
+.uf-w2 {
+  background: #fff;
+  width: 4px;
+  flex: none;
+}
+
+.uf-r2 {
+  background: #ef3340;
+  flex: 3;
+}
+
+@media (max-width: 1400px) {
+  .slogan-divider-section {
+    padding: 0 28px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .slogan-underline {
+    white-space: normal;
+    max-width: 28ch;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .slogan-divider-section {
+    padding: 0 20px;
+  }
+
+  .slogan-underline {
+    font-size: clamp(16px, 4vw, 22px);
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .slogan-divider-section {
+    padding: 0 20px;
+  }
+}

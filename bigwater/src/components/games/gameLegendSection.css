@@ -1,0 +1,221 @@
+.game-legend {
+  width: 100%;
+  max-width: 1400px;
+  margin-top: 22px;
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(7, 22, 33, 0.76), rgba(6, 18, 27, 0.62));
+  border: 1px solid rgba(1, 186, 204, 0.22);
+  border-radius: 16px;
+}
+
+.legend-top {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.legend-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #01bacc;
+  margin-bottom: 12px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+}
+
+.legend-title {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #f3fcff;
+  letter-spacing: -0.4px;
+}
+
+.legend-title em {
+  color: #01bacc;
+  font-style: italic;
+}
+
+.legend-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  max-width: none;
+  margin: 0;
+}
+
+.legend-card {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 28px 24px 24px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.legend-card::before {
+  content: none;
+}
+
+.legend-card-trash::before {
+  background: none;
+}
+
+.legend-card-collect::before {
+  background: none;
+}
+
+.legend-card-fish::before {
+  background: none;
+}
+
+.legend-card:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  border-color: rgba(1, 186, 204, 0.35);
+}
+
+.legend-card-trash:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.legend-card-collect:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.legend-card-fish:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.legend-icon-wrap {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  position: relative;
+}
+
+.legend-card-trash .legend-icon-wrap {
+  background: rgba(7, 28, 40, 0.72);
+}
+
+.legend-card-collect .legend-icon-wrap {
+  background: rgba(7, 28, 40, 0.72);
+}
+
+.legend-card-fish .legend-icon-wrap {
+  background: rgba(7, 28, 40, 0.72);
+}
+
+.legend-icon-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.legend-card-trash .legend-icon-wrap::after {
+  border: 1.5px solid rgba(1, 186, 204, 0.3);
+}
+
+.legend-card-collect .legend-icon-wrap::after {
+  border: 1.5px solid rgba(1, 186, 204, 0.3);
+}
+
+.legend-card-fish .legend-icon-wrap::after {
+  border: 1.5px solid rgba(1, 186, 204, 0.3);
+}
+
+.legend-card:hover .legend-icon-wrap::after {
+  opacity: 1;
+}
+
+.legend-main-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.legend-card-name {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #f3fcff;
+  letter-spacing: -0.3px;
+  margin-bottom: 6px;
+}
+
+.legend-card-desc {
+  font-size: 12px;
+  color: rgba(239, 253, 255, 0.74);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.legend-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  padding: 5px 14px;
+  margin-top: auto;
+  align-self: center;
+}
+
+.legend-card-trash .legend-badge {
+  background: rgba(1, 186, 204, 0.12);
+  color: #01bacc;
+}
+
+.legend-card-collect .legend-badge {
+  background: rgba(251, 191, 36, 0.2);
+  color: #f6c34a;
+}
+
+.legend-card-fish .legend-badge {
+  background: rgba(248, 113, 113, 0.2);
+  color: #ff7a7a;
+}
+
+.legend-items {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.legend-tag {
+  background: rgba(7, 28, 40, 0.72);
+  border: 1px solid rgba(1, 186, 204, 0.22);
+  border-radius: 100px;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.legend-tag-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+@media (max-width: 980px) {
+  .legend-cards {
+    grid-template-columns: 1fr;
+  }
+}

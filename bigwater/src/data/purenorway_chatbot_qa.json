@@ -1,0 +1,570 @@
+{
+  "brand": "PureNorway",
+  "sites": {
+    "main_brand": "https://www.purenorway.no",
+    "water": "https://www.purenorwaywater.com",
+    "store": "https://www.purenorwaystore.com"
+  },
+  "description": "PureNorway is a sustainable Norwegian lifestyle brand inspired by Norwegian nature. It encompasses PureNorway Water (glacial water in aluminium cans) and a product range of backpacks, thermobottles, and lunch boxes.",
+  "qa": [
+
+    {
+      "id": 1,
+      "category": "Brand",
+      "question": "What is PureNorway?",
+      "answer": "PureNorway is a sustainable Norwegian lifestyle brand inspired by the Norwegian nature and lifestyle. The brand covers two sub-brands: PureNorway Water (glacial spring water in aluminium cans) and a range of sustainable lifestyle products including backpacks, thermobottles, and lunch boxes."
+    },
+    {
+      "id": 2,
+      "category": "Brand",
+      "question": "What does PureNorway stand for?",
+      "answer": "PureNorway stands for sustainability, durability, and a deep connection to Norwegian nature. Their core values are captured in the phrase 'We care' — caring for the environment, for quality, and for people. All products are designed to be durable, functional, and well-designed to support an active lifestyle."
+    },
+    {
+      "id": 3,
+      "category": "Brand",
+      "question": "What websites does PureNorway have?",
+      "answer": "PureNorway operates three websites: main brand site https://www.purenorway.no, water site https://www.purenorwaywater.com, and online shop https://www.purenorwaystore.com where you can buy water, backpacks, thermobottles, and lunch boxes."
+    },
+    {
+      "id": 4,
+      "category": "Brand",
+      "question": "Where is PureNorway based?",
+      "answer": "PureNorway is headquartered at Skibåsen 28, 4636 Kristiansand, Norway. Their organisation number is NO 919 062 010."
+    },
+    {
+      "id": 5,
+      "category": "Brand",
+      "question": "Who runs PureNorway?",
+      "answer": "PureNorway is led by David Severinsen (CEO, david@purenorwaywater.com, +47 458 90 684) and Øystein Frustøl (oystein@purenorway.no, +47 909 15 907), both based at their headquarters in Kristiansand, Norway."
+    },
+
+    {
+      "id": 6,
+      "category": "Sustainability",
+      "question": "Is PureNorway a sustainable brand?",
+      "answer": "Yes. Sustainability is central to everything PureNorway does. They produce durable, long-lasting products to reduce waste, use infinitely recyclable aluminium cans for their water, have zero carbon footprint on the water brand, and donate 1% of water turnover to ocean plastic clean-up through the PURENorway Foundation."
+    },
+    {
+      "id": 7,
+      "category": "Sustainability",
+      "question": "How does PureNorway protect the environment?",
+      "answer": "PureNorway protects the environment through three main actions: (1) designing durable, sustainable products that last over time to reduce waste; (2) using aluminium cans (infinitely recyclable, no plastic leeching) instead of plastic bottles; and (3) donating 1% of water turnover to clean plastic from the world's oceans via the PURENorway Foundation."
+    },
+    {
+      "id": 8,
+      "category": "Sustainability",
+      "question": "What is the PureNorway Foundation?",
+      "answer": "The PURENorway Foundation is the brand's charitable initiative. It donates 1% of PureNorway Water's total turnover directly to projects and organisations that work on cleaning plastic from the world's oceans and protecting natural environments."
+    },
+    {
+      "id": 9,
+      "category": "Sustainability",
+      "question": "Does PureNorway have a carbon footprint?",
+      "answer": "PureNorway Water has zero carbon footprint. Their sustainable approach to sourcing, packaging, and production is designed to minimise environmental impact."
+    },
+
+    {
+      "id": 10,
+      "category": "Water",
+      "question": "What is PureNorway Water?",
+      "answer": "PureNorway Water is glacial spring water sourced from the ancient glacial belts of Norway. It is bordered by a national park, captured from a highly protected source, filtered naturally through marble, and packaged in lightweight aluminium cans. It is 100% pure with no additives."
+    },
+    {
+      "id": 11,
+      "category": "Water",
+      "question": "Where does PureNorway Water come from?",
+      "answer": "The water is captured at source from Norway's ancient glacial belts. The source is bordered by a national park and is a highly protected area. The water is filtered naturally through marble before being canned."
+    },
+    {
+      "id": 12,
+      "category": "Water",
+      "question": "What flavours of water does PureNorway offer?",
+      "answer": "PureNorway Water offers a range of flavours including: Still (plain), Sparkling (plain), Green Tea & Peach, Watermelon, Ginger, Orange, Apple, Pineapple, and Strawberry. Each flavour is carefully developed to complement the fresh water taste. 🌊 Check out https://www.purenorway.no/products for more details."
+    },
+    {
+      "id": 13,
+      "category": "Water",
+      "question": "Do you have still and sparkling water?",
+      "answer": "Yes. PureNorway Water offers both plain still and plain sparkling water, as well as a range of flavoured sparkling options."
+    },
+    {
+      "id": 14,
+      "category": "Water",
+      "question": "Is there a Smurfs edition water?",
+      "answer": "Yes! PureNorway has a special Smurfs edition: Sparkling Pineapple & Watermelon. It comes in a 24-can pack (1 tray) priced at NOK 477.60 incl. VAT (NOK 19.90 per can)."
+    },
+    {
+      "id": 15,
+      "category": "Water",
+      "question": "Why is PureNorway Water in aluminium cans?",
+      "answer": "Aluminium cans are used because they are infinitely recyclable, keep water cool for longer, and have zero plastic leeching — giving you the closest experience to drinking straight from the natural source. This also aligns with PureNorway's sustainability mission."
+    },
+
+    {
+      "id": 16,
+      "category": "Store & Pricing",
+      "question": "Where can I buy PureNorway products?",
+      "answer": "You can shop online at https://www.purenorwaystore.com, which sells water, backpacks, thermobottles, and lunch boxes. Payment options include Klarna, Vipps, and standard card. Delivery is via Posten/Bring."
+    },
+    {
+      "id": 17,
+      "category": "Store & Pricing",
+      "question": "How much does PureNorway Water cost?",
+      "answer": "Water is sold in trays of 24 cans. Each tray costs NOK 477.60 incl. VAT, which works out to NOK 19.90 per can. This price applies to all water flavours including Still, Sparkling, Green Tea & Peach, Watermelon, Ginger & Lemon, and the Smurfs Pineapple & Watermelon edition."
+    },
+    {
+      "id": 18,
+      "category": "Store & Pricing",
+      "question": "Do you offer free shipping?",
+      "answer": "Yes! PureNorway offers free shipping on orders over NOK 1,000."
+    },
+    {
+      "id": 19,
+      "category": "Store & Pricing",
+      "question": "What payment methods does PureNorway accept?",
+      "answer": "The PureNorway store accepts payments via Klarna, Vipps, and standard card payment. Delivery is handled by Posten/Bring."
+    },
+    {
+      "id": 20,
+      "category": "Store & Pricing",
+      "question": "Can I create an account in the store?",
+      "answer": "Yes, you can create an account at https://www.purenorwaystore.com to manage your orders and account details. There is also an option to subscribe to their newsletter for updates."
+    },
+
+    {
+      "id": 21,
+      "category": "Backpacks",
+      "question": "Does PureNorway sell backpacks?",
+      "answer": "Yes! PureNorway sells a range of backpacks available at https://www.purenorwaystore.com. The collection includes Adults backpacks, Junior (kids) backpacks, Sport backpacks, and Travel backpacks — all designed with Norwegian nature in mind and built to be durable and sustainable."
+    },
+    {
+      "id": 22,
+      "category": "Backpacks",
+      "question": "What types of backpacks does PureNorway offer?",
+      "answer": "PureNorway offers four categories of backpacks: Adults, Junior (kids), Sport, and Travel. They are available in multiple colours including beige, red, and blue. All bags are designed to be durable, functional, and well-suited for an active Norwegian lifestyle."
+    },
+    {
+      "id": 23,
+      "category": "Backpacks",
+      "question": "Do you have kids backpacks?",
+      "answer": "Yes, PureNorway has a Junior backpack range specifically designed for children. These are available in the Backpacks section of https://www.purenorwaystore.com."
+    },
+    {
+      "id": 24,
+      "category": "Backpacks",
+      "question": "Do you sell travel backpacks?",
+      "answer": "Yes, PureNorway has a dedicated Travel backpack category at https://www.purenorwaystore.com, alongside Adults, Junior, and Sport options."
+    },
+
+    {
+      "id": 25,
+      "category": "Thermobottles & Lunch Boxes",
+      "question": "Does PureNorway sell thermobottles or water bottles?",
+      "answer": "Yes! PureNorway sells a range of thermobottles and lunch boxes at https://www.purenorwaystore.com. The collection includes Thermos bottles, a Thermobox (insulated lunch box), and the special I Care Collection."
+    },
+    {
+      "id": 26,
+      "category": "Thermobottles & Lunch Boxes",
+      "question": "What is the I Care Collection?",
+      "answer": "The I Care Collection is a special line within PureNorway's thermobottle and lunch box range. It reflects the brand's core value of caring — for the environment, for quality, and for a healthy, sustainable lifestyle. Available at https://www.purenorwaystore.com."
+    },
+    {
+      "id": 27,
+      "category": "Thermobottles & Lunch Boxes",
+      "question": "Does PureNorway have insulated lunch boxes?",
+      "answer": "Yes, PureNorway offers a Thermobox (insulated lunch box) as part of their thermobottles and lunch boxes range. It is available at https://www.purenorwaystore.com under the Thermobottles & Lunch Boxes category."
+    },
+    {
+      "id": 28,
+      "category": "Thermobottles & Lunch Boxes",
+      "question": "What types of thermos does PureNorway sell?",
+      "answer": "PureNorway sells three types: standard Thermos bottles, a Thermobox (insulated food/lunch box), and the I Care Collection. All are available in the Thermobottles & Lunch Boxes section at https://www.purenorwaystore.com."
+    },
+
+    {
+      "id": 29,
+      "category": "Licensing",
+      "question": "Can I license the PureNorway brand?",
+      "answer": "Yes, PureNorway offers licensing opportunities. You can learn more and get in touch via the Licensing page at purenorway.no/licensing, or contact the team directly at david@purenorwaywater.com or +47 458 90 684."
+    },
+    {
+      "id": 30,
+      "category": "Licensing",
+      "question": "Is PureNorway open to business partnerships?",
+      "answer": "Yes, PureNorway is open to licensing partnerships and global distribution. They have an established global distributor network and a dedicated licensing page at purenorway.no. Contact David Severinsen at david@purenorwaywater.com or Øystein Frustøl at oystein@purenorway.no for more information."
+    },
+
+    {
+      "id": 31,
+      "category": "Distributors",
+      "question": "Where can I find PureNorway Water around the world?",
+      "answer": "PureNorway Water has distributors in: Vietnam & Singapore (BUY2SELL – support@buy2sell.vn), Slovakia, Czech Republic & Serbia (Waterguard S.R.O – miro@waterguard.sk, +47 465 05 790), Taiwan (UFL Shipping Agency – shippingagency@uni-logistics.com), and the UK & France (IFL/International Food Link – chris@purenorwaywater.com, +44 789 885 3171)."
+    },
+    {
+      "id": 32,
+      "category": "Distributors",
+      "question": "Who is the UK distributor for PureNorway?",
+      "answer": "The UK and France distributor is IFL (International Food Link). Contact Chris Smith at chris@purenorwaywater.com or call +44 789 885 3171."
+    },
+    {
+      "id": 33,
+      "category": "Distributors",
+      "question": "Who distributes PureNorway in Asia?",
+      "answer": "In Asia, BUY2SELL handles Vietnam and Singapore (support@buy2sell.vn), and UFL Shipping Agency covers Taiwan (+886 7 338 9963, shippingagency@uni-logistics.com)."
+    },
+
+    {
+      "id": 34,
+      "category": "Contact",
+      "question": "How do I contact PureNorway?",
+      "answer": "You can contact PureNorway at: Email: post@purenorway.no or david@purenorwaywater.com | Phone: +47 38 04 40 30 (general) or +47 458 90 684 (David, CEO) | Address: Skibåsen 28, 4636 Kristiansand, Norway."
+    },
+    {
+      "id": 35,
+      "category": "Contact",
+      "question": "Does PureNorway have a newsletter?",
+      "answer": "Yes, you can subscribe to the PureNorway newsletter at https://www.purenorwaystore.com to receive updates on new products and offers."
+    },
+    {
+      "id": 36,
+      "category": "Contact",
+      "question": "Does PureNorway have social media?",
+      "answer": "Yes.\n- Instagram: https://www.instagram.com/purenorwayno/\n- TikTok: https://www.tiktok.com/@purenorwayno\n- Facebook: https://www.facebook.com/purenorwayno\n- LinkedIn: https://www.linkedin.com/company/purenorwayno\n- X: https://x.com/PureNorwayNO\n- Main handle: @purenorwayno\n- Snapchat handle: @purenorway.no"
+    },
+
+    {
+      "id": 36.1,
+      "category": "Contact",
+      "question": "What is PureNorway's social media handle?",
+      "answer": "PureNorway social handles:\n- Main handle: @purenorwayno\n- Snapchat handle: @purenorway.no\n- Instagram: https://www.instagram.com/purenorwayno/\n- TikTok: https://www.tiktok.com/@purenorwayno\n- Facebook: https://www.facebook.com/purenorwayno\n- LinkedIn: https://www.linkedin.com/company/purenorwayno\n- X: https://x.com/PureNorwayNO"
+    },
+    {
+      "id": 37,
+      "category": "Collection",
+      "question": "What products does PureNorway sell?",
+      "answer": "PureNorway sells: (1) Water – Still and Sparkling in plain and flavoured varieties in aluminium cans; (2) Backpacks – Adults, Junior, Sport, and Travel styles; (3) Thermobottles & Lunch Boxes – Thermos, Thermobox, and the I Care Collection. Everything is available at https://www.purenorwaystore.com."
+    },
+    {
+      "id": 38,
+      "category": "Collection",
+      "question": "Are PureNorway products only available in Norway?",
+      "answer": "No. PureNorway products are available internationally. Their online store ships within Norway, and their water brand has global distributors across Europe and Asia including the UK, France, Slovakia, Czech Republic, Serbia, Vietnam, Singapore, and Taiwan."
+    },
+
+    {
+      "id": 39,
+      "category": "Sustainability",
+      "question": "What is the 1% Pledge?",
+      "answer": "The 1% Pledge is PureNorway's commitment to donate 1% of our revenue to environmental initiatives and ocean conservation. This means every purchase directly supports projects protecting the planet and cleaning ocean plastic."
+    },
+    {
+      "id": 40,
+      "category": "Sustainability",
+      "question": "Why does PureNorway use aluminum?",
+      "answer": "Aluminum is chosen for three key reasons: (1) It is infinitely recyclable without losing quality or purity, (2) It keeps water cool for a longer period, perfect for any adventure, and (3) It ensures zero plastic leeching, giving you the cleanest, purest water experience straight from the source."
+    },
+    {
+      "id": 41,
+      "category": "Sustainability",
+      "question": "Is aluminum infinitely recyclable?",
+      "answer": "Yes! Aluminum is infinitely recyclable without losing quality or purity. This makes it one of the most sustainable packaging materials available, aligning perfectly with PureNorway's environmental mission."
+    },
+    {
+      "id": 42,
+      "category": "Sustainability",
+      "question": "What does 'Our Growing Impact' mean?",
+      "answer": "Our Growing Impact showcases PureNorway's real environmental achievements. By donating 1% of turnover, the PURENorway Foundation channels funds directly to projects and organizations protecting the planet. This includes ocean plastic removal, CO₂ emissions prevention, and conservation projects."
+    },
+    {
+      "id": 43,
+      "category": "Sustainability",
+      "question": "How much plastic has PureNorway removed?",
+      "answer": "PureNorway's 1% donation program has helped remove significant amounts of ocean plastic through the PURENorway Foundation. The exact amount increases with each can sold. Every purchase directly contributes to marine conservation efforts."
+    },
+    {
+      "id": 44,
+      "category": "Sustainability",
+      "question": "Does aluminum keep water cool?",
+      "answer": "Yes! Aluminum keeps water cool for a longer period compared to plastic bottles, making it perfect for any adventure. Combined with the natural cold source of Norwegian glacial water, aluminum cans provide the ultimate refreshing experience."
+    },
+
+    {
+      "id": 45,
+      "category": "Brand",
+      "question": "What is the PureNorway philosophy?",
+      "answer": "Our philosophy is simple: Living in harmony with nature creates health and happiness. This guides every decision we make as a brand. We follow the motto 'Follow your track' and are committed to the slogan 'I CARE' — caring for the planet, for people, and for quality."
+    },
+    {
+      "id": 46,
+      "category": "Brand",
+      "question": "What does 'We Care' mean?",
+      "answer": "We Care is at the heart of PureNorway. We care about nature and we care about people. We are committed to ethical standards in all areas: from sustainable production to treating everyone connected to our brand with respect and dignity, including workers and staff."
+    },
+    {
+      "id": 47,
+      "category": "Sustainability",
+      "question": "What is PureNorway's 'I CARE' slogan?",
+      "answer": "'I CARE' represents our commitment to sustainability and ethical practices. It means caring for the planet, caring for people, and caring about the decisions behind all our brand actions. Join our movement and be part of saving the seas from plastic pollution."
+    },
+    {
+      "id": 48,
+      "category": "Sustainability",
+      "question": "How does PureNorway contribute to Sustainable Development Goals?",
+      "answer": "PureNorway is committed to contributing to three key UN Sustainable Development Goals: (1) SDG 12 - Responsible Consumption & Production through ethical sourcing and recycled materials, (2) SDG 14 - Life Below Water by protecting oceans and funding ocean cleanup, and (3) SDG 16 - Peace & Justice through ethical working conditions and respect for human dignity."
+    },
+    {
+      "id": 49,
+      "category": "Sustainability",
+      "question": "What is your commitment to SDG 12 - Responsible Consumption?",
+      "answer": "We ensure responsible production and consumption by carefully selecting factories, conducting regular audits, and using environment-friendly and recycled materials. We focus on reducing harmful emissions, preventing unnecessary waste, and minimizing nature harm through sustainable practices."
+    },
+    {
+      "id": 50,
+      "category": "Sustainability",
+      "question": "How does PureNorway protect ocean life (SDG 14)?",
+      "answer": "We protect Life Below Water by funding the PureNorway Foundation with a percentage of our income. This enables ocean cleanup initiatives and protection of marine ecosystems. We believe the world's oceans are vital sources of life and must be protected from plastic pollution and waste."
+    },
+    {
+      "id": 51,
+      "category": "Sustainability",
+      "question": "What are PureNorway's ethical standards (SDG 16)?",
+      "answer": "We are committed to Peace, Justice, and Strong Institutions by ensuring everyone connected to our products is treated with respect and dignity. Our standards cover: health and safety, prevention of child labor and involuntary labor, prevention of coercion, harassment, and discrimination in all operations."
+    },
+    {
+      "id": 52,
+      "category": "Brand",
+      "question": "Is PureNorway committed to ethical working conditions?",
+      "answer": "Yes, absolutely. We have strict ethical standards for all connected to our products, including fabric workers and administrative staff. We ensure health and safety, eliminate child labor and involuntary labor, and prevent any form of coercion, harassment, or discrimination."
+    },
+
+    {
+      "id": 53,
+      "category": "Brand",
+      "question": "What is PureNorway's tagline?",
+      "answer": "Our tagline is 'Refreshing the Planet, One Can at a Time' — capturing our mission to refresh both people and the planet with every product we make."
+    },
+    {
+      "id": 54,
+      "category": "Brand",
+      "question": "Is PureNorway a Nordic brand?",
+      "answer": "Yes! PureNorway is a Nordic and innovative brand inspired by Norwegian nature. We are made for people with an active lifestyle and deeply rooted in Norwegian traditions of caring for and living in harmony with nature."
+    },
+    {
+      "id": 55,
+      "category": "Brand",
+      "question": "What is your 2030 goal?",
+      "answer": "We are committed to achieving a better and more sustainable planet within 2030. Working towards the UN Sustainable Development Goals, we want to contribute to global change through responsible production, ocean protection, and ethical practices."
+    },
+    {
+      "id": 56,
+      "category": "Sustainability",
+      "question": "How do you select factories?",
+      "answer": "Our factories are carefully selected to ensure sustainable production processes. We maintain ongoing communication with our suppliers, conduct regular audits, and review status reports to continuously improve procedures and use more environment-friendly materials."
+    },
+    {
+      "id": 57,
+      "category": "Sustainability",
+      "question": "What is your waste prevention strategy?",
+      "answer": "We focus on using environment-friendly and recycled materials in all our products to prevent unnecessary waste and nature harm. We design durable products built to last, reducing the need for replacements and minimizing environmental impact."
+    },
+    {
+      "id": 58,
+      "category": "Sustainability",
+      "question": "Why is ocean protection important?",
+      "answer": "The world's oceans are vital sources of life and development for all organisms. Ocean pollution and plastic waste are threats to marine life and global systems. Through our 1% Foundation donations and sustainable practices, we work to protect and clean our oceans for future generations."
+    },
+    {
+      "id": 59,
+      "category": "Sustainability",
+      "question": "How does PureNorway protect future generations?",
+      "answer": "We believe we all have responsibility to protect the planet for the next generation. We preserve natural resources, reduce waste through durable products, invest in ocean cleanup, and ensure ethical practices. Every decision is made with future generations in mind."
+    },
+    {
+      "id": 60,
+      "category": "Brand",
+      "question": "What does PureNorway mean by 'active lifestyle'?",
+      "answer": "PureNorway products are designed for people with active lifestyles. Whether hiking, traveling, or daily adventures, our water, backpacks, thermobottles, and lunch boxes support an active, sustainable way of living inspired by Norwegian nature."
+    },
+    {
+      "id": 61,
+      "category": "Sustainability",
+      "question": "Do you clean Norway's coastlines?",
+      "answer": "Yes! A percentage of our PureNorway product income goes to the PureNorway Foundation, which works to clean the coastlines of Norway and protect its waters. This is part of our commitment to Life Below Water (SDG 14)."
+    },
+    {
+      "id": 62,
+      "category": "Brand",
+      "question": "What Norwegian traditions inspire PureNorway?",
+      "answer": "Norwegians have a strong tradition of taking care and living in harmony with nature. The resources given to the nation are carefully preserved for future generations. These traditions of sustainability and respect for nature are at the core of everything PureNorway does."
+    },
+
+    {
+      "id": 63,
+      "category": "Partnerships",
+      "question": "How can I become a PureNorway affiliate or ambassador?",
+      "answer": "We're excited about potential partnerships! To inquire about becoming an affiliate or brand ambassador for PureNorway, please contact David Severinsen, our CEO. Email: david@purenorwaywater.com | Phone: +47 458 90 684. He'll be happy to discuss collaboration opportunities with you."
+    },
+    {
+      "id": 64,
+      "category": "Partnerships",
+      "question": "Does PureNorway do collaborations?",
+      "answer": "Yes! PureNorway is open to collaborations and partnerships. Whether you're interested in co-branding, limited editions, or special projects, we'd love to hear your ideas. Contact David Severinsen at david@purenorwaywater.com or +47 458 90 684 to explore collaboration opportunities."
+    },
+    {
+      "id": 65,
+      "category": "Partnerships",
+      "question": "What is PureNorway's licensing program?",
+      "answer": "PureNorway has partnered with R & B Licensing (Rights & Brands Licensing) as our official licensing partner. They help us expand the brand through licensed products and partnerships. For more information about becoming a licensee, contact our Marketing & Sales Director or David Severinsen at david@purenorwaywater.com or +47 458 90 684."
+    },
+    {
+      "id": 66,
+      "category": "Partnerships",
+      "question": "Who is the licensing partner for PureNorway?",
+      "answer": "R & B Licensing (Rights & Brands Licensing) is PureNorway's chosen licensing partner. They manage brand expansion and licensing opportunities globally. For inquiries about licensing opportunities, contact David Severinsen at david@purenorwaywater.com or +47 458 90 684."
+    },
+    {
+      "id": 67,
+      "category": "Partnerships",
+      "question": "Can I inquire about brand partnerships?",
+      "answer": "Absolutely! PureNorway welcomes inquiries from potential partners. Whether it's affiliate programs, brand collaborations, ambassadorships, or licensing opportunities, please reach out to David Severinsen, our CEO. Email: david@purenorwaywater.com | Phone: +47 458 90 684."
+    },
+    {
+      "id": 68,
+      "category": "Partnerships",
+      "question": "How do I contact the marketing director?",
+      "answer": "For marketing and partnership inquiries, you can contact David Severinsen, our CEO and key contact for all business development. Email: david@purenorwaywater.com | Phone: +47 458 90 684. He will connect you with the appropriate team member for your inquiry."
+    },
+    {
+      "id": 69,
+      "category": "Partnerships",
+      "question": "What partnership opportunities does PureNorway offer?",
+      "answer": "PureNorway offers several partnership opportunities including: (1) Affiliate and Ambassador programs, (2) Brand collaborations and limited editions, (3) Licensing through R & B Licensing, and (4) Custom business partnerships. Contact David Severinsen at david@purenorwaywater.com or +47 458 90 684 to discuss your specific interests."
+    },
+    {
+      "id": 70,
+      "category": "Contact",
+      "question": "What is PureNorway's website?",
+      "answer": "Main website: https://www.purenorway.no. Online store: https://www.purenorwaystore.com. Water brand site: https://www.purenorwaywater.com."
+    },
+    {
+      "id": 71,
+      "category": "Contact",
+      "question": "What are PureNorway's social media links?",
+      "answer": "Social links:\n- Instagram: https://www.instagram.com/purenorwayno/\n- TikTok: https://www.tiktok.com/@purenorwayno\n- Facebook: https://www.facebook.com/purenorwayno\n- LinkedIn: https://www.linkedin.com/company/purenorwayno\n- X: https://x.com/PureNorwayNO\n- Main handle: @purenorwayno\n- Snapchat handle: @purenorway.no"
+    },
+    {
+      "id": 72,
+      "category": "Contact",
+      "question": "What is PureNorway's Snapchat?",
+      "answer": "Snapchat handle: @purenorway.no"
+    },
+    {
+      "id": 73,
+      "category": "Contact",
+      "question": "What is PureNorway's LinkedIn?",
+      "answer": "LinkedIn: https://www.linkedin.com/company/purenorwayno"
+    },
+    {
+      "id": 74,
+      "category": "Contact",
+      "question": "What is PureNorway's Facebook?",
+      "answer": "Facebook: https://www.facebook.com/purenorwayno"
+    },
+    {
+      "id": 75,
+      "category": "Contact",
+      "question": "What is PureNorway's Instagram?",
+      "answer": "Instagram: https://www.instagram.com/purenorwayno/"
+    },
+    {
+      "id": 76,
+      "category": "Contact",
+      "question": "What is PureNorway's TikTok?",
+      "answer": "TikTok: https://www.tiktok.com/@purenorwayno"
+    },
+    {
+      "id": 77,
+      "category": "Contact",
+      "question": "What is PureNorway's X (Twitter)?",
+      "answer": "X: https://x.com/PureNorwayNO"
+    },
+    {
+      "id": 78,
+      "category": "Contact",
+      "question": "What is PureNorway's main handle?",
+      "answer": "Main handle: @purenorwayno"
+    },
+
+    {
+      "id": 79,
+      "category": "Distributors",
+      "question": "Who is the distributor in Taiwan?",
+      "answer": "Taiwan distributor: UFL Shipping Agency\nEmail: shippingagency@uni-logistics.com\nPhone: +886 7 338 9963\n\nThey handle all PureNorway Water distribution and inquiries for Taiwan."
+    },
+
+    {
+      "id": 80,
+      "category": "Distributors",
+      "question": "Who distributes PureNorway in Vietnam and Singapore?",
+      "answer": "Vietnam & Singapore distributor: BUY2SELL\nEmail: support@buy2sell.vn\n\nThey handle all PureNorway Water distribution and inquiries for Vietnam and Singapore."
+    },
+
+    {
+      "id": 81,
+      "category": "Distributors",
+      "question": "Who is the distributor in Dubai?",
+      "answer": "Dubai distributor: Fjord Norway Source LLC\nContact: Birol Can\nEmail: post@fjordnorway.ae\nPhone: +47 400 50 684\nWebsite: fjordnorway.ae\n\nThey handle all PureNorway Water distribution and inquiries for Dubai and the Middle East region."
+    },
+
+    {
+      "id": 82,
+      "category": "Distributors",
+      "question": "Who is the distributor in UK and France?",
+      "answer": "UK & France distributor: IFL (International Food Link)\nContact: Chris Smith\nEmail: chris@purenorwaywater.com\nPhone: +44 789 885 3171\n\nThey handle all PureNorway Water distribution and inquiries for UK and France."
+    },
+
+    {
+      "id": 83,
+      "category": "Distributors",
+      "question": "What are all the distributor regions?",
+      "answer": "PureNorway Water has distributors in:\n\n� Headquarters:\n- Norway: PureNorway HQ (Kristiansand)\n\n🌍 Asia:\n- Taiwan: UFL Shipping Agency (+886 7 338 9963)\n- Vietnam & Singapore: BUY2SELL (support@buy2sell.vn)\n\n🌍 Europe:\n- UK & France: IFL/International Food Link (+44 789 885 3171)\n\n🌍 Middle East:\n- Dubai: Fjord Norway Source LLC (+47 400 50 684)\n\nFor more information, contact our main office or any regional distributor."
+    },
+
+    {
+      "id": 84,
+      "category": "Credits",
+      "question": "Who designed and developed this website?",
+      "answer": "This website was designed and developed by:\n\n👨‍💻 Danny Nguyen Le\nWebsite: https://dvnny.no/\nEmail: hello@dvnny.no\n\nDanny is a web developer and designer who helped bring the PureNorway website to life with modern design and functionality."
+    },
+
+    {
+      "id": 85,
+      "category": "Credits",
+      "question": "Who handles marketing and social media?",
+      "answer": "👨‍💻 Danny Nguyen Le\n\nDanny is a web developer and digital strategist helping PureNorway with marketing strategy, social media content, and digital presence across all platforms. He assists in growing PureNorway's online visibility and engagement.\n\nWebsite: https://dvnny.no/\nEmail: hello@dvnny.no"
+    },
+
+    {
+      "id": 86,
+      "category": "Credits",
+      "question": "Who is helping with website and design?",
+      "answer": "👨‍💻 Danny Nguyen Le\n\nDanny is a web developer and designer assisting with the PureNorway website, branding, and overall digital design. He helps bring the brand vision to life with modern design and technical expertise.\n\nWebsite: https://dvnny.no/\nEmail: hello@dvnny.no"
+    },
+
+    {
+      "id": 87,
+      "category": "About Chatbot",
+      "question": "Are you AI? Are you a bot? Are you a robot?",
+      "answer": "No. This is a frequently asked question. I'm here to help you find information about PureNorway products, sustainability, and services. What would you like to know?"
+    },
+
+    {
+      "id": 88,
+      "category": "About Chatbot",
+      "question": "Are you human?",
+      "answer": "No, this is a frequently asked question. I'm an automated assistant designed to answer questions about PureNorway. You can contact a real human from the contact page: https://www.purenorway.no/contact"
+    }
+    
+  ]
+}

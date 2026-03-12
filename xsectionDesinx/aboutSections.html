@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – Pure Norway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:     #00B4C8;
+    --teal-dark:#007A8C;
+    --teal-dim: rgba(0,180,200,.1);
+    --navy:     #0D1B2A;
+    --off-white:#F4F8FA;
+    --white:    #FFFFFF;
+    --text:     #182530;
+    --muted:    #6B8090;
+    --border:   #DDE8EE;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); }
+
+  .about-section { padding: 96px 56px; background: var(--white); }
+  .about-inner {
+    max-width: 1160px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+
+  /* ── IMAGE SIDE ── */
+  .about-visual { position: relative; }
+  .about-img {
+    border-radius: 20px; overflow: hidden;
+    aspect-ratio: 4/5; position: relative;
+  }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(13,27,42,.55) 0%, transparent 50%);
+    border-radius: 20px;
+  }
+
+  /* stat card sitting over image bottom */
+  .stat-card {
+    position: absolute; bottom: 28px; left: 28px; right: 28px;
+    background: rgba(13,27,42,.88); backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,180,200,.2); border-radius: 14px;
+    padding: 20px 24px; display: flex; align-items: center; gap: 24px;
+    z-index: 1;
+  }
+  .stat-item { text-align: center; }
+  .stat-item .val {
+    font-family: 'Fraunces', serif; font-size: 28px; font-weight: 900;
+    color: var(--teal); line-height: 1;
+  }
+  .stat-item .lbl { font-size: 11px; color: rgba(255,255,255,.4); margin-top: 3px; line-height: 1.4; }
+  .stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,.1); flex-shrink: 0; }
+
+  /* ── TEXT SIDE ── */
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
+  }
+  .about-text h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(30px, 3.8vw, 50px); font-weight: 900;
+    letter-spacing: -1.2px; line-height: 1.02;
+    color: var(--navy); margin-bottom: 24px;
+  }
+  .about-text h2 em { color: var(--teal); font-style: italic; }
+
+  .about-text p {
+    font-size: 15px; color: var(--muted);
+    line-height: 1.85; margin-bottom: 18px;
+  }
+
+  /* I CARE highlight */
+  .icare-block {
+    margin: 28px 0; padding: 20px 22px;
+    background: var(--off-white); border-radius: 14px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .icare-badge {
+    width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+    background: var(--navy); display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .icare-text .label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  .icare-text .slogan { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 900; color: var(--navy); font-style: italic; }
+  .icare-text .slogan em { color: var(--teal); font-style: normal; }
+
+  .about-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--navy); color: #fff; padding: 13px 24px;
+    border-radius: 10px; font-size: 14px; font-weight: 600;
+    text-decoration: none; transition: background .2s; margin-top: 8px;
+  }
+  .about-cta:hover { background: var(--teal-dark); }
+  .about-cta svg { width: 15px; height: 15px; fill: currentColor; }
+
+  @media (max-width: 900px) {
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .about-visual { max-width: 480px; }
+  }
+  @media (max-width: 600px) {
+    .about-section { padding: 64px 20px; }
+    .stat-card { flex-wrap: wrap; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="about-section">
+  <div class="about-inner">
+
+    <!-- IMAGE -->
+    <div class="about-visual">
+      <div class="about-img">
+        <img
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&h=900&fit=crop&q=80"
+          alt="Norwegian nature"
+        >
+      </div>
+      <div class="stat-card">
+        <div class="stat-item">
+          <div class="val">1%</div>
+          <div class="lbl">Turnover to<br>ocean cleanup</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="val">0%</div>
+          <div class="lbl">Plastic in<br>our packaging</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="val">∞</div>
+          <div class="lbl">Recyclable<br>aluminum</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXT -->
+    <div class="about-text">
+      <div class="eyebrow">About Us</div>
+      <h2>Living in harmony<br>with <em>nature.</em></h2>
+
+      <p>The Norwegians have a strong tradition of taking care and living in harmony with nature. The resources that were given to the nation are carefully being preserved for future generations.</p>
+
+      <div class="icare-block">
+        <div class="icare-badge">🌊</div>
+        <div class="icare-text">
+          <div class="label">Our Slogan</div>
+          <div class="slogan">"Sustainability matters — <em>I CARE</em>"</div>
+        </div>
+      </div>
+
+      <p>Join our movement towards a sustainable future, and help us save the sea from plastic pollution. 1% of the turnover is donated to clean the ocean from plastic pollution, because we care. By interacting with our brand, you will be part of this movement. Come join us…</p>
+
+      <a href="#" class="about-cta">
+        Our story
+        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { MdPhotoLibrary } from "react-icons/md";
+import { getHomepageGallerySlides } from "@/lib/galleryService";
 import "./ImageCarousel.css";
 
 interface CarouselSlide {
@@ -38,9 +39,26 @@ const DELAY = 5000;
 
 export default function ImageCarousel() {
   const [current, setCurrent] = useState(0);
-  const [slides] = useState<CarouselSlide[]>(FALLBACK_SLIDES);
+  const [slides, setSlides] = useState<CarouselSlide[]>(FALLBACK_SLIDES);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const barRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const loadSlides = async () => {
+      const dbSlides = await getHomepageGallerySlides(6);
+      if (dbSlides.length > 0) {
+        setSlides(
+          dbSlides.map((slide) => ({
+            image: slide.imageUrl,
+            eyebrow: slide.eyebrow,
+            title: slide.title,
+          }))
+        );
+      }
+    };
+
+    loadSlides();
+  }, []);
 
   const resetProgress = useCallback(() => {
     const bar = barRef.current;

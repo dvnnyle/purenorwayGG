@@ -189,7 +189,7 @@ export default function About() {
               </div>
 
               <div className="our-cans-image-wrap">
-                <img className="our-cans-image" src="/assets/products/still.png" alt="PURENorway can" />
+                <img className="our-cans-image" src="/assets/images/wateflow.jpeg" alt="PURENorway can" />
               </div>
             </div>
           </div>

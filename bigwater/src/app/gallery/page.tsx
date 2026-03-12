@@ -15,6 +15,20 @@ interface GalleryImage {
 const INITIAL_VISIBLE = 20;
 const LOAD_STEP = 12;
 
+function preloadImages(urls: string[]) {
+  return Promise.all(
+    urls.map(
+      (src) =>
+        new Promise<void>((resolve) => {
+          const img = new window.Image();
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+          img.src = src;
+        })
+    )
+  );
+}
+
 export default function GalleryPage() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [images, setImages] = useState<GalleryImage[]>([]);
@@ -22,18 +36,36 @@ export default function GalleryPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let cancelled = false;
+
     const load = async () => {
       try {
         const dbSlides = await getGalleryPageSlides();
-        setImages(dbSlides.map((slide) => ({
+        const mappedImages = dbSlides.map((slide) => ({
           src: slide.imageUrl,
           alt: slide.title || slide.eyebrow,
-        })));
+        }));
+
+        if (cancelled) return;
+
+        setImages(mappedImages);
+
+        const firstBatch = mappedImages.slice(0, INITIAL_VISIBLE).map((img) => img.src);
+        if (firstBatch.length > 0) {
+          await preloadImages(firstBatch);
+        }
       } finally {
-        setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     };
+
     load();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {

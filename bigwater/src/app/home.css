@@ -947,12 +947,13 @@ body.boxed-layout .footer-content {
 
 /* Merch & Reviews Section */
 .merch-reviews-section {
-  padding: 0px 40px 78px;
+  padding: 0 40px 78px;
   background: #ffffff;
 }
 
 .merch-reviews-inner {
   max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -1222,11 +1223,15 @@ body.boxed-layout .footer-content {
 }
 
 .review p {
+  display: block;
   font-size: 12px;
   color: #6B8090;
   line-height: 1.6;
   font-style: italic;
   font-family: var(--font-poppins);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn-reviews {
@@ -1560,9 +1565,13 @@ body.boxed-layout .footer-content {
   border-radius: 24px;
   border: 1px solid rgba(1, 186, 204, 0.3);
   height: 36px;
-  margin-right: 8px;
-  vertical-align: middle;
-  transform: translateY(-2px);
+}
+
+/* Map Section Full Width */
+.home-section-map {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 .home2-newsletter-badge-inline svg {

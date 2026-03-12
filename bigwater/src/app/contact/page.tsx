@@ -459,7 +459,7 @@ export default function ContactPage() {
               <div className="global-team-eyebrow">OUR GLOBAL TEAM</div>
               <h2>People behind<br /><em>PURENorway Water.</em></h2>
             </div>
-            <p>Headquartered in Kristiansand with partners across 5 regions worldwide.</p>
+            <p>Headquartered in Kristiansand with partners across the world.</p>
           </div>
 
           {/* HQ Card */}
@@ -528,6 +528,22 @@ export default function ContactPage() {
                   <div className="r-links">
                     <a href="tel:+4740050684">+47 400 50 684</a>
                     <a href="mailto:post@fjordnorway.ae">post@fjordnorway.ae</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="region-card">
+              <div className="region-name">CENTRAL EUROPE</div>
+              <h3>Slovakia · Tsjekkia · Serbia</h3>
+              <div className="region-contacts">
+                <div className="r-person">
+                  <div className="r-person-name">Miroslav Holik</div>
+                  <div className="r-person-company">Waterguard S.R.O</div>
+                  <div className="r-links">
+                    <a href="tel:+4746505790">+47 465 05 790</a>
+                    <a href="mailto:miro@waterguard.sk">miro@waterguard.sk</a>
+                    <a href="http://waterguard.sk/">waterguard.sk</a>
                   </div>
                 </div>
               </div>

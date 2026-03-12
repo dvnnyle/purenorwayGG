@@ -1,0 +1,178 @@
+.create-section-page {
+  min-height: 100vh;
+}
+
+.create-section-hero {
+  min-height: clamp(320px, 48vh, 420px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+  padding: 40px 20px;
+}
+
+.create-section-kicker {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.create-section-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.create-section-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Scaffold Container */
+.scaffold-container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.scaffold-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.scaffold-card {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scaffold-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.scaffold-header h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #333;
+}
+
+.scaffold-lang {
+  background: #00a8a8;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.scaffold-code {
+  flex: 1;
+  overflow-x: auto;
+  padding: 20px;
+  margin: 0;
+  background: #2d2d2d;
+  color: #f8f8f2;
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.scaffold-code code {
+  font-family: inherit;
+  color: inherit;
+}
+
+.scaffold-copy-btn {
+  padding: 12px 20px;
+  background: #00a8a8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+  margin: 15px;
+  border-radius: 4px;
+}
+
+.scaffold-copy-btn:hover {
+  background: #008a8a;
+}
+
+/* Instructions */
+.scaffold-instructions {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.scaffold-instructions h3 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: #333;
+}
+
+.scaffold-instructions ol {
+  list-style: decimal-inside;
+  margin: 20px 0;
+  color: #666;
+  line-height: 1.8;
+}
+
+.scaffold-instructions li {
+  margin-bottom: 15px;
+}
+
+.scaffold-instructions code {
+  background: #e8e8e8;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 0.9em;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .create-section-hero h1 {
+    font-size: 2rem;
+  }
+
+  .create-section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .scaffold-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .scaffold-code {
+    font-size: 0.75rem;
+    padding: 15px;
+  }
+
+  .scaffold-container {
+    margin: 40px auto;
+  }
+}

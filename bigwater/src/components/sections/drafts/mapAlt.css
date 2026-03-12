@@ -1,0 +1,216 @@
+.map-alt-section {
+  background: linear-gradient(180deg, #f8fbfd 0%, #eef6fa 100%);
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-alt-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.map-alt-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.map-alt-kicker {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #01bacc;
+  text-transform: uppercase;
+  margin: 0 0 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.map-alt-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-family: 'Poppins', sans-serif;
+}
+
+.map-alt-description {
+  font-size: 1.1rem;
+  color: rgba(13, 27, 42, 0.72);
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 600px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.map-alt-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 26px;
+  max-width: 980px;
+}
+
+.map-alt-btn {
+  border: 1px solid rgba(1, 186, 204, 0.4);
+  background: #ffffff;
+  color: #0d1b2a;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 8px 13px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.map-alt-btn:hover {
+  border-color: rgba(1, 186, 204, 0.7);
+  background: #f1fbfc;
+  color: #0d1b2a;
+}
+
+.map-alt-btn.is-active {
+  background: #01bacc;
+  border-color: #01bacc;
+  color: #0d1b2a;
+}
+
+.map-alt-image-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+}
+
+.map-alt-image {
+  width: 100%;
+  height: auto;
+  max-height: min(72vh, 760px);
+  display: block;
+  object-fit: contain;
+}
+
+.map-alt-badge-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.map-alt-badge {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.map-alt-badge:hover {
+  z-index: 10;
+}
+
+.map-alt-badge-card {
+  position: absolute;
+  left: var(--offset-x, 0px);
+  top: var(--offset-y, -66px);
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  padding: 8px 11px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(1, 186, 204, 0.55);
+  color: #0d1b2a;
+  width: 148px;
+  min-height: 46px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 24px rgba(13, 27, 42, 0.18);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.map-alt-badge-card strong,
+.map-alt-badge-card small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.map-alt-badge:hover .map-alt-badge-card {
+  border-color: #01bacc;
+  box-shadow: 0 12px 30px rgba(1, 186, 204, 0.24);
+  transform: translate(-50%, -100%) scale(1.04);
+}
+
+.map-alt-badge-card strong {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.map-alt-badge-card small {
+  font-size: 0.72rem;
+  color: rgba(13, 27, 42, 0.62);
+}
+
+@media (max-width: 768px) {
+  .map-alt-section {
+    padding: 40px 15px;
+  }
+
+  .map-alt-header {
+    margin-bottom: 30px;
+  }
+
+  .map-alt-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .map-alt-kicker {
+    font-size: 0.75rem;
+  }
+
+  .map-alt-description {
+    font-size: 0.95rem;
+  }
+
+  .map-alt-image-wrap {
+    border-radius: 8px;
+  }
+
+  .map-alt-menu {
+    justify-content: flex-start;
+    margin-bottom: 18px;
+  }
+
+  .map-alt-btn {
+    font-size: 0.76rem;
+    padding: 7px 11px;
+  }
+
+  .map-alt-badge-card {
+    max-width: 132px;
+    padding: 7px 8px;
+  }
+
+  .map-alt-badge-card strong {
+    font-size: 0.72rem;
+  }
+
+  .map-alt-badge-card small {
+    font-size: 0.63rem;
+  }
+}

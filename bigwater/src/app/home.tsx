@@ -6,13 +6,12 @@ import { MdCo2, MdFullscreen, MdFullscreenExit, MdPause, MdPlayArrow, MdRecyclin
 import SectionFourCarousel from '@/components/sections/sectionFourCarousel';
 import BlogCarousel from '@/components/sections/blogCarousel';
 import MerchReviews from '@/components/sections/merchReviews';
-import SloganDivider from '@/components/sections/SloganDivider';
 import Footer from '@/components/layout/footer';
 import SectionIndicator from '@/components/ui/SectionIndicator';
 import Home2SectionQuoteTwo from '@/app/home2/pages/Home2SectionQuoteTwo';
 import Home2SectionNewsletter from '@/app/home2/pages/Home2SectionNewsletter';
 import ImpactCounter from '@/components/sections/impactCounter';
-import ImageCarousel from '@/components/sections/ImageCarousel';
+import MapSectionAlt3 from '@/components/sections/MapSectionAlt3';
 import './home.css';
 
 export default function HomePage() {
@@ -270,19 +269,17 @@ export default function HomePage() {
           </div>
         </section>
 
-        <SloganDivider />
-
-        <div style={{ height: "48px" }} />
-
-        <ImageCarousel />
+        <section className="home-section-map" id="home-section-map">
+          <MapSectionAlt3 />
+        </section>
 
         <section className="home-section-impact" id="home-section-impact">
           <ImpactCounter />
         </section>
 
-        <section className="merch-reviews-section" id="home-section-merch">
+        <div id="home-section-merch">
           <MerchReviews />
-        </section>
+        </div>
 
         <div id="home-section-quote">
           <Home2SectionQuoteTwo />

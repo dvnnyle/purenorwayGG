@@ -1,0 +1,124 @@
+.hex-world-page {
+  --panel-bg: #eef2fb;
+  --land: #fefeff;
+  --land-stroke: #dadff0;
+  --hex-stroke: rgba(100, 113, 156, 0.22);
+  --ink: #243451;
+  --muted: #6f7f95;
+
+  min-height: calc(100vh - 72px);
+  padding: 28px 14px;
+  background:
+    radial-gradient(1000px 420px at 15% 0%, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0)),
+    radial-gradient(920px 360px at 90% 100%, rgba(212, 225, 255, 0.58), rgba(255, 255, 255, 0)),
+    var(--panel-bg);
+}
+
+.hex-world-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow:
+    0 28px 70px rgba(41, 57, 94, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.hex-world-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.62), rgba(224, 231, 255, 0.26)),
+    var(--panel-bg);
+}
+
+.land-shape {
+  fill: var(--land);
+  stroke: var(--land-stroke);
+  stroke-width: 1;
+}
+
+.hex-shape {
+  stroke: var(--hex-stroke);
+  stroke-width: 0.65;
+}
+
+.city-pin {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 13px;
+  box-shadow: 0 14px 35px rgba(66, 80, 120, 0.22);
+  border: 1px solid #dde3f3;
+  padding: 7px 10px;
+  min-width: 154px;
+}
+
+.pin-icon {
+  width: 23px;
+  height: 23px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.pin-city {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.1;
+  color: #4d5d79;
+}
+
+.pin-value {
+  margin: 3px 0 0;
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.tone-cyan .pin-icon { background: #43b8ff; }
+.tone-mint .pin-icon { background: #60d39a; }
+.tone-orange .pin-icon { background: #f3ad38; }
+.tone-rose .pin-icon { background: #ef7e88; }
+.tone-violet .pin-icon { background: #bb86ff; }
+.tone-blue .pin-icon { background: #5d8df0; }
+
+.caption-value {
+  fill: var(--ink);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.caption-label {
+  fill: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (max-width: 920px) {
+  .hex-world-page {
+    padding: 16px 10px;
+  }
+
+  .city-pin {
+    transform: scale(0.88);
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 640px) {
+  .hex-world-shell {
+    border-radius: 16px;
+  }
+
+  .city-pin {
+    transform: scale(0.75);
+  }
+}

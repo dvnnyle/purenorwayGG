@@ -3,9 +3,22 @@
 import { useState } from "react";
 import Image from "next/image";
 import mapImage from "@/app/map/mapv2.png";
+import norwayBadgeImage from "@/app/map/hexmap_norway.png";
+import taiwanBadgeImage from "@/app/map/hexmap_taiwan.png";
 import "./mapAlt3.css";
 
-const locationBadges = [
+type LocationBadge = {
+  id: string;
+  name: string;
+  label: string;
+  top: string;
+  left: string;
+  offsetX: string;
+  offsetY: string;
+  badgeImage?: string;
+};
+
+const locationBadges: LocationBadge[] = [
   {
     id: "norway",
     name: "Norway",
@@ -14,6 +27,7 @@ const locationBadges = [
     left: "41%",
     offsetX: "44px",
     offsetY: "-78px",
+    badgeImage: norwayBadgeImage.src,
   },
   {
     id: "taiwan",
@@ -23,6 +37,7 @@ const locationBadges = [
     left: "98%",
     offsetX: "-120px",
     offsetY: "-38px",
+    badgeImage: taiwanBadgeImage.src,
   },
   {
     id: "singapore",
@@ -155,9 +170,14 @@ export default function MapSectionAlt3() {
 
           <div className="map-alt3-badge-layer" aria-hidden="true">
             {visibleBadges.map((badge) => (
+              (() => {
+                const leftValue = Number.parseFloat(badge.left);
+                const previewOnLeft = Number.isFinite(leftValue) && leftValue > 72;
+
+                return (
               <div
                 key={badge.id}
-                className={`map-alt3-badge${showAll && badge.id === "norway" ? " is-priority" : ""}`}
+                className={`map-alt3-badge${showAll && badge.id === "norway" ? " is-priority" : ""}${previewOnLeft ? " is-preview-left" : ""}`}
                 style={{
                   top: badge.top,
                   left: badge.left,
@@ -166,10 +186,27 @@ export default function MapSectionAlt3() {
                 }}
               >
                 <span className="map-alt3-badge-card">
-                  <strong>{badge.name}</strong>
+                  <strong className="map-alt3-badge-title">
+                    {badge.badgeImage ? (
+                      <img
+                        src={badge.badgeImage}
+                        alt=""
+                        aria-hidden="true"
+                        className="map-alt3-badge-icon"
+                      />
+                    ) : null}
+                    <span>{badge.name}</span>
+                  </strong>
                   <small>{badge.label}</small>
+                  {badge.badgeImage ? (
+                    <span className="map-alt3-badge-preview" aria-hidden="true">
+                      <img src={badge.badgeImage} alt="" className="map-alt3-badge-preview-img" />
+                    </span>
+                  ) : null}
                 </span>
               </div>
+                );
+              })()
             ))}
           </div>
         </div>

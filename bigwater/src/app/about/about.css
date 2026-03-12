@@ -1,15 +1,19 @@
 .about-page {
   width: 100%;
   min-height: 100vh;
-  background: #ffffff;
+  background: #f8f9fb;
 }
 
 /* Hero Top Section */
 .about-hero-top {
   width: 100%;
   padding: 100px 20px 80px;
-  background: linear-gradient(135deg, #0d1925 0%, #1a2f3f 100%);
+  min-height: clamp(320px, 48vh, 420px);
+  background: #0d1b2a;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
 }
@@ -58,7 +62,7 @@
 .about-hero {
   width: 100%;
   padding: 80px 40px;
-  background: #ffffff;
+  background: #f8f9fb;
 }
 
 .about-hero-inner {
@@ -95,7 +99,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13, 27, 42, 0.55) 0%, transparent 50%);
+  background: rgba(13, 27, 42, 0.45);
   border-radius: 20px;
 }
 
@@ -377,7 +381,7 @@
 /* Sustainability Section */
 .about-sustainability-section {
   padding: 80px 40px 78px;
-  background: #ffffff;
+  background: #f8f9fb;
 }
 
 .sustainability-inner {
@@ -526,7 +530,7 @@
 /* Our Water Our Cans Section */
 .our-cans-section {
   padding: 80px 40px 78px;
-  background: #ffffff;
+  background: #f8f9fb;
 }
 
 .our-cans-inner {
@@ -714,7 +718,7 @@
 /* Aluminum Section */
 .about-section-aluminum {
   padding: 80px 40px 78px;
-  background: #ffffff;
+  background: #f8f9fb;
 }
 
 .about-content-aluminum {
@@ -769,7 +773,7 @@
 /* Foundation Section */
 .about-section-foundation {
   padding: 80px 40px 78px;
-  background: #ffffff;
+  background: #f8f9fb;
 }
 
 .about-section-foundation .about-content {
@@ -934,7 +938,7 @@
 /* Sustainability Goals Section */
 .about-section-sustainability-goals {
   padding: 80px 40px 78px;
-  background: #ffffff;
+  background: #f8f9fb;
 }
 
 .contribution-content {

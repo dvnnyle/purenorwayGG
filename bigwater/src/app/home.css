@@ -32,9 +32,18 @@ body.boxed-layout .footer-content {
 .hero-section {
   position: relative;
   width: 100%;
-  height: calc(100vh - 70px - 20px);
+  height: calc(100vh - 62px - 20px);
   overflow: hidden;
   border-radius: 16px;
+  transition: width 0.55s ease, margin 0.55s ease, border-radius 0.55s ease, height 0.55s ease;
+}
+
+.hero-section.hero-section-expanded {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  height: calc(100vh - 62px);
+  border-radius: 0;
 }
 
 .hero-video {
@@ -634,7 +643,15 @@ body.boxed-layout .footer-content {
   }
 
   .hero-section {
-    height: calc(100vh - 86px - 20px);
+    height: calc(100vh - 62px - 20px);
+  }
+
+  .hero-section.hero-section-expanded {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    height: calc(100vh - 62px);
+    border-radius: 0;
   }
 
   .hero-title {

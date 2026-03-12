@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Link from "next/link";
 import { MdPhotoLibrary } from "react-icons/md";
-import { getActiveGallerySlides } from "@/lib/galleryService";
+import { getHomepageGallerySlides } from "@/lib/galleryService";
 import "./ImageCarousel.css";
 
 interface CarouselSlide {
@@ -44,7 +45,7 @@ export default function ImageCarousel() {
 
   useEffect(() => {
     const loadSlides = async () => {
-      const dbSlides = await getActiveGallerySlides();
+      const dbSlides = await getHomepageGallerySlides(6);
       if (dbSlides.length > 0) {
         setSlides(
           dbSlides.map((slide) => ({
@@ -104,7 +105,15 @@ export default function ImageCarousel() {
             key={i}
             className={`img-carousel-slide${i === current ? " active" : ""}`}
           >
-            <img src={slide.image} alt={slide.eyebrow} />
+            <Link
+              href="/gallery"
+              className="img-carousel-image-link"
+              aria-label="Open gallery"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={slide.image} alt={slide.eyebrow} />
+            </Link>
             <div className="img-carousel-caption">
               <div className="img-carousel-caption-text">
                 <span className="img-carousel-eyebrow">{slide.eyebrow}</span>
@@ -122,7 +131,16 @@ export default function ImageCarousel() {
         ))}
 
         {/* Gallery badge */}
-        <div className="img-carousel-badge"><MdPhotoLibrary />Gallery</div>
+        <Link
+          href="/gallery"
+          className="img-carousel-badge"
+          aria-label="Go to gallery"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <MdPhotoLibrary />
+          Gallery
+        </Link>
 
         {/* Dots */}
         <div className="img-carousel-dots">

@@ -3,7 +3,7 @@
   max-width: 1400px;
   margin-top: 22px;
   padding: 16px;
-  background: linear-gradient(180deg, rgba(7, 22, 33, 0.76), rgba(6, 18, 27, 0.62));
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0.82), rgba(13, 27, 42, 0.68));
   border: 1px solid rgba(1, 186, 204, 0.22);
   border-radius: 16px;
 }
@@ -102,15 +102,15 @@
 }
 
 .legend-card-trash .legend-icon-wrap {
-  background: rgba(7, 28, 40, 0.72);
+  background: rgba(13, 27, 42, 0.72);
 }
 
 .legend-card-collect .legend-icon-wrap {
-  background: rgba(7, 28, 40, 0.72);
+  background: rgba(13, 27, 42, 0.72);
 }
 
 .legend-card-fish .legend-icon-wrap {
-  background: rgba(7, 28, 40, 0.72);
+  background: rgba(13, 27, 42, 0.72);
 }
 
 .legend-icon-wrap::after {
@@ -196,7 +196,7 @@
 }
 
 .legend-tag {
-  background: rgba(7, 28, 40, 0.72);
+  background: rgba(13, 27, 42, 0.72);
   border: 1px solid rgba(1, 186, 204, 0.22);
   border-radius: 100px;
   width: 60px;

@@ -1,15 +1,19 @@
 /* Products Page */
 .products-page {
   min-height: 100vh;
-  background: #ffffff;
+  background: #f8f9fb;
 }
 
 /* Hero Section */
 .products-hero {
   width: 100%;
   padding: 100px 20px 80px;
-  background: linear-gradient(135deg, #0d1925 0%, #1a2f3f 100%);
+  min-height: clamp(320px, 48vh, 420px);
+  background: #0d1b2a;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
 }

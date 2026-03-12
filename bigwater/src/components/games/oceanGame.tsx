@@ -102,7 +102,8 @@ const ImpactGame = () => {
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [gameComplete, setGameComplete] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
+  const [hasStarted, setHasStarted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const trashIdRef = useRef(0);
   const collectableIdRef = useRef(0);
@@ -474,7 +475,13 @@ const ImpactGame = () => {
 
   const togglePause = () => {
     if (gameComplete) return;
-    setIsPaused((prev) => !prev);
+    setIsPaused((prev) => {
+      const next = !prev;
+      if (!hasStarted && !next) {
+        setHasStarted(true);
+      }
+      return next;
+    });
   };
 
   const toggleFullscreen = async () => {
@@ -699,14 +706,18 @@ const ImpactGame = () => {
           {isPaused && !gameComplete && (
             <div className="game-overlay game-overlay--paused">
               <div className="pause-card">
-                <h3 className="pause-title">Game Paused</h3>
-                <p className="pause-desc">Ocean activity is on hold. Tap resume to continue cleanup.</p>
+                <h3 className="pause-title">{hasStarted ? "Game Paused" : "Ready to Dive In?"}</h3>
+                <p className="pause-desc">
+                  {hasStarted
+                    ? "Ocean activity is on hold. Tap resume to continue cleanup."
+                    : "Start when you are ready. The ocean challenge begins the moment you tap the button."}
+                </p>
                 <button
                   type="button"
                   className="btn-play-again"
                   onClick={togglePause}
                 >
-                  Resume
+                  {hasStarted ? "Resume" : "Start Game"}
                 </button>
               </div>
             </div>
@@ -760,6 +771,8 @@ const ImpactGame = () => {
                       setCollectables([]);
                       setCreatures([]);
                       setGameComplete(false);
+                      setIsPaused(true);
+                      setHasStarted(false);
                     }}
                   >
                     Play Again

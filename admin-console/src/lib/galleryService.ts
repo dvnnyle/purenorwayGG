@@ -20,11 +20,28 @@ export interface GallerySlide {
   imageUrl: string;
   order: number;
   active: boolean;
+  showInCarousel: boolean;
+  showInGallery: boolean;
   createdAt?: Timestamp;
   updatedAt?: Timestamp;
 }
 
 const COLLECTION_NAME = "gallerySlides";
+
+function normalizeGallerySlide(slide: Partial<GallerySlide> & { id?: string }): GallerySlide {
+  return {
+    id: slide.id,
+    eyebrow: slide.eyebrow ?? "",
+    title: slide.title ?? "",
+    imageUrl: slide.imageUrl ?? "",
+    order: Number(slide.order) || 1,
+    active: slide.active ?? true,
+    showInCarousel: slide.showInCarousel ?? true,
+    showInGallery: slide.showInGallery ?? true,
+    createdAt: slide.createdAt,
+    updatedAt: slide.updatedAt,
+  };
+}
 
 export async function uploadGalleryImage(file: File, slideId: string): Promise<string | null> {
   try {
@@ -44,7 +61,7 @@ export async function getAllGallerySlides(): Promise<GallerySlide[]> {
   try {
     const q = query(collection(db, COLLECTION_NAME), orderBy("order", "asc"));
     const snap = await getDocs(q);
-    return snap.docs.map((d) => ({ id: d.id, ...d.data() })) as GallerySlide[];
+    return snap.docs.map((d) => normalizeGallerySlide({ id: d.id, ...d.data() }));
   } catch (error) {
     console.error("Error getting gallery slides:", error);
     return [];

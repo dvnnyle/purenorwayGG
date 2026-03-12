@@ -36,6 +36,12 @@
   pointer-events: all;
 }
 
+.img-carousel-image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .img-carousel-slide img {
   width: 100%;
   height: 100%;
@@ -131,6 +137,7 @@
   align-items: center;
   gap: 7px;
   line-height: 1;
+  text-decoration: none;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 

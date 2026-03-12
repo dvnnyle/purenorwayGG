@@ -2,28 +2,32 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import Footer from '@/components/layout/footer';
-import { getActiveGallerySlides } from '@/lib/galleryService';
+import { getGalleryPageSlides } from '@/lib/galleryService';
+import { FaInstagram, FaTiktok, FaFacebookF, FaXTwitter, FaLinkedinIn, FaSnapchat } from 'react-icons/fa6';
+import { MdWaterDrop } from 'react-icons/md';
 import './gallery.css';
 
 interface GalleryImage {
   src: string;
   alt: string;
-  wide?: boolean;
 }
+
+const INITIAL_VISIBLE = 20;
+const LOAD_STEP = 12;
 
 export default function GalleryPage() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [images, setImages] = useState<GalleryImage[]>([]);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
       try {
-        const dbSlides = await getActiveGallerySlides();
-        setImages(dbSlides.map((slide, i) => ({
+        const dbSlides = await getGalleryPageSlides();
+        setImages(dbSlides.map((slide) => ({
           src: slide.imageUrl,
           alt: slide.title || slide.eyebrow,
-          wide: i % 3 === 0,
         })));
       } finally {
         setLoading(false);
@@ -32,15 +36,26 @@ export default function GalleryPage() {
     load();
   }, []);
 
+  useEffect(() => {
+    setVisibleCount(INITIAL_VISIBLE);
+  }, [images.length]);
+
+  const visibleImages = images.slice(0, visibleCount);
+  const hasMoreImages = images.length > visibleCount;
+
   const closeLightbox = useCallback(() => setLightbox(null), []);
 
   const prev = useCallback(() => {
-    setLightbox(i => (i === null ? null : (i - 1 + images.length) % images.length));
-  }, [images.length]);
+    setLightbox(i => (i === null ? null : (i - 1 + visibleImages.length) % visibleImages.length));
+  }, [visibleImages.length]);
 
   const next = useCallback(() => {
-    setLightbox(i => (i === null ? null : (i + 1) % images.length));
-  }, [images.length]);
+    setLightbox(i => (i === null ? null : (i + 1) % visibleImages.length));
+  }, [visibleImages.length]);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => Math.min(prevCount + LOAD_STEP, images.length));
+  };
 
   useEffect(() => {
     if (lightbox === null) return;
@@ -69,6 +84,15 @@ export default function GalleryPage() {
 
       {/* Grid */}
       <main className="gallery-grid-wrap">
+        <div className="gallery-grid-header">
+          <div className="gallery-grid-header-text">
+            <div className="gallery-grid-kicker">PURENORWAY GALLERY</div>
+            <h2>
+              Through <span className="gallery-grid-highlight">our lens.</span>
+            </h2>
+          </div>
+        </div>
+
         {loading ? (
           <div className="gallery-skeleton-grid">
             {Array.from({ length: 8 }).map((_, i) => (
@@ -77,22 +101,30 @@ export default function GalleryPage() {
           </div>
         ) : (
           <div className="gallery-grid">
-            {images.map((img, idx) => (
+            {visibleImages.map((img, idx) => (
               <button
                 key={img.src}
-                className={`gallery-item${img.wide ? ' wide' : ''}`}
+                className="gallery-item"
                 onClick={() => setLightbox(idx)}
                 aria-label={`View — ${img.alt}`}
               >
                 <img src={img.src} alt={img.alt} loading="lazy" />
                 <div className="gallery-item-overlay">
                   <svg viewBox="0 0 24 24" aria-hidden="true" className="gallery-zoom-icon">
-                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                    <path d="M14 3h7v7h-2V6.41l-5.29 5.3-1.42-1.42L17.59 5H14V3zm-4 18H3v-7h2v3.59l5.29-5.3 1.42 1.42L6.41 19H10v2z" />
                   </svg>
                   <span className="gallery-item-label">{img.alt}</span>
                 </div>
               </button>
             ))}
+          </div>
+        )}
+
+        {!loading && hasMoreImages && (
+          <div className="gallery-load-more">
+            <button type="button" className="gallery-load-btn" onClick={handleLoadMore}>
+              Load more
+            </button>
           </div>
         )}
 
@@ -108,11 +140,11 @@ export default function GalleryPage() {
 
           <div className="gallery-lb-inner">
             <img
-              src={images[lightbox].src}
-              alt={images[lightbox].alt}
+              src={visibleImages[lightbox].src}
+              alt={visibleImages[lightbox].alt}
               className="gallery-lb-img"
             />
-            <p className="gallery-lb-caption">{images[lightbox].alt}</p>
+            <p className="gallery-lb-caption">{visibleImages[lightbox].alt}</p>
 
             <button className="gallery-lb-close" onClick={closeLightbox} aria-label="Close">
               ✕
@@ -126,11 +158,145 @@ export default function GalleryPage() {
             </button>
 
             <span className="gallery-lb-counter">
-              {lightbox + 1} / {images.length}
+              {lightbox + 1} / {visibleImages.length}
             </span>
           </div>
         </div>
       )}
+
+      <section className="social-banner-v2">
+        <div className="social-banner-inner">
+          <div className="social-banner-top">
+            <div>
+              <div className="social-banner-eyebrow">FOLLOW ALONG</div>
+              <h2>
+                We&apos;re on all<br />
+                <em>the good ones.</em>
+              </h2>
+            </div>
+            <a
+              href="https://www.instagram.com/purenorwaywaterno/"
+              target="_blank"
+              rel="noreferrer"
+              className="social-handle-pill"
+            >
+              <div className="social-handle-avatar" aria-hidden="true">
+                <MdWaterDrop />
+              </div>
+              <div className="social-handle-text">
+                <span className="social-handle-label">Our handle</span>
+                <span className="social-handle-name">
+                  <span>@</span>PURENorwayWaterNO
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div className="social-platforms-grid">
+            <a
+              href="https://www.instagram.com/purenorwaywaterno/"
+              target="_blank"
+              rel="noreferrer"
+              className="platform-card instagram"
+            >
+              <div className="platform-icon">
+                <FaInstagram />
+              </div>
+              <div className="platform-info">
+                <div className="platform-name">Instagram</div>
+                <div className="platform-action">Follow</div>
+              </div>
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@purenorwaywaterno"
+              target="_blank"
+              rel="noreferrer"
+              className="platform-card tiktok"
+            >
+              <div className="platform-icon">
+                <FaTiktok />
+              </div>
+              <div className="platform-info">
+                <div className="platform-name">TikTok</div>
+                <div className="platform-action">Follow</div>
+              </div>
+            </a>
+
+            <a
+              href="https://www.facebook.com/PureNorwayWaterNO/"
+              target="_blank"
+              rel="noreferrer"
+              className="platform-card facebook"
+            >
+              <div className="platform-icon">
+                <FaFacebookF />
+              </div>
+              <div className="platform-info">
+                <div className="platform-name">Facebook</div>
+                <div className="platform-action">Like</div>
+              </div>
+            </a>
+
+            <a
+              href="https://x.com/PureNorwayNO"
+              target="_blank"
+              rel="noreferrer"
+              className="platform-card x"
+            >
+              <div className="platform-icon">
+                <FaXTwitter />
+              </div>
+              <div className="platform-info">
+                <div className="platform-name">X</div>
+                <div className="platform-action">Follow</div>
+              </div>
+            </a>
+
+            <a
+              href="https://www.snapchat.com/add/Purenorwaywater"
+              target="_blank"
+              rel="noreferrer"
+              className="platform-card snapchat"
+            >
+              <div className="platform-icon">
+                <FaSnapchat />
+              </div>
+              <div className="platform-info">
+                <div className="platform-name">Snapchat</div>
+                <div className="platform-action">Add us</div>
+              </div>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/company/purenorwayno"
+              target="_blank"
+              rel="noreferrer"
+              className="platform-card linkedin"
+            >
+              <div className="platform-icon">
+                <FaLinkedinIn />
+              </div>
+              <div className="platform-info">
+                <div className="platform-name">LinkedIn</div>
+                <div className="platform-action">Follow</div>
+              </div>
+            </a>
+          </div>
+
+          <div className="social-banner-bottom">
+            <p>
+              Tag us in your posts - <strong>#PureNorwayWater</strong> &amp; <strong>#PureNorway</strong>
+            </p>
+            <div className="social-hashtags">
+              <span className="hashtag-tag">#PureNorwayWater</span>
+              <span className="hashtag-tag">#PureNorway</span>
+              <span className="hashtag-tag">#PureWater</span>
+              <span className="hashtag-tag">#PureNorwayWaterNO</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>

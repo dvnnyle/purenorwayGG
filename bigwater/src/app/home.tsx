@@ -18,9 +18,11 @@ import './home.css';
 export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const heroRef = useRef<HTMLElement | null>(null);
+  const heroWasAutoPausedRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isHeroExpanded, setIsHeroExpanded] = useState(false);
 
   useEffect(() => {
     const handleFullscreenChange = () => {
@@ -33,17 +35,73 @@ export default function HomePage() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsHeroExpanded(window.scrollY > 32);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleHeroOutOfView = () => {
+      if (!videoRef.current || !heroRef.current) return;
+
+      const heroRect = heroRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const visibleTop = Math.max(heroRect.top, 0);
+      const visibleBottom = Math.min(heroRect.bottom, viewportHeight);
+      const visiblePixels = Math.max(0, visibleBottom - visibleTop);
+      const visibleRatio = heroRect.height > 0 ? visiblePixels / heroRect.height : 0;
+      const isPastHalfVisible = visibleRatio < 0.5;
+
+      if (isPastHalfVisible && !videoRef.current.paused) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+        heroWasAutoPausedRef.current = true;
+        return;
+      }
+
+      if (!isPastHalfVisible && heroWasAutoPausedRef.current && videoRef.current.paused) {
+        videoRef.current
+          .play()
+          .then(() => {
+            setIsPlaying(true);
+            heroWasAutoPausedRef.current = false;
+          })
+          .catch(() => {
+            // Ignore autoplay interruption and keep UI state unchanged.
+          });
+      }
+    };
+
+    handleHeroOutOfView();
+    window.addEventListener('scroll', handleHeroOutOfView, { passive: true });
+    window.addEventListener('resize', handleHeroOutOfView);
+
+    return () => {
+      window.removeEventListener('scroll', handleHeroOutOfView);
+      window.removeEventListener('resize', handleHeroOutOfView);
+    };
+  }, []);
+
   const togglePlayPause = async () => {
     if (!videoRef.current) return;
 
     if (videoRef.current.paused) {
       await videoRef.current.play();
       setIsPlaying(true);
+      heroWasAutoPausedRef.current = false;
       return;
     }
 
     videoRef.current.pause();
     setIsPlaying(false);
+    heroWasAutoPausedRef.current = false;
   };
 
   const toggleMute = () => {
@@ -67,7 +125,11 @@ export default function HomePage() {
     <div className="homepage">
       <div className="content-wrapper">
         {/* Hero Section with Video */}
-        <section className="hero-section" id="hero-section" ref={heroRef}>
+        <section
+          className={`hero-section${isHeroExpanded ? ' hero-section-expanded' : ''}`}
+          id="hero-section"
+          ref={heroRef}
+        >
           <video
             ref={videoRef}
             className="hero-video"
@@ -241,10 +303,8 @@ export default function HomePage() {
           { id: 'home-section-four', label: 'Products' },
           { id: 'home-section-two', label: 'Mission' },
           { id: 'home-section-impact', label: 'Stats' },
-          { id: 'home-section-merch', label: 'Merch' },
-          { id: 'home-section-quote', label: 'Quote' },
+          { id: 'home-section-merch', label: 'Merch & Reviews' },
           { id: 'home-section-blog', label: 'Blog' },
-          { id: 'home-section-newsletter', label: 'News' },
         ]}
       />
 

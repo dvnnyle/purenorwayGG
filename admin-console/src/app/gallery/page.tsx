@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import AdminSidebar from '../_components/AdminSidebar';
 import {
   createGallerySlide,
@@ -18,6 +18,8 @@ interface GalleryEditorState {
   imageUrl: string;
   order: number;
   active: boolean;
+  showInCarousel: boolean;
+  showInGallery: boolean;
 }
 
 const initialGalleryState: GalleryEditorState = {
@@ -26,14 +28,94 @@ const initialGalleryState: GalleryEditorState = {
   imageUrl: '',
   order: 1,
   active: true,
+  showInCarousel: true,
+  showInGallery: true,
 };
+
+type ToastTone = 'success' | 'error' | 'info';
+
+interface ToastState {
+  tone: ToastTone;
+  message: string;
+  actionLabel?: string;
+  action?: () => void;
+}
 
 export default function GalleryAdminPage() {
   const [gallerySlides, setGallerySlides] = useState<GallerySlide[]>([]);
   const [editorState, setEditorState] = useState<GalleryEditorState>(initialGalleryState);
   const [loading, setLoading] = useState(false);
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [toast, setToast] = useState<ToastState | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const carouselEnabledCount = gallerySlides.filter((slide) => slide.active && slide.showInCarousel).length;
+
+  const showToast = useCallback((nextToast: ToastState) => {
+    setToast(nextToast);
+  }, []);
+
+  useEffect(() => {
+    if (!toast) return;
+    if (toast.action) return;
+
+    const timeoutId = window.setTimeout(() => {
+      setToast(null);
+    }, 3200);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [toast]);
+
+  const sortSlides = useCallback((slides: GallerySlide[]) => {
+    return [...slides].sort((a, b) => {
+      const orderDiff = Number(a.order) - Number(b.order);
+      if (orderDiff !== 0) return orderDiff;
+
+      const titleA = `${a.eyebrow} ${a.title}`.trim().toLowerCase();
+      const titleB = `${b.eyebrow} ${b.title}`.trim().toLowerCase();
+      const titleDiff = titleA.localeCompare(titleB);
+      if (titleDiff !== 0) return titleDiff;
+
+      return (a.id ?? '').localeCompare(b.id ?? '');
+    });
+  }, []);
+
+  const normalizeSlideOrders = useCallback(
+    async (slides: GallerySlide[], prioritySlideId?: string, requestedOrder?: number) => {
+      const ordered = sortSlides(slides);
+
+      if (prioritySlideId) {
+        const currentIndex = ordered.findIndex((slide) => slide.id === prioritySlideId);
+        if (currentIndex !== -1) {
+          const [prioritySlide] = ordered.splice(currentIndex, 1);
+          const targetIndex = Math.min(
+            Math.max((Number(requestedOrder) || 1) - 1, 0),
+            ordered.length
+          );
+          ordered.splice(targetIndex, 0, prioritySlide);
+        }
+      }
+
+      const normalized = ordered.map((slide, index) => ({
+        ...slide,
+        order: index + 1,
+      }));
+
+      const changedSlides = normalized.filter((slide) => {
+        const original = slides.find((entry) => entry.id === slide.id);
+        return original && Number(original.order) !== slide.order;
+      });
+
+      if (changedSlides.length > 0) {
+        await Promise.all(
+          changedSlides.map((slide) => updateGallerySlide(slide.id!, { order: slide.order }))
+        );
+      }
+
+      setGallerySlides(normalized);
+      return normalized;
+    },
+    [sortSlides]
+  );
 
   useEffect(() => {
     loadSlides();
@@ -41,7 +123,14 @@ export default function GalleryAdminPage() {
 
   const loadSlides = async () => {
     const data = await getAllGallerySlides();
-    setGallerySlides(data);
+    const normalized = await normalizeSlideOrders(data);
+    if (normalized.some((slide, index) => Number(data.find((entry) => entry.id === slide.id)?.order) !== index + 1)) {
+      showToast({
+        tone: 'info',
+        message: 'Gallery order was normalized to remove duplicates.',
+      });
+    }
+    return normalized;
   };
 
   const handleInputChange = (field: keyof GalleryEditorState, value: string | number | boolean) => {
@@ -75,6 +164,8 @@ export default function GalleryAdminPage() {
       imageUrl: slide.imageUrl,
       order: Number(slide.order) || 1,
       active: slide.active,
+      showInCarousel: slide.showInCarousel ?? true,
+      showInGallery: slide.showInGallery ?? true,
     });
     setImageFile(null);
   };
@@ -94,57 +185,85 @@ export default function GalleryAdminPage() {
         imageUrl,
         order: Number(editorState.order) || 1,
         active: editorState.active,
+        showInCarousel: editorState.showInCarousel,
+        showInGallery: editorState.showInGallery,
       };
-      if (editorState.id) await updateGallerySlide(editorState.id, payload);
-      else await createGallerySlide(payload);
-      await loadSlides();
-      resetEditor();
-      alert('Gallery slide saved');
+
+      let savedSlideId = editorState.id;
+      if (editorState.id) {
+        await updateGallerySlide(editorState.id, payload);
+      } else {
+        const created = await createGallerySlide(payload);
+        if (created.success) savedSlideId = created.id;
+      }
+
+      const refreshedSlides = await getAllGallerySlides();
+      const normalized = await normalizeSlideOrders(refreshedSlides, savedSlideId, payload.order);
+      resetEditor(normalized);
+      showToast({ tone: 'success', message: 'Gallery slide saved.' });
     } catch (error) {
       console.error('Error saving gallery slide:', error);
-      alert('Failed to save gallery slide');
+      showToast({ tone: 'error', message: 'Failed to save gallery slide.' });
     } finally {
       setLoading(false);
     }
   };
 
-  const handleDelete = async (id: string) => {
-    if (!confirm('Delete this gallery slide?')) return;
+  const deleteSlide = async (id: string) => {
     setLoading(true);
     try {
       await deleteGallerySlide(id);
-      await loadSlides();
-      if (editorState.id === id) resetEditor();
+      const refreshedSlides = await getAllGallerySlides();
+      const normalized = await normalizeSlideOrders(refreshedSlides);
+      if (editorState.id === id) resetEditor(normalized);
+      showToast({ tone: 'success', message: 'Gallery slide deleted.' });
     } catch (error) {
       console.error('Error deleting gallery slide:', error);
-      alert('Failed to delete gallery slide');
+      showToast({ tone: 'error', message: 'Failed to delete gallery slide.' });
     } finally {
       setLoading(false);
     }
   };
 
-  const swapOrder = async (slideId: string, currentOrder: number, direction: 'up' | 'down') => {
-    const candidates =
-      direction === 'up'
-        ? gallerySlides.filter((s) => s.order > currentOrder)
-        : gallerySlides.filter((s) => s.order < currentOrder);
+  const handleDelete = (id: string) => {
+    showToast({
+      tone: 'info',
+      message: 'Delete this gallery slide?',
+      actionLabel: 'Delete',
+      action: () => {
+        setToast(null);
+        void deleteSlide(id);
+      },
+    });
+  };
 
-    if (candidates.length === 0) return;
+  const swapOrder = async (slideId: string, _currentOrder: number, direction: 'up' | 'down') => {
+    const orderedDescending = [...gallerySlides].sort((a, b) => Number(b.order) - Number(a.order));
+    const currentIndex = orderedDescending.findIndex((slide) => slide.id === slideId);
+    if (currentIndex === -1) return;
 
-    const target =
-      direction === 'up'
-        ? candidates.reduce((min, s) => (Number(s.order) < Number(min.order) ? s : min))
-        : candidates.reduce((max, s) => (Number(s.order) > Number(max.order) ? s : max));
+    const targetIndex = direction === 'up' ? currentIndex + 1 : currentIndex - 1;
+    if (targetIndex < 0 || targetIndex >= orderedDescending.length) return;
+
+    const reordered = [...orderedDescending];
+    const [currentSlide] = reordered.splice(currentIndex, 1);
+    reordered.splice(targetIndex, 0, currentSlide);
+
+    const ascending = [...reordered].reverse().map((slide, index) => ({
+      ...slide,
+      order: index + 1,
+    }));
 
     setLoading(true);
     try {
-      await updateGallerySlide(slideId, { order: 99999 });
-      await updateGallerySlide(target.id!, { order: currentOrder });
-      await updateGallerySlide(slideId, { order: Number(target.order) });
-      await loadSlides();
+      await Promise.all(
+        ascending.map((slide) => updateGallerySlide(slide.id!, { order: slide.order }))
+      );
+      setGallerySlides(ascending);
+      showToast({ tone: 'success', message: 'Slide order updated.' });
     } catch (error) {
       console.error('Error moving slide:', error);
-      alert('Failed to move slide');
+      showToast({ tone: 'error', message: 'Failed to move slide.' });
     } finally {
       setLoading(false);
     }
@@ -154,10 +273,29 @@ export default function GalleryAdminPage() {
     <>
       <AdminSidebar />
 
+      {toast && (
+        <div className={`admin-toast admin-toast-${toast.tone}`} role="status" aria-live="polite">
+          <span>{toast.message}</span>
+          <div className="admin-toast-actions">
+            {toast.action && toast.actionLabel && (
+              <button
+                className="admin-toast-btn admin-toast-btn-primary"
+                onClick={() => toast.action?.()}
+              >
+                {toast.actionLabel}
+              </button>
+            )}
+            <button className="admin-toast-btn" onClick={() => setToast(null)}>
+              Dismiss
+            </button>
+          </div>
+        </div>
+      )}
+
       <main className="main">
         <div className="view active">
           <div className="topbar">
-            <h2>Gallery Carousel</h2>
+            <h2>Gallery Media</h2>
             <div className="topbar-actions">
               <button className="btn btn-ghost" onClick={() => resetEditor()} disabled={loading}>
                 New Slide
@@ -169,6 +307,14 @@ export default function GalleryAdminPage() {
           </div>
 
           <div className="content">
+            <div style={{ marginBottom: '18px', color: '#6B8090', fontSize: '13px' }}>
+              Homepage carousel uses the first 6 active images with homepage enabled, sorted by order. The gallery page shows every active image with gallery enabled.
+            </div>
+            {carouselEnabledCount > 6 && (
+              <div style={{ marginBottom: '18px', color: '#d97706', fontSize: '13px' }}>
+                {carouselEnabledCount} images are enabled for the homepage. Only the first 6 by order will appear in the slideshow.
+              </div>
+            )}
             <div className="gallery-grid">
               {/* Slide list */}
               <div className="panel">
@@ -192,7 +338,7 @@ export default function GalleryAdminPage() {
                           <div className="gallery-item-info">
                             <div className="gallery-item-title">{slide.eyebrow}</div>
                             <div className="gallery-item-meta">
-                              Order {slide.order} · {slide.active ? 'Active' : 'Hidden'}
+                              Order {slide.order} · {slide.active ? 'Active' : 'Hidden'} · Home {slide.showInCarousel ? 'On' : 'Off'} · Gallery {slide.showInGallery ? 'On' : 'Off'}
                             </div>
                           </div>
                           <div className="post-actions">
@@ -270,6 +416,28 @@ export default function GalleryAdminPage() {
                         <option value="active">Active</option>
                         <option value="hidden">Hidden</option>
                       </select>
+                    </div>
+                  </div>
+                  <div className="gallery-fields-row">
+                    <div>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
+                        <input
+                          type="checkbox"
+                          checked={editorState.showInCarousel}
+                          onChange={(e) => handleInputChange('showInCarousel', e.target.checked)}
+                        />
+                        Show in homepage slideshow
+                      </label>
+                    </div>
+                    <div>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
+                        <input
+                          type="checkbox"
+                          checked={editorState.showInGallery}
+                          onChange={(e) => handleInputChange('showInGallery', e.target.checked)}
+                        />
+                        Show on gallery page
+                      </label>
                     </div>
                   </div>
                   <div>

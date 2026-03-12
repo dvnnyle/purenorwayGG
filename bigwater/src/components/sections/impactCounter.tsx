@@ -59,8 +59,8 @@ export default function ImpactCounter() {
                 <MdAttachMoney />
               </div>
               <div className="impact-v4-stat-body">
-                <div className="impact-v2-stat-val" data-target="2467" data-suffix=" kr">0 kr</div>
-                <div className="impact-v4-stat-lbl">Donated to Environmental Projects</div>
+                <div className="impact-v2-stat-val" data-target="6010" data-suffix=" kr">0 kr</div>
+                <div className="impact-v4-stat-lbl">Donated to Environmental Projects (2024)</div>
               </div>
             </article>
 
@@ -69,8 +69,8 @@ export default function ImpactCounter() {
                 <MdWaterDrop />
               </div>
               <div className="impact-v4-stat-body">
-                <div className="impact-v2-stat-val" data-target="29" data-suffix=" kg">0 kg</div>
-                <div className="impact-v4-stat-lbl">Ocean Plastic Removed</div>
+                <div className="impact-v2-stat-val" data-target="71" data-suffix=" kg">0 kg</div>
+                <div className="impact-v4-stat-lbl">Ocean Plastic Removed (2024)</div>
               </div>
             </article>
 
@@ -79,8 +79,8 @@ export default function ImpactCounter() {
                 <MdEco />
               </div>
               <div className="impact-v4-stat-body">
-                <div className="impact-v2-stat-val" data-target="1488" data-suffix=" kg">0 kg</div>
-                <div className="impact-v4-stat-lbl">CO₂ Emissions Prevented</div>
+                <div className="impact-v2-stat-val" data-target="3625" data-suffix=" kg">0 kg</div>
+                <div className="impact-v4-stat-lbl">CO₂ Emissions Prevented (2024)</div>
               </div>
             </article>
           </div>

@@ -105,7 +105,7 @@
 
 .impact-v4-stat {
   background: #f4f8fa;
-  padding: 16px;
+  padding: 16px 20px 16px 16px;
   min-height: 104px;
   display: flex;
   align-items: center;
@@ -115,6 +115,11 @@
   border-radius: 12px;
   transition: background 0.2s, border-color 0.2s ease, box-shadow 0.2s ease;
   cursor: default;
+}
+
+.impact-v4-stat-body {
+  flex: 1;
+  min-width: 0;
 }
 
 .impact-v4-stat:hover {

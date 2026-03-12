@@ -191,6 +191,54 @@
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
+/* ─── Loading skeleton ──────────────────────────────────────────────── */
+.gallery-skeleton-grid {
+  columns: 4;
+  column-gap: 12px;
+  padding: 0 clamp(16px, 5vw, 60px) 60px;
+}
+@media (max-width: 1100px) { .gallery-skeleton-grid { columns: 3; } }
+@media (max-width: 720px)  { .gallery-skeleton-grid { columns: 2; } }
+@media (max-width: 480px)  { .gallery-skeleton-grid { columns: 1; } }
+
+.gallery-skeleton {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #1a2535 25%, #243045 50%, #1a2535 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  aspect-ratio: 3 / 4;
+}
+.gallery-skeleton.wide {
+  aspect-ratio: 16 / 9;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Featured badge ────────────────────────────────────────────────── */
+.gallery-item.featured {
+  outline: 2px solid rgba(0, 190, 255, 0.45);
+}
+.gallery-featured-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  background: rgba(0, 190, 255, 0.88);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
 /* ─── Lightbox ──────────────────────────────────────────────────────── */
 .gallery-lightbox {
   position: fixed;

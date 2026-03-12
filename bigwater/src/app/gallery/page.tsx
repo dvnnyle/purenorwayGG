@@ -2,9 +2,10 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import Footer from '@/components/layout/footer';
+import { getActiveGallerySlides } from '@/lib/galleryService';
 import './gallery.css';
 
-type Category = 'all' | 'marketing' | 'products' | 'merch' | 'foundation';
+type Category = 'all' | 'featured' | 'marketing' | 'products' | 'merch' | 'foundation';
 
 interface GalleryImage {
   src: string;
@@ -13,7 +14,7 @@ interface GalleryImage {
   wide?: boolean;
 }
 
-const IMAGES: GalleryImage[] = [
+const LOCAL_IMAGES: GalleryImage[] = [
   // Marketing
   { src: '/assets/marketingImages/480355058_645489551399318_5956170283212886069_n.jpg', alt: 'PureNorway campaign', category: 'marketing' },
   { src: '/assets/marketingImages/480684199_645499148065025_783341880443364320_n.jpg', alt: 'PureNorway in the wild', category: 'marketing' },
@@ -50,6 +51,7 @@ const IMAGES: GalleryImage[] = [
 
 const CATEGORIES: { key: Category; label: string }[] = [
   { key: 'all', label: 'All' },
+  { key: 'featured', label: 'Featured' },
   { key: 'marketing', label: 'Campaign' },
   { key: 'products', label: 'Water Range' },
   { key: 'merch', label: 'Merch' },
@@ -59,8 +61,31 @@ const CATEGORIES: { key: Category; label: string }[] = [
 export default function GalleryPage() {
   const [active, setActive] = useState<Category>('all');
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const [images, setImages] = useState<GalleryImage[]>(LOCAL_IMAGES);
+  const [loading, setLoading] = useState(true);
 
-  const filtered = active === 'all' ? IMAGES : IMAGES.filter(img => img.category === active);
+  // Fetch featured slides from Firebase (same collection as home carousel)
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const dbSlides = await getActiveGallerySlides();
+        if (dbSlides.length > 0) {
+          const featured: GalleryImage[] = dbSlides.map((slide, i) => ({
+            src: slide.imageUrl,
+            alt: slide.title || slide.eyebrow,
+            category: 'featured' as const,
+            wide: i % 3 === 0,
+          }));
+          setImages([...featured, ...LOCAL_IMAGES]);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
+
+  const filtered = active === 'all' ? images : images.filter(img => img.category === active);
 
   const closeLightbox = useCallback(() => setLightbox(null), []);
 
@@ -83,6 +108,8 @@ export default function GalleryPage() {
     return () => window.removeEventListener('keydown', handleKey);
   }, [lightbox, closeLightbox, prev, next]);
 
+  const hasFeatured = images.some(img => img.category === 'featured');
+
   return (
     <div className="gallery-page">
       {/* Hero */}
@@ -99,7 +126,7 @@ export default function GalleryPage() {
 
       {/* Filter tabs */}
       <div className="gallery-filter-bar">
-        {CATEGORIES.map(cat => (
+        {CATEGORIES.filter(cat => cat.key !== 'featured' || hasFeatured).map(cat => (
           <button
             key={cat.key}
             className={`gallery-filter-btn${active === cat.key ? ' active' : ''}`}
@@ -112,26 +139,37 @@ export default function GalleryPage() {
 
       {/* Grid */}
       <main className="gallery-grid-wrap">
-        <div className="gallery-grid">
-          {filtered.map((img, idx) => (
-            <button
-              key={img.src}
-              className={`gallery-item${img.wide ? ' wide' : ''}`}
-              onClick={() => setLightbox(idx)}
-              aria-label={`View — ${img.alt}`}
-            >
-              <img src={img.src} alt={img.alt} loading="lazy" />
-              <div className="gallery-item-overlay">
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="gallery-zoom-icon">
-                  <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                </svg>
-                <span className="gallery-item-label">{img.alt}</span>
-              </div>
-            </button>
-          ))}
-        </div>
+        {loading ? (
+          <div className="gallery-skeleton-grid">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className={`gallery-skeleton${i % 3 === 0 ? ' wide' : ''}`} />
+            ))}
+          </div>
+        ) : (
+          <div className="gallery-grid">
+            {filtered.map((img, idx) => (
+              <button
+                key={`${img.category}-${img.src}`}
+                className={`gallery-item${img.wide ? ' wide' : ''}${img.category === 'featured' ? ' featured' : ''}`}
+                onClick={() => setLightbox(idx)}
+                aria-label={`View — ${img.alt}`}
+              >
+                <img src={img.src} alt={img.alt} loading="lazy" />
+                {img.category === 'featured' && (
+                  <span className="gallery-featured-badge" aria-hidden="true">Featured</span>
+                )}
+                <div className="gallery-item-overlay">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="gallery-zoom-icon">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                  </svg>
+                  <span className="gallery-item-label">{img.alt}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
 
-        {filtered.length === 0 && (
+        {!loading && filtered.length === 0 && (
           <p className="gallery-empty">No images in this category yet.</p>
         )}
       </main>

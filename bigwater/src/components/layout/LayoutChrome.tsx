@@ -28,6 +28,7 @@ export default function LayoutChrome({ children }: LayoutChromeProps) {
               label: "Shop",
               href: "https://www.purenorwaystore.com/butikk/water",
             },
+            { label: "Gallery", href: "/gallery" },
             {
               label: "About",
               href: "/about",

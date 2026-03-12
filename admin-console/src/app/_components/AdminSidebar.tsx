@@ -1,10 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function AdminSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await fetch('/api/temp-auth/logout', { method: 'POST' });
+    sessionStorage.removeItem('temp_admin_session');
+    sessionStorage.removeItem('temp_admin_last_path');
+    router.push('/login');
+    router.refresh();
+  };
 
   return (
     <aside className="sidebar">
@@ -22,6 +31,13 @@ export default function AdminSidebar() {
       <div className="nav-section">Content</div>
 
       <Link href="/" className={`nav-item ${pathname === '/' ? 'active' : ''}`}>
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3 2 9v2h2v9h6v-6h4v6h6v-9h2V9L12 3z" />
+        </svg>
+        Dashboard
+      </Link>
+
+      <Link href="/blog" className={`nav-item ${pathname === '/blog' ? 'active' : ''}`}>
         <svg viewBox="0 0 24 24">
           <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
         </svg>
@@ -45,11 +61,18 @@ export default function AdminSidebar() {
       </Link>
 
       <div className="sidebar-footer">
+        <button type="button" className="logout-btn" onClick={handleLogout}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 17v-2h5V9h-5V7h7v10h-7zm-1 3H5c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h4v2H5v12h4v2zm11.59-5L18 12.41V11h-7v2h7v-1.41L20.59 15z" />
+          </svg>
+          Logout
+        </button>
+
         <div className="user">
-          <div className="avatar">DS</div>
+          <div className="avatar">AD</div>
           <div>
-            <div className="user-name">David Severinsen</div>
-            <div className="user-role">Administrator</div>
+            <div className="user-name">Admin User</div>
+            <div className="user-role">Temporary Access</div>
           </div>
         </div>
       </div>

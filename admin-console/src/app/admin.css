@@ -114,6 +114,7 @@ body {
   background: none;
   width: calc(100% - 16px);
   text-align: left;
+  text-decoration: none;
 }
 
 .nav-item svg {

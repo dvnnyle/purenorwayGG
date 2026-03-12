@@ -37,6 +37,11 @@
   font-size: 0.95rem;
 }
 
+.temp-login-loading {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+}
+
 .temp-login-form {
   display: flex;
   flex-direction: column;

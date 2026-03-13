@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import mapImage from "@/app/map/mapv2.png";
+import mapImage from "@/app/map/hexamap/world_map.webp";
 import "./mapAlt.css";
 
 const locationBadges = [

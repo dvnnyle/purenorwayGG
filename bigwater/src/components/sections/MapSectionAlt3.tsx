@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import mapImage from "@/app/map/mapv2.png";
-import norwayBadgeImage from "@/app/map/hexmap_norway.png";
-import taiwanBadgeImage from "@/app/map/hexmap_taiwan.png";
-import ukBadgeImage from "@/app/map/hexmap_uk.png";
-import vietnamBadgeImage from "@/app/map/hexmap_vietnam.png";
-import dubaiEmiratesBadgeImage from "@/app/map/hexmap_dubai_emirates.png";
-import franceBadgeImage from "@/app/map/hexmap_france.png";
+import mapImage from "@/app/map/hexamap/world_map.webp";
+import norwayBadgeImage from "@/app/map/hexamap/hexmap_norway.webp";
+import taiwanBadgeImage from "@/app/map/hexamap/hexmap_taiwan.webp";
+import ukBadgeImage from "@/app/map/hexamap/hexmap_uk.webp";
+import vietnamBadgeImage from "@/app/map/hexamap/hexmap_vietnam.webp";
+import dubaiEmiratesBadgeImage from "@/app/map/hexamap/hexmap_dubai_emirates.webp";
+import franceBadgeImage from "@/app/map/hexamap/hexmap_france.webp";
+import singaporeBadgeImage from "@/app/map/hexamap/hex_singapore.webp";
+import serbiaBadgeImage from "@/app/map/hexamap/hex_serbia.webp";
 import "./mapAlt3.css";
 
 type LocationBadge = {
@@ -51,6 +53,7 @@ const locationBadges: LocationBadge[] = [
     left: "90%",
     offsetX: "-120px",
     offsetY: "-8px",
+    badgeImage: singaporeBadgeImage.src,
   },
   {
     id: "vietnam",
@@ -88,6 +91,7 @@ const locationBadges: LocationBadge[] = [
     left: "44%",
     offsetX: "120px",
     offsetY: "-10px",
+    badgeImage: serbiaBadgeImage.src,
   },
   {
     id: "dubai",
@@ -97,7 +101,7 @@ const locationBadges: LocationBadge[] = [
     left: "55%",
     offsetX: "120px",
     offsetY: "30px",
-     badgeImage: dubaiEmiratesBadgeImage.src,
+    badgeImage: dubaiEmiratesBadgeImage.src,
   },
   {
     id: "uk",

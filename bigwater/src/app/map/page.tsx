@@ -1,4 +1,4 @@
-import "./testpage.css";
+import "./map.css";
 
 type Hotspot = {
   x: number;

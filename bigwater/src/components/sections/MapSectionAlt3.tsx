@@ -170,14 +170,9 @@ export default function MapSectionAlt3() {
 
           <div className="map-alt3-badge-layer" aria-hidden="true">
             {visibleBadges.map((badge) => (
-              (() => {
-                const leftValue = Number.parseFloat(badge.left);
-                const previewOnLeft = Number.isFinite(leftValue) && leftValue > 72;
-
-                return (
               <div
                 key={badge.id}
-                className={`map-alt3-badge${showAll && badge.id === "norway" ? " is-priority" : ""}${previewOnLeft ? " is-preview-left" : ""}`}
+                className={`map-alt3-badge${showAll && badge.id === "norway" ? " is-priority" : ""}`}
                 style={{
                   top: badge.top,
                   left: badge.left,
@@ -185,7 +180,7 @@ export default function MapSectionAlt3() {
                   ["--offset-y" as string]: badge.offsetY,
                 }}
               >
-                <span className="map-alt3-badge-card">
+                <span className={`map-alt3-badge-card${badge.badgeImage ? " has-image" : ""}`}>
                   <strong className="map-alt3-badge-title">
                     {badge.badgeImage ? (
                       <img
@@ -199,14 +194,12 @@ export default function MapSectionAlt3() {
                   </strong>
                   <small>{badge.label}</small>
                   {badge.badgeImage ? (
-                    <span className="map-alt3-badge-preview" aria-hidden="true">
-                      <img src={badge.badgeImage} alt="" className="map-alt3-badge-preview-img" />
+                    <span className="map-alt3-badge-inline-image-wrap" aria-hidden="true">
+                      <img src={badge.badgeImage} alt="" className="map-alt3-badge-inline-image" />
                     </span>
                   ) : null}
                 </span>
               </div>
-                );
-              })()
             ))}
           </div>
         </div>

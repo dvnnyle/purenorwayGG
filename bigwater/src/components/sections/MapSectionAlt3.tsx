@@ -5,6 +5,8 @@ import Image from "next/image";
 import mapImage from "@/app/map/mapv2.png";
 import norwayBadgeImage from "@/app/map/hexmap_norway.png";
 import taiwanBadgeImage from "@/app/map/hexmap_taiwan.png";
+import ukBadgeImage from "@/app/map/hexmap_uk.png";
+import vietnamBadgeImage from "@/app/map/hexmap_vietnam.png";
 import "./mapAlt3.css";
 
 type LocationBadge = {
@@ -56,6 +58,7 @@ const locationBadges: LocationBadge[] = [
     left: "93%",
     offsetX: "-120px",
     offsetY: "-24px",
+    badgeImage: vietnamBadgeImage.src,
   },
   {
     id: "slovakia",
@@ -101,6 +104,7 @@ const locationBadges: LocationBadge[] = [
     left: "52%",
     offsetX: "-120px",
     offsetY: "-92px",
+    badgeImage: ukBadgeImage.src,
   },
   {
     id: "france",

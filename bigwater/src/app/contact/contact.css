@@ -2,6 +2,14 @@
 .contact-page {
   min-height: 100vh;
   background: #f8f9fb;
+  --section-eyebrow-size: 12px;
+  --section-eyebrow-weight: 700;
+  --section-eyebrow-letter: 0.15em;
+  --section-heading-size: clamp(2rem, 3.2vw, 3.5rem);
+  --section-heading-line: 1.12;
+  --section-heading-letter: -0.02em;
+  --section-subtitle-size: 1rem;
+  --section-subtitle-line: 1.65;
 }
 
 .contact-page .content-wrapper {
@@ -93,34 +101,34 @@ html {
 
 .work-with-us-header-text {
   flex: 1;
-  max-width: 65platform-card linkedin0px;
+  max-width: 650px;
 }
 
 .work-with-us-kicker {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-size: var(--section-eyebrow-size);
+  font-weight: var(--section-eyebrow-weight);
+  letter-spacing: var(--section-eyebrow-letter);
   color: #01bacc;
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 }
 
 .work-with-us-header h2 {
   margin: 0;
   color: #0d1925;
-  font-size: 3.8rem;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
+  font-size: var(--section-heading-size);
+  line-height: var(--section-heading-line);
+  letter-spacing: var(--section-heading-letter);
   font-family: var(--font-poppins), 'Poppins', sans-serif !important;
   font-style: normal;
   font-weight: 700;
 }
 
 .work-with-us-header p {
-  font-size: 1.05rem;
+  font-size: var(--section-subtitle-size);
   color: rgba(13, 25, 37, 0.65);
-  line-height: 1.5;
+  line-height: var(--section-subtitle-line);
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   margin: 0;
   text-align: right;
@@ -142,7 +150,7 @@ html {
 
 .work-card {
   background: #eaf0f4;
-  border: 1px solid rgba(13, 25, 37, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   padding: 26px 22px 24px;
   display: flex;
@@ -261,9 +269,9 @@ html {
 }
 
 .global-team-eyebrow {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-size: var(--section-eyebrow-size);
+  font-weight: var(--section-eyebrow-weight);
+  letter-spacing: var(--section-eyebrow-letter);
   text-transform: uppercase;
   color: #01bacc;
   margin-bottom: 12px;
@@ -272,11 +280,11 @@ html {
 
 .global-team-header-text h2 {
   font-family: var(--font-poppins), 'Poppins', sans-serif;
-  font-size: 3.5rem;
+  font-size: var(--section-heading-size);
   font-weight: 700;
   color: #0d1925;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: var(--section-heading-letter);
+  line-height: var(--section-heading-line);
   margin: 0;
 }
 
@@ -286,11 +294,11 @@ html {
 }
 
 .global-team-header > p {
-  font-size: 1rem;
+  font-size: var(--section-subtitle-size);
   color: rgba(13, 25, 37, 0.65);
   max-width: 260px;
   text-align: right;
-  line-height: 1.65;
+  line-height: var(--section-subtitle-line);
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   margin: 0;
 }
@@ -298,7 +306,7 @@ html {
 /* HQ Card */
 .hq-card {
   background: #eaf0f4;
-  border: 1px solid rgba(13, 25, 37, 0.12);
+border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   padding: 36px 40px;
   margin-bottom: 20px;
@@ -506,9 +514,9 @@ html {
 }
 
 .faq-eyebrow {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-size: var(--section-eyebrow-size);
+  font-weight: var(--section-eyebrow-weight);
+  letter-spacing: var(--section-eyebrow-letter);
   text-transform: uppercase;
   color: #01bacc;
   margin: 0 0 12px;
@@ -518,9 +526,9 @@ html {
 .faq-left h2 {
   margin: 0 0 14px;
   color: #0d1925;
-  font-size: clamp(2rem, 2.8vw, 3.1rem);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  font-size: var(--section-heading-size);
+  line-height: var(--section-heading-line);
+  letter-spacing: var(--section-heading-letter);
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
@@ -532,8 +540,8 @@ html {
 .faq-left > p {
   margin: 0 0 28px;
   color: rgba(13, 25, 37, 0.65);
-  font-size: 0.98rem;
-  line-height: 1.7;
+  font-size: var(--section-subtitle-size);
+  line-height: var(--section-subtitle-line);
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
@@ -767,9 +775,9 @@ html {
 .contact-social-eyebrow {
   margin: 0 0 8px;
   color: #01bacc;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: var(--section-eyebrow-size);
+  font-weight: var(--section-eyebrow-weight);
+  letter-spacing: var(--section-eyebrow-letter);
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -777,9 +785,9 @@ html {
 .contact-social-text h2 {
   margin: 0 0 6px;
   color: #0d1925;
-  font-size: clamp(1.75rem, 2.2vw, 2.5rem);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  font-size: var(--section-heading-size);
+  line-height: var(--section-heading-line);
+  letter-spacing: var(--section-heading-letter);
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
@@ -791,8 +799,8 @@ html {
 .contact-social-text p {
   margin: 0;
   color: rgba(13, 25, 37, 0.62);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: var(--section-subtitle-size);
+  line-height: var(--section-subtitle-line);
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
@@ -978,7 +986,7 @@ html {
   gap: 10px;
   padding: 24px 16px;
   background: #ffffff;
-  border: 1px solid rgba(13, 25, 37, 0.1);
+  border: 5px solid rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   text-decoration: none;
   color: rgba(13, 25, 37, 0.6);
@@ -999,7 +1007,7 @@ html {
   height: 44px;
   border-radius: 12px;
   background: #f2f6f9;
-  border: 1px solid rgba(13, 25, 37, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1091,170 +1099,6 @@ html {
   margin-top: 0;
 }
 
-.contact-newsletter-section .home2-newsletter-inner {
-  position: relative;
-  min-height: 520px;
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 40px;
-}
-
-.contact-newsletter-section .home2-newsletter-badge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: white;
-  color: #2f2f2f;
-  padding: 8px 20px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  z-index: 3;
-  font-family: var(--font-poppins), 'Poppins', sans-serif;
-}
-
-.contact-newsletter-section .home2-newsletter-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.contact-newsletter-section .home2-newsletter-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 62%;
-}
-
-.contact-newsletter-section .home2-newsletter-image::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.15);
-}
-
-.contact-newsletter-section .home2-newsletter-card {
-  position: relative;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.24);
-  border-radius: 16px;
-  padding: 50px 60px;
-  max-width: 720px;
-  text-align: center;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
-  transition: all 0.3s ease;
-}
-
-.contact-newsletter-section .home2-newsletter-title {
-  margin: 0 0 20px;
-  font-size: 2.2rem;
-  font-weight: 400;
-  line-height: 1.3;
-  color: #ffffff;
-  letter-spacing: -0.5px;
-  font-family: var(--font-poppins), 'Poppins', sans-serif;
-}
-
-.contact-newsletter-section .home2-newsletter-highlight {
-  font-weight: 700;
-  color: #01bacc;
-}
-
-.contact-newsletter-section .home2-newsletter-badge-inline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(1, 186, 204, 0.15);
-  padding: 8px 12px;
-  border-radius: 24px;
-  border: 1px solid rgba(1, 186, 204, 0.3);
-  height: 36px;
-  margin-right: 8px;
-  vertical-align: middle;
-  transform: translateY(-2px);
-}
-
-.contact-newsletter-section .home2-newsletter-badge-inline svg {
-  width: 18px;
-  height: 18px;
-  color: #01bacc;
-}
-
-.contact-newsletter-section .home2-newsletter-copy {
-  margin: 0 0 32px;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #ffffffb0;
-  font-family: var(--font-poppins), 'Poppins', sans-serif;
-}
-
-.contact-newsletter-section .home2-newsletter-form {
-  display: flex;
-  gap: 12px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.contact-newsletter-section .home2-newsletter-input {
-  flex: 1;
-  padding: 14px 20px;
-  border-radius: 50px;
-  background: #f9fafb;
-  color: #1a1a1a;
-  font-size: 1rem;
-  border: 2px solid rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  font-family: var(--font-poppins), 'Poppins', sans-serif;
-}
-
-.contact-newsletter-section .home2-newsletter-input:focus {
-  outline: none;
-  border-color: #01bacc;
-  background: white;
-}
-
-.contact-newsletter-section .home2-newsletter-input::placeholder {
-  color: #9ca3af;
-}
-
-.contact-newsletter-section .home2-newsletter-btn {
-  padding: 14px 32px;
-  background: #01bacc;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  font-family: var(--font-poppins), 'Poppins', sans-serif;
-}
-
-.contact-newsletter-section .home2-newsletter-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  background: #02d4e8;
-  box-shadow: 0 8px 24px rgba(1, 186, 204, 0.3);
-}
-
-.contact-newsletter-section .home2-newsletter-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
 /* Main Contact Section */
 .contact-main-section {
   padding: 80px 20px;
@@ -1320,7 +1164,7 @@ html {
 
 .contact-detail-card {
   background: #ffffff;
-  border: 1px solid rgba(13, 25, 37, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   padding: 24px;
   display: flex;
@@ -1401,7 +1245,7 @@ html {
 .contact-social-sidebar {
   padding: 20px;
   background: #ffffff;
-  border: 1px solid rgba(13, 25, 37, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 14px;
 }
 
@@ -1427,7 +1271,7 @@ html {
   justify-content: center;
   padding: 14px;
   background: #eaf0f4;
-  border: 1px solid rgba(13, 25, 37, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   text-decoration: none;
   color: #0d1925;
@@ -1476,7 +1320,7 @@ html {
 
 .contact-form-card {
   background: #ffffff;
-  border: 1px solid rgba(13, 25, 37, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   padding: 48px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
@@ -1690,6 +1534,11 @@ html {
 }
 
 @media (max-width: 768px) {
+  .contact-page {
+    --section-heading-size: 2.4rem;
+    --section-subtitle-size: 0.95rem;
+  }
+
   .contact-hero {
     padding: 80px 20px 60px;
   }
@@ -1710,42 +1559,12 @@ html {
     padding: 56px 20px 60px;
   }
 
-  .work-with-us-header h2 {
-    font-size: 2.4rem;
-  }
-
   .work-with-us-header p {
     font-size: 1rem;
   }
 
   .work-with-us-grid {
     grid-template-columns: 1fr;
-  }
-
-  .contact-newsletter-section .home2-newsletter-inner {
-    padding: 40px 20px;
-    min-height: 450px;
-  }
-
-  .contact-newsletter-section .home2-newsletter-card {
-    padding: 40px 30px;
-  }
-
-  .contact-newsletter-section .home2-newsletter-title {
-    font-size: 1.8rem;
-  }
-
-  .contact-newsletter-section .home2-newsletter-copy {
-    font-size: 0.95rem;
-  }
-
-  .contact-newsletter-section .home2-newsletter-form {
-    flex-direction: column;
-    max-width: 100%;
-  }
-
-  .contact-newsletter-section .home2-newsletter-btn {
-    width: 100%;
   }
 
   .contact-main-section {
@@ -1790,10 +1609,6 @@ html {
     padding: 60px 20px;
   }
 
-  .global-team-header-text h2 {
-    font-size: 2.4rem;
-  }
-
   .hq-card {
     padding: 28px 20px;
     gap: 20px;
@@ -1823,10 +1638,6 @@ html {
     padding: 60px 20px;
   }
 
-  .faq-left h2 {
-    font-size: 2.35rem;
-  }
-
   .faq-cats {
     flex-direction: column;
   }
@@ -1850,6 +1661,12 @@ html {
 }
 
 @media (max-width: 480px) {
+  .contact-page {
+    --section-heading-size: 1.95rem;
+    --section-subtitle-size: 0.9rem;
+    --section-eyebrow-size: 11px;
+  }
+
   .contact-hero {
     padding: 60px 20px 40px;
   }
@@ -1870,10 +1687,6 @@ html {
     padding: 44px 20px 48px;
   }
 
-  .work-with-us-header h2 {
-    font-size: 1.9rem;
-  }
-
   .work-card {
     padding: 20px 16px;
   }
@@ -1881,28 +1694,6 @@ html {
   .work-card h3 {
     font-size: 1.25rem;
     white-space: normal;
-  }
-
-  .contact-newsletter-section .home2-newsletter-inner {
-    padding: 30px 16px;
-    min-height: 400px;
-  }
-
-  .contact-newsletter-section .home2-newsletter-card {
-    padding: 30px 20px;
-  }
-
-  .contact-newsletter-section .home2-newsletter-title {
-    font-size: 1.5rem;
-  }
-
-  .contact-newsletter-section .home2-newsletter-copy {
-    font-size: 0.9rem;
-  }
-
-  .contact-newsletter-section .home2-newsletter-badge {
-    font-size: 0.8rem;
-    padding: 6px 16px;
   }
 
   .contact-main-section {
@@ -1981,10 +1772,6 @@ html {
     margin-bottom: 40px;
   }
 
-  .global-team-header-text h2 {
-    font-size: 1.9rem;
-  }
-
   .global-team-header > p {
     font-size: 0.9rem;
     text-align: left;
@@ -2042,18 +1829,9 @@ html {
     padding: 18px 14px;
   }
 
-  .contact-social-text h2 {
-    font-size: 1.6rem;
-  }
-
-  .contact-social-text p {
-    font-size: 0.85rem;
-  }
-
   .contact-social-links {
     grid-template-columns: 1fr;
   }
-
   .contact-social-btn {
     padding: 10px 12px;
   }
@@ -2066,12 +1844,7 @@ html {
     gap: 30px;
   }
 
-  .faq-left h2 {
-    font-size: 1.95rem;
-  }
-
   .faq-left > p {
-    font-size: 0.9rem;
     margin-bottom: 22px;
   }
 
@@ -2174,4 +1947,21 @@ html {
     font-size: 0.7rem;
     padding: 5px 12px;
   }
+}
+
+/* Contact card border consistency */
+.contact-page :is(
+  .work-card,
+  .hq-card,
+  .region-card,
+  .faq-item,
+  .platform-card,
+  .contact-detail-card,
+  .contact-form-card
+) {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.contact-page .platform-card:hover {
+  border-color: #01bacc;
 }

@@ -45,8 +45,10 @@ export default function NavbarV2({
   ctaHref = 'https://www.purenorwaystore.com/butikk/water',
   showLanguageSwitch = false,
 }: NavbarV2Props) {
+  const SCROLLBAR_COMPENSATION_PX = 12;
   const FEATURED_SLIDE_INTERVAL_MS = 10000;
   const FEATURED_TRANSITION_MS = 650;
+  const menuTriggerRef = useRef<HTMLButtonElement | null>(null);
 
   const [language, setLanguage] = useState('EN');
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -65,6 +67,32 @@ export default function NavbarV2({
   };
 
   useEffect(() => {
+    const updateMegaMenuOrigin = () => {
+      if (!menuTriggerRef.current) return;
+
+      const rect = menuTriggerRef.current.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+
+      document.documentElement.style.setProperty('--mega-menu-origin-x', `${originX}px`);
+      document.documentElement.style.setProperty('--mega-menu-origin-y', `${originY}px`);
+    };
+
+    const syncOrigin = () => {
+      window.requestAnimationFrame(updateMegaMenuOrigin);
+    };
+
+    syncOrigin();
+    window.addEventListener('resize', syncOrigin);
+    window.addEventListener('scroll', syncOrigin, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', syncOrigin);
+      window.removeEventListener('scroll', syncOrigin);
+    };
+  }, [megaMenuOpen]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
@@ -77,7 +105,15 @@ export default function NavbarV2({
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = megaMenuOpen ? 'hidden' : '';
+    if (megaMenuOpen) {
+      document.documentElement.style.setProperty('--navbar-scrollbar-comp', `${SCROLLBAR_COMPENSATION_PX}px`);
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = `${SCROLLBAR_COMPENSATION_PX}px`;
+    } else {
+      document.documentElement.style.setProperty('--navbar-scrollbar-comp', '0px');
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -87,10 +123,12 @@ export default function NavbarV2({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => {
+      document.documentElement.style.setProperty('--navbar-scrollbar-comp', '0px');
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [megaMenuOpen]);
+  }, [SCROLLBAR_COMPENSATION_PX, megaMenuOpen]);
 
   useEffect(() => {
     const loadFeaturedStories = async () => {
@@ -287,6 +325,7 @@ export default function NavbarV2({
           )}
 
           <button
+            ref={menuTriggerRef}
             className={`navbar-v2-control-btn navbar-v2-menu-trigger ${megaMenuOpen ? 'open' : ''}`}
             onClick={() => setMegaMenuOpen((current) => !current)}
             aria-label="Toggle mega menu"
@@ -304,13 +343,11 @@ export default function NavbarV2({
       <div className={`navbar-v2-mega-menu ${megaMenuOpen ? 'open' : ''}`}>
         <div className="navbar-v2-mega-top">
           <button
-            className="navbar-v2-mega-close"
+            className="navbar-v2-control-btn navbar-v2-menu-trigger navbar-v2-mega-close"
             onClick={() => setMegaMenuOpen(false)}
             aria-label="Close mega menu"
           >
-            <span className="navbar-v2-menu-trigger-line" />
-            <span className="navbar-v2-menu-trigger-line" />
-            <span className="navbar-v2-menu-trigger-line" />
+            <FiX className="navbar-v2-control-icon" aria-hidden="true" />
           </button>
         </div>
 
@@ -318,9 +355,7 @@ export default function NavbarV2({
           <div className="navbar-v2-mega-left">
             <div>
               <div className="navbar-v2-mega-brand">
-                Pure<em>Norway</em>
-                <br />
-                Water
+                PURE<em>Norway</em> WATER
               </div>
               <p className="navbar-v2-mega-tagline">
                 Glacier-born Norwegian water. Crafted clean. Carried with care.

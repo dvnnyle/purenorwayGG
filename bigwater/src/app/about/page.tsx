@@ -45,6 +45,20 @@ export default function About() {
           {/* IMAGE SIDE */}
           <div className="about-hero-visual">
             <div className="about-hero-img">
+              <div className="about-hero-photo-credit" aria-label="Photo credit: Cabin in the woods by Lachlan Gowen">
+                <span className="about-hero-photo-credit-label">Photo: Lachlan Gowen</span>
+                <div className="about-hero-photo-credit-card">
+                  <img
+                    src="/assets/images/sandNorway.jpg"
+                    alt="Cabin in the woods by Lachlan Gowen"
+                    className="about-hero-photo-credit-image"
+                  />
+                  <div className="about-hero-photo-credit-copy">
+                    <strong>Cabin in the woods</strong>
+                    <span>Lachlan Gowen</span>
+                  </div>
+                </div>
+              </div>
               <img
                 src="/assets/images/sandNorway.jpg"
                 alt="Norwegian nature"

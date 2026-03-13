@@ -1,6 +1,9 @@
 /* NavbarV2 - original navbar with mega menu overlay */
 
 :root {
+  --navbar-scrollbar-comp: 0px;
+  --mega-menu-origin-x: calc(100% - 45px);
+  --mega-menu-origin-y: 32px;
   --teal: #00b4c8;
   --teal-dark: #007a8c;
   --teal-dim: rgba(0, 180, 200, 0.1);
@@ -37,7 +40,7 @@
 .navbar-v2.mega-open {
   background: transparent;
   backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  -webkit-backdrop-filter: none;  padding-right: calc(200px + var(--navbar-scrollbar-comp)) !important;
 }
 
 .navbar-v2.mega-open .navbar-v2-link,
@@ -166,7 +169,7 @@
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.08);
   color: #223445;
   display: flex;
@@ -221,18 +224,6 @@
   transform: translateY(-4.5px) rotate(-45deg);
 }
 
-.navbar-v2-mega-close .navbar-v2-menu-trigger-line:nth-child(1) {
-  transform: translateY(4.5px) rotate(45deg);
-}
-
-.navbar-v2-mega-close .navbar-v2-menu-trigger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.navbar-v2-mega-close .navbar-v2-menu-trigger-line:nth-child(3) {
-  transform: translateY(-4.5px) rotate(-45deg);
-}
-
 .navbar-v2-mega-menu {
   position: fixed;
   inset: 0;
@@ -241,13 +232,13 @@
   display: grid;
   grid-template-rows: 64px 1fr auto;
   pointer-events: none;
-  clip-path: circle(0% at calc(100% - 70px) 32px);
+  clip-path: circle(0% at var(--mega-menu-origin-x) var(--mega-menu-origin-y));
   transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-v2-mega-menu.open {
   pointer-events: all;
-  clip-path: circle(150% at calc(100% - 70px) 32px);
+  clip-path: circle(150% at var(--mega-menu-origin-x) var(--mega-menu-origin-y));
 }
 
 .navbar-v2-mega-top {
@@ -255,23 +246,22 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 20px;
+  padding: 0 calc(20px + var(--navbar-scrollbar-comp)) 0 20px;
   position: relative;
   z-index: 2;
 }
 
 .navbar-v2-mega-close {
-  min-width: 28px;
-  height: 28px;
-  padding: 0.35rem 0.55rem;
-  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
   cursor: pointer;
   transition: all 0.2s ease;
   backdrop-filter: blur(10px);
@@ -283,8 +273,10 @@
   background: rgba(255, 255, 255, 0.12);
 }
 
-.navbar-v2-mega-close .navbar-v2-menu-trigger-line {
-  background: #fff;
+.navbar-v2-mega-close .navbar-v2-control-icon {
+  width: 17px;
+  height: 17px;
+  stroke-width: 2;
 }
 
 .navbar-v2-mega-menu::before {

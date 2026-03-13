@@ -1,28 +1,8 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins);
-}
-
-body {
-  background: #ffffff;
-  color: var(--foreground);
-  font-family: var(--font-poppins), 'Poppins', sans-serif;
-}
-
-/* Shared Home2 newsletter styles */
-.home2-section-newsletter {
+.section {
   margin-top: 20px;
 }
 
-.home2-newsletter-inner {
+.inner {
   position: relative;
   min-height: 520px;
   border-radius: 16px;
@@ -33,7 +13,7 @@ body {
   padding: 60px 40px;
 }
 
-.home2-newsletter-eyebrow {
+.eyebrow {
   display: inline-block;
   margin: 0 0 12px;
   font-size: 12px;
@@ -44,7 +24,7 @@ body {
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
-.home2-newsletter-image {
+.image {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,7 +34,7 @@ body {
   overflow: hidden;
 }
 
-.home2-newsletter-img {
+.imageAsset {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -62,7 +42,7 @@ body {
   filter: blur(0px);
 }
 
-.home2-newsletter-image::after {
+.image::after {
   content: '';
   position: absolute;
   top: 0;
@@ -72,7 +52,7 @@ body {
   background: rgba(0, 0, 0, 0.15);
 }
 
-.home2-newsletter-card {
+.card {
   position: relative;
   z-index: 2;
   background: rgba(255, 255, 255, 0.04);
@@ -87,7 +67,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.home2-newsletter-title {
+.title {
   margin: 0 0 20px;
   font-size: 2.2rem;
   font-weight: 400;
@@ -97,12 +77,12 @@ body {
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
-.home2-newsletter-highlight {
+.highlight {
   font-weight: 700;
   color: #01bacc;
 }
 
-.home2-newsletter-badge-inline {
+.badgeInline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -113,13 +93,13 @@ body {
   height: 36px;
 }
 
-.home2-newsletter-badge-inline svg {
+.badgeInline svg {
   width: 18px;
   height: 18px;
   color: #01bacc;
 }
 
-.home2-newsletter-copy {
+.copy {
   margin: 0 0 32px;
   font-size: 1rem;
   line-height: 1.6;
@@ -132,14 +112,14 @@ body {
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
-.home2-newsletter-form {
+.form {
   display: flex;
   gap: 12px;
   max-width: 500px;
   margin: 0 auto;
 }
 
-.home2-newsletter-input {
+.input {
   flex: 1;
   padding: 14px 20px;
   border-radius: 50px;
@@ -151,17 +131,17 @@ body {
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
-.home2-newsletter-input:focus {
+.input:focus {
   outline: none;
   border-color: #01bacc;
   background: white;
 }
 
-.home2-newsletter-input::placeholder {
+.input::placeholder {
   color: #9ca3af;
 }
 
-.home2-newsletter-btn {
+.button {
   padding: 14px 32px;
   background: #01bacc;
   color: white;
@@ -175,73 +155,73 @@ body {
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
-.home2-newsletter-btn:hover:not(:disabled) {
+.button:hover:not(:disabled) {
   transform: translateY(-2px);
   background: #02d4e8;
   box-shadow: 0 8px 24px rgba(1, 186, 204, 0.3);
 }
 
-.home2-newsletter-btn:disabled {
+.button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
 @media (max-width: 1200px) {
-  .home2-newsletter-inner {
+  .inner {
     min-height: 460px;
     padding: 48px 24px;
   }
 
-  .home2-newsletter-card {
+  .card {
     padding: 42px 36px;
   }
 }
 
 @media (max-width: 768px) {
-  .home2-newsletter-inner {
+  .inner {
     padding: 40px 20px;
     min-height: 450px;
   }
 
-  .home2-newsletter-card {
+  .card {
     padding: 40px 30px;
   }
 
-  .home2-newsletter-title {
+  .title {
     font-size: 1.8rem;
   }
 
-  .home2-newsletter-copy {
+  .copy {
     font-size: 0.95rem;
     flex-direction: column;
     gap: 4px;
   }
 
-  .home2-newsletter-form {
+  .form {
     flex-direction: column;
     max-width: 100%;
   }
 
-  .home2-newsletter-btn {
+  .button {
     width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .home2-newsletter-inner {
+  .inner {
     padding: 30px 16px;
     min-height: 400px;
   }
 
-  .home2-newsletter-card {
+  .card {
     padding: 30px 20px;
   }
 
-  .home2-newsletter-title {
+  .title {
     font-size: 1.5rem;
   }
 
-  .home2-newsletter-copy {
+  .copy {
     font-size: 0.9rem;
   }
 }

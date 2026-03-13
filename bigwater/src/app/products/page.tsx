@@ -112,12 +112,23 @@ export default function ProductsPage() {
 
         {/* Our Water Our Cans Section */}
         <section className="products-packaging-section">
-          <div className="packaging-content">
-            <h2>Our Water, Our Cans</h2>
-            <p>
-              Whether it's <strong>still, carbonated, or flavored water</strong>, we believe every drop deserves packaging just as strong as what's inside. So we chose <strong>aluminum cans</strong>. Lightweight, durable, and built to protect freshness, aluminum keeps water crisp from the first sip to the last. It chills quickly, stays cool longer, and preserves the clean, pure taste inside. And when you're finished, recycle it. <strong>Aluminum is infinitely recyclable</strong> - it can be reused again and again without losing quality. The more aluminum that's recycled, the smaller the footprint, and the greater the impact we can make together. <strong>Pure norwegian water. Packaged responsibly.</strong>
-            </p>
-            <a href="/about" className="read-more-btn">Read More</a>
+          <div className="products-packaging-inner">
+            <div className="products-packaging-layout">
+              <div className="products-packaging-eyebrow">Our Packaging</div>
+              <h2 className="products-packaging-title">
+                Our Water, <em>Our Cans.</em>
+              </h2>
+              <p className="products-packaging-body">
+                Whether it&apos;s <strong>still, carbonated, or flavored water</strong>, we believe every drop deserves packaging just as strong as what&apos;s inside. So we chose <strong>aluminum cans</strong>. Lightweight, durable, and built to protect freshness, aluminum keeps water crisp from the first sip to the last. It chills quickly, stays cool longer, and preserves the clean, pure taste inside.
+              </p>
+              <p className="products-packaging-body">
+                And when you&apos;re finished, recycle it. <strong className="products-packaging-body-accent">Aluminum is infinitely recyclable</strong> - it can be reused again and again without losing quality. The more aluminum that&apos;s recycled, the smaller the footprint, and the greater the impact we can make together.
+              </p>
+              <p className="products-packaging-tagline">"Pure Norwegian water. Packaged responsibly."</p>
+              <div className="products-packaging-actions">
+                <a href="/about" className="products-packaging-primary-link">Read More</a>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -162,7 +173,7 @@ export default function ProductsPage() {
         </section>
 
         {/* Products Grid */}
-        <section className="products-grid-section">
+        <section id="products-grid" className="products-grid-section">
           <div className="products-grid">
             {filteredProducts.map((product) => (
               <div key={product.id} className="product-card">
@@ -210,7 +221,6 @@ export default function ProductsPage() {
 
               <div className="business-cta-group">
                 <a href="/contact" className="business-cta business-cta-primary">Get in Touch</a>
-                <a href="/about" className="business-cta business-cta-secondary">Learn More</a>
               </div>
             </div>
 

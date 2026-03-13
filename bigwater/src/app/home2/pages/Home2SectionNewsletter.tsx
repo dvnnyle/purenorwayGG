@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MdWaterDrop } from "react-icons/md";
+import styles from "./Home2SectionNewsletter.module.css";
 
 export default function Home2SectionNewsletter() {
   const [email, setEmail] = useState("");
@@ -27,27 +28,27 @@ export default function Home2SectionNewsletter() {
   };
 
   return (
-    <section className="home2-section-newsletter" onMouseMove={handleMouseMove}>
-      <div className="home2-newsletter-inner">
-        <div className="home2-newsletter-card">
-          <span className="home2-newsletter-eyebrow">Newsletter</span>
-          <h2 className="home2-newsletter-title">
+    <section className={`${styles.section} home2-section-newsletter`} onMouseMove={handleMouseMove}>
+      <div className={`${styles.inner} home2-newsletter-inner`}>
+        <div className={`${styles.card} home2-newsletter-card`}>
+          <span className={`${styles.eyebrow} home2-newsletter-eyebrow`}>Newsletter</span>
+          <h2 className={`${styles.title} home2-newsletter-title`}>
             Get the Latest from
             <br />
-            <span className="home2-newsletter-badge-inline">
+            <span className={`${styles.badgeInline} home2-newsletter-badge-inline`}>
               <MdWaterDrop />
             </span>
-            <span className="home2-newsletter-highlight">PURENorway Water</span>
+            <span className={`${styles.highlight} home2-newsletter-highlight`}>PURENorway Water</span>
           </h2>
 
-          <p className="home2-newsletter-copy">
+          <p className={`${styles.copy} home2-newsletter-copy`}>
             Real updates on our products, sustainability work, and stories from the brand. Join us in our journey!
           </p>
 
-          <form className="home2-newsletter-form" onSubmit={handleSubmit}>
+          <form className={`${styles.form} home2-newsletter-form`} onSubmit={handleSubmit}>
             <input
               type="email"
-              className="home2-newsletter-input"
+              className={`${styles.input} home2-newsletter-input`}
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -56,7 +57,7 @@ export default function Home2SectionNewsletter() {
             />
             <button
               type="submit"
-              className="home2-newsletter-btn"
+              className={`${styles.button} home2-newsletter-btn`}
               disabled={submitted}
             >
               {submitted ? "Subscribed!" : "Subscribe"}
@@ -64,7 +65,7 @@ export default function Home2SectionNewsletter() {
           </form>
         </div>
         <div 
-          className="home2-newsletter-image"
+          className={`${styles.image} home2-newsletter-image`}
           style={{
             transform: `translate(${mousePos.x}px, ${mousePos.y}px) scale(1.05)`,
             transition: "transform 0.08s ease-out"
@@ -73,7 +74,7 @@ export default function Home2SectionNewsletter() {
           <img
             src="/assets/images/norgeFjords_upscale.jpeg"
             alt="Norwegian Fjords"
-            className="home2-newsletter-img"
+            className={`${styles.imageAsset} home2-newsletter-img`}
           />
         </div>
       </div>

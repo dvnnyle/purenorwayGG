@@ -2,12 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import type { NewsArticle } from "@/lib/newsService";
 import { getPublishedNewsArticles } from "@/lib/newsService";
 import Footer from "@/components/layout/footer";
-import "./article.css";
+import "../[slug]/article.css";
 
 const NEWS_CACHE_KEY = "purenorway:published-news:v1";
 const NEWS_CACHE_TTL_MS = 1000 * 60 * 10;
@@ -125,9 +125,16 @@ function getAuthorInitials(author: string): string {
   return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
 }
 
-export default function NewsArticleSlugPage() {
-  const params = useParams<{ slug: string }>();
-  const slug = decodeURIComponent(params?.slug ?? "");
+export default function NewsArticlePage() {
+  const searchParams = useSearchParams();
+  const slugParam = searchParams.get("slug") ?? "";
+  const slug = useMemo(() => {
+    try {
+      return decodeURIComponent(slugParam);
+    } catch {
+      return slugParam;
+    }
+  }, [slugParam]);
 
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
@@ -268,7 +275,7 @@ export default function NewsArticleSlugPage() {
               let headingCount = 0;
 
               return blocks.map((block, index) => {
-              if (block.type === "h2") {
+                if (block.type === "h2") {
                   headingCount += 1;
                   const headingClass =
                     headingCount === 1
@@ -280,35 +287,35 @@ export default function NewsArticleSlugPage() {
                       {block.text}
                     </h2>
                   );
-              }
+                }
 
-              if (block.type === "quote") {
-                return (
-                  <blockquote key={`${block.type}-${index}`}>
-                    <p>{block.text}</p>
-                  </blockquote>
-                );
-              }
+                if (block.type === "quote") {
+                  return (
+                    <blockquote key={`${block.type}-${index}`}>
+                      <p>{block.text}</p>
+                    </blockquote>
+                  );
+                }
 
-              if (block.type === "pull-quote") {
-                return (
-                  <div className="news-article-pull-quote" key={`${block.type}-${index}`}>
-                    <p>{block.text}</p>
-                    {block.cite ? <cite>- {block.cite}</cite> : null}
-                  </div>
-                );
-              }
+                if (block.type === "pull-quote") {
+                  return (
+                    <div className="news-article-pull-quote" key={`${block.type}-${index}`}>
+                      <p>{block.text}</p>
+                      {block.cite ? <cite>- {block.cite}</cite> : null}
+                    </div>
+                  );
+                }
 
-              if (block.type === "image") {
-                return (
-                  <figure className="news-article-image" key={`${block.type}-${index}`}>
-                    <img src={block.src} alt={block.caption || "Article image"} />
-                    {block.caption ? <figcaption>{block.caption}</figcaption> : null}
-                  </figure>
-                );
-              }
+                if (block.type === "image") {
+                  return (
+                    <figure className="news-article-image" key={`${block.type}-${index}`}>
+                      <img src={block.src} alt={block.caption || "Article image"} />
+                      {block.caption ? <figcaption>{block.caption}</figcaption> : null}
+                    </figure>
+                  );
+                }
 
-              return <p key={`${block.type}-${index}`}>{block.text}</p>;
+                return <p key={`${block.type}-${index}`}>{block.text}</p>;
               });
             })()
           ) : (
@@ -323,7 +330,9 @@ export default function NewsArticleSlugPage() {
           <div className="news-related-grid">
             {relatedArticles.map((related) => {
               const relatedSlug = related.slug || related.id;
-              const relatedHref = relatedSlug ? `/news/${encodeURIComponent(relatedSlug)}` : "/news";
+              const relatedHref = relatedSlug
+                ? `/news/article?slug=${encodeURIComponent(relatedSlug)}`
+                : "/news";
 
               return (
                 <Link

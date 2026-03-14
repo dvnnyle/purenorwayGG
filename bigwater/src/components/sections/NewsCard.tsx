@@ -30,7 +30,7 @@ function formatDateToDisplay(dateValue?: string): string {
 
 export default function NewsCard({ article }: NewsCardProps) {
   const slug = article.slug || article.id;
-  const articleHref = slug ? `/news/${encodeURIComponent(slug)}` : "/news";
+  const articleHref = slug ? `/news/article?slug=${encodeURIComponent(slug)}` : "/news";
 
   return (
     <Link href={articleHref} className="post-card-link" aria-label={`Read article: ${article.title}`}>

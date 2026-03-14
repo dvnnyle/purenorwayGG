@@ -13,6 +13,7 @@ import { MdWaterDrop } from 'react-icons/md';
 export default function NewsPage() {
   const INITIAL_VISIBLE = 12;
   const LOAD_STEP = 12;
+  const SKELETON_COUNT = 9;
 
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
@@ -57,8 +58,17 @@ export default function NewsPage() {
       {/* Main Content */}
       <div className="news-main">
         {loading ? (
-          <div style={{ padding: '80px 20px', textAlign: 'center', color: '#6B8090' }}>
-            Loading articles...
+          <div className="posts-grid news-skeleton-grid" aria-label="Loading articles" aria-busy="true">
+            {Array.from({ length: SKELETON_COUNT }).map((_, index) => (
+              <article className="news-skeleton-card" key={`news-skeleton-${index}`} aria-hidden="true">
+                <div className="news-skeleton-tag" />
+                <div className="news-skeleton-content">
+                  <div className="news-skeleton-line news-skeleton-line-title" />
+                  <div className="news-skeleton-line news-skeleton-line-short" />
+                  <div className="news-skeleton-line news-skeleton-line-meta" />
+                </div>
+              </article>
+            ))}
           </div>
         ) : articles.length === 0 ? (
           <div style={{ padding: '80px 20px', textAlign: 'center', color: '#6B8090' }}>

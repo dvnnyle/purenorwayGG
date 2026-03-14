@@ -9,7 +9,7 @@ import {
   serverTimestamp,
   Timestamp,
   updateDoc,
-} from "firebase/firestore";
+} from "firebase/firestore/lite";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db, storage } from "./firebase";
 

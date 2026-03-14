@@ -10,7 +10,7 @@ import {
   orderBy,
   Timestamp,
   serverTimestamp,
-} from "firebase/firestore";
+} from "firebase/firestore/lite";
 import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 import { db, storage } from "./firebase";
 

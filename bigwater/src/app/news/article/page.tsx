@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
@@ -125,7 +125,7 @@ function getAuthorInitials(author: string): string {
   return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
 }
 
-export default function NewsArticlePage() {
+function NewsArticlePageContent() {
   const searchParams = useSearchParams();
   const slugParam = searchParams.get("slug") ?? "";
   const slug = useMemo(() => {
@@ -357,5 +357,47 @@ export default function NewsArticlePage() {
 
       <Footer />
     </main>
+  );
+}
+
+function NewsArticlePageFallback() {
+  return (
+    <main className="news-article-page" aria-label="Loading article" aria-busy="true">
+      <section className="news-article-skeleton-hero" aria-hidden="true">
+        <div className="news-article-skeleton-hero-inner">
+          <div className="news-article-skeleton-pill" />
+          <div className="news-article-skeleton-title" />
+          <div className="news-article-skeleton-title news-article-skeleton-title-short" />
+          <div className="news-article-skeleton-subtitle" />
+        </div>
+      </section>
+
+      <section className="news-article-skeleton-body" aria-hidden="true">
+        <div className="news-article-skeleton-author-strip">
+          <div className="news-article-skeleton-avatar" />
+          <div className="news-article-skeleton-author-lines">
+            <div className="news-article-skeleton-line news-article-skeleton-line-name" />
+            <div className="news-article-skeleton-line news-article-skeleton-line-role" />
+          </div>
+        </div>
+
+        <div className="news-article-skeleton-prose">
+          <div className="news-article-skeleton-line news-article-skeleton-line-paragraph" />
+          <div className="news-article-skeleton-line news-article-skeleton-line-paragraph" />
+          <div className="news-article-skeleton-line news-article-skeleton-line-paragraph-short" />
+          <div className="news-article-skeleton-image" />
+          <div className="news-article-skeleton-line news-article-skeleton-line-paragraph" />
+          <div className="news-article-skeleton-line news-article-skeleton-line-paragraph-short" />
+        </div>
+      </section>
+    </main>
+  );
+}
+
+export default function NewsArticlePage() {
+  return (
+    <Suspense fallback={<NewsArticlePageFallback />}>
+      <NewsArticlePageContent />
+    </Suspense>
   );
 }

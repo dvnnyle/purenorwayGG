@@ -1,6 +1,7 @@
 'use client';
 
 import ImpactGame from '@/components/games/oceanGame';
+import MarqueeStrip from '@/components/sections/MarqueeStrip';
 import Footer from '@/components/layout/footer';
 import './minigame.css';
 
@@ -18,6 +19,8 @@ export default function MiniGamePage() {
           </p>
         </div>
       </section>
+
+      <MarqueeStrip ariaLabel="PURENorway highlights" />
 
       <ImpactGame />
       <Footer />

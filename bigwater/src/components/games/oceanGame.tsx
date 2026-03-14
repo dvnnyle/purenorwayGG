@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Howl } from "howler";
-import { ArrowLeft, Waves, Sparkles, Heart, Maximize2, Minimize2, Pause, Play } from "lucide-react";
+import { Sparkles, Heart, Maximize2, Minimize2, Pause, Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import "./oceanGame.css";
@@ -505,27 +505,6 @@ const ImpactGame = () => {
 
   return (
     <div className="game-wrapper">
-      {/* Top Bar */}
-      <div className="game-topbar">
-        <div className="game-topbar-left">
-          <Image
-            src="/assets/logo/logoWhite.png"
-            alt="PURENorway"
-            width={120}
-            height={36}
-            style={{ objectFit: "contain" }}
-          />
-          <Link href="/" className="game-topbar-back">
-            <ArrowLeft size={16} />
-            tilabke til hjem
-          </Link>
-        </div>
-        <div className="game-topbar-right">
-          <Waves size={18} />
-          OCEAN CLEANUP: beta v6 woooo
-        </div>
-      </div>
-
       {/* Game Area */}
       <div className="game-area">
         {/* Level info */}

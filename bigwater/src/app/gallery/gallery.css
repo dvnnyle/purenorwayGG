@@ -521,18 +521,20 @@
 .gallery-skeleton {
   break-inside: avoid;
   margin-bottom: 12px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #1a2535 25%, #243045 50%, #1a2535 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s infinite;
+  border-radius: 12px;
+  border: 1px solid #bfd0db;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  background: linear-gradient(120deg, #dde9f0 16%, #ffffff 42%, #d6e4ec 70%);
+  background-size: 260% 100%;
+  animation: gallery-skeleton-shimmer 1.05s linear infinite;
   aspect-ratio: 3 / 4;
 }
 .gallery-skeleton.wide {
   aspect-ratio: 16 / 9;
 }
-@keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+@keyframes gallery-skeleton-shimmer {
+  0%   { background-position: 140% 0; }
+  100% { background-position: -40% 0; }
 }
 
 /* ─── Featured badge ────────────────────────────────────────────────── */

@@ -6,51 +6,6 @@
   overflow: hidden;
 }
 
-/* Top Bar */
-.game-topbar {
-  position: relative;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 24px;
-}
-
-.game-topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.game-topbar-back {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.game-topbar-back:hover {
-  color: #01bacc;
-}
-
-.game-topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.game-topbar-right svg {
-  color: #01bacc;
-}
-
 /* Game Area */
 .game-area {
   flex: 1;
@@ -61,7 +16,7 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 16px 16px;
+  padding: 80px 0 160px;
 }
 
 /* Level Info */

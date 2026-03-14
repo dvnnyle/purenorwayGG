@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marquee – Pure Norway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@900&family=DM+Sans:wght@700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:#F4F8FA}
+
+  .marquee-strip {
+    background: #0D1B2A;
+    padding: 22px 0;
+    overflow: hidden;
+  }
+  .marquee-track {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+  }
+  .marquee-item {
+    display: inline-flex; align-items: center;
+  }
+  .word {
+    font-family: 'Fraunces', serif;
+    font-size: 17px; font-weight: 900;
+    color: #fff; letter-spacing: -.3px;
+    padding: 0 24px;
+  }
+  .sep {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: rgba(255,255,255,.35);
+    display: inline-block; flex-shrink: 0;
+  }
+  @keyframes scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+</style>
+</head>
+<body>
+
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="word">Pure Norwegian Water</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">Zero Carbon Footprint</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">Infinitely Recyclable</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">1% To The Ocean</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">Marble Filtered</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">No Additives</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">I CARE</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">Pure Norwegian Water</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">Zero Carbon Footprint</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">Infinitely Recyclable</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">1% To The Ocean</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">Marble Filtered</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">No Additives</span><span class="sep"></span></div>
+    <div class="marquee-item"><span class="word">I CARE</span><span class="sep"></span></div>
+  </div>
+</div>
+
+</body>
+</html>

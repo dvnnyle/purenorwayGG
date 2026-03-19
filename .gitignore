@@ -19,3 +19,7 @@ pnpm-debug.log*
 # editor/system
 .DS_Store
 Thumbs.db
+
+# root note docs
+/TODO.MD
+/firebase.md

@@ -50,44 +50,82 @@ export function subscribeToApprovedReviews(
   onUpdate: (reviews: ReviewEntry[]) => void,
   onError?: (error: Error) => void
 ) {
-  const reviewsQuery = query(
+  const mapReviews = (snapshot: { docs: Array<{ id: string; data: () => Partial<ReviewEntry> }> }) => {
+    return snapshot.docs.map((entry): ReviewEntry => {
+      const data = entry.data() as Partial<ReviewEntry>;
+
+      return {
+        id: entry.id,
+        name: data.name ?? "Anonymous",
+        location: data.location ?? "",
+        productTag: data.productTag ?? "Other",
+        text: data.text ?? "",
+        rating: typeof data.rating === "number" ? clampRating(data.rating) : 5,
+        status: (data.status as ReviewStatus) ?? "pending",
+        featured: Boolean(data.featured),
+        verifiedPurchase: Boolean(data.verifiedPurchase),
+        photos: Array.isArray(data.photos) ? data.photos : [],
+        createdAt: data.createdAt ?? null,
+        updatedAt: data.updatedAt ?? null,
+        reviewedAt: data.reviewedAt ?? null,
+        reviewedBy: data.reviewedBy ?? null,
+      };
+    });
+  };
+
+  const indexedQuery = query(
     collection(db, COLLECTION_NAME),
     where("status", "==", "approved"),
     orderBy("createdAt", "desc")
   );
 
-  return onSnapshot(
-    reviewsQuery,
-    (snapshot) => {
-      const reviews = snapshot.docs
-        .map((entry): ReviewEntry => {
-          const data = entry.data() as Partial<ReviewEntry>;
-
-          return {
-            id: entry.id,
-            name: data.name ?? "Anonymous",
-            location: data.location ?? "",
-            productTag: data.productTag ?? "Other",
-            text: data.text ?? "",
-            rating: typeof data.rating === "number" ? clampRating(data.rating) : 5,
-            status: (data.status as ReviewStatus) ?? "pending",
-            featured: Boolean(data.featured),
-            verifiedPurchase: Boolean(data.verifiedPurchase),
-            photos: Array.isArray(data.photos) ? data.photos : [],
-            createdAt: data.createdAt ?? null,
-            updatedAt: data.updatedAt ?? null,
-            reviewedAt: data.reviewedAt ?? null,
-            reviewedBy: data.reviewedBy ?? null,
-          };
-        });
-
-      onUpdate(reviews);
-    },
-    (error) => {
-      console.error("Error subscribing to public reviews:", error);
-      onError?.(error);
-    }
+  const fallbackQuery = query(
+    collection(db, COLLECTION_NAME),
+    where("status", "==", "approved")
   );
+
+  let activeUnsubscribe: (() => void) | null = null;
+
+  const subscribeWithFallback = () => {
+    activeUnsubscribe = onSnapshot(
+      indexedQuery,
+      (snapshot) => {
+        onUpdate(mapReviews(snapshot));
+      },
+      (error) => {
+        const code = (error as { code?: string }).code ?? "";
+        const requiresIndex = code.includes("failed-precondition");
+
+        if (!requiresIndex) {
+          console.error("Error subscribing to public reviews:", error);
+          onError?.(error);
+          return;
+        }
+
+        console.warn("Falling back to non-indexed reviews query until Firestore index is ready.", error);
+        activeUnsubscribe?.();
+        activeUnsubscribe = onSnapshot(
+          fallbackQuery,
+          (fallbackSnapshot) => {
+            const sorted = mapReviews(fallbackSnapshot).sort(
+              (a, b) => getReviewTimeOrder(b.createdAt) - getReviewTimeOrder(a.createdAt)
+            );
+            onUpdate(sorted);
+          },
+          (fallbackError) => {
+            console.error("Error subscribing to public reviews fallback:", fallbackError);
+            onError?.(fallbackError);
+          }
+        );
+      }
+    );
+  };
+
+  subscribeWithFallback();
+
+  return () => {
+    activeUnsubscribe?.();
+  };
 }
 
 export async function submitReview(review: ReviewSubmissionInput) {

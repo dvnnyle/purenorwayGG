@@ -17,6 +17,11 @@ service cloud.firestore {
     match /gallerySlides/{docId} {
       allow read, write: if true;
     }
+
+    // Reviews collection used by admin moderation + frontend submissions/display
+    match /reviews/{docId} {
+      allow read, write: if true;
+    }
   }
 }
 ```
@@ -40,8 +45,37 @@ service firebase.storage {
 }
 ```
 
+## Firestore Indexes
+
+The current admin reviews query only uses `orderBy(createdAt, desc)`, so it should work once the Firestore rules above are published.
+
+Create these `reviews` indexes only if Firestore prompts for them when you add filtered/sorted review queries:
+
+```txt
+Collection: reviews
+Fields:
+- status Asc
+- createdAt Desc
+Query scope: Collection
+
+Collection: reviews
+Fields:
+- status Asc
+- featured Asc
+- createdAt Desc
+Query scope: Collection
+
+Collection: reviews
+Fields:
+- status Asc
+- rating Desc
+- createdAt Desc
+Query scope: Collection
+```
+
 ## After updating rules
 
 1. Publish Firestore rules.
-2. Publish Storage rules.
-3. Restart both apps.
+2. Create any required Firestore indexes.
+3. Publish Storage rules.
+4. Restart both apps.

@@ -1,0 +1,190 @@
+.wtb-section {
+  padding: 80px 56px;
+  background: #f8f9fb;
+}
+
+.wtb-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── header ── */
+.wtb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 52px;
+}
+
+.wtb-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #01bacc;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  margin-bottom: 16px;
+}
+
+.wtb-title {
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  line-height: 0.95;
+  color: #0d1b2a;
+}
+
+.wtb-title em {
+  color: #00b4c8;
+  font-style: italic;
+}
+
+.wtb-sub {
+  font-size: 13px;
+  color: #6b8090;
+  max-width: 260px;
+  line-height: 1.7;
+  text-align: right;
+}
+
+/* ── logo grid ── */
+.wtb-logos {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid #dde8ee;
+  border-bottom: 1px solid #dde8ee;
+}
+
+.wtb-logo-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 24px;
+  height: 120px;
+  border-right: 1px solid #dde8ee;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.wtb-logo-item:last-child {
+  border-right: none;
+}
+
+.wtb-logo-item:hover {
+  background: #f4f8fa;
+}
+
+.wtb-logo-img {
+  width: 100%;
+  max-width: 140px;
+  height: 56px;
+  object-fit: contain;
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+
+.wtb-logo-item:hover .wtb-logo-img {
+  opacity: 0.9;
+}
+
+.wtb-logo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.wtb-logo-box {
+  width: 100px;
+  height: 40px;
+  background: #dde8ee;
+  border-radius: 6px;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+.wtb-logo-item:hover .wtb-logo-box {
+  opacity: 0.7;
+}
+
+.wtb-logo-name {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6b8090;
+  transition: color 0.2s ease;
+}
+
+.wtb-logo-item:hover .wtb-logo-name {
+  color: #00b4c8;
+}
+
+/* ── bottom bar ── */
+.wtb-bottom {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wtb-bottom-note {
+  font-size: 13px;
+  color: #6b8090;
+}
+
+.wtb-bottom-note strong {
+  color: #182530;
+}
+
+.wtb-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: #00b4c8;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.wtb-link:hover {
+  gap: 10px;
+  color: #007a8c;
+}
+
+/* ── responsive ── */
+@media (max-width: 700px) {
+  .wtb-section {
+    padding: 56px 24px;
+  }
+
+  .wtb-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wtb-sub {
+    text-align: left;
+  }
+
+  .wtb-logos {
+    flex-wrap: wrap;
+  }
+
+  .wtb-logo-item {
+    flex: 1 1 50%;
+    border-bottom: 1px solid #dde8ee;
+  }
+
+  .wtb-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

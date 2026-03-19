@@ -44,6 +44,13 @@ export default function AdminSidebar() {
         Blog &amp; Stories
       </Link>
 
+      <Link href="/reviews" className={`nav-item ${pathname === '/reviews' ? 'active' : ''}`}>
+        <svg viewBox="0 0 24 24">
+          <path d="M14 2H6c-1.1 0-2 .9-2 2v16l4-3 4 3 4-3 4 3V8l-6-6zm1 7V3.5L19.5 9H15zM8.8 15.2 7.3 14l-1.5 1.2.6-1.8-1.5-1.1h1.9l.5-1.8.6 1.8h1.9l-1.5 1.1.5 1.8zm5 0-1.5-1.2-1.5 1.2.6-1.8-1.5-1.1h1.9l.5-1.8.6 1.8h1.9l-1.5 1.1.5 1.8z" />
+        </svg>
+        Reviews
+      </Link>
+
       <Link href="/gallery" className={`nav-item ${pathname === '/gallery' ? 'active' : ''}`}>
         <svg viewBox="0 0 24 24">
           <path d="M22 16V4c0-1.1-.9-2-2-2H8C6.9 2 6 2.9 6 4v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zM11 12l2.03 2.71L16 11l4 5H8l3-4zm-7 4V8H2v10c0 1.1.9 2 2 2h10v-2H4z" />

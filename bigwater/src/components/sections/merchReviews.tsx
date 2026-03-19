@@ -1,10 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import {
+  getReviewSummary,
+  subscribeToApprovedReviews,
+  type ReviewEntry,
+} from '@/lib/reviewsService';
+
+function renderStars(rating: number) {
+  return Array.from({ length: 5 }, (_, index) => (index < rating ? '★' : '☆')).join('');
+}
 
 export default function MerchReviews() {
   const [currentMerchIndex, setCurrentMerchIndex] = useState(0);
-  
+  const [reviews, setReviews] = useState<ReviewEntry[]>([]);
+
   const merchImages = [
     '/assets/merch/backpack16_9.jpeg',
     '/assets/merch/bottle16_9.jpeg',
@@ -16,7 +26,15 @@ export default function MerchReviews() {
       setCurrentMerchIndex((prev) => (prev + 1) % merchImages.length);
     }, 4000);
     return () => clearInterval(interval);
+  }, [merchImages.length]);
+
+  useEffect(() => {
+    const unsubscribe = subscribeToApprovedReviews(setReviews);
+    return unsubscribe;
   }, []);
+
+  const summary = useMemo(() => getReviewSummary(reviews), [reviews]);
+  const featuredReviews = useMemo(() => reviews.slice(0, 2), [reviews]);
 
   return (
     <section className="merch-reviews-section">
@@ -26,7 +44,6 @@ export default function MerchReviews() {
           <h2>More to explore.</h2>
         </div>
         <div className="merch-reviews-grid">
-          {/* MERCH CARD */}
           <div className="merch-card">
             <div className="merch-overlay"></div>
             <div className="merch-carousel">
@@ -47,35 +64,39 @@ export default function MerchReviews() {
             </div>
           </div>
 
-          {/* REVIEWS CARD change to dynamically based on actual data */}
           <div className="reviews-card">
             <div className="reviews-content">
               <div className="reviews-eyebrow">What people say</div>
               <h3>Loved across <em>Norway.</em></h3>
               <div className="rating-row">
-                <div className="big-score">4.9</div>
+                <div className="big-score">{summary.averageRating.toFixed(1)}</div>
                 <div className="stars-col">
-                  <div className="stars">★★★★★</div>
-                  <div className="count">Based on 240+ reviews</div>
+                  <div className="stars">{renderStars(Math.round(summary.averageRating || 0))}</div>
+                  <div className="count">Based on {summary.count} live reviews</div>
                 </div>
               </div>
               <div className="review-list">
-                <div className="review">
-                  <div className="review-top">
-                    <span className="reviewer">Naruto, Konoha</span>
-                    <span className="rev-stars">★★★★★</span>
+                {featuredReviews.length > 0 ? (
+                  featuredReviews.map((review) => (
+                    <div className="review" key={review.id}>
+                      <div className="review-top">
+                        <span className="reviewer">{review.location ? `${review.name}, ${review.location}` : review.name}</span>
+                        <span className="rev-stars">{renderStars(review.rating)}</span>
+                      </div>
+                      <p>"{review.text}"</p>
+                    </div>
+                  ))
+                ) : (
+                  <div className="review">
+                    <div className="review-top">
+                      <span className="reviewer">No live reviews yet</span>
+                      <span className="rev-stars">☆☆☆☆☆</span>
+                    </div>
+                    <p>Approve or add a few reviews in Firestore to populate this card.</p>
                   </div>
-                  <p>"Best sparkling water I've had. Crisp, clean — and I love knowing the can is endlessly recyclable. - Naruto, Hokage"</p>
-                </div>
-                <div className="review">
-                  <div className="review-top">
-                    <span className="reviewer">Itadori Yuji, Japan</span>
-                    <span className="rev-stars">★★★★★</span>
-                  </div>
-                  <p>"The Ginger Lemon flavour is incredible. Switched from plastic bottles and never looking back."</p>
-                </div>
+                )}
               </div>
-              <button className="btn-reviews">Read all reviews →</button>
+              <a href="/reviews" className="btn-reviews">Read all reviews →</a>
             </div>
           </div>
         </div>

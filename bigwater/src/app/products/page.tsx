@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Footer from "@/components/layout/footer";
 import Home2SectionNewsletter from "@/app/home2/pages/Home2SectionNewsletter";
+import ProductMerchSection from "@/components/sections/ProductMerchSection";
+import ProductReviewsDivider from "@/components/sections/ProductReviewsDivider";
+import WhereToBuy from "@/components/sections/WhereToBuy";
 import "./products.css";
 
 export default function ProductsPage() {
@@ -210,47 +213,11 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        <section className="products-business-section">
-          <div className="business-grid">
-            <div className="business-left">
-              <p className="business-kicker">FOR BUSINESSES</p>
-              <h2 className="business-title">Stock up.<br />Save more.</h2>
-              <p className="business-copy">
-                Restaurants, hotels, offices, retail — competitive pricing and global distributor support.
-              </p>
+        <ProductReviewsDivider />
 
-              <div className="business-cta-group">
-                <a href="/contact" className="business-cta business-cta-primary">Get in Touch</a>
-              </div>
-            </div>
+        <ProductMerchSection />
 
-            <div className="business-right">
-              <div className="business-card">
-                <div className="business-card-content">
-                  <h3 className="business-card-title">Per Single Can</h3>
-                  <p className="business-card-subtitle">Any flavour </p>
-                </div>
-                <span className="business-card-value">8kr + 2kr pant</span>
-              </div>
-
-              <div className="business-card">
-                <div className="business-card-content">
-                  <h3 className="business-card-title">24-Can Case</h3>
-                  <p className="business-card-subtitle">Any mix · the more you buy, the more you save</p>
-                </div>
-                <span className="business-card-value">477kr</span>
-              </div>
-
-              <div className="business-card">
-                <div className="business-card-content">
-                  <h3 className="business-card-title">Custom Order</h3>
-                  <p className="business-card-subtitle">MOQ · Wholesale pricing · contact for deals</p>
-                </div>
-                <span className="business-card-value">Contact</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <WhereToBuy />
 
       <section className="products-newsletter-section">
         <Home2SectionNewsletter />

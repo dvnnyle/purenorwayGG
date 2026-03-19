@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merch Options – Pure Norway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,900;1,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:#00B4C8; --teal-dark:#007A8C; --teal-dim:rgba(0,180,200,.1);
+    --navy:#0D1B2A; --navy-mid:#121f2f; --navy-light:#1c2f42;
+    --off-white:#F4F8FA; --white:#FFFFFF;
+    --text:#182530; --muted:#6B8090; --border:#DDE8EE;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:#eef2f5}
+
+  .version-label {
+    padding: 40px 56px 16px;
+    font-size: 10px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--muted);
+    background: #eef2f5;
+  }
+
+  /* ═══════════════════════════════════════════
+     A — HORIZONTAL SCROLL / CAROUSEL (light)
+  ═══════════════════════════════════════════ */
+  .ver-a {
+    background: var(--white);
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .ver-a .header {
+    max-width: 1160px; margin: 0 auto;
+    padding: 0 56px 44px;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 10px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 14px;
+  }
+  .eyebrow::before,.eyebrow::after{content:'';width:20px;height:1px;background:var(--teal)}
+  .ver-a h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px,3.5vw,46px); font-weight:900;
+    letter-spacing:-1.5px;line-height:.95;color:var(--navy);
+  }
+  .ver-a h2 em{color:var(--teal);font-style:italic}
+  .scroll-controls{display:flex;gap:8px;flex-shrink:0}
+  .scroll-btn{
+    width:40px;height:40px;border-radius:50%;
+    border:1.5px solid var(--border);background:none;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:border-color .2s,background .2s;
+  }
+  .scroll-btn:hover{border-color:var(--teal);background:var(--teal-dim)}
+  .scroll-btn svg{width:16px;height:16px;fill:var(--muted)}
+  .scroll-btn:hover svg{fill:var(--teal)}
+
+  .scroll-track {
+    display: flex; gap: 14px; overflow-x: auto; scroll-behavior: smooth;
+    padding: 0 56px 4px;
+    scrollbar-width: none;
+  }
+  .scroll-track::-webkit-scrollbar{display:none}
+
+  .a-card {
+    flex-shrink: 0; width: 240px;
+    background: var(--off-white); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+    cursor: pointer;
+  }
+  .a-card:hover{border-color:var(--teal);box-shadow:0 8px 24px rgba(0,180,200,.1);transform:translateY(-3px)}
+  .a-img{
+    height: 200px; background: var(--border);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .a-img svg{width:36px;height:36px;fill:rgba(255,255,255,.6)}
+  .img-label{position:absolute;top:12px;left:12px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.3);padding:3px 8px;border-radius:4px}
+  .a-body{padding:16px 18px}
+  .a-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
+  .a-sub{font-size:11px;color:var(--muted)}
+
+  /* ═══════════════════════════════════════════
+     B — EDITORIAL BENTO (light)
+  ═══════════════════════════════════════════ */
+  .ver-b {
+    background: var(--off-white);
+    padding: 80px 56px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .ver-b-inner{max-width:1160px;margin:0 auto}
+  .ver-b .header-row{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    gap:24px;margin-bottom:32px;
+  }
+  .ver-b h2{
+    font-family:'Fraunces',serif;
+    font-size:clamp(28px,3.5vw,46px);font-weight:900;
+    letter-spacing:-1.5px;line-height:.95;color:var(--navy);
+  }
+  .ver-b h2 em{color:var(--teal);font-style:italic}
+  .coming-pill{
+    font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--muted);border:1px solid var(--border);border-radius:100px;
+    padding:6px 14px;flex-shrink:0;
+  }
+
+  /* bento grid */
+  .bento{
+    display:grid;
+    grid-template-columns:1.6fr 1fr 1fr;
+    grid-template-rows:280px 200px;
+    gap:10px;
+  }
+  .b-cell{
+    background:var(--white);border:1px solid var(--border);border-radius:14px;
+    overflow:hidden;position:relative;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .b-cell:hover{border-color:var(--teal);box-shadow:0 6px 20px rgba(0,180,200,.08)}
+  .b-cell.tall{grid-row:1/3}
+  .b-cell svg{width:32px;height:32px;fill:var(--border)}
+  .b-name{font-size:12px;font-weight:700;color:var(--muted)}
+  .b-tag{
+    position:absolute;top:14px;left:14px;
+    font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--teal);background:var(--teal-dim);border:1px solid rgba(0,180,200,.15);
+    border-radius:100px;padding:3px 9px;
+  }
+
+  /* ═══════════════════════════════════════════
+     C — DARK FULL-BLEED MARQUEE DROP
+  ═══════════════════════════════════════════ */
+  .ver-c{
+    background:var(--navy);
+    padding:80px 56px;
+    position:relative;overflow:hidden;
+  }
+  .ver-c::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 60% 70% at 80% 30%,rgba(0,180,200,.07) 0%,transparent 60%);
+  }
+  .ver-c-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
+  .ver-c .top{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:48px;gap:24px;
+  }
+  .ver-c h2{
+    font-family:'Fraunces',serif;
+    font-size:clamp(32px,4vw,54px);font-weight:900;
+    letter-spacing:-2px;line-height:.9;color:#fff;
+  }
+  .ver-c h2 em{color:var(--teal);font-style:italic;display:block}
+  .ver-c .sub{font-size:13px;color:rgba(255,255,255,.3);max-width:240px;line-height:1.7;text-align:right}
+  .c-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+  }
+  .c-card{
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+    border-radius:12px;overflow:hidden;cursor:pointer;
+    transition:background .2s,border-color .2s,transform .2s;
+  }
+  .c-card:hover{background:rgba(255,255,255,.08);border-color:rgba(0,180,200,.25);transform:translateY(-3px)}
+  .c-img{
+    height:160px;display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .c-img svg{width:28px;height:28px;fill:rgba(255,255,255,.12)}
+  .c-body{padding:14px 16px}
+  .c-name{font-size:12px;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:2px}
+  .c-sub{font-size:10px;color:rgba(255,255,255,.25)}
+  .c-btn{
+    display:inline-block;margin-top:28px;
+    padding:12px 26px;background:var(--teal);color:#fff;
+    border:none;border-radius:8px;font-family:'DM Sans',sans-serif;
+    font-size:13px;font-weight:700;cursor:not-allowed;opacity:.7;
+    position:relative;
+  }
+  .c-btn::after{
+    content:'Coming soon';position:absolute;
+    bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);
+    font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);
+    padding:4px 10px;border-radius:5px;white-space:nowrap;
+    opacity:0;transition:opacity .2s;
+  }
+  .c-btn:hover::after{opacity:1}
+
+</style>
+</head>
+<body>
+
+<!-- ─────── A ─────── -->
+<div class="version-label">A — Horizontal scroll carousel · Light</div>
+<div class="ver-a">
+  <div class="header">
+    <div>
+      <div class="eyebrow">Merch</div>
+      <h2>Wear the <em>mission.</em></h2>
+    </div>
+    <div class="scroll-controls">
+      <button class="scroll-btn" onclick="document.getElementById('trackA').scrollBy({left:-270,behavior:'smooth'})">
+        <svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+      </button>
+      <button class="scroll-btn" onclick="document.getElementById('trackA').scrollBy({left:270,behavior:'smooth'})">
+        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="scroll-track" id="trackA">
+    <div class="a-card">
+      <div class="a-img" style="background:#c8d8e0"><span class="img-label">Thermos</span><svg viewBox="0 0 24 24"><path d="M17 3H7c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h1v12c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V7h1c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1z"/></svg></div>
+      <div class="a-body"><div class="a-name">PURENorway Thermos</div><div class="a-sub">Keep it cold · Keep it pure</div></div>
+    </div>
+    <div class="a-card">
+      <div class="a-img" style="background:#b8cfd8"><span class="img-label">Backpack</span><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.06 15.96 0 13.45 0c-1.3 0-2.48.56-3.33 1.44C9.38.56 8.2 0 6.9 0 4.39 0 2.35 2.06 2.35 4.65c0 .47.1.91.18 1.35H.35C-.32 6-.91 6.63-.9 7.3L-.02 20.6C-.01 21.37.62 22 1.39 22h21.21c.78 0 1.41-.63 1.41-1.41V7.41C24 6.63 23.37 6 20.6 6H20z"/></svg></div>
+      <div class="a-body"><div class="a-name">Explorer Backpack</div><div class="a-sub">Adventure ready</div></div>
+    </div>
+    <div class="a-card">
+      <div class="a-img" style="background:#cad8dc"><span class="img-label">Tote</span><svg viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg></div>
+      <div class="a-body"><div class="a-name">I CARE Tote</div><div class="a-sub">Organic cotton</div></div>
+    </div>
+    <div class="a-card">
+      <div class="a-img" style="background:#bfd4da"><span class="img-label">Food Box</span><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg></div>
+      <div class="a-body"><div class="a-name">Nordic Food Box</div><div class="a-sub">Meal prep in style</div></div>
+    </div>
+    <div class="a-card">
+      <div class="a-img" style="background:#c2d6dc"><span class="img-label">Bottle</span><svg viewBox="0 0 24 24"><path d="M18.7 3.3C18.3 2.5 17.5 2 16.7 2H7.3C6.5 2 5.7 2.5 5.3 3.3L3 8v13c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-1h14v1c0 .6.4 1 1 1h1c.6 0 1-.4 1-1V8l-2.3-4.7z"/></svg></div>
+      <div class="a-body"><div class="a-name">Pure Bottle</div><div class="a-sub">Reusable · BPA free</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────── B ─────── -->
+<div class="version-label">B — Editorial bento grid · Light</div>
+<div class="ver-b">
+  <div class="ver-b-inner">
+    <div class="header-row">
+      <div>
+        <div class="eyebrow">Merch</div>
+        <h2>Gear up.<br><em>Give back.</em></h2>
+      </div>
+      <span class="coming-pill">Shop opening soon</span>
+    </div>
+    <div class="bento">
+      <div class="b-cell tall">
+        <span class="b-tag">Hero item</span>
+        <svg viewBox="0 0 24 24"><path d="M17 3H7c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h1v12c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V7h1c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1z"/></svg>
+        <div class="b-name">Thermos</div>
+      </div>
+      <div class="b-cell">
+        <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.06 15.96 0 13.45 0c-1.3 0-2.48.56-3.33 1.44C9.38.56 8.2 0 6.9 0 4.39 0 2.35 2.06 2.35 4.65c0 .47.1.91.18 1.35H0v15.22C0 21.37.63 22 1.4 22h21.2c.78 0 1.4-.63 1.4-1.4V6H20z"/></svg>
+        <div class="b-name">Backpack</div>
+      </div>
+      <div class="b-cell">
+        <svg viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+        <div class="b-name">Tote Bag</div>
+      </div>
+      <div class="b-cell">
+        <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+        <div class="b-name">Food Box</div>
+      </div>
+      <div class="b-cell">
+        <svg viewBox="0 0 24 24"><path d="M18.7 3.3C18.3 2.5 17.5 2 16.7 2H7.3C6.5 2 5.7 2.5 5.3 3.3L3 8v13c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-1h14v1c0 .6.4 1 1 1h1c.6 0 1-.4 1-1V8l-2.3-4.7z"/></svg>
+        <div class="b-name">Water Bottle</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────── C ─────── -->
+<div class="version-label">C — Dark navy · 5-col grid</div>
+<div class="ver-c">
+  <div class="ver-c-inner">
+    <div class="top">
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,180,200,.55);margin-bottom:14px">Merch</div>
+        <h2>Wear the<br><em>mission.</em></h2>
+      </div>
+      <p class="sub">Pure Norwegian gear for people who actually care. Shop launching soon.</p>
+    </div>
+    <div class="c-grid">
+      <div class="c-card">
+        <div class="c-img"><svg viewBox="0 0 24 24"><path d="M17 3H7c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h1v12c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V7h1c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1z"/></svg></div>
+        <div class="c-body"><div class="c-name">Thermos</div><div class="c-sub">Keep it cold</div></div>
+      </div>
+      <div class="c-card">
+        <div class="c-img"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.06 15.96 0 13.45 0c-1.3 0-2.48.56-3.33 1.44C9.38.56 8.2 0 6.9 0 4.39 0 2.35 2.06 2.35 4.65c0 .47.1.91.18 1.35H0v15.22C0 21.37.63 22 1.4 22h21.2c.78 0 1.4-.63 1.4-1.4V6H20z"/></svg></div>
+        <div class="c-body"><div class="c-name">Backpack</div><div class="c-sub">Adventure ready</div></div>
+      </div>
+      <div class="c-card">
+        <div class="c-img"><svg viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg></div>
+        <div class="c-body"><div class="c-name">Tote Bag</div><div class="c-sub">Organic cotton</div></div>
+      </div>
+      <div class="c-card">
+        <div class="c-img"><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg></div>
+        <div class="c-body"><div class="c-name">Food Box</div><div class="c-sub">Meal prep in style</div></div>
+      </div>
+      <div class="c-card">
+        <div class="c-img"><svg viewBox="0 0 24 24"><path d="M18.7 3.3C18.3 2.5 17.5 2 16.7 2H7.3C6.5 2 5.7 2.5 5.3 3.3L3 8v13c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-1h14v1c0 .6.4 1 1 1h1c.6 0 1-.4 1-1V8l-2.3-4.7z"/></svg></div>
+        <div class="c-body"><div class="c-name">Water Bottle</div><div class="c-sub">BPA free</div></div>
+      </div>
+    </div>
+    <button class="c-btn">Shop Merch</button>
+  </div>
+</div>
+
+</body>
+</html>

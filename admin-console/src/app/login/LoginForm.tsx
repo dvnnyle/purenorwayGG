@@ -1,16 +1,31 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { FormEvent, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { signInAdmin } from "@/lib/adminAuth";
 
 export default function LoginForm() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const url = new URL(window.location.href);
+    const requestedPath = url.searchParams.get("next");
+    if (!requestedPath) return;
+
+    if (requestedPath.startsWith("/")) {
+      sessionStorage.setItem("admin_next_path", requestedPath);
+    }
+
+    url.searchParams.delete("next");
+    const cleaned = `${url.pathname}${url.search}${url.hash}`;
+    window.history.replaceState({}, "", cleaned || "/login");
+  }, []);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,8 +35,13 @@ export default function LoginForm() {
     try {
       await signInAdmin(email, password);
 
-      const requestedPath = searchParams.get("next");
+      const requestedPath =
+        typeof window !== "undefined" ? sessionStorage.getItem("admin_next_path") : null;
       const nextPath = requestedPath && requestedPath.startsWith("/") ? requestedPath : "/";
+
+      if (typeof window !== "undefined") {
+        sessionStorage.removeItem("admin_next_path");
+      }
 
       router.replace(nextPath);
     } catch (nextError) {

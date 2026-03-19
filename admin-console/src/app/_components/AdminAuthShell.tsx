@@ -13,21 +13,18 @@ function isPublicPath(pathname: string) {
 }
 
 function AuthTransitionScreen({
-  eyebrow,
-  title,
   message,
 }: {
-  eyebrow: string;
-  title: string;
   message: string;
 }) {
   return (
     <main className="temp-login-page temp-login-page--transition">
-      <section className="temp-login-card temp-login-card--transition" aria-label={title}>
+      <section
+        className="temp-login-card temp-login-card--transition temp-login-card--spinner-only"
+        aria-label="Loading admin session"
+      >
         <div className="temp-login-spinner" aria-hidden="true" />
-        <p className="temp-login-kicker">{eyebrow}</p>
-        <h1>{title}</h1>
-        <p className="temp-login-help">{message}</p>
+        <span className="temp-login-sr-only">{message}</span>
       </section>
     </main>
   );
@@ -39,11 +36,6 @@ export default function AdminAuthShell({ children }: { children: ReactNode }) {
   const [authReady, setAuthReady] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [isRedirecting, setIsRedirecting] = useState(false);
-  const [transitionMessage, setTransitionMessage] = useState({
-    eyebrow: "PURENORWAY ADMIN",
-    title: "Checking session",
-    message: "Verifying Firebase login status.",
-  });
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (nextUser) => {
@@ -62,11 +54,6 @@ export default function AdminAuthShell({ children }: { children: ReactNode }) {
     const publicPath = isPublicPath(pathname);
 
     if (user && !isAllowedAdminEmail(user.email)) {
-      setTransitionMessage({
-        eyebrow: "ACCESS CHECK",
-        title: "Signing out",
-        message: "This account is not allowed to use the admin console.",
-      });
       setIsRedirecting(true);
 
       void auth.signOut().finally(() => {
@@ -76,29 +63,23 @@ export default function AdminAuthShell({ children }: { children: ReactNode }) {
     }
 
     if (!user && !publicPath) {
-      setTransitionMessage({
-        eyebrow: "SESSION EXPIRED",
-        title: "Returning to login",
-        message: "Your admin session is not active right now.",
-      });
       setIsRedirecting(true);
-      router.replace(`/login?next=${encodeURIComponent(pathname)}`);
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("admin_next_path", pathname);
+      }
+      router.replace("/login");
       return;
     }
 
     if (user && pathname === "/login") {
-      const requestedPath =
-        typeof window !== "undefined"
-          ? new URLSearchParams(window.location.search).get("next")
-          : null;
-      const nextPath = requestedPath && requestedPath.startsWith("/") ? requestedPath : "/";
+      const storedPath =
+        typeof window !== "undefined" ? sessionStorage.getItem("admin_next_path") : null;
+      const nextPath = storedPath && storedPath.startsWith("/") ? storedPath : "/";
 
-      setTransitionMessage({
-        eyebrow: "ACCESS GRANTED",
-        title: "Opening dashboard",
-        message: "Your Firebase session is active. Loading admin tools now.",
-      });
       setIsRedirecting(true);
+      if (typeof window !== "undefined") {
+        sessionStorage.removeItem("admin_next_path");
+      }
       router.replace(nextPath);
       return;
     }
@@ -109,21 +90,13 @@ export default function AdminAuthShell({ children }: { children: ReactNode }) {
   if (!authReady) {
     return (
       <AuthTransitionScreen
-        eyebrow="PURENORWAY ADMIN"
-        title="Checking session"
-        message="Verifying Firebase login status."
+        message="Loading admin session."
       />
     );
   }
 
   if (isRedirecting) {
-    return (
-      <AuthTransitionScreen
-        eyebrow={transitionMessage.eyebrow}
-        title={transitionMessage.title}
-        message={transitionMessage.message}
-      />
-    );
+    return <AuthTransitionScreen message="Preparing your admin workspace." />;
   }
 
   return <>{children}</>;

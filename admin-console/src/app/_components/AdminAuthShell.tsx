@@ -1,8 +1,8 @@
 "use client";
 
 import { onAuthStateChanged, type User } from "firebase/auth";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { type ReactNode, useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { type ReactNode, useEffect, useState } from "react";
 import { auth } from "@/lib/firebase";
 import { isAllowedAdminEmail } from "@/lib/adminAuth";
 
@@ -36,7 +36,6 @@ function AuthTransitionScreen({
 export default function AdminAuthShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [authReady, setAuthReady] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [isRedirecting, setIsRedirecting] = useState(false);
@@ -45,11 +44,6 @@ export default function AdminAuthShell({ children }: { children: ReactNode }) {
     title: "Checking session",
     message: "Verifying Firebase login status.",
   });
-
-  const nextPath = useMemo(() => {
-    const requestedPath = searchParams.get("next");
-    return requestedPath && requestedPath.startsWith("/") ? requestedPath : "/";
-  }, [searchParams]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (nextUser) => {
@@ -93,6 +87,12 @@ export default function AdminAuthShell({ children }: { children: ReactNode }) {
     }
 
     if (user && pathname === "/login") {
+      const requestedPath =
+        typeof window !== "undefined"
+          ? new URLSearchParams(window.location.search).get("next")
+          : null;
+      const nextPath = requestedPath && requestedPath.startsWith("/") ? requestedPath : "/";
+
       setTransitionMessage({
         eyebrow: "ACCESS GRANTED",
         title: "Opening dashboard",
@@ -104,7 +104,7 @@ export default function AdminAuthShell({ children }: { children: ReactNode }) {
     }
 
     setIsRedirecting(false);
-  }, [authReady, nextPath, pathname, router, user]);
+  }, [authReady, pathname, router, user]);
 
   if (!authReady) {
     return (

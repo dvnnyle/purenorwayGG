@@ -55,11 +55,27 @@ export function subscribeToApprovedReviews(
     reviewsQuery,
     (snapshot) => {
       const reviews = snapshot.docs
-        .map((entry) => ({
-          id: entry.id,
-          ...entry.data(),
-        }))
-        .filter((entry) => entry.status === "approved") as ReviewEntry[];
+        .map((entry): ReviewEntry => {
+          const data = entry.data() as Partial<ReviewEntry>;
+
+          return {
+            id: entry.id,
+            name: data.name ?? "Anonymous",
+            location: data.location ?? "",
+            productTag: data.productTag ?? "Other",
+            text: data.text ?? "",
+            rating: typeof data.rating === "number" ? clampRating(data.rating) : 5,
+            status: (data.status as ReviewStatus) ?? "pending",
+            featured: Boolean(data.featured),
+            verifiedPurchase: Boolean(data.verifiedPurchase),
+            photos: Array.isArray(data.photos) ? data.photos : [],
+            createdAt: data.createdAt ?? null,
+            updatedAt: data.updatedAt ?? null,
+            reviewedAt: data.reviewedAt ?? null,
+            reviewedBy: data.reviewedBy ?? null,
+          };
+        })
+        .filter((entry) => entry.status === "approved");
 
       onUpdate(reviews);
     },

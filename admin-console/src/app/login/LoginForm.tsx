@@ -2,11 +2,12 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { signInAdmin } from "@/lib/adminAuth";
 
 export default function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,43 +18,33 @@ export default function LoginForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/temp-auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (!response.ok) {
-        const data = (await response.json().catch(() => null)) as { message?: string } | null;
-        setError(data?.message || "Login failed. Try again.");
-        setIsSubmitting(false);
-        return;
-      }
+      await signInAdmin(email, password);
 
       const requestedPath = searchParams.get("next");
       const nextPath = requestedPath && requestedPath.startsWith("/") ? requestedPath : "/";
 
-      sessionStorage.setItem("temp_admin_session", "1");
-      sessionStorage.setItem("temp_admin_last_path", nextPath);
-
       router.push(nextPath);
       router.refresh();
-    } catch {
-      setError("Could not reach login service.");
+    } catch (nextError) {
+      if (nextError instanceof Error) {
+        setError(nextError.message || "Login failed. Try again.");
+      } else {
+        setError("Could not reach Firebase auth service.");
+      }
       setIsSubmitting(false);
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="temp-login-form">
-      <label htmlFor="tempUsername">Username</label>
+      <label htmlFor="tempEmail">Admin Email</label>
       <input
-        id="tempUsername"
-        type="text"
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
-        placeholder="Enter temporary username"
-        autoComplete="username"
+        id="tempEmail"
+        type="email"
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+        placeholder="Enter admin email"
+        autoComplete="email"
         required
       />
 
@@ -63,7 +54,7 @@ export default function LoginForm() {
         type="password"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
-        placeholder="Enter temporary password"
+        placeholder="Enter Firebase password"
         autoComplete="current-password"
         required
       />

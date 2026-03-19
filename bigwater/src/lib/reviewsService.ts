@@ -6,6 +6,7 @@ import {
   query,
   serverTimestamp,
   Timestamp,
+  where,
 } from "firebase/firestore";
 import { db } from "./firebase";
 
@@ -49,7 +50,11 @@ export function subscribeToApprovedReviews(
   onUpdate: (reviews: ReviewEntry[]) => void,
   onError?: (error: Error) => void
 ) {
-  const reviewsQuery = query(collection(db, COLLECTION_NAME), orderBy("createdAt", "desc"));
+  const reviewsQuery = query(
+    collection(db, COLLECTION_NAME),
+    where("status", "==", "approved"),
+    orderBy("createdAt", "desc")
+  );
 
   return onSnapshot(
     reviewsQuery,
@@ -74,8 +79,7 @@ export function subscribeToApprovedReviews(
             reviewedAt: data.reviewedAt ?? null,
             reviewedBy: data.reviewedBy ?? null,
           };
-        })
-        .filter((entry) => entry.status === "approved");
+        });
 
       onUpdate(reviews);
     },

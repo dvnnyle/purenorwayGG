@@ -1,19 +1,28 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { onAuthStateChanged, type User } from 'firebase/auth';
 import { usePathname, useRouter } from 'next/navigation';
+import { auth } from '@/lib/firebase';
+import { getAdminDisplayName, signOutAdmin } from '@/lib/adminAuth';
 
 export default function AdminSidebar() {
   const pathname = usePathname();
   const router = useRouter();
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    return onAuthStateChanged(auth, setUser);
+  }, []);
 
   const handleLogout = async () => {
-    await fetch('/api/temp-auth/logout', { method: 'POST' });
-    sessionStorage.removeItem('temp_admin_session');
-    sessionStorage.removeItem('temp_admin_last_path');
+    await signOutAdmin();
     router.push('/login');
     router.refresh();
   };
+
+  const profile = getAdminDisplayName(user);
 
   return (
     <aside className="sidebar">
@@ -76,10 +85,10 @@ export default function AdminSidebar() {
         </button>
 
         <div className="user">
-          <div className="avatar">AD</div>
+          <div className="avatar">{profile.initials}</div>
           <div>
-            <div className="user-name">Admin User</div>
-            <div className="user-role">Temporary Access</div>
+            <div className="user-name">{profile.name}</div>
+            <div className="user-role">{profile.role}</div>
           </div>
         </div>
       </div>

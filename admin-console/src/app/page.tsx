@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import AdminSidebar from './_components/AdminSidebar';
+import AdminFooter from './_components/AdminFooter';
 
 const quickLinks = [
   {
@@ -17,6 +18,11 @@ const quickLinks = [
     title: 'Products',
     desc: 'Manage product cards and store-facing item details.',
   },
+  {
+    href: '/reviews',
+    title: 'Reviews',
+    desc: 'Moderate pending reviews and control featured feedback.',
+  },
 ];
 
 export default function DashboardPage() {
@@ -28,6 +34,20 @@ export default function DashboardPage() {
         <div className="view active">
           <div className="topbar">
             <h2>Dashboard</h2>
+            <div className="topbar-actions">
+              <a
+                className="btn btn-ghost"
+                href="https://purenorwaywater.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z" />
+                  <path d="M14 5h5v5h-2V8.41l-6.29 6.3-1.42-1.42L15.59 7H14V5z" />
+                </svg>
+                Open Main Website
+              </a>
+            </div>
           </div>
 
           <div className="content dashboard-content">
@@ -50,6 +70,8 @@ export default function DashboardPage() {
             </section>
           </div>
         </div>
+
+        <AdminFooter />
       </main>
     </>
   );

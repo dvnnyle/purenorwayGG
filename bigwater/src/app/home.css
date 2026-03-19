@@ -3,11 +3,12 @@
   min-height: 100vh;
   background: #ffffff;
   padding-top: 0px;
+  overflow-x: hidden;
 }
 
 /* Content Wrapper - matches navbar spacing */
 .content-wrapper {
-  padding: 0 20px 20px;
+  padding: 20px 20px 20px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -463,7 +464,7 @@ body.boxed-layout .footer-content {
 
 @media (max-width: 600px) {
   .home-section-two {
-    padding: 64px 20px;
+    padding: 64px 0;
   }
 }
 
@@ -638,20 +639,19 @@ body.boxed-layout .footer-content {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .homepage {
-    padding-top: 86px;
-  }
 
-  .hero-section {
-    height: calc(100vh - 62px - 20px);
-  }
-
+  .hero-section,
   .hero-section.hero-section-expanded {
-    width: calc(100% + 40px);
-    margin-left: -20px;
-    margin-right: -20px;
-    height: calc(100vh - 62px);
-    border-radius: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+  }
+
+  .hero-video {
+    object-position: center 32%;
   }
 
   .hero-title {
@@ -711,6 +711,17 @@ body.boxed-layout .footer-content {
 
   .section-two-card h3 {
     font-size: 1.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo {
+    height: 38px;
+  }
+
+  .hero-controls {
+    right: 10px;
+    bottom: 10px;
   }
 }
 
@@ -1264,7 +1275,7 @@ body.boxed-layout .footer-content {
 
 @media (max-width: 600px) {
   .merch-reviews-section {
-    padding: 64px 20px;
+    padding: 64px 0;
   }
 
   .merch-reviews-header {

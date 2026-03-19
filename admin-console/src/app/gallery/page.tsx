@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import AdminSidebar from '../_components/AdminSidebar';
+import AdminFooter from '../_components/AdminFooter';
 import {
   createGallerySlide,
   deleteGallerySlide,
@@ -48,7 +49,6 @@ export default function GalleryAdminPage() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [toast, setToast] = useState<ToastState | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const carouselEnabledCount = gallerySlides.filter((slide) => slide.active && slide.showInCarousel).length;
 
   const showToast = useCallback((nextToast: ToastState) => {
     setToast(nextToast);
@@ -185,7 +185,8 @@ export default function GalleryAdminPage() {
         imageUrl,
         order: Number(editorState.order) || 1,
         active: editorState.active,
-        showInCarousel: editorState.showInCarousel,
+        // Keep this true for backward compatibility with older documents.
+        showInCarousel: true,
         showInGallery: editorState.showInGallery,
       };
 
@@ -308,13 +309,8 @@ export default function GalleryAdminPage() {
 
           <div className="content">
             <div style={{ marginBottom: '18px', color: '#6B8090', fontSize: '13px' }}>
-              Homepage carousel uses the first 6 active images with homepage enabled, sorted by order. The gallery page shows every active image with gallery enabled.
+              Set image order and visibility for the gallery. Active images are shown by order.
             </div>
-            {carouselEnabledCount > 6 && (
-              <div style={{ marginBottom: '18px', color: '#d97706', fontSize: '13px' }}>
-                {carouselEnabledCount} images are enabled for the homepage. Only the first 6 by order will appear in the slideshow.
-              </div>
-            )}
             <div className="gallery-grid">
               {/* Slide list */}
               <div className="panel">
@@ -325,7 +321,7 @@ export default function GalleryAdminPage() {
                   <div className="gallery-list">
                     {gallerySlides.length === 0 && (
                       <div style={{ padding: '24px', textAlign: 'center', color: '#6B8090' }}>
-                        No slides yet. Add your first carousel image.
+                        No images yet. Add your first gallery image.
                       </div>
                     )}
                     {[...gallerySlides]
@@ -338,7 +334,7 @@ export default function GalleryAdminPage() {
                           <div className="gallery-item-info">
                             <div className="gallery-item-title">{slide.eyebrow}</div>
                             <div className="gallery-item-meta">
-                              Order {slide.order} · {slide.active ? 'Active' : 'Hidden'} · Home {slide.showInCarousel ? 'On' : 'Off'} · Gallery {slide.showInGallery ? 'On' : 'Off'}
+                              Order {slide.order} · {slide.active ? 'Active' : 'Hidden'} · Gallery {slide.showInGallery ? 'On' : 'Off'}
                             </div>
                           </div>
                           <div className="post-actions">
@@ -423,16 +419,6 @@ export default function GalleryAdminPage() {
                       <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
                         <input
                           type="checkbox"
-                          checked={editorState.showInCarousel}
-                          onChange={(e) => handleInputChange('showInCarousel', e.target.checked)}
-                        />
-                        Show in homepage slideshow
-                      </label>
-                    </div>
-                    <div>
-                      <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-                        <input
-                          type="checkbox"
                           checked={editorState.showInGallery}
                           onChange={(e) => handleInputChange('showInGallery', e.target.checked)}
                         />
@@ -472,6 +458,8 @@ export default function GalleryAdminPage() {
             </div>
           </div>
         </div>
+
+        <AdminFooter />
       </main>
     </>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import AdminSidebar from '../_components/AdminSidebar';
+import AdminFooter from '../_components/AdminFooter';
 
 export default function ProductsPage() {
   return (
@@ -95,6 +96,8 @@ export default function ProductsPage() {
             </div>
           </div>
         </div>
+
+        <AdminFooter />
       </main>
     </>
   );

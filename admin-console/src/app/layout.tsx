@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import AdminAuthShell from "./_components/AdminAuthShell";
 import "./globals.css";
 import "./admin.css";
+import "./login/login.css";
 
 const poppins = Poppins({
   variable: "--font-poppins",

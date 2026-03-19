@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import AdminSidebar from '../_components/AdminSidebar';
+import AdminFooter from '../_components/AdminFooter';
 import {
   getAllNewsArticles,
   createNewsArticle,
@@ -671,6 +672,8 @@ export default function BlogPage() {
             </div>
           </div>
         </div>
+
+        <AdminFooter />
       </main>
     </>
   );

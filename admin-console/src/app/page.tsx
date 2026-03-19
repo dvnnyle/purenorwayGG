@@ -11,7 +11,7 @@ const quickLinks = [
   {
     href: '/gallery',
     title: 'Gallery Slides',
-    desc: 'Control carousel and gallery media ordering and visibility.',
+    desc: 'Control gallery media ordering and visibility.',
   },
   {
     href: '/products',

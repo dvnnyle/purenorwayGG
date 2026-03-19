@@ -43,7 +43,7 @@ export function getAdminDisplayName(user: User | null) {
     return {
       initials: "AD",
       name: "Admin User",
-      role: "Firebase Access",
+      role: "",
     };
   }
 
@@ -56,6 +56,6 @@ export function getAdminDisplayName(user: User | null) {
   return {
     initials: initials || "AD",
     name: user.displayName?.trim() || user.email || "Admin User",
-    role: "Firebase Access",
+    role: "",
   };
 }

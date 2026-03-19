@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import AdminSidebar from '../_components/AdminSidebar';
+import AdminFooter from '../_components/AdminFooter';
 import {
   deleteReviewEntry,
   getAllReviews,
@@ -241,6 +242,8 @@ export default function ReviewsAdminPage() {
             ) : null}
           </div>
         </div>
+
+        <AdminFooter />
       </main>
     </>
   );

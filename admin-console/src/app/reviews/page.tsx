@@ -44,9 +44,10 @@ export default function ReviewsAdminPage() {
   const [reviews, setReviews] = useState<ReviewEntry[]>([]);
   const [activeFilter, setActiveFilter] = useState<ReviewStatus | 'all'>('all');
   const [loading, setLoading] = useState(false);
+  const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
 
   const loadReviews = async () => {
-    const data = await getAllReviews();
+    const data: ReviewEntry[] = await getAllReviews();
     setReviews(data);
   };
 
@@ -54,9 +55,9 @@ export default function ReviewsAdminPage() {
     loadReviews();
   }, []);
 
-  const filteredReviews = useMemo(() => {
+  const filteredReviews = useMemo<ReviewEntry[]>(() => {
     if (activeFilter === 'all') return reviews;
-    return reviews.filter((review) => review.status === activeFilter);
+    return reviews.filter((review: ReviewEntry) => review.status === activeFilter);
   }, [activeFilter, reviews]);
 
   const handleStatusChange = async (id: string, status: ReviewStatus) => {
@@ -80,15 +81,23 @@ export default function ReviewsAdminPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Delete this review permanently?')) return;
-
     setLoading(true);
     try {
       await deleteReviewEntry(id);
       await loadReviews();
     } finally {
       setLoading(false);
+      setDeleteTargetId(null);
     }
+  };
+
+  const openDeleteModal = (id: string) => {
+    setDeleteTargetId(id);
+  };
+
+  const closeDeleteModal = () => {
+    if (loading) return;
+    setDeleteTargetId(null);
   };
 
   return (
@@ -177,13 +186,59 @@ export default function ReviewsAdminPage() {
                     <button className="btn btn-ghost btn-sm" onClick={() => handleFeatureToggle(review.id!, !review.featured)} disabled={loading}>
                       {review.featured ? 'Unfeature' : 'Feature'}
                     </button>
-                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(review.id!)} disabled={loading}>
+                    <button className="btn btn-danger btn-sm" onClick={() => openDeleteModal(review.id!)} disabled={loading}>
                       Delete
                     </button>
                   </div>
                 </div>
               ))}
             </div>
+
+            {deleteTargetId ? (
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="delete-review-title"
+                style={{
+                  position: 'fixed',
+                  inset: 0,
+                  zIndex: 1500,
+                  background: 'rgba(5, 9, 14, .72)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '20px',
+                }}
+              >
+                <div
+                  style={{
+                    width: '100%',
+                    maxWidth: '440px',
+                    borderRadius: '14px',
+                    border: '1px solid rgba(255,255,255,.08)',
+                    background: '#111827',
+                    boxShadow: '0 24px 64px rgba(0,0,0,.48)',
+                    padding: '20px',
+                  }}
+                >
+                  <h3 id="delete-review-title" style={{ margin: 0, color: '#fff', fontSize: '18px', fontWeight: 800 }}>
+                    Delete review?
+                  </h3>
+                  <p style={{ margin: '10px 0 0', color: 'rgba(255,255,255,.72)', fontSize: '14px', lineHeight: 1.6 }}>
+                    This action is permanent and cannot be undone.
+                  </p>
+
+                  <div style={{ marginTop: '18px', display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+                    <button className="btn btn-ghost btn-sm" onClick={closeDeleteModal} disabled={loading}>
+                      Cancel
+                    </button>
+                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(deleteTargetId)} disabled={loading}>
+                      {loading ? 'Deleting...' : 'Delete'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
       </main>

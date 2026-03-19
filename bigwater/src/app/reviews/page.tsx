@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState, type FormEvent } from "react";
-import { MdSend } from "react-icons/md";
+import { MdCheckCircle, MdError, MdInfo, MdSend } from "react-icons/md";
 import {
   formatReviewDate,
   getReviewAvatarColor,
@@ -40,7 +40,7 @@ export default function ReviewsPage() {
     text: "",
   });
   const [submitState, setSubmitState] = useState<{
-    type: "idle" | "success" | "error";
+    type: "idle" | "info" | "success" | "error";
     message: string;
   }>({ type: "idle", message: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -58,6 +58,15 @@ export default function ReviewsPage() {
 
     return unsubscribe;
   }, []);
+
+  useEffect(() => {
+    if (submitState.type === "idle") return;
+    const timer = window.setTimeout(() => {
+      setSubmitState({ type: "idle", message: "" });
+    }, 3200);
+
+    return () => window.clearTimeout(timer);
+  }, [submitState]);
 
   const summary = useMemo(() => getReviewSummary(reviews), [reviews]);
   const marqueeSource = useMemo(() => reviews.slice(0, 12), [reviews]);
@@ -107,7 +116,7 @@ export default function ReviewsPage() {
     }
 
     setSubmitting(true);
-    setSubmitState({ type: "idle", message: "" });
+    setSubmitState({ type: "info", message: "Submitting your review..." });
 
     const result = await submitReview({
       name: formData.name.trim(),
@@ -121,7 +130,7 @@ export default function ReviewsPage() {
       setFormData({
         name: "",
         location: "",
-        productTag: "Still Water",
+        productTag: "Still",
         text: "",
       });
       setRating(0);
@@ -141,6 +150,17 @@ export default function ReviewsPage() {
 
   return (
     <div className="rvw-page">
+      {submitState.type !== "idle" ? (
+        <div className={`rvw-toast rvw-toast--${submitState.type}`} role="status" aria-live="polite">
+          <span className="rvw-toast-icon" aria-hidden="true">
+            {submitState.type === "success" ? <MdCheckCircle /> : null}
+            {submitState.type === "error" ? <MdError /> : null}
+            {submitState.type === "info" ? <MdInfo /> : null}
+          </span>
+          <p>{submitState.message}</p>
+        </div>
+      ) : null}
+
       <ReviewsHero reviews={reviews} />
 
       <section className="rvw-marquee-section">
@@ -261,9 +281,6 @@ export default function ReviewsPage() {
           <div className="rvw-submit-row">
             <div>
               <p>Reviews appear after a quick check.</p>
-              {submitState.type !== "idle" ? (
-                <p className={`rvw-submit-feedback rvw-submit-feedback--${submitState.type}`}>{submitState.message}</p>
-              ) : null}
             </div>
             <button type="submit" disabled={submitting}>
               {submitting ? "Submitting..." : <><MdSend /> Submit Review</>}

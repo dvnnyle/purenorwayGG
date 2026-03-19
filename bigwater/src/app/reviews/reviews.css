@@ -462,6 +462,61 @@
 	color: #f5a623;
 }
 
+.rvw-toast {
+	position: fixed;
+	top: 82px;
+	right: 20px;
+	z-index: 1200;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 14px;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(9, 18, 28, 0.96);
+	box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+	max-width: min(92vw, 380px);
+}
+
+.rvw-toast p {
+	margin: 0;
+	font-size: 13px;
+	line-height: 1.35;
+	color: #ffffff;
+}
+
+.rvw-toast-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 17px;
+	flex-shrink: 0;
+}
+
+.rvw-toast--info {
+	border-color: rgba(0, 180, 200, 0.38);
+}
+
+.rvw-toast--info .rvw-toast-icon {
+	color: #00b4c8;
+}
+
+.rvw-toast--success {
+	border-color: rgba(0, 180, 200, 0.45);
+}
+
+.rvw-toast--success .rvw-toast-icon {
+	color: #00b4c8;
+}
+
+.rvw-toast--error {
+	border-color: rgba(245, 166, 35, 0.42);
+}
+
+.rvw-toast--error .rvw-toast-icon {
+	color: #f5a623;
+}
+
 .rvw-submit-row button {
 	border: none;
 	border-radius: 8px;
@@ -658,6 +713,13 @@
 }
 
 @media (max-width: 600px) {
+	.rvw-toast {
+		top: 76px;
+		right: 12px;
+		left: 12px;
+		max-width: none;
+	}
+
 	.rvw-grid {
 		grid-template-columns: 1fr;
 	}

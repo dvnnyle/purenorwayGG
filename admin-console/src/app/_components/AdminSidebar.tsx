@@ -18,8 +18,7 @@ export default function AdminSidebar() {
 
   const handleLogout = async () => {
     await signOutAdmin();
-    router.push('/login');
-    router.refresh();
+    router.replace('/login');
   };
 
   const profile = getAdminDisplayName(user);

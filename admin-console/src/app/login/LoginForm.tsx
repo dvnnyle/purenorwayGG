@@ -23,8 +23,7 @@ export default function LoginForm() {
       const requestedPath = searchParams.get("next");
       const nextPath = requestedPath && requestedPath.startsWith("/") ? requestedPath : "/";
 
-      router.push(nextPath);
-      router.refresh();
+      router.replace(nextPath);
     } catch (nextError) {
       if (nextError instanceof Error) {
         setError(nextError.message || "Login failed. Try again.");

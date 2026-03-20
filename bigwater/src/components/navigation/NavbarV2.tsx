@@ -196,6 +196,7 @@ export default function NavbarV2({
 
   const contentLinks = [
     findLink('News', { label: 'News', href: '/news' }),
+    findLink('Reviews', { label: 'Reviews', href: '/reviews' }),
     galleryLink,
     ...(aboutLink?.submenu?.filter((item) => item.label !== 'News') ?? []),
   ];

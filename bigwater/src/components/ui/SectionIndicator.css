@@ -40,8 +40,8 @@
 }
 
 .indicator-item.active .indicator-dot {
-  background: #01BACC;
-  border-color: #01BACC;
+  background: #12a0ec;
+  border-color: #12a0ec;
   box-shadow: 
     0 0 0 2px rgba(1, 186, 204, 0.3),
     0 0 16px rgba(1, 186, 204, 0.8), 
@@ -50,7 +50,7 @@
 
 .indicator-item:hover .indicator-dot {
   background: rgba(255, 255, 255, 0.95);
-  border-color: #01BACC;
+  border-color: #12a0ec;
   box-shadow: 
     0 0 0 2px rgba(1, 186, 204, 0.4),
     0 0 12px rgba(1, 186, 204, 0.6), 
@@ -86,7 +86,7 @@
 }
 
 .indicator-item.active .indicator-label {
-  color: #01BACC;
+  color: #12a0ec;
   font-weight: 700;
   background: rgba(255, 255, 255, 0.98);
   border-color: rgba(1, 186, 204, 0.5);

@@ -1,6 +1,6 @@
 .footer {
-  --teal: #00b4c8;
-  --teal-dim: rgba(0, 180, 200, 0.1);
+  --teal: #12a0ec;
+  --teal-dim: rgba(18, 160, 236, 0.1);
   --navy: #0d1b2a;
   --border: rgba(255, 255, 255, 0.08);
   --muted: rgba(255, 255, 255, 0.38);
@@ -107,7 +107,7 @@
 
 .social-btn:hover {
   background: var(--teal-dim);
-  border-color: rgba(0, 180, 200, 0.3);
+  border-color: rgba(18, 160, 236, 0.3);
 }
 
 .social-btn svg {

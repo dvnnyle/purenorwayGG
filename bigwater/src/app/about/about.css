@@ -28,7 +28,7 @@
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: #01bacc;
+  color: #12a0ec;
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   margin: 0 0 20px;
@@ -45,7 +45,7 @@
 }
 
 .about-hero-highlight {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -245,7 +245,7 @@
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 16px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -261,7 +261,7 @@
 }
 
 .about-hero-text h1 em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -290,13 +290,13 @@
   height: 48px;
   border-radius: 12px;
   flex-shrink: 0;
-  background: #01bacc;
+  background: #12a0ec;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
   color: white;
-  border: 2px solid #01bacc;
+  border: 2px solid #12a0ec;
 }
 
 .icare-badge svg {
@@ -323,7 +323,7 @@
 }
 
 .icare-text .slogan em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: normal;
 }
 
@@ -370,7 +370,7 @@
 
 .about-section-one h2 {
   font-size: 2.25rem;
-  color: #01bacc;
+  color: #12a0ec;
   margin: 0 0 24px 0;
   font-weight: 700;
 }
@@ -458,7 +458,7 @@
 
 .about-section-bottles h2 {
   font-size: 2.25rem;
-  color: #01bacc;
+  color: #12a0ec;
   margin: 0 0 40px 0;
   font-weight: 700;
   text-align: center;
@@ -493,7 +493,7 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin: 0 0 14px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -510,7 +510,7 @@
 }
 
 .sustainability-header h2 em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   font-weight: 700;
@@ -551,7 +551,7 @@
   border-radius: 12px;
   background: rgba(1, 186, 204, 0.15);
   border: 1px solid rgba(1, 186, 204, 0.28);
-  color: #01bacc;
+  color: #12a0ec;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -561,7 +561,7 @@
 .sustainability-card-icon svg {
   width: 20px;
   height: 20px;
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .sustainability-card-title {
@@ -629,7 +629,7 @@
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 14px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -645,7 +645,7 @@
 }
 
 .our-cans-title em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -722,7 +722,7 @@
   flex-shrink: 0;
   background: rgba(1, 186, 204, 0.1);
   border: 1px solid rgba(1, 186, 204, 0.2);
-  color: #01bacc;
+  color: #12a0ec;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -838,7 +838,7 @@
 }
 
 .about-section-aluminum h2 em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -868,7 +868,7 @@
 }
 
 .sig em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: normal;
 }
 
@@ -927,7 +927,7 @@
 
 .about-section-sdg h2 {
   font-size: 2.25rem;
-  color: #01bacc;
+  color: #12a0ec;
   margin: 0 0 24px 0;
   font-weight: 700;
 }
@@ -1024,7 +1024,7 @@
 
 .about-section-care h2 {
   font-size: 2.25rem;
-  color: #01bacc;
+  color: #12a0ec;
   margin: 0 0 24px 0;
   font-weight: 700;
 }
@@ -1054,7 +1054,7 @@
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 16px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -1096,7 +1096,7 @@
 }
 
 .contribution-item:hover {
-  border-color: #01bacc;
+  border-color: #12a0ec;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
 }
 
@@ -1592,3 +1592,4 @@
 .about-page .home2-section-newsletter {
   padding: 20px;
 }
+

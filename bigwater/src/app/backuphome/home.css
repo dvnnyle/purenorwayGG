@@ -599,7 +599,7 @@ body.boxed-layout .footer-content {
 .cta-button {
   display: inline-block;
   padding: 14px 40px;
-  background: #01bacc;
+  background: #12a0ec;
   color: #fff;
   text-decoration: none;
   border-radius: 12px;
@@ -660,7 +660,7 @@ body.boxed-layout .footer-content {
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
   border: 2px solid rgba(1, 186, 204, 0.25);
-  color: #01BACC;
+  color: #12a0ec;
 }
 
 .home2-quote-icon svg {
@@ -689,7 +689,7 @@ body.boxed-layout .footer-content {
   font-size: 1.8rem;
   font-weight: 600;
   line-height: 1.4;
-  color: #01BACC;
+  color: #12a0ec;
   font-family: var(--font-poppins);
 }
 
@@ -778,7 +778,7 @@ body.boxed-layout .footer-content {
 
 .home2-newsletter-highlight {
   font-weight: 700;
-  color: #01BACC;
+  color: #12a0ec;
 }
 
 .home2-newsletter-badge-inline {
@@ -798,7 +798,7 @@ body.boxed-layout .footer-content {
 .home2-newsletter-badge-inline svg {
   width: 18px;
   height: 18px;
-  color: #01BACC;
+  color: #12a0ec;
 }
 
 .home2-newsletter-copy {
@@ -823,11 +823,11 @@ body.boxed-layout .footer-content {
 }
 
 .home2-newsletter-cta:hover {
-  color: #01BACC;
+  color: #12a0ec;
 }
 
 .home2-newsletter-arrow {
-  color: #01BACC;
+  color: #12a0ec;
   font-size: 1.2rem;
   flex-shrink: 0;
 }
@@ -853,7 +853,7 @@ body.boxed-layout .footer-content {
 
 .home2-newsletter-input:focus {
   outline: none;
-  border-color: #01BACC;
+  border-color: #12a0ec;
   background: white;
 }
 
@@ -863,7 +863,7 @@ body.boxed-layout .footer-content {
 
 .home2-newsletter-btn {
   padding: 14px 32px;
-  background: #01BACC;
+  background: #12a0ec;
   color: white;
   border: none;
   border-radius: 50px;

@@ -301,7 +301,7 @@
   align-items: center;
   gap: 8px;
   justify-content: center;
-  background: linear-gradient(135deg, #01bacc 0%, #00a7bd 100%);
+  background: linear-gradient(135deg, #12a0ec 0%, #00a7bd 100%);
   color: #ffffff;
   border: 1px solid rgba(0, 167, 189, 0.6);
   padding: 12px 30px;
@@ -349,7 +349,7 @@
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 12px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -365,7 +365,7 @@
 }
 
 .social-banner-top h2 em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -426,7 +426,7 @@
 }
 
 .social-handle-name span {
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .social-platforms-grid {
@@ -453,7 +453,7 @@
 }
 
 .platform-card:hover {
-  border-color: #01bacc;
+  border-color: #12a0ec;
   transform: translateY(-2px);
 }
 
@@ -535,7 +535,7 @@
   padding: 6px 14px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #01bacc;
+  color: #12a0ec;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   transition: background 0.2s;
 }

@@ -27,7 +27,7 @@
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: #01bacc;
+  color: #12a0ec;
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   margin: 0 0 20px;
@@ -44,7 +44,7 @@
 }
 
 .products-hero-highlight {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -80,7 +80,7 @@
 .products-packaging-eyebrow {
   display: inline-block;
   margin-bottom: 16px;
-  color: #01bacc;
+  color: #12a0ec;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -99,7 +99,7 @@
 }
 
 .products-packaging-title em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -117,7 +117,7 @@
 }
 
 .products-packaging-body-accent {
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .products-packaging-tagline {
@@ -162,7 +162,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #01bacc;
+  color: #12a0ec;
   text-decoration: none;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   font-size: 13px;
@@ -194,7 +194,7 @@
   margin: 0;
   font-size: 2rem;
   font-weight: 700;
-  color: #01bacc;
+  color: #12a0ec;
   letter-spacing: -0.01em;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -465,7 +465,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: #01bacc;
+  color: #12a0ec;
   margin: 0 0 20px;
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
@@ -527,7 +527,7 @@
 .sustainability-card-icon svg {
   width: 24px;
   height: 24px;
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .sustainability-card-title {
@@ -597,7 +597,7 @@
 
 .business-kicker {
   margin: 0 0 16px;
-  color: #01bacc;
+  color: #12a0ec;
   font-size: 12px;
   letter-spacing: 2.5px;
   font-weight: 700;
@@ -651,15 +651,15 @@
 }
 
 .business-cta-primary:hover {
-  background: #01bacc;
-  border-color: #01bacc;
+  background: #12a0ec;
+  border-color: #12a0ec;
   color: #ffffff;
   transform: translateY(-2px);
 }
 
 .business-cta-secondary {
   background: transparent;
-  color: #01bacc;
+  color: #12a0ec;
   border: none;
   padding-left: 0;
   padding-right: 0;
@@ -722,7 +722,7 @@
 
 .business-card-value {
   font-size: 1.65rem;
-  color: #01bacc;
+  color: #12a0ec;
   font-weight: 700;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   white-space: nowrap;

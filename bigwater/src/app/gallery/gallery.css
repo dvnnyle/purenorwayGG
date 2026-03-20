@@ -37,7 +37,7 @@
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: #01bacc;
+  color: #12a0ec;
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   margin: 0 0 20px;
@@ -87,13 +87,13 @@
 }
 
 .gallery-filter-btn:hover {
-  border-color: #01bacc;
-  color: #01bacc;
+  border-color: #12a0ec;
+  color: #12a0ec;
 }
 
 .gallery-filter-btn.active {
-  background: #01bacc;
-  border-color: #01bacc;
+  background: #12a0ec;
+  border-color: #12a0ec;
   color: #ffffff;
   box-shadow: 0 4px 16px rgba(1, 186, 204, 0.3);
 }
@@ -118,7 +118,7 @@
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: #01bacc;
+  color: #12a0ec;
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   margin: 0 0 14px;
@@ -136,7 +136,7 @@
 }
 
 .gallery-grid-highlight {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
   font-weight: 700;
 }
@@ -168,7 +168,7 @@
 }
 
 .gallery-item:focus-visible {
-  box-shadow: 0 0 0 3px #01bacc;
+  box-shadow: 0 0 0 3px #12a0ec;
 }
 
 .gallery-item:hover {
@@ -250,8 +250,8 @@
 }
 
 .gallery-load-btn:hover {
-  border-color: #01bacc;
-  color: #01bacc;
+  border-color: #12a0ec;
+  color: #12a0ec;
   box-shadow: 0 8px 20px rgba(1, 186, 204, 0.16);
 }
 
@@ -283,7 +283,7 @@
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 12px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -299,7 +299,7 @@
 }
 
 .social-banner-top h2 em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -360,7 +360,7 @@
 }
 
 .social-handle-name span {
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .social-platforms-grid {
@@ -387,7 +387,7 @@
 }
 
 .platform-card:hover {
-  border-color: #01bacc;
+  border-color: #12a0ec;
   transform: translateY(-2px);
 }
 
@@ -499,7 +499,7 @@
   padding: 6px 14px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #01bacc;
+  color: #12a0ec;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   transition: background 0.2s;
 }
@@ -652,7 +652,7 @@
 
 .gallery-lb-nav:hover {
   background: rgba(1, 186, 204, 0.3);
-  border-color: #01bacc;
+  border-color: #12a0ec;
 }
 
 .gallery-lb-nav.prev {

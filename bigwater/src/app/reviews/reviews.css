@@ -18,7 +18,7 @@
 	background: rgba(0, 180, 200, 0.15);
 	border: 1px solid rgba(0, 180, 200, 0.3);
 	text-decoration: none;
-	color: #00b4c8;
+	color: #12a0ec;
 	font-size: 13px;
 	font-weight: 600;
 	transition: all 0.2s ease;
@@ -26,7 +26,7 @@
 
 .rvw-back-button:hover {
 	background: rgba(0, 180, 200, 0.25);
-	border-color: #00b4c8;
+	border-color: #12a0ec;
 }
 
 .rvw-back-button svg {
@@ -56,7 +56,7 @@
 }
 
 .rvw-logo span {
-	color: #00b4c8;
+	color: #12a0ec;
 }
 
 .rvw-back-link {
@@ -71,7 +71,7 @@
 }
 
 .rvw-back-link:hover {
-	color: #00b4c8;
+	color: #12a0ec;
 }
 
 .rvw-back-arrow {
@@ -113,7 +113,7 @@
 }
 
 .rvw-hero h1 em {
-	color: #00b4c8;
+	color: #12a0ec;
 	font-style: italic;
 }
 
@@ -176,7 +176,7 @@
 .rvw-bar-row > div i {
 	display: block;
 	height: 100%;
-	background: #00b4c8;
+	background: #12a0ec;
 	border-radius: 999px;
 }
 
@@ -267,7 +267,7 @@
 	border-radius: 999px;
 	border: 1px solid rgba(0, 180, 200, 0.15);
 	background: rgba(0, 180, 200, 0.12);
-	color: #00b4c8;
+	color: #12a0ec;
 	font-size: 9px;
 	font-weight: 700;
 	letter-spacing: 1.5px;
@@ -422,7 +422,7 @@
 .rvw-field select:focus,
 .rvw-field textarea:focus,
 .rvw-controls select:focus {
-	border-color: #00b4c8;
+	border-color: #12a0ec;
 }
 
 .rvw-field textarea {
@@ -455,7 +455,7 @@
 }
 
 .rvw-submit-feedback--success {
-	color: #00b4c8;
+	color: #12a0ec;
 }
 
 .rvw-submit-feedback--error {
@@ -498,7 +498,7 @@
 }
 
 .rvw-toast--info .rvw-toast-icon {
-	color: #00b4c8;
+	color: #12a0ec;
 }
 
 .rvw-toast--success {
@@ -506,7 +506,7 @@
 }
 
 .rvw-toast--success .rvw-toast-icon {
-	color: #00b4c8;
+	color: #12a0ec;
 }
 
 .rvw-toast--error {
@@ -524,7 +524,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	background: #00b4c8;
+	background: #12a0ec;
 	color: #ffffff;
 	font-size: 13px;
 	font-weight: 700;
@@ -566,9 +566,9 @@
 
 .rvw-pills button:hover,
 .rvw-pills button.is-active {
-	border-color: #00b4c8;
+	border-color: #12a0ec;
 	background: rgba(0, 180, 200, 0.12);
-	color: #00b4c8;
+	color: #12a0ec;
 }
 
 .rvw-controls select {
@@ -659,7 +659,7 @@
 }
 
 .rvw-verified {
-	color: #00b4c8;
+	color: #12a0ec;
 	font-size: 10px;
 	font-weight: 700;
 }

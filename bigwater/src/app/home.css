@@ -8,7 +8,7 @@
 
 /* Content Wrapper - matches navbar spacing */
 .content-wrapper {
-  padding: 20px 20px 20px;
+  padding: 0 20px 20px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -197,7 +197,7 @@ body.boxed-layout .footer-content {
 }
 
 .impact-combined-header p strong {
-  color: #00b4c8;
+  color: #12a0ec;
   font-weight: 700;
 }
 
@@ -218,7 +218,7 @@ body.boxed-layout .footer-content {
 }
 
 .combined-card:hover {
-  border-color: #00b4c8;
+  border-color: #12a0ec;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
 }
 
@@ -233,7 +233,7 @@ body.boxed-layout .footer-content {
   justify-content: center;
   margin: 0 auto 16px;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  color: #00b4c8;
+  color: #12a0ec;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -246,7 +246,7 @@ body.boxed-layout .footer-content {
 .combined-card-icon svg {
   width: 26px;
   height: 26px;
-  fill: #00b4c8;
+  fill: #12a0ec;
 }
 
 .combined-card h3 {
@@ -281,7 +281,7 @@ body.boxed-layout .footer-content {
 }
 
 .combined-cta-card:hover {
-  border-color: #00b4c8;
+  border-color: #12a0ec;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
 }
 
@@ -392,17 +392,17 @@ body.boxed-layout .footer-content {
 
 .combined-btn-outline {
   background: transparent;
-  color: #00b4c8;
-  border: 1.5px solid #00b4c8;
+  color: #12a0ec;
+  border: 1.5px solid #12a0ec;
 }
 
 .combined-btn-outline:hover {
-  background: #00b4c8;
+  background: #12a0ec;
   color: #ffffff;
 }
 
 .combined-btn-fill {
-  background: #00b4c8;
+  background: #12a0ec;
   color: #ffffff;
   border: none;
 }
@@ -639,6 +639,10 @@ body.boxed-layout .footer-content {
 
 /* Responsive */
 @media (max-width: 768px) {
+
+  .content-wrapper {
+    padding-top: 20px;
+  }
 
   .hero-section,
   .hero-section.hero-section-expanded {
@@ -978,7 +982,7 @@ body.boxed-layout .footer-content {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #00B4C8;
+  color: #12a0ec;
   margin-bottom: 8px;
   font-family: var(--font-poppins);
 }
@@ -1079,7 +1083,7 @@ body.boxed-layout .footer-content {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #00B4C8;
+  color: #12a0ec;
   margin-bottom: 12px;
   font-family: var(--font-poppins);
 }
@@ -1095,7 +1099,7 @@ body.boxed-layout .footer-content {
 }
 
 .merch-card h3 em {
-  color: #00B4C8;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -1112,7 +1116,7 @@ body.boxed-layout .footer-content {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: #00B4C8;
+  background: #12a0ec;
   color: #fff;
   border: none;
   padding: 12px 24px;
@@ -1148,7 +1152,7 @@ body.boxed-layout .footer-content {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #00B4C8;
+  color: #12a0ec;
   margin-bottom: 14px;
   font-family: var(--font-poppins);
 }
@@ -1164,7 +1168,7 @@ body.boxed-layout .footer-content {
 }
 
 .reviews-card h3 em {
-  color: #00B4C8;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -1250,8 +1254,8 @@ body.boxed-layout .footer-content {
   align-items: center;
   gap: 7px;
   background: #ffffff;
-  color: #00B4C8;
-  border: 1.5px solid #00B4C8;
+  color: #12a0ec;
+  border: 1.5px solid #12a0ec;
   padding: 11px 22px;
   border-radius: 6px;
   font-family: var(--font-poppins);
@@ -1263,7 +1267,7 @@ body.boxed-layout .footer-content {
 }
 
 .btn-reviews:hover {
-  background: #00B4C8;
+  background: #12a0ec;
   color: #ffffff;
 }
 
@@ -1307,7 +1311,7 @@ body.boxed-layout .footer-content {
 .cta-button {
   display: inline-block;
   padding: 14px 40px;
-  background: #01bacc;
+  background: #12a0ec;
   color: #fff;
   text-decoration: none;
   border-radius: 12px;
@@ -1368,7 +1372,7 @@ body.boxed-layout .footer-content {
   font-family: var(--font-poppins);
   font-size: 140px;
   font-weight: 900;
-  color: #00b4c8;
+  color: #12a0ec;
   line-height: 0.8;
   opacity: 0.25;
 }
@@ -1396,14 +1400,14 @@ body.boxed-layout .footer-content {
 }
 
 .home2-quote-wrap blockquote em {
-  color: #00b4c8;
+  color: #12a0ec;
 }
 
 .foundation-quote-inner cite {
   display: block;
   font-size: 12px;
   font-weight: 700;
-  color: #00b4c8;
+  color: #12a0ec;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   font-style: normal;
@@ -1424,7 +1428,7 @@ body.boxed-layout .footer-content {
 }
 
 .home2-quote-link:hover {
-  color: #00b4c8;
+  color: #12a0ec;
 }
 
 .home2-quote-content {
@@ -1449,7 +1453,7 @@ body.boxed-layout .footer-content {
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
   border: 2px solid rgba(1, 186, 204, 0.25);
-  color: #01BACC;
+  color: #12a0ec;
 }
 
 .home2-quote-icon svg {
@@ -1478,7 +1482,7 @@ body.boxed-layout .footer-content {
   font-size: 1.8rem;
   font-weight: 600;
   line-height: 1.4;
-  color: #01BACC;
+  color: #12a0ec;
   font-family: var(--font-poppins);
 }
 

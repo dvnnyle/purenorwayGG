@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import mapImage from "@/app/map/hexamap/world_map.webp";
+import mapImage from "@/app/map/hexamap/wMap.png";
 import norwayBadgeImage from "@/app/map/hexamap/hexmap_norway.webp";
 import taiwanBadgeImage from "@/app/map/hexamap/hexmap_taiwan.webp";
 import ukBadgeImage from "@/app/map/hexamap/hexmap_uk.webp";
@@ -29,10 +29,10 @@ const locationBadges: LocationBadge[] = [
     id: "norway",
     name: "Norway",
     label: "Headquarters",
-    top: "35%",
+    top: "32%",
     left: "41%",
     offsetX: "44px",
-    offsetY: "-78px",
+    offsetY: "-80px",
     badgeImage: norwayBadgeImage.src,
   },
   {
@@ -107,7 +107,7 @@ const locationBadges: LocationBadge[] = [
     id: "uk",
     name: "UK",
     label: "Regional Distribution",
-    top: "43%",
+    top: "44%",
     left: "52%",
     offsetX: "-120px",
     offsetY: "-92px",

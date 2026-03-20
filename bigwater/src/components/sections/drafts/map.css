@@ -20,7 +20,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: #01bacc;
+  color: #12a0ec;
   text-transform: uppercase;
   margin: 0 0 15px;
   font-family: 'Poppins', sans-serif;
@@ -75,8 +75,8 @@
 }
 
 .map-location-btn.is-active {
-  background: #01bacc;
-  border-color: #01bacc;
+  background: #12a0ec;
+  border-color: #12a0ec;
   color: #0d1b2a;
 }
 
@@ -163,7 +163,7 @@
 }
 
 .map-badge:hover .map-badge-card {
-  border-color: #01bacc;
+  border-color: #12a0ec;
   box-shadow: 0 12px 32px rgba(1, 186, 204, 0.25);
   transform: translate(-50%, -100%) scale(1.04);
 }

@@ -6,8 +6,8 @@
   width: 60px;
   height: 60px;
   border-radius: 0 50% 0% 20%;
-  background: linear-gradient(135deg, #01BACC 0%, #0195a8 100%);
-  border: 2px solid #01BACC;
+  background: linear-gradient(135deg, #12a0ec 0%, #0195a8 100%);
+  border: 2px solid #12a0ec;
   color: white;
   display: flex;
   align-items: center;
@@ -29,9 +29,9 @@
 
 .suggestion-btn {
   padding: 10px 12px;
-  background: linear-gradient(135deg, #01BACC 0%, #0195a8 100%);
+  background: linear-gradient(135deg, #12a0ec 0%, #0195a8 100%);
   color: white;
-  border: 1px solid #01BACC;
+  border: 1px solid #12a0ec;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.9rem;
@@ -83,7 +83,7 @@
 
 /* Header */
 .chatbot-header {
-  background: linear-gradient(135deg, #01BACC 0%, #0195a8 100%);
+  background: linear-gradient(135deg, #12a0ec 0%, #0195a8 100%);
   color: white;
   padding: 16px 20px;
   border-radius: 10px 10px 0 0;
@@ -191,7 +191,7 @@
 }
 
 .message-user .message-content {
-  background: #01BACC;
+  background: #12a0ec;
   color: white;
   border-radius: 18px 4px 18px 18px;
 }
@@ -294,7 +294,7 @@
 }
 
 .chatbot-input:focus {
-  border-color: #01BACC;
+  border-color: #12a0ec;
 }
 
 .chatbot-input::placeholder {
@@ -310,7 +310,7 @@
   width: 40px;
   height: 40px;
   border: none;
-  background: #01BACC;
+  background: #12a0ec;
   color: white;
   border-radius: 6px;
   cursor: pointer;

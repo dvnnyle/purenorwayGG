@@ -49,7 +49,7 @@ html {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: #01bacc;
+  color: #12a0ec;
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   margin: 0 0 20px;
@@ -66,7 +66,7 @@ html {
 }
 
 .contact-hero-highlight {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -108,7 +108,7 @@ html {
   font-size: var(--section-eyebrow-size);
   font-weight: var(--section-eyebrow-weight);
   letter-spacing: var(--section-eyebrow-letter);
-  color: #01bacc;
+  color: #12a0ec;
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   margin: 0 0 12px;
@@ -136,7 +136,7 @@ html {
 }
 
 .work-with-us-highlight {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
   font-family: var(--font-poppins), 'Poppins', sans-serif !important;
   font-weight: 700;
@@ -180,7 +180,7 @@ html {
   height: 42px;
   border-radius: 12px;
   background: rgba(1, 186, 204, 0.15);
-  color: #01bacc;
+  color: #12a0ec;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -241,8 +241,8 @@ html {
 }
 
 .work-card-link:hover {
-  border-color: #01bacc;
-  color: #01bacc;
+  border-color: #12a0ec;
+  color: #12a0ec;
   background: #ffffff;
 }
 
@@ -273,7 +273,7 @@ html {
   font-weight: var(--section-eyebrow-weight);
   letter-spacing: var(--section-eyebrow-letter);
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 12px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -289,7 +289,7 @@ html {
 }
 
 .global-team-header-text h2 em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -331,7 +331,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 12px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -354,7 +354,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .hq-left address a {
-  color: #01bacc;
+  color: #12a0ec;
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -381,7 +381,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 14px;
   opacity: 0.8;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
@@ -402,7 +402,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .hq-person-links a:hover {
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 /* Regions Grid */
@@ -430,7 +430,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 6px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -491,7 +491,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .r-links a:hover {
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 /* FAQ Section */
@@ -518,7 +518,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: var(--section-eyebrow-weight);
   letter-spacing: var(--section-eyebrow-letter);
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin: 0 0 12px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -533,7 +533,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .faq-left h2 em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -578,7 +578,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 .faq-cat.active {
   border-color: rgba(1, 186, 204, 0.55);
   background: #ffffff;
-  color: #01bacc;
+  color: #12a0ec;
   box-shadow: 0 4px 14px rgba(1, 186, 204, 0.12);
 }
 
@@ -623,7 +623,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 999px;
   padding: 8px 14px;
   background: #ffffff;
-  color: #01bacc;
+  color: #12a0ec;
   font-size: 0.82rem;
   font-weight: 700;
   text-decoration: none;
@@ -634,9 +634,9 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .faq-contact-btn:hover {
-  background: #01bacc;
+  background: #12a0ec;
   color: #ffffff;
-  border-color: #01bacc;
+  border-color: #12a0ec;
 }
 
 .faq-group {
@@ -711,8 +711,8 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .faq-item.open .faq-icon {
-  border-color: #01bacc;
-  background: #01bacc;
+  border-color: #12a0ec;
+  background: #12a0ec;
   color: #ffffff;
   transform: rotate(45deg);
 }
@@ -737,7 +737,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .faq-a-inner a {
-  color: #01bacc;
+  color: #12a0ec;
   text-decoration: none;
   font-weight: 600;
 }
@@ -747,7 +747,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .faq-brand-highlight {
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 /* Social Banner */
@@ -774,7 +774,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 
 .contact-social-eyebrow {
   margin: 0 0 8px;
-  color: #01bacc;
+  color: #12a0ec;
   font-size: var(--section-eyebrow-size);
   font-weight: var(--section-eyebrow-weight);
   letter-spacing: var(--section-eyebrow-letter);
@@ -792,7 +792,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .contact-social-text h2 em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -896,7 +896,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 12px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
@@ -912,7 +912,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .social-banner-top h2 em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -969,7 +969,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .social-handle-name span {
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .social-platforms-grid {
@@ -996,7 +996,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .platform-card:hover {
-  border-color: #01bacc;
+  border-color: #12a0ec;
 }
 
 /* Platform-specific hover effects */
@@ -1080,7 +1080,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 6px 14px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #01bacc;
+  color: #12a0ec;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   transition: background 0.2s;
 }
@@ -1124,7 +1124,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: #01bacc;
+  color: #12a0ec;
   text-transform: uppercase;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   margin: 0;
@@ -1141,7 +1141,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .contact-title-highlight {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -1193,7 +1193,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 .contact-detail-icon svg {
   width: 24px;
   height: 24px;
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .contact-detail-content {
@@ -1214,7 +1214,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 .contact-detail-link {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #01bacc;
+  color: #12a0ec;
   text-decoration: none;
   margin: 0;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
@@ -1253,7 +1253,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #01bacc;
+  color: #12a0ec;
   text-transform: uppercase;
   margin: 0 0 14px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
@@ -1282,7 +1282,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .social-link-compact:hover {
-  border-color: #01bacc;
+  border-color: #12a0ec;
 }
 
 
@@ -1389,7 +1389,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #01bacc;
+  border-color: #12a0ec;
   background: #ffffff;
   box-shadow: 0 0 0 3px rgba(1, 186, 204, 0.1);
 }
@@ -1963,5 +1963,5 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .contact-page .platform-card:hover {
-  border-color: #01bacc;
+  border-color: #12a0ec;
 }

@@ -28,7 +28,7 @@
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #00b4c8;
+  color: #12a0ec;
   margin-bottom: 14px;
   font-family: var(--font-poppins);
 }
@@ -44,7 +44,7 @@
 }
 
 .impact-v4-left h2 em {
-  color: #00b4c8;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -58,7 +58,7 @@
 
 .impact-v4-footnote {
   font-size: 12px;
-  color: #00b4c8;
+  color: #12a0ec;
   font-weight: 600;
   margin-bottom: 24px;
   font-family: var(--font-poppins);
@@ -69,7 +69,7 @@
   align-items: center;
   gap: 6px;
   padding: 11px 24px;
-  background: #00b4c8;
+  background: #12a0ec;
   color: #ffffff;
   border-radius: 8px;
   font-size: 13px;
@@ -80,9 +80,9 @@
 }
 
 .impact-v4-btn:hover {
-  background: #007a8c;
+  background: #0f86c7;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 180, 200, 0.25);
+  box-shadow: 0 4px 12px rgba(18, 160, 236, 0.25);
 }
 
 .impact-v4-btn svg {
@@ -124,7 +124,7 @@
 
 .impact-v4-stat:hover {
   background: #F4F8FA;
-  border-color: #00b4c8;
+  border-color: #12a0ec;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
 }
 
@@ -133,13 +133,13 @@
   height: 50px;
   border-radius: 8px;
   flex-shrink: 0;
-  background: rgba(0, 180, 200, 0.09);
-  border: 1px solid rgba(0, 180, 200, 0.2);
+  background: rgba(18, 160, 236, 0.09);
+  border: 1px solid rgba(18, 160, 236, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  color: #00b4c8;
+  color: #12a0ec;
 }
 
 .impact-v4-stat:hover .impact-v4-stat-icon {

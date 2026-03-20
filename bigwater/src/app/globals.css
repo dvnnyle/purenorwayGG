@@ -99,7 +99,7 @@ body {
 
 .home2-newsletter-highlight {
   font-weight: 700;
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .home2-newsletter-badge-inline {
@@ -116,7 +116,7 @@ body {
 .home2-newsletter-badge-inline svg {
   width: 18px;
   height: 18px;
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .home2-newsletter-copy {
@@ -153,7 +153,7 @@ body {
 
 .home2-newsletter-input:focus {
   outline: none;
-  border-color: #01bacc;
+  border-color: #12a0ec;
   background: white;
 }
 
@@ -163,7 +163,7 @@ body {
 
 .home2-newsletter-btn {
   padding: 14px 32px;
-  background: #01bacc;
+  background: #12a0ec;
   color: white;
   border: none;
   border-radius: 50px;

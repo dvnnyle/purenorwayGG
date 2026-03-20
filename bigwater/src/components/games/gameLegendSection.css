@@ -18,7 +18,7 @@
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #01bacc;
+  color: #12a0ec;
   margin-bottom: 12px;
   font-family: var(--font-poppins), "Poppins", sans-serif;
 }
@@ -32,7 +32,7 @@
 }
 
 .legend-title em {
-  color: #01bacc;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -174,7 +174,7 @@
 
 .legend-card-trash .legend-badge {
   background: rgba(1, 186, 204, 0.12);
-  color: #01bacc;
+  color: #12a0ec;
 }
 
 .legend-card-collect .legend-badge {

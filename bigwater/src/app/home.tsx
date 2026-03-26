@@ -9,7 +9,6 @@ import MerchReviews from '@/components/sections/merchReviews';
 import Footer from '@/components/layout/footer';
 import SectionIndicator from '@/components/ui/SectionIndicator';
 import Home2SectionQuoteTwo from '@/app/home2/pages/Home2SectionQuoteTwo';
-import Home2SectionNewsletter from '@/app/home2/pages/Home2SectionNewsletter';
 import ImpactCounter from '@/components/sections/impactCounter';
 import MapSectionAlt3 from '@/components/sections/MapSectionAlt3';
 import './home.css';
@@ -288,10 +287,6 @@ export default function HomePage() {
         <section className="home-section-blog" id="home-section-blog">
           <BlogCarousel />
         </section>
-
-        <div id="home-section-newsletter">
-          <Home2SectionNewsletter />
-        </div>
       </div>
 
       <SectionIndicator

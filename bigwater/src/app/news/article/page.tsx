@@ -4,8 +4,7 @@ import { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
-import type { NewsArticle } from "@/lib/newsService";
-import { getPublishedNewsArticles } from "@/lib/newsService";
+import { getPublishedNewsArticles, resolveNewsArticleSlug, slugifyNewsTitle, type NewsArticle } from "@/lib/newsService";
 import Footer from "@/components/layout/footer";
 import "../[slug]/article.css";
 
@@ -161,17 +160,26 @@ function NewsArticlePageContent() {
     });
   }, []);
 
+  const normalizedSlug = useMemo(() => slugifyNewsTitle(slug), [slug]);
+
   const article = useMemo(
-    () => articles.find((item) => item.slug === slug || item.id === slug),
-    [articles, slug]
+    () =>
+      articles.find((item) => {
+        const resolvedSlug = resolveNewsArticleSlug(item);
+        return resolvedSlug === slug || resolvedSlug === normalizedSlug || item.id === slug;
+      }),
+    [articles, normalizedSlug, slug]
   );
 
   const relatedArticles = useMemo(
     () =>
       articles
-        .filter((item) => item.slug !== slug && item.id !== slug)
+        .filter((item) => {
+          const resolvedSlug = resolveNewsArticleSlug(item);
+          return resolvedSlug !== slug && resolvedSlug !== normalizedSlug && item.id !== slug;
+        })
         .slice(0, 3),
-    [articles, slug]
+    [articles, normalizedSlug, slug]
   );
 
   const blocks = useMemo(() => toContentBlocks(article?.content), [article?.content]);
@@ -329,7 +337,7 @@ function NewsArticlePageContent() {
           <h2>More Stories</h2>
           <div className="news-related-grid">
             {relatedArticles.map((related) => {
-              const relatedSlug = related.slug || related.id;
+              const relatedSlug = resolveNewsArticleSlug(related);
               const relatedHref = relatedSlug
                 ? `/news/article?slug=${encodeURIComponent(relatedSlug)}`
                 : "/news";

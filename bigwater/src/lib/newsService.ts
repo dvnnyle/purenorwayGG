@@ -32,6 +32,19 @@ export interface NewsArticle {
 
 const COLLECTION_NAME = "newsArticles";
 
+export function slugifyNewsTitle(title?: string): string {
+  return (title ?? "")
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export function resolveNewsArticleSlug(article: Pick<NewsArticle, "slug" | "id" | "title">): string {
+  return article.slug || article.id || slugifyNewsTitle(article.title);
+}
+
 /**
  * Create a new news article
  */

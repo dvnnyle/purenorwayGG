@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import NewsletterStrip from './NewsletterStrip';
 import './footer.css';
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-inner">
+    <>
+      <NewsletterStrip />
+      <footer className="footer">
+        <div className="footer-inner">
         <div className="footer-top">
           <div className="footer-top-left">
             <div className="footer-brand-title">PURE Norway Water</div>
@@ -202,7 +205,8 @@ export default function Footer() {
             <a href="#">Sustainability</a>
           </div>
         </div>
-      </div>
-    </footer>
+        </div>
+      </footer>
+    </>
   );
 }

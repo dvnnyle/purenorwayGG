@@ -1,9 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { getPublishedNewsArticles, type NewsArticle } from '@/lib/newsService';
+import { getPublishedNewsArticles, resolveNewsArticleSlug, type NewsArticle } from '@/lib/newsService';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -11,6 +12,7 @@ import './blogCarousel.css';
 
 interface BlogPost {
   id: string;
+  slug: string;
   title: string;
   excerpt: string;
   date: string;
@@ -19,8 +21,11 @@ interface BlogPost {
 }
 
 function mapArticleToBlogPost(article: NewsArticle): BlogPost {
+  const slug = resolveNewsArticleSlug(article);
+
   return {
-    id: article.id ?? article.slug,
+    id: article.id ?? article.slug ?? slug,
+    slug,
     title: article.title,
     excerpt: article.excerpt,
     date: article.date,
@@ -66,6 +71,9 @@ export default function BlogCarousel() {
         <p className="blog-carousel-copy">
           Explore our sustainability and innovation journey.
         </p>
+        <Link href="/news" className="blog-carousel-all-link">
+          View all articles <span aria-hidden="true">→</span>
+        </Link>
       </div>
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
@@ -100,21 +108,25 @@ export default function BlogCarousel() {
       >
         {sliderPosts.map((post, index) => (
           <SwiperSlide key={index} className="blog-slide">
-            <article
-              className="blog-card"
-              style={{
-                backgroundImage: `linear-gradient(135deg, rgba(13, 25, 37, 0.6) 0%, rgba(13, 25, 37, 0.4) 100%), url(${post.backgroundImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+            <Link
+              href={post.slug ? `/news/article?slug=${encodeURIComponent(post.slug)}` : '/news'}
+              className="blog-card-link"
+              aria-label={`Read article: ${post.title}`}
             >
-              <span className="blog-category">{post.category}</span>
-              <div className="blog-card-content">
-                <h3>{post.title}</h3>
-                <p>{post.excerpt}</p>
-                <span className="blog-date">{post.date}</span>
-              </div>
-            </article>
+              <article
+                className="blog-card"
+                style={{
+                  backgroundImage: `linear-gradient(135deg, rgba(13, 25, 37, 0.6) 0%, rgba(13, 25, 37, 0.4) 100%), url(${post.backgroundImage})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <div className="blog-card-content">
+                  <h3>{post.title}</h3>
+                  <span className="blog-date">{post.date}</span>
+                </div>
+              </article>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

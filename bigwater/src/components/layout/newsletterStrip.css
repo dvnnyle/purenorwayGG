@@ -1,0 +1,132 @@
+.newsletter-strip {
+  background: #12a0ec;
+  border-top: none;
+  border-bottom: none;
+  padding: 56px 56px;
+}
+
+.newsletter-strip-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.newsletter-strip-eyebrow {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: var(--font-poppins);
+}
+
+.newsletter-strip h2 {
+  margin: 0 0 8px;
+  color: #0d1b2a;
+  font-family: var(--font-poppins), Poppins, sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 0.95;
+}
+
+.newsletter-strip h2 em {
+  color: #ffffff;
+  font-style: italic;
+}
+
+.newsletter-strip-subheading {
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-poppins);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.newsletter-strip p {
+  margin: 0 0 28px;
+  font-size: 14px;
+  color: rgba(13, 27, 42, 0.72);
+  line-height: 1.75;
+}
+
+.newsletter-strip-form {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.newsletter-strip-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #182530;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.newsletter-strip-form input::placeholder {
+  color: #6b8090;
+}
+
+.newsletter-strip-form input:focus {
+  border-color: #0d1b2a;
+}
+
+.newsletter-strip-form button {
+  padding: 13px 22px;
+  border: none;
+  border-radius: 8px;
+  background: #0d1b2a;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.newsletter-strip-form button:hover {
+  background: #09131d;
+  transform: translateY(-1px);
+}
+
+.newsletter-strip-note {
+  margin-top: 12px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 1400px) {
+  .newsletter-strip {
+    padding: 52px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletter-strip {
+    padding: 44px 18px;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+  }
+
+  .newsletter-strip-form {
+    flex-direction: column;
+  }
+
+  .newsletter-strip-form input,
+  .newsletter-strip-form button {
+    width: 100%;
+  }
+}

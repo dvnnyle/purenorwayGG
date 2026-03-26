@@ -1,6 +1,6 @@
 import "./NewsCard.css";
 import Link from "next/link";
-import type { NewsArticle } from "@/lib/newsService";
+import { resolveNewsArticleSlug, type NewsArticle } from "@/lib/newsService";
 
 interface NewsCardProps {
   article: NewsArticle;
@@ -29,7 +29,7 @@ function formatDateToDisplay(dateValue?: string): string {
 }
 
 export default function NewsCard({ article }: NewsCardProps) {
-  const slug = article.slug || article.id;
+  const slug = resolveNewsArticleSlug(article);
   const articleHref = slug ? `/news/article?slug=${encodeURIComponent(slug)}` : "/news";
 
   return (

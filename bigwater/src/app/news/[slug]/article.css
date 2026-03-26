@@ -1,5 +1,5 @@
 :root {
-  --article-teal: #00b4c8;
+  --article-teal: #12a0ec;
   --article-navy: #0d1b2a;
   --article-sky: #f4f8fa;
   --article-text: #23323f;
@@ -84,8 +84,8 @@
 
 .news-article-tag {
   color: var(--article-teal);
-  background: rgba(0, 180, 200, 0.15);
-  border: 1px solid rgba(0, 180, 200, 0.25);
+  background: rgba(18, 160, 236, 0.15);
+  border: 1px solid rgba(18, 160, 236, 0.25);
   border-radius: 100px;
   font-size: 9px;
   font-weight: 700;

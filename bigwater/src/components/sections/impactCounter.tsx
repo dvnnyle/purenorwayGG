@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { MdAttachMoney, MdEco, MdWaterDrop } from 'react-icons/md';
+import { MdAttachMoney, MdEco, MdLocalShipping, MdWaterDrop } from 'react-icons/md';
 import './impactCounter.css';
 
 export default function ImpactCounter() {
@@ -56,11 +56,21 @@ export default function ImpactCounter() {
           <div className="impact-v4-stats">
             <article className="impact-v4-stat">
               <div className="impact-v4-stat-icon" aria-hidden="true">
+                <MdLocalShipping />
+              </div>
+              <div className="impact-v4-stat-body">
+                <div className="impact-v2-stat-val" data-target="100000" data-suffix="+">0+</div>
+                <div className="impact-v4-stat-lbl">Units Distributed Over The Last 3-4 Years</div>
+              </div>
+            </article>
+
+            <article className="impact-v4-stat">
+              <div className="impact-v4-stat-icon" aria-hidden="true">
                 <MdAttachMoney />
               </div>
               <div className="impact-v4-stat-body">
-                <div className="impact-v2-stat-val" data-target="6010" data-suffix=" kr">0 kr</div>
-                <div className="impact-v4-stat-lbl">Donated to Environmental Projects (2024)</div>
+                <div className="impact-v2-stat-val" data-target="95338" data-suffix=" kr">0 kr</div>
+                <div className="impact-v4-stat-lbl">Estimated Donated to Environmental Projects</div>
               </div>
             </article>
 
@@ -69,8 +79,8 @@ export default function ImpactCounter() {
                 <MdWaterDrop />
               </div>
               <div className="impact-v4-stat-body">
-                <div className="impact-v2-stat-val" data-target="71" data-suffix=" kg">0 kg</div>
-                <div className="impact-v4-stat-lbl">Ocean Plastic Removed (2024)</div>
+                <div className="impact-v2-stat-val" data-target="1126" data-suffix=" kg">0 kg</div>
+                <div className="impact-v4-stat-lbl">Estimated Ocean Plastic Removed</div>
               </div>
             </article>
 
@@ -79,8 +89,8 @@ export default function ImpactCounter() {
                 <MdEco />
               </div>
               <div className="impact-v4-stat-body">
-                <div className="impact-v2-stat-val" data-target="3625" data-suffix=" kg">0 kg</div>
-                <div className="impact-v4-stat-lbl">CO₂ Emissions Prevented (2024)</div>
+                <div className="impact-v2-stat-val" data-target="57504" data-suffix=" kg">0 kg</div>
+                <div className="impact-v4-stat-lbl">Estimated CO₂ Emissions Prevented</div>
               </div>
             </article>
           </div>
@@ -95,7 +105,7 @@ export default function ImpactCounter() {
               By donating 1% of our turnover, PURENorway Foundation channels funds directly to
               projects and organizations that share our mission of protecting the planet.
             </p>
-            <p className="impact-v4-footnote">Impact grows with every product sold.</p>
+            <p className="impact-v4-footnote">Every can, bottle, and bag helps us do a little more good.</p>
             <a href="#" className="impact-v4-btn">
               Read More
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

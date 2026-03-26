@@ -6,6 +6,7 @@ type Stockist = {
   name: string;
   href: string;
   logo?: string;
+  invertLogo?: boolean;
 };
 
 const stockists: Stockist[] = [
@@ -39,6 +40,24 @@ const stockists: Stockist[] = [
     href: "#",
     logo: "/assets/whereToBuy/Logo-Hos-Naboen.png",
   },
+  {
+    id: "spiren-kafe",
+    name: "Spiren Kafe",
+    href: "#",
+    logo: "/assets/whereToBuy/spiren_cafe.png",
+  },
+  {
+    id: "frk-hageland",
+    name: "Frk Hageland",
+    href: "#",
+    logo: "/assets/whereToBuy/FRK_HAGELAND.webp",
+  },
+  {
+    id: "nord-souvenirs",
+    name: "Nord Souvenirs",
+    href: "#",
+    logo: "/assets/whereToBuy/nordSouv.webp",
+  },
 ];
 
 export default function WhereToBuy() {
@@ -54,7 +73,7 @@ export default function WhereToBuy() {
             </h2>
           </div>
           <p className="wtb-sub">
-            Currently available at 5 locations across Norway. More coming soon.
+            Currently available at 8 locations across Norway. More coming soon.
           </p>
         </div>
 
@@ -68,7 +87,11 @@ export default function WhereToBuy() {
               rel={stockist.href.startsWith("http") ? "noopener noreferrer" : undefined}
             >
               {stockist.logo ? (
-                <img src={stockist.logo} alt={stockist.name} className="wtb-logo-img" />
+                <img
+                  src={stockist.logo}
+                  alt={stockist.name}
+                  className={`wtb-logo-img${stockist.invertLogo ? " wtb-logo-img--inverted" : ""}`}
+                />
               ) : (
                 <div className="wtb-logo-placeholder">
                   <div className="wtb-logo-box" />

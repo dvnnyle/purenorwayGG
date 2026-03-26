@@ -2,6 +2,7 @@
 .contact-page {
   min-height: 100vh;
   background: #f8f9fb;
+  overflow-x: hidden;
   --section-eyebrow-size: 12px;
   --section-eyebrow-weight: 700;
   --section-eyebrow-letter: 0.15em;
@@ -82,7 +83,7 @@ html {
 
 /* Work With Us */
 .work-with-us-section {
-  padding: 78px 20px 84px;
+  padding: 78px 0 84px;
 }
 
 .work-with-us-content {
@@ -160,7 +161,7 @@ html {
 }
 
 .work-card:hover {
-  border-color: rgba(1, 186, 204, 0.3);
+  border-color: rgba(18, 160, 236, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
@@ -179,12 +180,12 @@ html {
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: rgba(1, 186, 204, 0.15);
+  background: rgba(18, 160, 236, 0.15);
   color: #12a0ec;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(1, 186, 204, 0.28);
+  border: 1px solid rgba(18, 160, 236, 0.28);
   flex-shrink: 0;
 }
 
@@ -198,7 +199,7 @@ html {
   margin: 0 0 14px;
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(1, 186, 204, 0.15);
+  background: rgba(18, 160, 236, 0.15);
   color: #01aabd;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -248,7 +249,7 @@ html {
 
 /* Global Team Section */
 .global-team-section {
-  padding: 80px 20px;
+  padding: 80px 0;
   scroll-margin-top: 100px;
 }
 
@@ -317,7 +318,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .hq-card:hover {
-  border-color: rgba(1, 186, 204, 0.3);
+  border-color: rgba(18, 160, 236, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
@@ -421,7 +422,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .region-card:hover {
-  border-color: rgba(1, 186, 204, 0.3);
+  border-color: rgba(18, 160, 236, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
@@ -496,7 +497,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 
 /* FAQ Section */
 .faq-section {
-  padding: 80px 20px;
+  padding: 80px 0;
 }
 
 .faq-inner {
@@ -669,7 +670,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .faq-item.open {
-  border-color: rgba(1, 186, 204, 0.6);
+  border-color: rgba(18, 160, 236, 0.6);
   box-shadow: 0 4px 12px rgba(1, 186, 204, 0.1);
 }
 
@@ -872,7 +873,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 /* Social Banner V2 */
 .social-banner-v2 {
   background: #f8f9fa;
-  padding: 50px 20px;
+  padding: 50px 0;
   position: relative;
   overflow: hidden;
 }
@@ -920,8 +921,8 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(1, 186, 204, 0.06);
-  border: 1px solid rgba(1, 186, 204, 0.2);
+  background: rgba(18, 160, 236, 0.06);
+  border: 1px solid rgba(18, 160, 236, 0.2);
   border-radius: 100px;
   padding: 10px 18px 10px 10px;
   text-decoration: none;
@@ -1074,7 +1075,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .hashtag-tag {
-  background: rgba(1, 186, 204, 0.08);
+  background: rgba(18, 160, 236, 0.08);
   border: 1px solid rgba(1, 186, 204, 0.15);
   border-radius: 100px;
   padding: 6px 14px;
@@ -1087,16 +1088,6 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 
 .hashtag-tag:hover {
   background: rgba(1, 186, 204, 0.15);
-}
-
-/* Newsletter Section */
-.contact-newsletter-section {
-  width: 100%;
-  margin: 20px 0 0;
-}
-
-.contact-newsletter-section .home2-section-newsletter {
-  margin-top: 0;
 }
 
 /* Main Contact Section */
@@ -1556,11 +1547,23 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .work-with-us-section {
-    padding: 56px 20px 60px;
+    padding: 56px 0 60px;
+  }
+
+  .work-with-us-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .work-with-us-header h2 {
+    font-size: 2.5rem;
   }
 
   .work-with-us-header p {
     font-size: 1rem;
+    text-align: left;
+    max-width: 100%;
   }
 
   .work-with-us-grid {
@@ -1606,7 +1609,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .global-team-section {
-    padding: 60px 20px;
+    padding: 60px 0;
   }
 
   .hq-card {
@@ -1635,7 +1638,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .faq-section {
-    padding: 60px 20px;
+    padding: 60px 0;
   }
 
   .faq-cats {
@@ -1647,7 +1650,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .social-banner-v2 {
-    padding: 40px 20px;
+    padding: 40px 0;
   }
 
   .social-platforms-grid {
@@ -1684,7 +1687,23 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .work-with-us-section {
-    padding: 44px 20px 48px;
+    padding: 44px 0 48px;
+  }
+
+  .work-with-us-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .work-with-us-header h2 {
+    font-size: 2rem;
+  }
+
+  .work-with-us-header p {
+    text-align: left;
+    max-width: 100%;
   }
 
   .work-card {

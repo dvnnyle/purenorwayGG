@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { MdRecycling, MdAcUnit, MdWaterDrop, MdBolt, MdEco } from 'react-icons/md';
 import Footer from '@/components/layout/footer';
-import Home2SectionNewsletter from '@/app/home2/pages/Home2SectionNewsletter';
 import './about.css';
 
 export default function About() {
@@ -287,51 +286,61 @@ export default function About() {
                 <div className="sdg-image">
                   <img src="/assets/weCare/12responsible.png" alt="SDG 12" />
                 </div>
-                <div className="sdg-content">
-                  <h3>12 Responsible Consumption and Production</h3>
-                  <p>
-                    Our focus is to make sure of responsible production and consumption of our products. Our factories are carefully selected to ensure a sustainable production process. Ongoing communication together with audits and status reports make it possible to adjust procedures and materials used in production to achieve less harmful commissions and more environment friendly materials.
-                  </p>
-                  <p>
-                    We also focus on using environment friendly and recycled materials in our products in order to prevent unnecessary waste and nature harm. By replacing plastic with more environment friendly materials such as bamboo, organic cotton and leather, the products will live longer and lead to less plastic waste.
-                  </p>
-                </div>
+                <details className="sdg-content" open>
+                  <summary>
+                    <h3>12 Responsible Consumption and Production</h3>
+                  </summary>
+                  <div className="sdg-details">
+                    <p>
+                      Our focus is to make sure of responsible production and consumption of our products. Our factories are carefully selected to ensure a sustainable production process. Ongoing communication together with audits and status reports make it possible to adjust procedures and materials used in production to achieve less harmful commissions and more environment friendly materials.
+                    </p>
+                    <p>
+                      We also focus on using environment friendly and recycled materials in our products in order to prevent unnecessary waste and nature harm. By replacing plastic with more environment friendly materials such as bamboo, organic cotton and leather, the products will live longer and lead to less plastic waste.
+                    </p>
+                  </div>
+                </details>
               </div>
 
               <div className="sdg-card">
                 <div className="sdg-image">
                   <img src="/assets/weCare/14life.png" alt="SDG 14" />
                 </div>
-                <div className="sdg-content">
-                  <h3>14 Life Below Water</h3>
-                  <p>
-                    Pure Norway care about nature, especially pure and clean waters and for the life in it. The world's oceans are the source of life and make all organisms develop. Pollutions and plastic waste are vital threats to the oceans marine life and its drive to global systems, and need to be protected.
-                  </p>
-                  <p>
-                    We will try to reach this goal by funding Pure Norway Foundation. A percentage of the income of Pure Norway products goes to Pure Norway Foundation that works to clean the coastline of Norway.
-                  </p>
-                </div>
+                <details className="sdg-content" open>
+                  <summary>
+                    <h3>14 Life Below Water</h3>
+                  </summary>
+                  <div className="sdg-details">
+                    <p>
+                      Pure Norway care about nature, especially pure and clean waters and for the life in it. The world's oceans are the source of life and make all organisms develop. Pollutions and plastic waste are vital threats to the oceans marine life and its drive to global systems, and need to be protected.
+                    </p>
+                    <p>
+                      We will try to reach this goal by funding Pure Norway Foundation. A percentage of the income of Pure Norway products goes to Pure Norway Foundation that works to clean the coastline of Norway.
+                    </p>
+                  </div>
+                </details>
               </div>
 
               <div className="sdg-card">
                 <div className="sdg-image">
                   <img src="/assets/weCare/16peace.png" alt="SDG 16" />
                 </div>
-                <div className="sdg-content">
-                  <h3>16 Peace, Justice and Strong Institutions</h3>
-                  <p>
-                    It is important for us that everyone that are connected to our products are treated with respect and dignity, including fabric workers as well as administrative staff. Pure Norway have standards to ensure ethical working conditions such as health and safety, deviation from child labor, involuntary labor, coercion, harassment and discrimination.
-                  </p>
-                  <p>
-                    We also focus on using environment friendly and recycled materials in our products in order to prevent unnecessary waste and nature harm. By replacing plastic with more environment friendly materials such as bamboo, organic cotton and leather, the products will live longer and lead to less plastic waste.
-                  </p>
-                </div>
+                <details className="sdg-content" open>
+                  <summary>
+                    <h3>16 Peace, Justice and Strong Institutions</h3>
+                  </summary>
+                  <div className="sdg-details">
+                    <p>
+                      It is important for us that everyone that are connected to our products are treated with respect and dignity, including fabric workers as well as administrative staff. Pure Norway have standards to ensure ethical working conditions such as health and safety, deviation from child labor, involuntary labor, coercion, harassment and discrimination.
+                    </p>
+                    <p>
+                      We also focus on using environment friendly and recycled materials in our products in order to prevent unnecessary waste and nature harm. By replacing plastic with more environment friendly materials such as bamboo, organic cotton and leather, the products will live longer and lead to less plastic waste.
+                    </p>
+                  </div>
+                </details>
               </div>
             </div>
           </div>
       </section>
-
-      <Home2SectionNewsletter />
 
       {selectedImageIndex !== null && (
         <div className="image-modal" onClick={() => setSelectedImageIndex(null)}>

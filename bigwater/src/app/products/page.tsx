@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Footer from "@/components/layout/footer";
-import Home2SectionNewsletter from "@/app/home2/pages/Home2SectionNewsletter";
 import ProductMerchSection from "@/components/sections/ProductMerchSection";
 import ProductReviewsDivider from "@/components/sections/ProductReviewsDivider";
 import WhereToBuy from "@/components/sections/WhereToBuy";
@@ -14,7 +13,7 @@ export default function ProductsPage() {
   const products = [
     {
       id: 1,
-      name: "Smurfene Sparkling Strawberry Raspberry",
+      name: "Smurfene Strawberry Raspberry",
       category: "water",
       type: "sparkling",
       description: "Sparkling water with strawberry and raspberry flavors",
@@ -23,7 +22,7 @@ export default function ProductsPage() {
     },
     {
       id: 2,
-      name: "Smurfene Sparkling Ginger Lemon",
+      name: "Smurfene Ginger Lemon",
       category: "water",
       type: "sparkling",
       description: "Refreshing sparkling water with ginger and lemon",
@@ -32,7 +31,7 @@ export default function ProductsPage() {
     },
     {
       id: 3,
-      name: "Smurfene Still",
+      name: "Smurfene Pure",
       category: "water",
       type: "still",
       description: "Pure still water from Norwegian springs",
@@ -41,7 +40,7 @@ export default function ProductsPage() {
     },
     {
       id: 4,
-      name: "Sparkling",
+      name: "Pure Norway Water",
       category: "water",
       type: "sparkling",
       description: "Pure sparkling water with natural carbonation",
@@ -50,7 +49,7 @@ export default function ProductsPage() {
     },
     {
       id: 5,
-      name: "Sparkling Ginger Lemon",
+      name: "Ginger Lemon",
       category: "water",
       type: "sparkling",
       description: "Refreshing sparkling water with ginger and lemon",
@@ -59,7 +58,7 @@ export default function ProductsPage() {
     },
     {
       id: 6,
-      name: "Smurfene Sparkling Apple Pear",
+      name: "Smurfene Apple Pear",
       category: "water",
       type: "sparkling",
       description: "Crisp sparkling water with apple and pear essence",
@@ -68,7 +67,7 @@ export default function ProductsPage() {
     },
     {
       id: 7,
-      name: "Sparkling Green Tea Peach",
+      name: "Green Tea Peach",
       category: "water",
       type: "sparkling",
       description: "Energizing sparkling water with green tea and peach",
@@ -77,7 +76,7 @@ export default function ProductsPage() {
     },
     {
       id: 8,
-      name: "Sparkling Watermelon",
+      name: "Watermelon",
       category: "water",
       type: "sparkling",
       description: "Sweet sparkling water with watermelon flavor",
@@ -86,7 +85,7 @@ export default function ProductsPage() {
     },
     {
       id: 9,
-      name: "Still",
+      name: "Pure Norway Water",
       category: "water",
       type: "still",
       description: "Pure still water, naturally refreshing",
@@ -116,6 +115,13 @@ export default function ProductsPage() {
         {/* Our Water Our Cans Section */}
         <section className="products-packaging-section">
           <div className="products-packaging-inner">
+            <div className="products-marketing-image-wrap">
+              <img
+                src="/assets/marketingImages/marketingProd/peopleFour.jpeg"
+                alt="People enjoying Pure Norway water"
+                loading="lazy"
+              />
+            </div>
             <div className="products-packaging-layout">
               <div className="products-packaging-eyebrow">Our Packaging</div>
               <h2 className="products-packaging-title">
@@ -131,19 +137,6 @@ export default function ProductsPage() {
               <div className="products-packaging-actions">
                 <a href="/about" className="products-packaging-primary-link">Read More</a>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Marketing Image Section */}
-        <section className="products-marketing-section">
-          <div className="products-marketing-image-container">
-            <div className="products-marketing-image-wrap">
-              <img
-                src="/assets/marketingImages/marketingProd/peopleFour.jpeg"
-                alt="People enjoying Pure Norway water"
-                loading="lazy"
-              />
             </div>
           </div>
         </section>
@@ -218,10 +211,6 @@ export default function ProductsPage() {
         <ProductMerchSection />
 
         <WhereToBuy />
-
-      <section className="products-newsletter-section">
-        <Home2SectionNewsletter />
-      </section>
 
       <Footer />
     </div>

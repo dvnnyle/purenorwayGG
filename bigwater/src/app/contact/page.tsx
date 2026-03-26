@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Footer from '@/components/layout/footer';
-import Home2SectionNewsletter from '@/app/home2/pages/Home2SectionNewsletter';
 import './contact.css';
 import { MdEmail, MdPhone, MdLocationOn, MdGroups, MdLocalShipping, MdWaterDrop } from 'react-icons/md';
 import { FaInstagram, FaTiktok, FaFacebookF, FaXTwitter, FaLinkedinIn, FaSnapchat } from 'react-icons/fa6';
@@ -781,10 +780,6 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="contact-newsletter-section">
-        <Home2SectionNewsletter />
       </section>
       </div>
 

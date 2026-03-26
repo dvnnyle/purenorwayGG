@@ -27,7 +27,7 @@
 
 .products-reviews-divider__eyebrow {
   margin: 0 0 14px;
-  color: rgba(0, 180, 200, 0.55);
+  color: #12a0ec;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -46,7 +46,7 @@
 }
 
 .products-reviews-divider h2 em {
-  color: #00b4c8;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -160,7 +160,7 @@
 }
 
 .products-reviews-divider__tag {
-  color: #00b4c8;
+  color: #12a0ec;
   background: rgba(0, 180, 200, 0.12);
   border: 1px solid rgba(0, 180, 200, 0.15);
   border-radius: 100px;
@@ -221,7 +221,7 @@
   border-radius: 8px;
   border: 1px solid rgba(0, 180, 200, 0.2);
   background: rgba(0, 180, 200, 0.12);
-  color: #00b4c8;
+  color: #12a0ec;
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
@@ -266,6 +266,10 @@
 @media (max-width: 768px) {
   .products-reviews-divider {
     padding: 60px 0;
+    /* Full bleed: break out of wrapper's 20px padding */
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
   }
 
   .products-reviews-divider__card {

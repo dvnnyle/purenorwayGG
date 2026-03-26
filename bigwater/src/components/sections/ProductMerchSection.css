@@ -18,7 +18,7 @@
 
 .products-merch-eyebrow {
   margin: 0 0 16px;
-  color: #00b4c8;
+  color: #12a0ec;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -37,22 +37,29 @@
 }
 
 .products-merch-header-row h2 em {
-  color: #00b4c8;
+  color: #12a0ec;
   font-style: italic;
 }
 
-.products-merch-coming-pill {
+.products-merch-shop-btn {
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
-  border: 1px solid #dde8ee;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #6b8090;
-  font-size: 10px;
+  gap: 6px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #12a0ec;
+  color: #ffffff;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+.products-merch-shop-btn:hover {
+  background: #0e8cc7;
+  transform: translateY(-2px);
 }
 
 .products-merch-bento-grid {
@@ -76,7 +83,7 @@
 }
 
 .products-merch-bento-card:hover {
-  border-color: #00b4c8;
+  border-color: #12a0ec;
   box-shadow: 0 6px 20px rgba(0, 180, 200, 0.08);
 }
 
@@ -93,7 +100,7 @@
   border-radius: 999px;
   border: 1px solid rgba(0, 180, 200, 0.15);
   background: rgba(0, 180, 200, 0.1);
-  color: #00b4c8;
+  color: #12a0ec;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -160,8 +167,20 @@
   }
 }
 
+@media (max-width: 768px) {
+  .products-merch-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 @media (max-width: 560px) {
   .products-merch-bento-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .products-merch-bento-card.is-featured {
+    grid-column: 1 / -1;
   }
 }

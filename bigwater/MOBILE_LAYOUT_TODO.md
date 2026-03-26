@@ -14,6 +14,14 @@ Use one consistent horizontal gutter on mobile: the page wrapper provides 20px s
 - Hero keeps 16:9 ratio on mobile.
 - Double-padding issues were removed in key home sections.
 
+## What We Already Fixed (Products)
+- Products page wrapper uses 20px side spacing at 768px.
+- All section-level horizontal padding removed at 768px.
+- ProductMerchSection and WhereToBuy horizontal padding removed at 768px.
+- Product images now larger and more prominent on mobile.
+- Product cards streamlined: single column, descriptions/badges hidden, full-width buy button.
+- Full-bleed sections: hero and ProductReviewsDivider break out to full-width.
+
 ## Apply Later To Other Pages
 For each page below:
 1. Confirm the main wrapper has 20px side spacing on mobile.
@@ -24,7 +32,7 @@ For each page below:
 6. Verify at 768px and 480px breakpoints.
 
 ### Priority Pages
-- Products
+- ~~Products~~ ✅ COMPLETED
 - Gallery
 - Blog
 - Reviews
@@ -43,3 +51,9 @@ For each page below:
 - This rule is about horizontal spacing consistency only.
 - Keep component-specific internal spacing when it affects readability.
 - If a section intentionally breaks out full-bleed, document that exception in this file.
+
+## Full-Bleed Exceptions
+These sections intentionally break out of the wrapper to be full-width on mobile:
+- **ProductReviewsDivider** on Products page — uses negative margins to escape the 20px wrapper
+- **products-hero** on Products page — uses negative margins to escape the 20px wrapper for full-width hero
+- **Footer** (global) — uses negative margins to be full-width on all pages

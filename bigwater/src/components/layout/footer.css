@@ -315,6 +315,10 @@
 @media (max-width: 768px) {
   .footer {
     padding: 42px 18px 0;
+    /* Full bleed: break out of page wrapper to be full-width */
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
   }
 
   .footer-top {

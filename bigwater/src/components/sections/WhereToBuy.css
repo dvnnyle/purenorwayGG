@@ -1,5 +1,5 @@
 .wtb-section {
-  padding: 80px 56px;
+  padding: 40px 56px 80px;
   background: #f8f9fb;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .wtb-title em {
-  color: #00b4c8;
+  color: #12a0ec;
   font-style: italic;
 }
 
@@ -160,9 +160,17 @@
 }
 
 /* ── responsive ── */
+@media (max-width: 768px) {
+  .wtb-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 @media (max-width: 700px) {
   .wtb-section {
-    padding: 56px 24px;
+    padding-top: 56px;
+    padding-bottom: 56px;
   }
 
   .wtb-header {

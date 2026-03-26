@@ -33,6 +33,12 @@ const stockists: Stockist[] = [
     href: "#",
     logo: "/assets/whereToBuy/gaardsutsalget-logo-png.webp",
   },
+  {
+    id: "hos-naboen",
+    name: "Hos Naboen",
+    href: "#",
+    logo: "/assets/whereToBuy/Logo-Hos-Naboen.png",
+  },
 ];
 
 export default function WhereToBuy() {
@@ -48,7 +54,7 @@ export default function WhereToBuy() {
             </h2>
           </div>
           <p className="wtb-sub">
-            Currently available at 4 locations across Norway. More coming soon.
+            Currently available at 5 locations across Norway. More coming soon.
           </p>
         </div>
 

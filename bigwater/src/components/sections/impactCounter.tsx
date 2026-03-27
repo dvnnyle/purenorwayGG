@@ -69,8 +69,8 @@ export default function ImpactCounter() {
                 <MdAttachMoney />
               </div>
               <div className="impact-v4-stat-body">
-                <div className="impact-v2-stat-val" data-target="95338" data-suffix=" kr">0 kr</div>
-                <div className="impact-v4-stat-lbl">Estimated Donated to Environmental Projects</div>
+                <div className="impact-v2-stat-val" data-target="19900" data-suffix=" kr">0 kr</div>
+                <div className="impact-v4-stat-lbl">Estimated Minimum Donated to Environmental Projects</div>
               </div>
             </article>
 
@@ -79,7 +79,7 @@ export default function ImpactCounter() {
                 <MdWaterDrop />
               </div>
               <div className="impact-v4-stat-body">
-                <div className="impact-v2-stat-val" data-target="1126" data-suffix=" kg">0 kg</div>
+                <div className="impact-v2-stat-val" data-target="235" data-suffix=" kg">0 kg</div>
                 <div className="impact-v4-stat-lbl">Estimated Ocean Plastic Removed</div>
               </div>
             </article>
@@ -89,7 +89,7 @@ export default function ImpactCounter() {
                 <MdEco />
               </div>
               <div className="impact-v4-stat-body">
-                <div className="impact-v2-stat-val" data-target="57504" data-suffix=" kg">0 kg</div>
+                <div className="impact-v2-stat-val" data-target="12004" data-suffix=" kg">0 kg</div>
                 <div className="impact-v4-stat-lbl">Estimated CO₂ Emissions Prevented</div>
               </div>
             </article>
@@ -105,7 +105,7 @@ export default function ImpactCounter() {
               By donating 1% of our turnover, PURENorway Foundation channels funds directly to
               projects and organizations that share our mission of protecting the planet.
             </p>
-            <p className="impact-v4-footnote">Every can, bottle, and bag helps us do a little more good.</p>
+            <p className="impact-v4-footnote">Impact values use a conservative floor estimate based on 100,000 distributed units.</p>
             <a href="#" className="impact-v4-btn">
               Read More
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

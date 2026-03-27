@@ -757,7 +757,7 @@
 @media (max-width: 768px) {
   .navbar-v2 {
     grid-template-columns: 1fr auto;
-    padding: 1rem 1.5rem;
+    padding: 0.9rem 20px;
   }
 
   .navbar-v2-links {
@@ -770,7 +770,7 @@
   }
 
   .navbar-v2-left-logo {
-    height: 12px;
+    height: 18px;
   }
 
   .navbar-v2-lang {
@@ -836,11 +836,11 @@
 
 @media (max-width: 480px) {
   .navbar-v2 {
-    padding: 1rem;
+    padding: 1rem 20px;
   }
 
   .navbar-v2-left-logo {
-    height: 8px;
+    height: 16px;
   }
 
   .navbar-v2-mega-brand {

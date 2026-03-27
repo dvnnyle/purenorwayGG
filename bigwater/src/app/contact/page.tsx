@@ -495,9 +495,14 @@ export default function ContactPage() {
 
           {/* Regions Grid */}
           <div className="regions-grid">
-            <div className="region-card">
-              <div className="region-name">ASIA PACIFIC</div>
-              <h3>Vietnam · Singapore · Taiwan</h3>
+            <details className="region-card">
+              <summary className="region-summary">
+                <div>
+                  <div className="region-name">ASIA PACIFIC</div>
+                  <h3>Vietnam · Singapore · Taiwan</h3>
+                </div>
+                <span className="region-toggle-icon" aria-hidden="true">+</span>
+              </summary>
               <div className="region-contacts">
                 <div className="r-person">
                   <div className="r-person-name">BUY2SELL</div>
@@ -515,11 +520,16 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </details>
 
-            <div className="region-card">
-              <div className="region-name">MIDDLE EAST</div>
-              <h3>Dubai</h3>
+            <details className="region-card">
+              <summary className="region-summary">
+                <div>
+                  <div className="region-name">MIDDLE EAST</div>
+                  <h3>Dubai</h3>
+                </div>
+                <span className="region-toggle-icon" aria-hidden="true">+</span>
+              </summary>
               <div className="region-contacts">
                 <div className="r-person">
                   <div className="r-person-name">Birol Can</div>
@@ -530,11 +540,16 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </details>
 
-            <div className="region-card">
-              <div className="region-name">CENTRAL EUROPE</div>
-              <h3>Slovakia · Tsjekkia · Serbia</h3>
+            <details className="region-card">
+              <summary className="region-summary">
+                <div>
+                  <div className="region-name">CENTRAL EUROPE</div>
+                  <h3>Slovakia · Tsjekkia · Serbia</h3>
+                </div>
+                <span className="region-toggle-icon" aria-hidden="true">+</span>
+              </summary>
               <div className="region-contacts">
                 <div className="r-person">
                   <div className="r-person-name">Miroslav Holik</div>
@@ -546,11 +561,16 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </details>
 
-            <div className="region-card">
-              <div className="region-name">UK / FRANCE</div>
-              <h3>IFL</h3>
+            <details className="region-card">
+              <summary className="region-summary">
+                <div>
+                  <div className="region-name">UK / FRANCE</div>
+                  <h3>IFL</h3>
+                </div>
+                <span className="region-toggle-icon" aria-hidden="true">+</span>
+              </summary>
               <div className="region-contacts">
                 <div className="r-person">
                   <div className="r-person-name">Chris Smith</div>
@@ -560,7 +580,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </details>
           </div>
         </div>
       </section>

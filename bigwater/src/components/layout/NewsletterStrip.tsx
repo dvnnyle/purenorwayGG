@@ -1,3 +1,4 @@
+import { MdWaterDrop } from 'react-icons/md';
 import './newsletterStrip.css';
 
 export default function NewsletterStrip() {
@@ -11,7 +12,10 @@ export default function NewsletterStrip() {
         <div className="newsletter-strip-subheading">with PURE Norway WATER</div>
         <form className="newsletter-strip-form">
           <input type="email" placeholder="your@email.com" aria-label="Email address" />
-          <button type="button">Subscribe</button>
+          <button type="button" aria-label="Subscribe to newsletter">
+            <span className="newsletter-btn-text">Subscribe</span>
+            <MdWaterDrop className="newsletter-btn-icon" />
+          </button>
         </form>
         <span className="newsletter-strip-note">No spam. Unsubscribe anytime.</span>
       </div>

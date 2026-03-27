@@ -96,6 +96,7 @@ export default function Footer() {
             <div className="divider" />
             <div className="contact-block">
               <div className="contact-name">Oystein Frustol</div>
+              <div className="contact-role">Managing Director</div>
               <p>
                 <a href="tel:+4790915907">+47 909 15 907</a>
               </p>
@@ -116,20 +117,23 @@ export default function Footer() {
               </address>
             </div>
             <div className="divider" />
-            <p>
-              <a href="tel:+4738044030">+47 38 04 40 30</a>
-            </p>
-            <p>
-              <a href="mailto:post@purenorway.no">post@purenorway.no</a>
-            </p>
-            <p className="footer-web-link">
-              <a href="https://www.purenorwaywater.com" target="_blank" rel="noopener noreferrer">
-                www.purenorwaywater.com
-              </a>
-            </p>
+            <div className="footer-col-title">Contact</div>
+            <div className="contact-block">
+              <p>
+                <a href="tel:+4738044030">+47 38 04 40 30</a>
+              </p>
+              <p>
+                <a href="mailto:post@purenorway.no">post@purenorway.no</a>
+              </p>
+              <p className="footer-web-link">
+                <a href="https://www.purenorwaywater.com" target="_blank" rel="noopener noreferrer">
+                  www.purenorwaywater.com
+                </a>
+              </p>
+            </div>
           </div>
 
-          <div className="footer-col">
+          <div className="footer-col extra-location">
             <div className="footer-col-title">Asia Pacific</div>
             <div className="contact-block">
               <div className="contact-region">Vietnam / Singapore</div>
@@ -151,25 +155,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="footer-col">
-            <div className="footer-col-title">Middle East &amp; Europe</div>
-            <div className="contact-block">
-              <div className="contact-region">Dubai</div>
-              <div className="contact-company">Fjord Norway Source LLC</div>
-              <div className="contact-name">Birol Can</div>
-              <p>
-                <a href="tel:+4740050684">+47 400 50 684</a>
-              </p>
-              <p>
-                <a href="mailto:post@fjordnorway.ae">post@fjordnorway.ae</a>
-              </p>
-              <p>
-                <a href="https://fjordnorway.ae" target="_blank" rel="noopener noreferrer">
-                  fjordnorway.ae
-                </a>
-              </p>
-            </div>
-            <div className="divider" />
+          <div className="footer-col extra-location">
+            <div className="footer-col-title">Europe</div>
             <div className="contact-block">
               <div className="contact-region">UK / France</div>
               <div className="contact-company">IFL</div>
@@ -181,8 +168,84 @@ export default function Footer() {
                 <a href="mailto:chris@purenorwaywater.com">chris@purenorwaywater.com</a>
               </p>
             </div>
+            <div className="divider" />
+            <div className="contact-block">
+              <div className="contact-region">Slovakia · Tsjekkia · Serbia</div>
+              <div className="contact-name">Miroslav Holik</div>
+              <div className="contact-company">Waterguard S.R.O</div>
+              <p>
+                <a href="tel:+4746505790">+47 465 05 790</a>
+              </p>
+              <p>
+                <a href="mailto:miro@waterguard.sk">miro@waterguard.sk</a>
+              </p>
+              <p>
+                <a href="https://waterguard.sk" target="_blank" rel="noopener noreferrer">
+                  waterguard.sk
+                </a>
+              </p>
+            </div>
           </div>
         </div>
+
+        <details className="footer-mobile-other-locations">
+          <summary>Other locations</summary>
+          <div className="footer-mobile-other-locations-content">
+            <div className="footer-mobile-location-group">
+              <div className="footer-col-title">Asia Pacific</div>
+              <div className="contact-block">
+                <div className="contact-region">Vietnam / Singapore</div>
+                <div className="contact-company">BUY2SELL</div>
+                <p>
+                  <a href="mailto:support@buy2sell.vn">support@buy2sell.vn</a>
+                </p>
+              </div>
+              <div className="divider" />
+              <div className="contact-block">
+                <div className="contact-region">Taiwan</div>
+                <div className="contact-company">UFL Shipping Agency</div>
+                <p>
+                  <a href="tel:+88673389963">+886 7 338 9963</a>
+                </p>
+                <p>
+                  <a href="mailto:shippingagency@uni-logistics.com">shippingagency@uni-logistics.com</a>
+                </p>
+              </div>
+            </div>
+
+            <div className="footer-mobile-location-group">
+              <div className="footer-col-title">Europe</div>
+              <div className="contact-block">
+                <div className="contact-region">UK / France</div>
+                <div className="contact-company">IFL</div>
+                <div className="contact-name">Chris Smith</div>
+                <p>
+                  <a href="tel:+447898853171">+44 789 885 3171</a>
+                </p>
+                <p>
+                  <a href="mailto:chris@purenorwaywater.com">chris@purenorwaywater.com</a>
+                </p>
+              </div>
+              <div className="divider" />
+              <div className="contact-block">
+                <div className="contact-region">Slovakia · Tsjekkia · Serbia</div>
+                <div className="contact-name">Miroslav Holik</div>
+                <div className="contact-company">Waterguard S.R.O</div>
+                <p>
+                  <a href="tel:+4746505790">+47 465 05 790</a>
+                </p>
+                <p>
+                  <a href="mailto:miro@waterguard.sk">miro@waterguard.sk</a>
+                </p>
+                <p>
+                  <a href="https://waterguard.sk" target="_blank" rel="noopener noreferrer">
+                    waterguard.sk
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
 
         <div className="flag-strip" aria-hidden="true">
           <div className="fs-r" />
@@ -194,10 +257,13 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p className="footer-copy">
-            &copy; 2026 PURE NORWAY WATER AS. All rights reserved. · Designed &amp; developed by{' '}
-            <a href="https://dvnny.no" target="_blank" rel="noopener noreferrer">
-              dvnny.no
-            </a>
+            &copy; 2026 PURE NORWAY WATER AS. All rights reserved.
+            <span className="footer-credit-by">
+              {' '}Designed &amp; developed by{' '}
+              <a href="https://dvnny.no" target="_blank" rel="noopener noreferrer">
+                dvnny.no
+              </a>
+            </span>
           </p>
           <div className="footer-links">
             <a href="#">Privacy Policy</a>

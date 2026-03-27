@@ -129,6 +129,10 @@
   border-bottom: 1px solid var(--border);
 }
 
+.footer-mobile-other-locations {
+  display: none;
+}
+
 .footer-col-title {
   font-size: 10px;
   font-weight: 700;
@@ -240,6 +244,10 @@
   color: var(--muted);
 }
 
+.footer-credit-by {
+  display: inline;
+}
+
 .footer-copy a {
   color: var(--teal);
   text-decoration: none;
@@ -345,11 +353,138 @@
 
   .footer-cols {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 32px;
+    padding-bottom: 32px;
+    text-align: center;
+    border-bottom: none;
+  }
+
+  .footer-col .divider {
+    display: none;
+  }
+
+  .footer-col.extra-location {
+    display: none;
+  }
+
+  .footer-mobile-other-locations {
+    display: block;
+    margin: 0 0 16px;
+    text-align: center;
+  }
+
+  .footer-mobile-other-locations summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 4px 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    text-align: center;
+    background: transparent;
+    border: none;
+  }
+
+  .footer-mobile-other-locations summary::after {
+    content: "↗";
+    font-size: 12px;
+    line-height: 1;
+    opacity: 0.9;
+  }
+
+  .footer-mobile-other-locations[open] summary::after {
+    content: "↘";
+  }
+
+  .footer-mobile-other-locations summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .footer-mobile-other-locations-content {
+    margin-top: 10px;
+    border-top: 1px solid var(--border);
+    padding: 14px 0 0;
+    text-align: center;
+  }
+
+  .footer-mobile-location-group + .footer-mobile-location-group {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: none;
+  }
+
+  .footer-col-title {
+    font-size: 11px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+
+  .contact-block {
+    margin-bottom: 16px;
+  }
+
+  .contact-name {
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .contact-role {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .contact-region {
+    font-size: 11px;
+  }
+
+  .contact-company {
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+
+  .footer-col p,
+  .footer-col address {
+    font-size: 13px;
+    line-height: 1.75;
+    margin: 4px 0;
+  }
+
+  .divider {
+    margin: 12px 0;
   }
 
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 16px 0;
+    gap: 12px;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    line-height: 1.6;
+    padding: 0 20px;
+  }
+
+  .footer-credit-by {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .footer-links {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-links a {
+    font-size: 11px;
   }
 }

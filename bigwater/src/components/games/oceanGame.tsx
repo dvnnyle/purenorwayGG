@@ -104,6 +104,7 @@ const ImpactGame = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [hasStarted, setHasStarted] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const trashIdRef = useRef(0);
   const collectableIdRef = useRef(0);
@@ -162,6 +163,26 @@ const ImpactGame = () => {
       }
     }
   }, [score, level]);
+
+  useEffect(() => {
+    const detectTouchDevice = () => {
+      const hasTouchSupport = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+      const hasCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+      setIsTouchDevice(hasTouchSupport || hasCoarsePointer);
+    };
+
+    detectTouchDevice();
+    window.addEventListener("resize", detectTouchDevice);
+
+    return () => {
+      window.removeEventListener("resize", detectTouchDevice);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isTouchDevice) return;
+    setIsPaused(true);
+  }, [isTouchDevice]);
 
   // Once the game is complete, remove remaining trash immediately.
   useEffect(() => {
@@ -435,7 +456,7 @@ const ImpactGame = () => {
   }, [isPaused]);
 
   const handleTrashClick = useCallback((trashId: number, e: React.MouseEvent) => {
-    if (isPaused || gameComplete) return;
+    if (isPaused || gameComplete || isTouchDevice) return;
     e.stopPropagation();
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -451,10 +472,10 @@ const ImpactGame = () => {
 
     setTrash(prev => prev.filter(t => t.id !== trashId));
     setScore(prev => prev + TRASH_POINTS);
-  }, [gameComplete, isPaused]);
+  }, [gameComplete, isPaused, isTouchDevice]);
 
   const handleCollectableClick = useCallback((collectableId: number, e: React.MouseEvent) => {
-    if (isPaused || gameComplete) return;
+    if (isPaused || gameComplete || isTouchDevice) return;
     e.stopPropagation();
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -471,10 +492,10 @@ const ImpactGame = () => {
     setCollectables((prev) => prev.filter((item) => item.id !== collectableId));
     setCollectableScore((prev) => prev + 1);
     setScore((prev) => prev + COLLECTABLE_POINTS);
-  }, [gameComplete, isPaused]);
+  }, [gameComplete, isPaused, isTouchDevice]);
 
   const togglePause = () => {
-    if (gameComplete) return;
+    if (gameComplete || isTouchDevice) return;
     setIsPaused((prev) => {
       const next = !prev;
       if (!hasStarted && !next) {
@@ -521,28 +542,30 @@ const ImpactGame = () => {
         {/* Ocean */}
         <div
           ref={containerRef}
-          className={`game-ocean${isPaused ? " is-paused" : ""}`}
+          className={`game-ocean${isPaused ? " is-paused" : ""}${isTouchDevice ? " is-touch-disabled" : ""}`}
         >
-          <div className="hero-controls game-ocean-controls">
-            <button
-              type="button"
-              className="hero-control-btn"
-              onClick={togglePause}
-              aria-label={isPaused ? "Resume game" : "Pause game"}
-              title={isPaused ? "Resume" : "Pause"}
-            >
-              {isPaused ? <Play size={16} /> : <Pause size={16} />}
-            </button>
-            <button
-              type="button"
-              className="hero-control-btn"
-              onClick={toggleFullscreen}
-              aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
-              title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-            >
-              {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
-            </button>
-          </div>
+          {!isTouchDevice && (
+            <div className="hero-controls game-ocean-controls">
+              <button
+                type="button"
+                className="hero-control-btn"
+                onClick={togglePause}
+                aria-label={isPaused ? "Resume game" : "Pause game"}
+                title={isPaused ? "Resume" : "Pause"}
+              >
+                {isPaused ? <Play size={16} /> : <Pause size={16} />}
+              </button>
+              <button
+                type="button"
+                className="hero-control-btn"
+                onClick={toggleFullscreen}
+                aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+                title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+              >
+                {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+              </button>
+            </div>
+          )}
 
           <Image
             src={havBackdrop}
@@ -682,7 +705,19 @@ const ImpactGame = () => {
           ))}
 
           {/* Pause overlay */}
-          {isPaused && !gameComplete && (
+          {isTouchDevice && (
+            <div className="game-overlay game-overlay--touch-disabled">
+              <div className="pause-card pause-card--touch-disabled">
+                <h3 className="pause-title">Desktop Only</h3>
+                <p className="pause-desc">
+                  This game uses mouse-based controls and is currently disabled on touch devices.
+                  Please open this page on a PC or laptop to play.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {isPaused && !gameComplete && !isTouchDevice && (
             <div className="game-overlay game-overlay--paused">
               <div className="pause-card">
                 <h3 className="pause-title">{hasStarted ? "Game Paused" : "Ready to Dive In?"}</h3>

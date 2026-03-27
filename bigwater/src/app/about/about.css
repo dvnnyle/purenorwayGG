@@ -1001,88 +1001,151 @@
 .sdg-goals-grid {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   margin-top: 40px;
 }
 
 .sdg-card {
   display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: 24px;
-  align-items: start;
-  background: #eaf0f4;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 18px;
+  grid-template-columns: 200px 1fr;
+  background: #ffffff;
+  border: 1px solid #dde8ee;
+  border-radius: 16px;
   overflow: hidden;
-  transition: all 0.2s ease;
+}
+
+.sdg-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
   padding: 20px;
-}
-
-
-
-.sdg-image {
-  width: 100%;
-  height: 240px;
+  position: relative;
   overflow: hidden;
-  background: rgba(13, 25, 37, 0.05);
-  border-radius: 18px 0 0 18px;
-  flex-shrink: 0;
-  margin: -20px 0 -20px -20px;
-  height: calc(100% + 40px);
 }
 
-.sdg-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.sdg-num {
+  font-size: 52px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1;
+  letter-spacing: -2px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
-.sdg-content {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.sdg-content summary {
-  list-style: none;
-  cursor: default;
-  pointer-events: none;
-}
-
-.sdg-content summary::-webkit-details-marker {
-  display: none;
-}
-
-.sdg-content summary h3 {
-  display: inline;
-}
-
-.sdg-details {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.sdg-card h3 {
-  font-size: 1.1rem;
-  color: #0d1b2a;
-  margin: 0;
+.sdg-goal-name {
+  font-size: 11px;
   font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.4;
+  max-width: 140px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
-.sdg-card p {
-  font-size: 0.9rem;
-  color: var(--about-body-copy);
-  line-height: 1.75;
-  margin: 0 0 12px 0;
+.sdg-icon::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+}
+
+.sdg-body {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid #dde8ee;
+}
+
+.sdg-card:nth-child(1) .sdg-body,
+.sdg-card:nth-child(3) .sdg-body {
+  padding-bottom: 46px;
+}
+
+.sdg-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  color: #0d1b2a;
+  margin-bottom: 12px;
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
-.sdg-card p:last-child {
+.sdg-title::before {
+  content: '';
+  width: 4px;
+  height: 18px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.sdg-text {
+  font-size: 13px;
+  color: #6b8090;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.sdg-text:last-child {
   margin-bottom: 0;
+}
+
+.sdg-text strong {
+  color: #182530;
+  font-weight: 700;
+}
+
+.sdg-card:nth-child(1) .sdg-icon {
+  background: #bf8b2e;
+}
+
+.sdg-card:nth-child(2) .sdg-icon {
+  background: #0a97d9;
+}
+
+.sdg-card:nth-child(3) .sdg-icon {
+  background: #02558b;
+}
+
+.sdg-card:nth-child(1) .sdg-title::before {
+  background: #bf8b2e;
+}
+
+.sdg-card:nth-child(2) .sdg-title::before {
+  background: #0a97d9;
+}
+
+.sdg-card:nth-child(3) .sdg-title::before {
+  background: #02558b;
+}
+
+.sdg-footnote {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #6b8090;
+  line-height: 1.7;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+.sdg-footnote a {
+  color: #12a0ec;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.sdg-footnote a:hover {
+  opacity: 0.7;
 }
 
 /* Care Section */
@@ -1321,25 +1384,40 @@
   }
 
   .sdg-goals-grid {
-    gap: 20px;
+    gap: 16px;
   }
 
   .sdg-card {
-    grid-template-columns: 250px 1fr;
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: 180px 1fr;
   }
 
-  .sdg-image {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    aspect-ratio: 1 / 1;
-    border-radius: 18px 0 0 18px;
+  .sdg-icon {
+    padding: 18px;
   }
 
-  .sdg-image img {
-    object-fit: cover;
+  .sdg-num {
+    font-size: 44px;
+  }
+
+  .sdg-body {
+    padding: 24px;
+  }
+
+  .sdg-card:nth-child(1) .sdg-body,
+  .sdg-card:nth-child(3) .sdg-body {
+    padding-bottom: 40px;
+  }
+
+  .sdg-title {
+    font-size: 16px;
+  }
+
+  .sdg-text {
+    font-size: 12px;
+  }
+
+  .sdg-footnote {
+    font-size: 11px;
   }
 
   .sustainability-container {
@@ -1461,55 +1539,64 @@
   }
 
   .sdg-goals-grid {
-    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .sdg-card {
     grid-template-columns: 1fr;
+    gap: 0;
+    min-height: 0;
+  }
+
+  .sdg-icon {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 20px;
+    gap: 14px;
+  }
+
+  .sdg-icon::after {
+    display: none;
+  }
+
+  .sdg-num {
+    font-size: 36px;
+  }
+
+  .sdg-goal-name {
+    max-width: none;
+  }
+
+  .sdg-body {
+    border-left: none;
+    border-top: 1px solid #dde8ee;
     padding: 20px;
   }
 
-  .sdg-card h3 {
-    font-size: 1.15rem;
+  .sdg-card:nth-child(1) .sdg-body,
+  .sdg-card:nth-child(3) .sdg-body {
+    padding-bottom: 28px;
   }
 
-  .sdg-content {
-    pointer-events: auto;
+  .sdg-title {
+    font-size: 16px;
+    margin-bottom: 10px;
   }
 
-  .sdg-content summary {
-    cursor: pointer;
-    position: relative;
-    padding-right: 30px;
-    pointer-events: auto;
+  .sdg-text {
+    font-size: 12px;
+    line-height: 1.7;
   }
 
-  .sdg-content summary::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #12a0ec;
-    transition: transform 0.3s ease;
+  .sdg-footnote {
+    font-size: 11px;
+    margin-top: 16px;
   }
 
-  .sdg-content[open] summary::after {
-    content: '−';
-  }
-
-  .sdg-image {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    aspect-ratio: 1 / 1;
-    border-radius: 18px;
-  }
-
-  .sdg-image img {
-    object-fit: cover;
+  .sdg-footnote a {
+    display: block;
+    margin-top: 4px;
   }
 
   .sustainability-container {

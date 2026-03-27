@@ -6,7 +6,7 @@
   width: 60px;
   height: 60px;
   border-radius: 0 50% 0% 20%;
-  background: linear-gradient(135deg, #12a0ec 0%, #0195a8 100%);
+  background: linear-gradient(135deg, #12a0ec 0%, #0d7fc0 100%);
   border: 2px solid #12a0ec;
   color: white;
   display: flex;
@@ -15,7 +15,6 @@
   cursor: pointer;
   z-index: 9998;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(1, 186, 204, 0.3);
 }
 
 .message-suggestions {
@@ -29,7 +28,7 @@
 
 .suggestion-btn {
   padding: 10px 12px;
-  background: linear-gradient(135deg, #12a0ec 0%, #0195a8 100%);
+  background: linear-gradient(135deg, #12a0ec 0%, #0d7fc0 100%);
   color: white;
   border: 1px solid #12a0ec;
   border-radius: 6px;
@@ -41,8 +40,7 @@
 }
 
 .suggestion-btn:hover {
-  background: linear-gradient(135deg, #0195a8 0%, #017a8a 100%);
-  box-shadow: 0 2px 8px rgba(1, 186, 204, 0.3);
+  background: linear-gradient(135deg, #0d7fc0 0%, #0b6ba2 100%);
   transform: translateX(2px);
 }
 
@@ -353,17 +351,17 @@
 
 @media (max-width: 480px) {
   .chatbot-button {
-    bottom: 16px;
-    left: 16px;
+    bottom: 20px;
+    left: 20px;
     width: 54px;
     height: 54px;
   }
 
   .chatbot-panel {
-    width: calc(100vw - 32px);
+    width: calc(100vw - 40px);
     height: calc(100vh - 120px);
     max-height: 450px;
-    left: 16px;
+    left: 20px;
     bottom: 90px;
     border-radius: 10px;
   }

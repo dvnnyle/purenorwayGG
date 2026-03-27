@@ -82,7 +82,7 @@
 }
 
 .blog-slide {
-  height: 360px;
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: stretch;
 }
@@ -181,10 +181,6 @@
     font-size: 1rem;
   }
 
-  .blog-slide {
-    height: 300px;
-  }
-
   .blog-card {
     padding: 20px;
   }
@@ -201,10 +197,6 @@
 @media (max-width: 480px) {
   .blog-carousel-title {
     font-size: 1.5rem;
-  }
-
-  .blog-slide {
-    height: 280px;
   }
 
   .blog-card {

@@ -421,6 +421,20 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
+.region-summary {
+  list-style: none;
+  cursor: default;
+  margin-bottom: 20px;
+}
+
+.region-summary::-webkit-details-marker {
+  display: none;
+}
+
+.region-toggle-icon {
+  display: none;
+}
+
 .region-card:hover {
   border-color: rgba(18, 160, 236, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -442,13 +456,17 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 700;
   color: #0d1925;
   letter-spacing: -0.02em;
-  margin: 0 0 20px;
+  margin: 0;
 }
 
 .region-contacts {
   display: flex;
   flex-direction: column;
   gap: 18px;
+}
+
+.region-card:not([open]) > .region-contacts {
+  display: flex;
 }
 
 .r-person {
@@ -1627,6 +1645,92 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 
   .regions-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .region-card {
+    border: 1px solid rgba(13, 25, 37, 0.12);
+    border-radius: 14px;
+    background: #ffffff;
+    padding: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .region-card[open] {
+    border-color: rgba(18, 160, 236, 0.6);
+    box-shadow: 0 4px 12px rgba(1, 186, 204, 0.1);
+  }
+
+  .region-summary {
+    margin-bottom: 0;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+  }
+
+  .region-summary > div {
+    min-width: 0;
+  }
+
+  .region-summary .region-name {
+    margin-bottom: 6px;
+  }
+
+  .region-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .region-toggle-icon {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 1px solid rgba(13, 25, 37, 0.14);
+    background: #f8f9fa;
+    color: rgba(13, 25, 37, 0.6);
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+  }
+
+  .region-card .region-contacts {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s;
+  }
+
+  .region-card:not([open]) > .region-contacts {
+    display: flex;
+    max-height: 0;
+    padding: 0 20px;
+  }
+
+  .region-card[open] .region-contacts {
+    max-height: 420px;
+    padding: 0 20px 18px;
+  }
+
+  .region-card[open] .region-toggle-icon {
+    border-color: #12a0ec;
+    background: #12a0ec;
+    color: #ffffff;
+    transform: rotate(45deg);
   }
 
   .contact-social-section {
@@ -1781,7 +1885,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .global-team-section {
-    padding: 50px 20px;
+    padding: 50px 0;
   }
 
   .global-team-header {
@@ -1832,11 +1936,25 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .region-card {
-    padding: 20px 16px;
+    padding: 0;
+  }
+
+  .region-summary {
+    gap: 10px;
+    padding: 16px 14px;
   }
 
   .region-card h3 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+  }
+
+  .region-card .region-contacts,
+  .region-card:not([open]) > .region-contacts {
+    padding: 0 14px;
+  }
+
+  .region-card[open] .region-contacts {
+    padding: 0 14px 16px;
   }
 
   .contact-social-section {
@@ -1856,7 +1974,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .faq-section {
-    padding: 48px 16px;
+    padding: 48px 0;
   }
 
   .faq-inner {
@@ -1905,7 +2023,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .social-banner-v2 {
-    padding: 32px 16px;
+    padding: 32px 0;
   }
 
   .social-banner-top h2 {

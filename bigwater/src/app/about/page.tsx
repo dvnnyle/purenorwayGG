@@ -283,62 +283,60 @@ export default function About() {
 
             <div className="sdg-goals-grid">
               <div className="sdg-card">
-                <div className="sdg-image">
-                  <img src="/assets/weCare/12responsible.png" alt="SDG 12" />
+                <div className="sdg-icon">
+                  <div className="sdg-num">12</div>
+                  <div className="sdg-goal-name">Responsible Consumption &amp; Production</div>
                 </div>
-                <details className="sdg-content" open>
-                  <summary>
-                    <h3>12 Responsible Consumption and Production</h3>
-                  </summary>
-                  <div className="sdg-details">
-                    <p>
-                      Our focus is to make sure of responsible production and consumption of our products. Our factories are carefully selected to ensure a sustainable production process. Ongoing communication together with audits and status reports make it possible to adjust procedures and materials used in production to achieve less harmful commissions and more environment friendly materials.
-                    </p>
-                    <p>
-                      We also focus on using environment friendly and recycled materials in our products in order to prevent unnecessary waste and nature harm. By replacing plastic with more environment friendly materials such as bamboo, organic cotton and leather, the products will live longer and lead to less plastic waste.
-                    </p>
-                  </div>
-                </details>
+                <div className="sdg-body">
+                  <div className="sdg-title">Responsible Consumption &amp; Production</div>
+                  <p className="sdg-text">
+                    Aluminium is <strong>infinitely recyclable</strong> - our cans can be melted down and reborn without any loss of quality. By choosing aluminium over plastic, we are eliminating single-use packaging from the equation entirely.
+                  </p>
+                  <p className="sdg-text">
+                    Every can we produce carries a zero carbon footprint. We hold ourselves to this standard not as a marketing claim, but as a production requirement.
+                  </p>
+                </div>
               </div>
 
               <div className="sdg-card">
-                <div className="sdg-image">
-                  <img src="/assets/weCare/14life.png" alt="SDG 14" />
+                <div className="sdg-icon">
+                  <div className="sdg-num">14</div>
+                  <div className="sdg-goal-name">Life Below Water</div>
                 </div>
-                <details className="sdg-content" open>
-                  <summary>
-                    <h3>14 Life Below Water</h3>
-                  </summary>
-                  <div className="sdg-details">
-                    <p>
-                      Pure Norway care about nature, especially pure and clean waters and for the life in it. The world's oceans are the source of life and make all organisms develop. Pollutions and plastic waste are vital threats to the oceans marine life and its drive to global systems, and need to be protected.
-                    </p>
-                    <p>
-                      We will try to reach this goal by funding Pure Norway Foundation. A percentage of the income of Pure Norway products goes to Pure Norway Foundation that works to clean the coastline of Norway.
-                    </p>
-                  </div>
-                </details>
+                <div className="sdg-body">
+                  <div className="sdg-title">Life Below Water</div>
+                  <p className="sdg-text">
+                    Pure Norway care about nature, especially pure and clean waters and for the life in it. The world's oceans are the source of life - pollution and plastic waste are critical threats that need to be addressed urgently.
+                  </p>
+                  <p className="sdg-text">
+                    We fund this goal directly through the <strong>Pure Norway Foundation</strong>. A percentage of the income from every product sold goes toward cleaning the coastline of Norway and protecting marine ecosystems.
+                  </p>
+                </div>
               </div>
 
               <div className="sdg-card">
-                <div className="sdg-image">
-                  <img src="/assets/weCare/16peace.png" alt="SDG 16" />
+                <div className="sdg-icon">
+                  <div className="sdg-num">16</div>
+                  <div className="sdg-goal-name">Peace, Justice &amp; Strong Institutions</div>
                 </div>
-                <details className="sdg-content" open>
-                  <summary>
-                    <h3>16 Peace, Justice and Strong Institutions</h3>
-                  </summary>
-                  <div className="sdg-details">
-                    <p>
-                      It is important for us that everyone that are connected to our products are treated with respect and dignity, including fabric workers as well as administrative staff. Pure Norway have standards to ensure ethical working conditions such as health and safety, deviation from child labor, involuntary labor, coercion, harassment and discrimination.
-                    </p>
-                    <p>
-                      We also focus on using environment friendly and recycled materials in our products in order to prevent unnecessary waste and nature harm. By replacing plastic with more environment friendly materials such as bamboo, organic cotton and leather, the products will live longer and lead to less plastic waste.
-                    </p>
-                  </div>
-                </details>
+                <div className="sdg-body">
+                  <div className="sdg-title">Peace, Justice &amp; Strong Institutions</div>
+                  <p className="sdg-text">
+                    Everyone connected to our products - from production workers to administrative staff - is treated with <strong>respect and dignity</strong>. We have clear standards against child labour, involuntary labour, coercion, harassment and discrimination.
+                  </p>
+                  <p className="sdg-text">
+                    We also prioritise environmentally friendly and recycled materials across our supply chain, reducing unnecessary waste and limiting our impact on the natural world.
+                  </p>
+                </div>
               </div>
             </div>
+
+            <p className="sdg-footnote">
+              Interested in learning more?{' '}
+              <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener noreferrer">
+                Read about the UN Sustainable Development Goals -&gt;
+              </a>
+            </p>
           </div>
       </section>
 

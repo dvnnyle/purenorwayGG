@@ -94,6 +94,21 @@
   cursor: pointer;
   white-space: nowrap;
   transition: background 0.2s ease, transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.newsletter-btn-text {
+  display: inline;
+}
+
+.newsletter-btn-icon {
+  display: none;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .newsletter-strip-form button:hover {
@@ -122,11 +137,31 @@
   }
 
   .newsletter-strip-form {
-    flex-direction: column;
+    padding: 0 20px;
   }
 
-  .newsletter-strip-form input,
+  .newsletter-strip-form input {
+    flex: 1;
+  }
+
   .newsletter-strip-form button {
-    width: 100%;
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .newsletter-btn-text {
+    display: none;
+  }
+
+  .newsletter-btn-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
   }
 }

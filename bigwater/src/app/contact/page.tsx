@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '@/components/layout/footer';
 import './contact.css';
 import { MdEmail, MdPhone, MdLocationOn, MdGroups, MdLocalShipping, MdWaterDrop } from 'react-icons/md';
@@ -167,6 +167,30 @@ const FAQ_GROUPS: FaqGroup[] = [
 export default function ContactPage() {
   const [activeFaqCategory, setActiveFaqCategory] = useState<FaqCategory>('all');
   const [openFaqId, setOpenFaqId] = useState<string | null>(null);
+  const [isMobileRegionAccordion, setIsMobileRegionAccordion] = useState(false);
+  const [openRegionId, setOpenRegionId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+    const updateRegionLayout = (event?: MediaQueryListEvent) => {
+      const matches = event ? event.matches : mediaQuery.matches;
+      setIsMobileRegionAccordion(matches);
+      if (!matches) {
+        setOpenRegionId(null);
+      }
+    };
+
+    updateRegionLayout();
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', updateRegionLayout);
+      return () => mediaQuery.removeEventListener('change', updateRegionLayout);
+    }
+
+    mediaQuery.addListener(updateRegionLayout);
+    return () => mediaQuery.removeListener(updateRegionLayout);
+  }, []);
 
   const visibleFaqGroups =
     activeFaqCategory === 'all'
@@ -180,6 +204,11 @@ export default function ContactPage() {
 
   const handleFaqToggle = (faqId: string) => {
     setOpenFaqId((current) => (current === faqId ? null : faqId));
+  };
+
+  const handleRegionToggle = (regionId: string) => {
+    if (!isMobileRegionAccordion) return;
+    setOpenRegionId((current) => (current === regionId ? null : regionId));
   };
 
   return (
@@ -216,10 +245,10 @@ export default function ContactPage() {
                 </div>
                 <div className="contact-detail-content">
                   <h3>Email</h3>
-                  <a href="mailto:hello@purenorway.no" className="contact-detail-link">
-                    hello@purenorway.no
+                  <a href="mailto:post@purenorway.no" className="contact-detail-link">
+                    post@purenorway.no
                   </a>
-                  <p className="contact-detail-note">We reply within 1 business day.</p>
+                  <p className="contact-detail-note">We reply as soon as possible.</p>
                 </div>
               </div>
 
@@ -232,7 +261,7 @@ export default function ContactPage() {
                   <a href="tel:+4738123456" className="contact-detail-link">
                     +47 38 12 34 56
                   </a>
-                  <p className="contact-detail-note">Mon–Fri, 09:00–17:00 CET</p>
+                  <p className="contact-detail-note">Mon–Fri, 11:00–15:00 CET</p>
                 </div>
               </div>
 
@@ -369,6 +398,7 @@ export default function ContactPage() {
                     <option value="press">Press / Media</option>
                     <option value="support">Customer Support</option>
                     <option value="partnership">Partnership</option>
+                    <option value="others">Others</option>
                   </select>
                 </div>
 
@@ -495,12 +525,19 @@ export default function ContactPage() {
 
           {/* Regions Grid */}
           <div className="regions-grid">
-            <details className="region-card">
-              <summary className="region-summary">
-                <div>
-                  <div className="region-name">ASIA PACIFIC</div>
-                  <h3>Vietnam · Singapore · Taiwan</h3>
-                </div>
+            <details className="region-card" open={!isMobileRegionAccordion || openRegionId === 'asia-pacific'}>
+              <summary className="region-summary" onClick={(event) => {
+                if (!isMobileRegionAccordion) {
+                  event.preventDefault();
+                  return;
+                }
+                event.preventDefault();
+                handleRegionToggle('asia-pacific');
+              }}>
+                <span className="region-summary-copy">
+                  <span className="region-name">ASIA PACIFIC</span>
+                  <span className="region-title">Vietnam · Singapore · Taiwan</span>
+                </span>
                 <span className="region-toggle-icon" aria-hidden="true">+</span>
               </summary>
               <div className="region-contacts">
@@ -522,38 +559,25 @@ export default function ContactPage() {
               </div>
             </details>
 
-            <details className="region-card">
-              <summary className="region-summary">
-                <div>
-                  <div className="region-name">MIDDLE EAST</div>
-                  <h3>Dubai</h3>
-                </div>
+            <details className="region-card" open={!isMobileRegionAccordion || openRegionId === 'central-europe'}>
+              <summary className="region-summary" onClick={(event) => {
+                if (!isMobileRegionAccordion) {
+                  event.preventDefault();
+                  return;
+                }
+                event.preventDefault();
+                handleRegionToggle('central-europe');
+              }}>
+                <span className="region-summary-copy">
+                  <span className="region-name">CENTRAL EUROPE</span>
+                  <span className="region-title">Slovakia · Tsjekkia · Serbia</span>
+                </span>
                 <span className="region-toggle-icon" aria-hidden="true">+</span>
               </summary>
               <div className="region-contacts">
                 <div className="r-person">
-                  <div className="r-person-name">Birol Can</div>
-                  <div className="r-person-company">Fjord Norway Source LLC</div>
-                  <div className="r-links">
-                    <a href="tel:+4740050684">+47 400 50 684</a>
-                    <a href="mailto:post@fjordnorway.ae">post@fjordnorway.ae</a>
-                  </div>
-                </div>
-              </div>
-            </details>
-
-            <details className="region-card">
-              <summary className="region-summary">
-                <div>
-                  <div className="region-name">CENTRAL EUROPE</div>
-                  <h3>Slovakia · Tsjekkia · Serbia</h3>
-                </div>
-                <span className="region-toggle-icon" aria-hidden="true">+</span>
-              </summary>
-              <div className="region-contacts">
-                <div className="r-person">
-                  <div className="r-person-name">Miroslav Holik</div>
-                  <div className="r-person-company">Waterguard S.R.O</div>
+                  <div className="r-person-name">Waterguard S.R.O</div>
+                  <div className="r-person-company">Miroslav Holik</div>
                   <div className="r-links">
                     <a href="tel:+4746505790">+47 465 05 790</a>
                     <a href="mailto:miro@waterguard.sk">miro@waterguard.sk</a>
@@ -563,17 +587,25 @@ export default function ContactPage() {
               </div>
             </details>
 
-            <details className="region-card">
-              <summary className="region-summary">
-                <div>
-                  <div className="region-name">UK / FRANCE</div>
-                  <h3>IFL</h3>
-                </div>
+            <details className="region-card" open={!isMobileRegionAccordion || openRegionId === 'uk-france'}>
+              <summary className="region-summary" onClick={(event) => {
+                if (!isMobileRegionAccordion) {
+                  event.preventDefault();
+                  return;
+                }
+                event.preventDefault();
+                handleRegionToggle('uk-france');
+              }}>
+                <span className="region-summary-copy">
+                  <span className="region-name">EUROPE</span>
+                  <span className="region-title">UK / France</span>
+                </span>
                 <span className="region-toggle-icon" aria-hidden="true">+</span>
               </summary>
               <div className="region-contacts">
                 <div className="r-person">
-                  <div className="r-person-name">Chris Smith</div>
+                  <div className="r-person-name">IFL</div>
+                  <div className="r-person-company">Chris Smith</div>
                   <div className="r-links">
                     <a href="tel:+447898853171">+44 789 885 3171</a>
                     <a href="mailto:chris@purenorwaywater.com">chris@purenorwaywater.com</a>

@@ -2,7 +2,6 @@
 .contact-page {
   min-height: 100vh;
   background: #f8f9fb;
-  overflow-x: hidden;
   --section-eyebrow-size: 12px;
   --section-eyebrow-weight: 700;
   --section-eyebrow-letter: 0.15em;
@@ -409,7 +408,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
 /* Regions Grid */
 .regions-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -425,6 +424,10 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   list-style: none;
   cursor: default;
   margin-bottom: 20px;
+}
+
+.region-summary-copy {
+  display: block;
 }
 
 .region-summary::-webkit-details-marker {
@@ -450,8 +453,9 @@ border: 1px solid rgba(0, 0, 0, 0.2);
   font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
-.region-card h3 {
+.region-title {
   font-family: var(--font-poppins), 'Poppins', sans-serif;
+  display: block;
   font-size: 1.25rem;
   font-weight: 700;
   color: #0d1925;
@@ -1673,7 +1677,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
 
-  .region-summary > div {
+  .region-summary-copy {
     min-width: 0;
   }
 
@@ -1681,7 +1685,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
     margin-bottom: 6px;
   }
 
-  .region-card h3 {
+  .region-title {
     font-size: 0.95rem;
     font-weight: 600;
     line-height: 1.45;
@@ -1944,7 +1948,7 @@ border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 16px 14px;
   }
 
-  .region-card h3 {
+  .region-title {
     font-size: 0.9rem;
   }
 

@@ -96,10 +96,20 @@ Thank you for being part of the PURE Norway community. Your support helps us bri
         }),
       });
 
-      const data = await response.json();
+      const raw = await response.text();
+      let data: { error?: string; recipientCount?: number } = {};
+      try {
+        data = raw ? JSON.parse(raw) : {};
+      } catch {
+        data = {};
+      }
 
       if (!response.ok) {
-        setToast({ type: 'error', message: data?.error ?? 'Failed to send newsletter.' });
+        const fallbackMessage =
+          response.status === 404
+            ? 'Send API not available on this deployment. Admin must run as Next.js server (not static export).'
+            : `Failed to send newsletter (HTTP ${response.status}).`;
+        setToast({ type: 'error', message: data?.error ?? fallbackMessage });
         return;
       }
 
@@ -113,8 +123,11 @@ Thank you for being part of the PURE Norway community. Your support helps us bri
       setBody('');
       setImageUrl('');
       setImageAlt('');
-    } catch (error) {
-      setToast({ type: 'error', message: 'Network error. Please try again.' });
+    } catch {
+      setToast({
+        type: 'error',
+        message: 'Network/API error. If deployed as static site, /api/send-newsletter will not exist.',
+      });
     } finally {
       setSending(false);
     }

@@ -67,9 +67,13 @@ export default function NewsletterStrip() {
       }
 
       setEmail('');
-    } catch {
+    } catch (error) {
+      const debugMessage =
+        error && typeof error === 'object' && 'message' in error
+          ? String((error as { message?: string }).message)
+          : 'unknown error';
       setStatus('error');
-      setMessage('Unable to subscribe right now. Check Firestore rules and try again.');
+      setMessage(`Unable to subscribe right now: ${debugMessage}`);
     }
   };
 

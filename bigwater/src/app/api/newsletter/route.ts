@@ -59,7 +59,19 @@ export async function POST(request: Request) {
     const existingSnapshot = await newsletterRef.where('email', '==', emailLowerCase).limit(1).get();
     
     if (!existingSnapshot.empty) {
-      // Already subscribed - return success silently
+      // If the subscriber exists but is inactive/unsubscribed, reactivate them.
+      const existingDoc = existingSnapshot.docs[0];
+      const existingData = existingDoc.data() as { status?: string };
+
+      if (existingData.status !== 'active') {
+        await existingDoc.ref.update({
+          status: 'active',
+          subscribedAt: new Date().toISOString(),
+          resubscribedAt: new Date().toISOString(),
+        });
+      }
+
+      // Already active (or reactivated) - return success silently
       return NextResponse.json({ success: true });
     }
 

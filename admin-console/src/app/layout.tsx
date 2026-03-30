@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import AdminAuthShell from "./_components/AdminAuthShell";
+import AdminOnlineLog from "./_components/AdminOnlineLog";
 import "./globals.css";
 import "./admin.css";
 import "./login/login.css";
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.variable}>
+        <AdminOnlineLog />
         <AdminAuthShell>{children}</AdminAuthShell>
       </body>
     </html>

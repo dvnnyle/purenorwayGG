@@ -290,5 +290,11 @@ app.post('/api/newsletter/send', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`backend-service listening on :${PORT}`);
+  console.log('========================================');
+  console.log('PURENorway backend online');
+  console.log(`Backend URL: http://localhost:${PORT}`);
+  console.log(`Web allowed: ${WEB_URL}`);
+  console.log(`Admin allowed: ${ADMIN_URL}`);
+  console.log('Health check ready at /health');
+  console.log('========================================');
 });

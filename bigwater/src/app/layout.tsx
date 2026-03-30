@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import LayoutChrome from "@/components/layout/LayoutChrome";
+import WebOnlineLog from "@/components/system/WebOnlineLog";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
+        <WebOnlineLog />
         <LayoutChrome>{children}</LayoutChrome>
       </body>
     </html>

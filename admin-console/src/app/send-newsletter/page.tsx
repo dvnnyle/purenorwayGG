@@ -8,6 +8,7 @@ import { generateNewsletterTemplate } from '@/lib/emailTemplates';
 import { listGalleryImages } from '@/lib/galleryService';
 
 export default function SendNewsletterPage() {
+  const backendUrl = (process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8787').replace(/\/$/, '');
   const [subscriberCount, setSubscriberCount] = useState(0);
   const [subject, setSubject] = useState('');
   const [fromName, setFromName] = useState('PURE Norway');
@@ -82,7 +83,7 @@ Thank you for being part of the PURE Norway community. Your support helps us bri
     setToast(null);
 
     try {
-      const response = await fetch('/api/send-newsletter', {
+      const response = await fetch(`${backendUrl}/api/newsletter/send`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -107,7 +108,7 @@ Thank you for being part of the PURE Norway community. Your support helps us bri
       if (!response.ok) {
         const fallbackMessage =
           response.status === 404
-            ? 'Send API not available on this deployment. Admin must run as Next.js server (not static export).'
+            ? 'Send API not available on backend deployment. Check NEXT_PUBLIC_BACKEND_URL.'
             : `Failed to send newsletter (HTTP ${response.status}).`;
         setToast({ type: 'error', message: data?.error ?? fallbackMessage });
         return;
@@ -126,7 +127,7 @@ Thank you for being part of the PURE Norway community. Your support helps us bri
     } catch {
       setToast({
         type: 'error',
-        message: 'Network/API error. If deployed as static site, /api/send-newsletter will not exist.',
+        message: 'Network/API error. Check backend service URL and CORS settings.',
       });
     } finally {
       setSending(false);

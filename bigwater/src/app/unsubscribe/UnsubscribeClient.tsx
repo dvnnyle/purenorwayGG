@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 
+const BACKEND_URL = (process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8787').replace(/\/$/, '');
+
 export default function UnsubscribeClient() {
   const searchParams = useSearchParams();
   const email = searchParams.get('email');
@@ -19,7 +21,7 @@ export default function UnsubscribeClient() {
     setStatus('loading');
 
     try {
-      const response = await fetch('/api/newsletter/unsubscribe', {
+      const response = await fetch(`${BACKEND_URL}/api/newsletter/unsubscribe`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),

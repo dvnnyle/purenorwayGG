@@ -16,6 +16,9 @@ pnpm-debug.log*
 .env
 .env.*
 
+# Firebase service account keys
+*firebase-adminsdk*.json
+
 # editor/system
 .DS_Store
 Thumbs.db
@@ -23,3 +26,4 @@ Thumbs.db
 # root note docs
 /TODO.MD
 /firebase.md
+

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDGs – Pure Norway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,900;1,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:#00B4C8; --teal-dark:#007A8C; --teal-dim:rgba(0,180,200,.1);
+    --navy:#0D1B2A; --off-white:#F4F8FA; --white:#FFFFFF;
+    --text:#182530; --muted:#6B8090; --border:#DDE8EE;
+    /* SDG official colours */
+    --sdg12:#BF8B2E;
+    --sdg14:#0A97D9;
+    --sdg16:#02558B;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:var(--white)}
+
+  .section {
+    padding: 96px 56px;
+    background: var(--off-white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .inner { max-width: 1160px; margin: 0 auto; }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 56px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 10px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
+  }
+  .eyebrow::before,.eyebrow::after{content:'';width:20px;height:1px;background:var(--teal)}
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 3.5vw, 46px);
+    font-weight: 900; letter-spacing: -1.5px; line-height: .95;
+    color: var(--navy); margin-bottom: 14px;
+  }
+  h2 em { color: var(--teal); font-style: italic; }
+  .intro {
+    font-size: 14px; color: var(--muted); line-height: 1.8;
+    max-width: 680px;
+  }
+
+  /* ── SDG CARDS ── */
+  .sdg-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .sdg-card {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .sdg-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,.06);
+    transform: translateY(-2px);
+  }
+  .sdg-card:nth-child(1):hover { border-color: var(--sdg12); }
+  .sdg-card:nth-child(2):hover { border-color: var(--sdg14); }
+  .sdg-card:nth-child(3):hover { border-color: var(--sdg16); }
+
+  /* coloured left panel */
+  .sdg-icon {
+    display: flex; flex-direction: column;
+    align-items: flex-start; justify-content: space-between;
+    padding: 20px;
+    position: relative; overflow: hidden;
+  }
+  .sdg-num {
+    font-family: 'Fraunces', serif;
+    font-size: 52px; font-weight: 900;
+    color: rgba(255,255,255,.9); line-height: 1;
+    letter-spacing: -2px;
+  }
+  .sdg-goal-name {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,.85);
+    line-height: 1.4; max-width: 140px;
+  }
+  /* background icon watermark */
+  .sdg-icon::after {
+    content: '';
+    position: absolute; bottom: -10px; right: -10px;
+    width: 100px; height: 100px;
+    background: rgba(255,255,255,.07);
+    border-radius: 50%;
+  }
+
+  /* right content */
+  .sdg-body {
+    padding: 28px 32px;
+    display: flex; flex-direction: column; justify-content: center;
+    border-left: 1px solid var(--border);
+  }
+  .sdg-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px; font-weight: 900; letter-spacing: -.4px;
+    color: var(--navy); margin-bottom: 12px;
+  }
+  .sdg-text {
+    font-size: 13px; color: var(--muted); line-height: 1.8;
+    margin-bottom: 10px;
+  }
+  .sdg-text:last-child { margin-bottom: 0; }
+  .sdg-text strong { color: var(--text); font-weight: 700; }
+
+  /* colour-coded accent on title */
+  .sdg-card:nth-child(1) .sdg-title::before { background: var(--sdg12); }
+  .sdg-card:nth-child(2) .sdg-title::before { background: var(--sdg14); }
+  .sdg-card:nth-child(3) .sdg-title::before { background: var(--sdg16); }
+  .sdg-title {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sdg-title::before {
+    content: ''; width: 4px; height: 18px;
+    border-radius: 2px; flex-shrink: 0;
+  }
+
+  /* SDG colour bg */
+  .sdg-card:nth-child(1) .sdg-icon { background: var(--sdg12); }
+  .sdg-card:nth-child(2) .sdg-icon { background: var(--sdg14); }
+  .sdg-card:nth-child(3) .sdg-icon { background: var(--sdg16); }
+
+  @media(max-width:700px){
+    .sdg-card{grid-template-columns:1fr}
+    .sdg-icon{flex-direction:row;align-items:center;padding:16px 20px;gap:14px}
+    .sdg-icon::after{display:none}
+    .sdg-num{font-size:36px}
+    .sdg-body{border-left:none;border-top:1px solid var(--border);padding:20px}
+    .section{padding:64px 24px}
+  }
+</style>
+</head>
+<body>
+
+<section class="section">
+  <div class="inner">
+
+    <div class="header">
+      <div class="eyebrow">Our Commitment</div>
+      <h2>A better world,<br><em>one can at a time.</em></h2>
+      <p class="intro">Pure Norway is committed to the UN Sustainable Development Goals. Here's how our work connects to a global mission — and what we're actively doing about it.</p>
+    </div>
+
+    <div class="sdg-list">
+
+      <!-- SDG 12 -->
+      <div class="sdg-card">
+        <div class="sdg-icon">
+          <div class="sdg-num">12</div>
+          <div class="sdg-goal-name">Responsible Consumption & Production</div>
+        </div>
+        <div class="sdg-body">
+          <div class="sdg-title">Responsible Consumption & Production</div>
+          <p class="sdg-text">Aluminium is <strong>infinitely recyclable</strong> — our cans can be melted down and reborn without any loss of quality. By choosing aluminium over plastic, we're eliminating single-use packaging from the equation entirely.</p>
+          <p class="sdg-text">Every can we produce carries a zero carbon footprint. We hold ourselves to this standard not as a marketing claim, but as a production requirement.</p>
+        </div>
+      </div>
+
+      <!-- SDG 14 -->
+      <div class="sdg-card">
+        <div class="sdg-icon">
+          <div class="sdg-num">14</div>
+          <div class="sdg-goal-name">Life Below Water</div>
+        </div>
+        <div class="sdg-body">
+          <div class="sdg-title">Life Below Water</div>
+          <p class="sdg-text">Pure Norway care about nature, especially pure and clean waters and for the life in it. The world's oceans are the source of life — pollution and plastic waste are critical threats that need to be addressed urgently.</p>
+          <p class="sdg-text">We fund this goal directly through the <strong>Pure Norway Foundation</strong>. A percentage of the income from every product sold goes toward cleaning the coastline of Norway and protecting marine ecosystems.</p>
+        </div>
+      </div>
+
+      <!-- SDG 16 -->
+      <div class="sdg-card">
+        <div class="sdg-icon">
+          <div class="sdg-num">16</div>
+          <div class="sdg-goal-name">Peace, Justice & Strong Institutions</div>
+        </div>
+        <div class="sdg-body">
+          <div class="sdg-title">Peace, Justice & Strong Institutions</div>
+          <p class="sdg-text">Everyone connected to our products — from production workers to administrative staff — is treated with <strong>respect and dignity</strong>. We have clear standards against child labour, involuntary labour, coercion, harassment and discrimination.</p>
+          <p class="sdg-text">We also prioritise environmentally friendly and recycled materials across our supply chain, reducing unnecessary waste and limiting our impact on the natural world.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px;font-size:12px;color:var(--muted)">
+      Interested in learning more?
+      <a href="https://sdgs.un.org/goals" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none;transition:opacity .15s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">Read about the UN Sustainable Development Goals →</a>
+    </p>
+
+  </div>
+</section>
+
+</body>
+</html>

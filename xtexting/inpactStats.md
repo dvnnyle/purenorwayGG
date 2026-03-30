@@ -29,16 +29,14 @@ in the last 3-4 years we sold, donated and given away 100 000+ cans of merch and
 ## current estimate logic used on site
 
 - Solid stat used on site: 100,000+ units distributed over the last 3-4 years
-- Current frontend estimate uses an 80% cans / 20% merch mix
-- Assumed cans volume: 80,000 units at 19.90 NOK
-- Assumed merch volume: 20,000 units
-- Average merch price from verified store products: 397.09 NOK
-- Estimated turnover: 9,533,800 NOK
-- Foundation share at 1%: 95,338 NOK
+- Because that 100,000 includes sold, donated, and given-away units, the site now uses a conservative floor estimate.
+- Floor assumption for turnover estimate: 100,000 units x 19.90 NOK (can price)
+- Estimated turnover floor: 1,990,000 NOK
+- Foundation share at 1% (floor): 19,900 NOK
 - Ratio scaling vs old site numbers:
-	- Donation: 95,338 NOK
-	- Ocean plastic removed: 1,126 kg
-	- CO2 emissions prevented: 57,504 kg
+	- Donation: 19,900 NOK
+	- Ocean plastic removed: 235 kg
+	- CO2 emissions prevented: 12,004 kg
 
 ## important note
 

@@ -23,6 +23,11 @@ const quickLinks = [
     title: 'Reviews',
     desc: 'Moderate pending reviews and control featured feedback.',
   },
+  {
+    href: '/newsletter',
+    title: 'Newsletter Users',
+    desc: 'View and manage newsletter subscribers from your list.',
+  },
 ];
 
 export default function DashboardPage() {

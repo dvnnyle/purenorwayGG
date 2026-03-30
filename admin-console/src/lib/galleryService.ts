@@ -10,7 +10,7 @@ import {
   Timestamp,
   updateDoc,
 } from "firebase/firestore/lite";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytes, listAll } from "firebase/storage";
 import { db, storage } from "./firebase";
 
 export interface GallerySlide {
@@ -102,5 +102,24 @@ export async function deleteGallerySlide(id: string) {
   } catch (error) {
     console.error("Error deleting gallery slide:", error);
     return { success: false, error };
+  }
+}
+
+export async function listGalleryImages(): Promise<{ name: string; url: string }[]> {
+  try {
+    const galleryRef = ref(storage, 'gallery-images');
+    const result = await listAll(galleryRef);
+    
+    const images = await Promise.all(
+      result.items.map(async (itemRef) => ({
+        name: itemRef.name,
+        url: await getDownloadURL(itemRef),
+      }))
+    );
+    
+    return images;
+  } catch (error) {
+    console.error("Error listing gallery images:", error);
+    return [];
   }
 }

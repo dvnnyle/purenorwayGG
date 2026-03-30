@@ -13,11 +13,13 @@ type LayoutChromeProps = {
 export default function LayoutChrome({ children }: LayoutChromeProps) {
   const pathname = usePathname();
 
-  const isHome2 = useMemo(() => pathname?.startsWith("/home2"), [pathname]);
+  const hideChrome = useMemo(() => {
+    return pathname?.startsWith("/home2") || pathname?.startsWith("/unsubscribe");
+  }, [pathname]);
 
   return (
     <>
-      {!isHome2 && (
+      {!hideChrome && (
         <NavbarV2
           logoSrc="/assets/logo/logoWhite.png"
           logoText="PureNorway"
@@ -45,8 +47,8 @@ export default function LayoutChrome({ children }: LayoutChromeProps) {
 
       {children}
 
-      {!isHome2 && <ClickSplash />}
-      {!isHome2 && <Chatbot />}
+      {!hideChrome && <ClickSplash />}
+      {!hideChrome && <Chatbot />}
     </>
   );
 }

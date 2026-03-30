@@ -2,7 +2,11 @@
 
 import { FormEvent, useState, useEffect } from 'react';
 import { MdWaterDrop, MdCheckCircle, MdError } from 'react-icons/md';
+import { addDoc, collection, getDocs, query, updateDoc, where } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 import './newsletterStrip.css';
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function NewsletterStrip() {
   const [email, setEmail] = useState('');
@@ -25,35 +29,47 @@ export default function NewsletterStrip() {
     setStatus('loading');
     setMessage('');
 
+    const emailLower = email.trim().toLowerCase();
+
+    if (!EMAIL_RE.test(emailLower)) {
+      setStatus('error');
+      setMessage('Please enter a valid email address.');
+      return;
+    }
+
     try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json().catch(() => ({}));
-
-      if (!response.ok) {
-        setStatus('error');
-        setMessage(data?.error ?? 'Unable to subscribe right now. Please try again.');
-        return;
-      }
+      const subscribersRef = collection(db, 'newsletterSubscribers');
+      const existingQuery = query(subscribersRef, where('email', '==', emailLower));
+      const existingSnapshot = await getDocs(existingQuery);
 
       setStatus('success');
-      if (data?.state === 'created') {
-        setMessage('Subscription created. Welcome to the flow.');
-      } else if (data?.state === 'reactivated') {
-        setMessage('Subscription reactivated successfully.');
-      } else if (data?.state === 'already_active') {
-        setMessage('You are already subscribed.');
+      if (!existingSnapshot.empty) {
+        const existingDoc = existingSnapshot.docs[0];
+        const existingData = existingDoc.data() as { status?: string };
+
+        if (existingData.status !== 'active') {
+          await updateDoc(existingDoc.ref, {
+            status: 'active',
+            subscribedAt: new Date().toISOString(),
+            resubscribedAt: new Date().toISOString(),
+          });
+          setMessage('Subscription reactivated successfully.');
+        } else {
+          setMessage('You are already subscribed.');
+        }
       } else {
-        setMessage('You are subscribed. Welcome to the flow.');
+        await addDoc(subscribersRef, {
+          email: emailLower,
+          subscribedAt: new Date().toISOString(),
+          status: 'active',
+        });
+        setMessage('Subscription created. Welcome to the flow.');
       }
+
       setEmail('');
     } catch {
       setStatus('error');
-      setMessage('Unable to subscribe right now. Please try again.');
+      setMessage('Unable to subscribe right now. Check Firestore rules and try again.');
     }
   };
 

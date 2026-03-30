@@ -41,7 +41,15 @@ export default function NewsletterStrip() {
       }
 
       setStatus('success');
-      setMessage('You are subscribed. Welcome to the flow.');
+      if (data?.state === 'created') {
+        setMessage('Subscription created. Welcome to the flow.');
+      } else if (data?.state === 'reactivated') {
+        setMessage('Subscription reactivated successfully.');
+      } else if (data?.state === 'already_active') {
+        setMessage('You are already subscribed.');
+      } else {
+        setMessage('You are subscribed. Welcome to the flow.');
+      }
       setEmail('');
     } catch {
       setStatus('error');

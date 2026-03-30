@@ -64,10 +64,12 @@ export async function POST(request: Request) {
           subscribedAt: new Date().toISOString(),
           resubscribedAt: new Date().toISOString(),
         });
+
+        return NextResponse.json({ success: true, state: 'reactivated' });
       }
 
-      // Already active (or reactivated) - return success silently
-      return NextResponse.json({ success: true });
+      // Already active
+      return NextResponse.json({ success: true, state: 'already_active' });
     }
 
     // Add new subscriber
@@ -77,7 +79,7 @@ export async function POST(request: Request) {
       status: 'active',
     });
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, state: 'created' });
   } catch (error) {
     console.error('Newsletter signup error:', error);
     // Keep the response generic to avoid leaking provider details.

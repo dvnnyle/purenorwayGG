@@ -36,6 +36,21 @@ export default function NewsletterUsersPage() {
 
   useEffect(() => {
     loadSubscribers();
+
+    const interval = window.setInterval(() => {
+      loadSubscribers();
+    }, 10000);
+
+    const onFocus = () => {
+      loadSubscribers();
+    };
+
+    window.addEventListener('focus', onFocus);
+
+    return () => {
+      window.clearInterval(interval);
+      window.removeEventListener('focus', onFocus);
+    };
   }, []);
 
   const handleDelete = async (id: string) => {

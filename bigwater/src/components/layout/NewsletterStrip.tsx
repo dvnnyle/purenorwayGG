@@ -7,6 +7,22 @@ import { db } from '@/lib/firebase';
 import './newsletterStrip.css';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const REQUEST_TIMEOUT_MS = 12000;
+
+async function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error('Request timed out. Please try again.')), ms);
+    promise
+      .then((result) => {
+        clearTimeout(timer);
+        resolve(result);
+      })
+      .catch((error) => {
+        clearTimeout(timer);
+        reject(error);
+      });
+  });
+}
 
 export default function NewsletterStrip() {
   const [email, setEmail] = useState('');
@@ -27,7 +43,7 @@ export default function NewsletterStrip() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus('loading');
-    setMessage('');
+    setMessage('Submitting...');
 
     const emailLower = email.trim().toLowerCase();
 
@@ -40,7 +56,7 @@ export default function NewsletterStrip() {
     try {
       const subscribersRef = collection(db, 'newsletterSubscribers');
       const existingQuery = query(subscribersRef, where('email', '==', emailLower));
-      const existingSnapshot = await getDocs(existingQuery);
+      const existingSnapshot = await withTimeout(getDocs(existingQuery), REQUEST_TIMEOUT_MS);
 
       setStatus('success');
       if (!existingSnapshot.empty) {
@@ -48,21 +64,21 @@ export default function NewsletterStrip() {
         const existingData = existingDoc.data() as { status?: string };
 
         if (existingData.status !== 'active') {
-          await updateDoc(existingDoc.ref, {
+          await withTimeout(updateDoc(existingDoc.ref, {
             status: 'active',
             subscribedAt: new Date().toISOString(),
             resubscribedAt: new Date().toISOString(),
-          });
+          }), REQUEST_TIMEOUT_MS);
           setMessage('Subscription reactivated successfully.');
         } else {
           setMessage('You are already subscribed.');
         }
       } else {
-        await addDoc(subscribersRef, {
+        await withTimeout(addDoc(subscribersRef, {
           email: emailLower,
           subscribedAt: new Date().toISOString(),
           status: 'active',
-        });
+        }), REQUEST_TIMEOUT_MS);
         setMessage('Subscription created. Welcome to the flow.');
       }
 

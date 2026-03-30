@@ -25,14 +25,11 @@ export default function NewsletterStrip() {
     setStatus('loading');
     setMessage('');
 
-    const formData = new FormData(event.currentTarget);
-    const website = String(formData.get('website') ?? '');
-
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, website }),
+        body: JSON.stringify({ email }),
       });
 
       const data = await response.json().catch(() => ({}));
@@ -81,14 +78,6 @@ export default function NewsletterStrip() {
               onChange={(event) => setEmail(event.target.value)}
               required
               disabled={status === 'loading'}
-            />
-            <input
-              type="text"
-              name="website"
-              className="newsletter-honeypot"
-              tabIndex={-1}
-              autoComplete="off"
-              aria-hidden="true"
             />
             <button
               type="submit"

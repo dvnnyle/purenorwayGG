@@ -29,12 +29,7 @@ function initializeFirebaseAdmin() {
 
 export async function POST(request: Request) {
   try {
-    const { email, website } = await request.json();
-
-    // Honeypot: bots often fill hidden fields.
-    if (typeof website === 'string' && website.trim().length > 0) {
-      return NextResponse.json({ success: true });
-    }
+    const { email } = await request.json();
 
     if (typeof email !== 'string' || !EMAIL_RE.test(email.trim())) {
       return NextResponse.json({ error: 'Please provide a valid email address.' }, { status: 400 });

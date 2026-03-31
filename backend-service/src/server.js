@@ -6,6 +6,8 @@ import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { Resend } from 'resend';
 
 const PORT = Number(process.env.PORT || 8787);
+// Temporary: keep onrender domains as primary env values until custom domains are verified.
+// Later switch WEB_URL, ADMIN_URL, and BACKEND_URL to the voidrift/voidgate domains.
 const WEB_URL = process.env.WEB_URL || 'http://localhost:3000';
 const ADMIN_URL = process.env.ADMIN_URL || 'http://localhost:3001';
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8787';

@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.purenorwaywater.com";
 
+export const dynamic = "force-static";
+export const revalidate = false;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 

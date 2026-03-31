@@ -9,6 +9,15 @@ const PORT = Number(process.env.PORT || 8787);
 const WEB_URL = process.env.WEB_URL || 'http://localhost:3000';
 const ADMIN_URL = process.env.ADMIN_URL || 'http://localhost:3001';
 
+function getBackendConfigStatus() {
+  return {
+    hasProjectId: !!(process.env.FIREBASE_PROJECT_ID || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID),
+    hasClientEmail: !!process.env.FIREBASE_CLIENT_EMAIL,
+    hasPrivateKey: !!process.env.FIREBASE_PRIVATE_KEY,
+    hasResendKey: !!process.env.RESEND_API_KEY_NEWSLETTER,
+  };
+}
+
 const app = express();
 app.use(express.json({ limit: '1mb' }));
 app.use(
@@ -215,6 +224,10 @@ app.get('/', (_req, res) => {
           <span class="label">Admin Allowed Origin</span>
           <code>${ADMIN_URL}</code>
         </div>
+        <div class="item">
+          <span class="label">Firebase Config</span>
+          <code>${JSON.stringify(getBackendConfigStatus())}</code>
+        </div>
       </div>
       <p class="muted" style="margin-top:16px;">Open browser console to see live startup logs.</p>
     </main>
@@ -313,7 +326,8 @@ app.post('/api/newsletter/subscribe', async (req, res) => {
     return res.json({ success: true, state: 'created' });
   } catch (error) {
     console.error('subscribe error', error);
-    return res.status(500).json({ error: 'Unable to subscribe right now.' });
+    const message = error instanceof Error ? error.message : 'Unknown backend error';
+    return res.status(500).json({ error: `Unable to subscribe right now: ${message}` });
   }
 });
 

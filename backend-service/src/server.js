@@ -107,6 +107,7 @@ app.get('/', (_req, res) => {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PURENorway Backend</title>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&display=swap');
       body {
         margin: 0;
         min-height: 100vh;
@@ -114,7 +115,7 @@ app.get('/', (_req, res) => {
         place-items: center;
         background: linear-gradient(180deg, #0d1b2a 0%, #10273f 100%);
         color: #ffffff;
-        font-family: Arial, sans-serif;
+        font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       .card {
         width: min(92vw, 640px);
@@ -200,6 +201,18 @@ app.get('/', (_req, res) => {
       .muted {
         color: rgba(255,255,255,.64);
       }
+      .credit {
+        margin-top: 12px;
+        font-size: 11px;
+        color: rgba(255,255,255,.6);
+      }
+      .credit a {
+        color: #9fe7ff;
+        text-decoration: none;
+      }
+      .credit a:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
@@ -230,6 +243,7 @@ app.get('/', (_req, res) => {
         </div>
       </div>
       <p class="muted" style="margin-top:16px;">Open browser console to see live startup logs.</p>
+      <p class="credit">Voidgate by dvnny.no (<a href="https://dvnny.no/" target="_blank" rel="noopener noreferrer">https://dvnny.no/</a>)</p>
     </main>
     <script>
       console.log('PURENorway backend online');

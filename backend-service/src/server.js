@@ -416,7 +416,7 @@ app.post('/api/newsletter/send', async (req, res) => {
     }
 
     const resend = new Resend(apiKey);
-    const testMode = String(process.env.NEWSLETTER_TEST_MODE || 'true') === 'true';
+    const testMode = String(process.env.NEWSLETTER_TEST_MODE || 'false') === 'true';
     const testEmail = process.env.NEWSLETTER_TEST_EMAIL || 'dev.dvnny@gmail.com';
     const from = process.env.NEWSLETTER_FROM || 'onboarding@resend.dev';
     const replyTo = process.env.NEWSLETTER_REPLY_TO || 'info@purenorwaywater.com';

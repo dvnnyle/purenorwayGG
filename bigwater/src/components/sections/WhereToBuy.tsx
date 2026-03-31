@@ -104,7 +104,7 @@ export default function WhereToBuy() {
 
         <div className="wtb-bottom">
           <p className="wtb-bottom-note">
-            <strong>Want to carry Pure Norway Water?</strong> We&apos;d love to work with you.
+            <strong>Want to carry PURE Norway WATER?</strong> We&apos;d love to work with you.
           </p>
           <Link href="/contact" className="wtb-link">
             Become a stockist →

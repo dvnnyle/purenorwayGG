@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer-inner">
         <div className="footer-top">
           <div className="footer-top-left">
-            <div className="footer-brand-title">PURE Norway Water</div>
+            <div className="footer-brand-title">PURE Norway WATER</div>
             <p className="footer-tagline">
  
               Experience the flavour, taste the adventure.
@@ -110,7 +110,7 @@ export default function Footer() {
             <div className="footer-col-title">Norway Office</div>
             <div className="contact-block">
               <address>
-                <p>PURE Norway Water AS</p>
+                <p>PURE Norway WATER AS</p>
                 <p>Skibaasen 28</p>
                 <p>4636 Kristiansand</p>
                 <p>NORWAY</p>

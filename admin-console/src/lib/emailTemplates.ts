@@ -97,7 +97,7 @@ export function generateNewsletterTemplate({
             <td style="background-color:#0D1B2A;padding:28px 40px;text-align:center;">
               <a href="https://purenorwaywater.com" target="_blank" style="display:inline-block;text-decoration:none;">
                 <img src="https://firebasestorage.googleapis.com/v0/b/bigwaterh2o.firebasestorage.app/o/internal%2Flogo%2FlogoWhite.png?alt=media&token=e9cd821e-c837-493c-be8e-bc7170f8a36c"
-                     alt="PURENorway Water" width="160" height="auto"
+                     alt="PURE Norway WATER" width="160" height="auto"
                      style="display:inline-block;max-width:160px;height:auto;" />
               </a>
             </td>
@@ -132,7 +132,7 @@ export function generateNewsletterTemplate({
 
               <!-- logo -->
               <img src="https://firebasestorage.googleapis.com/v0/b/bigwaterh2o.firebasestorage.app/o/internal%2Flogo%2FlogoWhite.png?alt=media&token=e9cd821e-c837-493c-be8e-bc7170f8a36c"
-                   alt="PURENorway Water" width="120"
+                   alt="PURE Norway WATER" width="120"
                    style="display:inline-block;max-width:120px;height:auto;margin-bottom:16px;opacity:.85;" />
 
               <!-- tagline -->

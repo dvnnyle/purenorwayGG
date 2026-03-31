@@ -259,7 +259,7 @@ function NewsArticlePageContent() {
             </div>
             <div>
               <div className="news-article-author-name">{currentArticle.author}</div>
-              <div className="news-article-author-role">PURENorway Water</div>
+              <div className="news-article-author-role">PURE Norway WATER</div>
             </div>
           </div>
 

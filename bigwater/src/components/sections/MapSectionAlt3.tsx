@@ -140,7 +140,7 @@ export default function MapSectionAlt3() {
           <p className="map-alt3-kicker">GLOBAL REACH</p>
           <h2>Available Across the World</h2>
           <p className="map-alt3-description">
-            Discover where PURE Norway Water is available around the world.
+            Discover where PURE Norway WATER is available around the world.
           </p>
         </div>
 

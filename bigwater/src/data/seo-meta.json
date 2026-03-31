@@ -1,0 +1,147 @@
+{
+  "brand": {
+    "name": "PURE Norway WATER",
+    "legalName": "PURE Norway WATER AS"
+  },
+  "site": {
+    "defaultLocale": "nb_NO",
+    "alternateLocale": "en_US"
+  },
+  "global": {
+    "title": {
+      "no": "PURE Norway WATER",
+      "en": "PURE Norway WATER"
+    },
+    "description": {
+      "no": "Premium norsk vann i resirkulerbare aluminiumsbokser. Utforsk stille vann, kullsyrevann og smaksatt vann fra PURE Norway WATER.",
+      "en": "Premium Norwegian water in recyclable aluminum cans. Explore still water, sparkling water, and flavored water from PURE Norway WATER."
+    },
+    "keywords": [
+      "PURE Norway WATER",
+      "PURE Norway WATER AS",
+      "PURE Norway WATER team",
+      "PURE Norway WATER founders",
+      "water",
+      "vann",
+      "norwegian water",
+      "norsk vann",
+      "spring water",
+      "kilde vann",
+      "still water",
+      "stille vann",
+      "sparkling water",
+      "kullsyre vann",
+      "kullsyrevann",
+      "flavored water",
+      "smaksatt vann",
+      "recyclable",
+      "resirkulerbar",
+      "resirkulerbar emballasje",
+      "aluminum cans",
+      "aluminiumsbokser",
+      "sustainable hydration",
+      "baerekraftig vann",
+      "hydration",
+      "drikkevann",
+      "premium water",
+      "vann Norge",
+      "water Norway",
+      "David Severinsen",
+      "David PURE Norway WATER",
+      "David Norway water",
+      "Øystein Frustøl",
+      "Oystein Frustol",
+      "Oystein Frustøl",
+      "Øystein Frustol",
+      "Oystein PURE Norway WATER",
+      "Danny",
+      "DANNY",
+      "Dvnny",
+      "dvnny.no",
+      "Danny PURE Norway WATER",
+      "PURE Norway WATER David",
+      "PURE Norway WATER Oystein",
+      "PURE Norway WATER Øystein",
+      "PURE Norway WATER Danny"
+    ],
+    "searchIntents": {
+      "no": [
+        "kjope vann",
+        "beste vann i Norge",
+        "kullsyre vann uten sukker",
+        "resirkulerbar vannemballasje",
+        "vann på boks",
+        "aluminium flaske alternativ"
+      ],
+      "en": [
+        "buy water online",
+        "best water in Norway",
+        "sparkling water no sugar",
+        "recyclable water packaging",
+        "water in cans",
+        "plastic free hydration"
+      ]
+    },
+    "schemaKnowsAbout": [
+      "water",
+      "vann",
+      "sparkling water",
+      "kullsyre vann",
+      "still water",
+      "resirkulerbar emballasje",
+      "aluminum cans",
+      "sustainable hydration",
+      "norwegian water"
+    ]
+  },
+  "pages": {
+    "home": {
+      "keywords": [
+        "PURE Norway WATER home",
+        "premium water",
+        "norsk vann",
+        "kullsyre vann",
+        "still water",
+        "aluminum can water"
+      ]
+    },
+    "products": {
+      "keywords": [
+        "water products",
+        "vann produkter",
+        "sparkling water flavors",
+        "kullsyrevann smaker",
+        "still water cans"
+      ]
+    },
+    "shop": {
+      "keywords": [
+        "shop water",
+        "buy water",
+        "kjop vann",
+        "kullsyre vann butikk"
+      ]
+    },
+    "about": {
+      "keywords": [
+        "sustainability",
+        "baerekraft",
+        "resirkulerbar",
+        "plastic free"
+      ]
+    },
+    "contact": {
+      "keywords": [
+        "contact water company",
+        "kontakt vann selskap",
+        "stockist request",
+        "forhandler",
+        "David Severinsen",
+        "Øystein Frustøl",
+        "Oystein Frustol",
+        "Danny",
+        "dvnny.no"
+      ]
+    }
+  }
+}

@@ -25,7 +25,7 @@ export default function ReviewsHero({ reviews }: ReviewsHeroProps) {
           <h1>
             People love
             <br />
-            <em>PURE Norway Water.</em>
+            <em>PURE Norway WATER.</em>
           </h1>
         </div>
 

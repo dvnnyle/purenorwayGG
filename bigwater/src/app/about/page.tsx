@@ -214,7 +214,7 @@ export default function About() {
             <h2>The responsible <em>choice.</em></h2>
 
             <p>
-              At Pure Norway Water, we believe the future of water should be as clean as the source it comes from. That's why we offer both still and carbonated water in aluminum canned bottles — a conscious choice designed to protect both quality and the environment.
+              At PURE Norway WATER, we believe the future of water should be as clean as the source it comes from. That's why we offer both still and carbonated water in aluminum canned bottles — a conscious choice designed to protect both quality and the environment.
             </p>
 
             <p>

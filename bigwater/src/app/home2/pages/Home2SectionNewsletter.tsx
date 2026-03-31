@@ -38,7 +38,7 @@ export default function Home2SectionNewsletter() {
             <span className={`${styles.badgeInline} home2-newsletter-badge-inline`}>
               <MdWaterDrop />
             </span>
-            <span className={`${styles.highlight} home2-newsletter-highlight`}>PURENorway Water</span>
+            <span className={`${styles.highlight} home2-newsletter-highlight`}>PURE Norway WATER</span>
           </h2>
 
           <p className={`${styles.copy} home2-newsletter-copy`}>

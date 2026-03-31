@@ -40,7 +40,7 @@ export default function ProductsPage() {
     },
     {
       id: 4,
-      name: "Pure Norway Water",
+      name: "PURE Norway WATER",
       category: "water",
       type: "sparkling",
       description: "Pure sparkling water with natural carbonation",
@@ -85,7 +85,7 @@ export default function ProductsPage() {
     },
     {
       id: 9,
-      name: "Pure Norway Water",
+      name: "PURE Norway WATER",
       category: "water",
       type: "still",
       description: "Pure still water, naturally refreshing",
@@ -118,7 +118,7 @@ export default function ProductsPage() {
             <div className="products-marketing-image-wrap">
               <img
                 src="/assets/marketingImages/marketingProd/peopleFour.jpeg"
-                alt="People enjoying Pure Norway water"
+                alt="People enjoying PURE Norway WATER"
                 loading="lazy"
               />
             </div>

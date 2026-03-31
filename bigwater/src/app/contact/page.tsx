@@ -36,7 +36,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: (
           <>
-            Where does <span className="faq-brand-highlight">PURENorway Water</span> come from?
+            Where does <span className="faq-brand-highlight">PURE Norway WATER</span> come from?
           </>
         ),
         answer:
@@ -91,7 +91,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: (
           <>
-            How do I recycle my <span className="faq-brand-highlight">PURENorway Water</span> can?
+            How do I recycle my <span className="faq-brand-highlight">PURE Norway WATER</span> can?
           </>
         ),
         answer:
@@ -106,7 +106,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: (
           <>
-            Where can I buy <span className="faq-brand-highlight">PURENorway Water</span>?
+            Where can I buy <span className="faq-brand-highlight">PURE Norway WATER</span>?
           </>
         ),
         answer: (
@@ -473,7 +473,7 @@ export default function ContactPage() {
                 </div>
                 <div className="work-card-tag">COLLABORATION</div>
                 <p>
-                  Got an idea that involves PURENorway Water? A joint campaign, a community project, content, or something
+                  Got an idea that involves PURE Norway WATER? A joint campaign, a community project, content, or something
                   we haven't thought of yet - we're open. If it fits our values, we want to hear it.
                 </p>
               </article>
@@ -486,7 +486,7 @@ export default function ContactPage() {
           <div className="global-team-header">
             <div className="global-team-header-text">
               <div className="global-team-eyebrow">OUR GLOBAL TEAM</div>
-              <h2>People behind<br /><em>PURENorway Water.</em></h2>
+              <h2>People behind<br /><em>PURE Norway WATER.</em></h2>
             </div>
             <p>Headquartered in Kristiansand with partners across the world.</p>
           </div>
@@ -626,7 +626,7 @@ export default function ContactPage() {
               <em>We have answers.</em>
             </h2>
             <p>
-              Everything you need to know about <span className="faq-brand-highlight">PURENorway Water</span>, from product
+              Everything you need to know about <span className="faq-brand-highlight">PURE Norway WATER</span>, from product
               details to business and distribution.
             </p>
 

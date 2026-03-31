@@ -323,7 +323,7 @@ export const GREETINGS: Record<string, string> = {
   hello: "Hi there! Welcome to PureNorway. How can I help you today?",
   hii: "Hi there! Welcome to PureNorway. How can I help you today?",
   hiii: "Hi there! Welcome to PureNorway. How can I help you today?",
-  hi: "Hello! What would you like to know about PureNorway Water?",
+  hi: "Hello! What would you like to know about PURE Norway WATER?",
   hey: "Hey! Feel free to ask me anything about our products or company.",
   heyy: "Hey! Feel free to ask me anything about our products or company.",
   heyyy: "Hey! Feel free to ask me anything about our products or company.",

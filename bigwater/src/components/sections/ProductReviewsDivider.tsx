@@ -51,7 +51,7 @@ export default function ProductReviewsDivider() {
         <div>
           <p className="products-reviews-divider__eyebrow">Customer Reviews</p>
           <h2>
-            People love <em>Pure Norway Water.</em>
+            People love <em>PURE Norway WATER.</em>
           </h2>
         </div>
         <div className="products-reviews-divider__overall" aria-label={`Overall rating ${summary.averageRating.toFixed(1)} out of 5`}>

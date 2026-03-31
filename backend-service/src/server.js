@@ -87,6 +87,146 @@ app.get('/health', (_req, res) => {
   res.json({ ok: true, service: 'backend-service' });
 });
 
+app.get('/', (_req, res) => {
+  res
+    .status(200)
+    .type('html')
+    .send(`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PURENorway Backend</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(180deg, #0d1b2a 0%, #10273f 100%);
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+      }
+      .card {
+        width: min(92vw, 640px);
+        padding: 32px;
+        border: 1px solid rgba(255,255,255,.14);
+        border-radius: 16px;
+        background: rgba(255,255,255,.06);
+        box-shadow: 0 24px 60px rgba(0,0,0,.28);
+      }
+      .status-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 18px;
+      }
+      .status-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: #4ade80;
+        box-shadow: 0 0 0 6px rgba(74, 222, 128, .16);
+      }
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(18, 160, 236, .16);
+        color: #9fe7ff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .6px;
+        text-transform: uppercase;
+      }
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #7fd8ff;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 34px;
+      }
+      p {
+        margin: 0 0 10px;
+        color: rgba(255,255,255,.82);
+        line-height: 1.6;
+      }
+      .grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .item {
+        padding: 14px 16px;
+        border-radius: 12px;
+        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.08);
+      }
+      .label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.58);
+      }
+      code {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 8px;
+        background: rgba(18, 160, 236, .14);
+        color: #9fe7ff;
+        border: 1px solid rgba(18, 160, 236, .22);
+        word-break: break-word;
+      }
+      .endpoint {
+        color: #4ade80;
+      }
+      .muted {
+        color: rgba(255,255,255,.64);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <p class="eyebrow">PURENorway</p>
+      <div class="status-row">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="status-pill">Backend online</span>
+      </div>
+      <h1>Backend online</h1>
+      <p>Shared API service is running correctly.</p>
+      <div class="grid">
+        <div class="item">
+          <span class="label">Health</span>
+          <code class="endpoint">/health</code>
+        </div>
+        <div class="item">
+          <span class="label">Web Allowed Origin</span>
+          <code>${WEB_URL}</code>
+        </div>
+        <div class="item">
+          <span class="label">Admin Allowed Origin</span>
+          <code>${ADMIN_URL}</code>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:16px;">Open browser console to see live startup logs.</p>
+    </main>
+    <script>
+      console.log('PURENorway backend online');
+      console.log('Shared backend API is running correctly.');
+      console.log('Health endpoint: /health');
+    </script>
+  </body>
+</html>`);
+});
+
 app.get('/api/newsletter/subscribers', async (_req, res) => {
   try {
     ensureFirebaseAdmin();

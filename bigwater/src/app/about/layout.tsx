@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
+import seoMeta from "@/data/seo-meta.json";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "Learn about PURE Norway WATER, our sustainability mission, and our commitment to reducing plastic pollution.",
-  keywords: [
-    "about pure norway water",
-    "sustainability",
-    "bærekraft",
-    "resirkulerbar",
-    "aluminum packaging",
-    "plastic free",
-    "norwegian water company",
-  ],
+  keywords: seoMeta.pages.about.keywords,
   alternates: {
     canonical: "/about",
   },

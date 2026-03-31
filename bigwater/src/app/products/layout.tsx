@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
+import seoMeta from "@/data/seo-meta.json";
 
 export const metadata: Metadata = {
   title: "Products",
   description:
     "Browse PURE Norway WATER products including still, sparkling, and flavored options in sustainable aluminum cans.",
-  keywords: [
-    "products",
-    "water products",
-    "vann produkter",
-    "kullsyre vann",
-    "sparkling water",
-    "still water",
-    "resirkulerbar emballasje",
-    "aluminum can water",
-  ],
+  keywords: seoMeta.pages.products.keywords,
   alternates: {
     canonical: "/products",
   },

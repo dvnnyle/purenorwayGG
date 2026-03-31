@@ -8,21 +8,33 @@ import { Resend } from 'resend';
 const PORT = Number(process.env.PORT || 8787);
 const WEB_URL = process.env.WEB_URL || 'http://localhost:3000';
 const ADMIN_URL = process.env.ADMIN_URL || 'http://localhost:3001';
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8787';
 
-function getBackendConfigStatus() {
-  return {
-    hasProjectId: !!(process.env.FIREBASE_PROJECT_ID || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID),
-    hasClientEmail: !!process.env.FIREBASE_CLIENT_EMAIL,
-    hasPrivateKey: !!process.env.FIREBASE_PRIVATE_KEY,
-    hasResendKey: !!process.env.RESEND_API_KEY_NEWSLETTER,
-  };
-}
+const DEFAULT_ALLOWED_ORIGINS = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'https://purenorwaywater-web.onrender.com',
+  'https://purenorwaywater-admin.onrender.com',
+  'https://purenorwaywater-backend.onrender.com',
+  'https://purenorwaywater-web.voidrift.no',
+  'https://purenorwaywater-admin.voidrift.no',
+  'https://purenorwaywater-backend.voidgate.no',
+];
+
+const EXTRA_ALLOWED_ORIGINS = String(process.env.EXTRA_ALLOWED_ORIGINS || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+const ALLOWED_ORIGINS = Array.from(
+  new Set([WEB_URL, ADMIN_URL, BACKEND_URL, ...DEFAULT_ALLOWED_ORIGINS, ...EXTRA_ALLOWED_ORIGINS])
+);
 
 const app = express();
 app.use(express.json({ limit: '1mb' }));
 app.use(
   cors({
-    origin: [WEB_URL, ADMIN_URL, 'http://localhost:3000', 'http://localhost:3001'],
+    origin: ALLOWED_ORIGINS,
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
   })
@@ -107,7 +119,7 @@ app.get('/', (_req, res) => {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PURENorway Backend</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@400;500;600&display=swap');
       body {
         margin: 0;
         min-height: 100vh;
@@ -115,7 +127,7 @@ app.get('/', (_req, res) => {
         place-items: center;
         background: linear-gradient(180deg, #0d1b2a 0%, #10273f 100%);
         color: #ffffff;
-        font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       .card {
         width: min(92vw, 640px);
@@ -149,6 +161,7 @@ app.get('/', (_req, res) => {
         font-weight: 700;
         letter-spacing: .6px;
         text-transform: uppercase;
+        font-family: 'Orbitron', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       .eyebrow {
         margin: 0 0 10px;
@@ -156,10 +169,12 @@ app.get('/', (_req, res) => {
         letter-spacing: 2px;
         text-transform: uppercase;
         color: #7fd8ff;
+        font-family: 'Orbitron', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       h1 {
         margin: 0 0 12px;
         font-size: 34px;
+        font-family: 'Orbitron', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       p {
         margin: 0 0 10px;
@@ -185,6 +200,7 @@ app.get('/', (_req, res) => {
         letter-spacing: 1px;
         text-transform: uppercase;
         color: rgba(255,255,255,.58);
+        font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       code {
         display: inline-block;
@@ -205,6 +221,7 @@ app.get('/', (_req, res) => {
         margin-top: 12px;
         font-size: 11px;
         color: rgba(255,255,255,.6);
+        font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       .credit a {
         color: #9fe7ff;
@@ -238,12 +255,12 @@ app.get('/', (_req, res) => {
           <code>${ADMIN_URL}</code>
         </div>
         <div class="item">
-          <span class="label">Firebase Config</span>
-          <code>${JSON.stringify(getBackendConfigStatus())}</code>
+          <span class="label">Backend Origin</span>
+          <code>${BACKEND_URL}</code>
         </div>
       </div>
       <p class="muted" style="margin-top:16px;">Open browser console to see live startup logs.</p>
-      <p class="credit">Voidgate by dvnny.no (<a href="https://dvnny.no/" target="_blank" rel="noopener noreferrer">https://dvnny.no/</a>)</p>
+      <p class="credit">Voidgate by dvnny.no <a href="https://dvnny.no/" target="_blank" rel="noopener noreferrer">https://dvnny.no/</a></p>
     </main>
     <script>
       console.log('PURENorway backend online');
@@ -460,9 +477,10 @@ app.post('/api/newsletter/send', async (req, res) => {
 app.listen(PORT, () => {
   console.log('========================================');
   console.log('PURENorway backend online');
-  console.log(`Backend URL: http://localhost:${PORT}`);
+  console.log(`Backend URL: ${BACKEND_URL}`);
   console.log(`Web allowed: ${WEB_URL}`);
   console.log(`Admin allowed: ${ADMIN_URL}`);
+  console.log(`Allowed origins: ${ALLOWED_ORIGINS.join(', ')}`);
   console.log('Health check ready at /health');
   console.log('========================================');
 });
